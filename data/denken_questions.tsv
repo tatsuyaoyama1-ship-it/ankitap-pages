@@ -7903,48 +7903,49 @@ V_{PA}=\frac{4}{81}IRL^2\quad[\mathrm{V}]
 \]"									data/pdfs/h27/second	h27|second|denryoku_kanri		data/pdfs/h27/second/kaitou.pdf pp.3-5	draft															
 h27_second_denryoku_kanri_q04	h27	second	denryoku_kanri	4	calculation	"送電線の抵抗とリアクタンスの求め方に関して、次の問に答えよ。
 
-送電線両端の電圧や位相角が測定できると、送電線の抵抗やリアクタンスが求められる。送電端電圧の大きさを\(V_1\)、その受電端電圧に対する位相差を\(\theta\)、受電端電圧の大きさを\(V_2\)、送電端から受電端への潮流の送電端側の有効電力を\(P\)、無効電力を\(Q\)とする。また、送電線の並列アドミタンスは無視できるものとし、送電線の抵抗を\(r\)、リアクタンスを\(x\)とする。
+送電線両端の電圧や位相角が測定できると、送電線の抵抗やリアクタンスが求められる。送電端電圧\(\dot{V}_1\)の大きさを\(V_1\)，その受電端電圧\(\dot{V}_2\)に対する位相差を\(\delta\)，送電端から受電端への潮流の送電端側の有効電力を\(P\)，無効電力を\(Q\)とする。また，送電線の並列アドミタンスは無視できるものとし，送電線の抵抗を\(r\)，リアクタンスを\(x\)とする。
 
-ただし、電力や電流は送電端から受電端への向きを正、無効電力は遅れ側を正、及び\(P\neq0\)あるいは\(Q\neq0\)とする。また、\(\theta\)の単位は[rad]、その他の単位は[p.u.]とする。"		(1) 送電端と受電端の複素電圧をそれぞれ\(\dot{V}_1=V_1\angle\theta\)、\(\dot{V}_2=V_2\angle0\)、送電線電流を\(\dot{I}\)として、\(\dot{V}_1\)と\(\dot{V}_2\)の関係を\(\dot{I}\)、\(r\)、\(x\)を用いて表せ。					"\[
+ただし，電力や電流は送電端から受電端への向きを正，無効電力は遅れ側を正，及び\(P\neq0\)あるいは\(Q\neq0\)とする。また，\(\delta\)の単位は[rad]，その他の単位は[p.u.]とする。"		(1) 送電端と受電端の複素電圧をそれぞれ\(\dot{V}_1=V_1\angle\delta\)、\(\dot{V}_2=V_2\angle0\)、送電線電流を\(\dot{I}\)として、\(\dot{V}_1\)を\(\dot{V}_2\)、\(\dot{I}\)、\(r\)、\(x\)を用いて表せ。					"\[
 \dot{V}_1=\dot{V}_2+(r+jx)\dot{I}
 \]"																(2) \(\dot{I}\)を、\(P,Q,\dot{V}_1\)を用いて表せ。					"\[
 P+jQ=\dot{V}_1\overline{\dot{I}}
 \]
 より，
 \[
-\dot{I}=\frac{P-jQ}{\dot{V}_1}
-\]"																							(3) 上記(1)及び(2)にて表した式から\(\dot{I}\)を消去して、\(V_1,V_2,\theta,P,Q,r,x\)の関係を表す式を示せ。					"(2)の式を(1)の式に代入して，
+\dot{I}=\frac{P-jQ}{\overline{\dot{V}_1}}
+\]"																							(3) 上記(1)及び(2)にて表した式から\(\dot{I}\)を消去して、\(V_1,V_2,\delta,P,Q,r,x\)間の関係を表す式を示せ。					"(2)の式を(1)の式に代入して，
 \[
-\dot{V}_1=\dot{V}_2+(r+jx)\frac{P-jQ}{\dot{V}_1}
+\dot{V}_1=\dot{V}_2+(r+jx)\frac{P-jQ}{\overline{\dot{V}_1}}
 \]
 より，
 \[
-V_1^2=V_1V_2e^{j\theta}+(r+jx)(P-jQ)
-\]"																														(4) 上記(3)の式で、実数部と虚数部に分けて考えると、\(x=\frac{a}{P^2+Q^2}\)、\(r=\frac{b}{P^2+Q^2}\)が導かれる。\(a\)と\(b\)を\(V_1,V_2,\theta,P,Q\)の関数として表せ。					"(3)の式の実数部と虚数部の式から，
+V_1^2=V_1V_2e^{-j\delta}+(r+jx)(P-jQ)
+\]"																														"(4) 上記(3)の式で、実数部と虚数部に分けて考えると、\(x\)と\(r\)に関する下記の式が導かれる。\(\alpha\)と\(\beta\)は、\(V_1,V_2,\delta\)の関数である。\(\alpha\)と\(\beta\)を表す式を示せ。
 \[
-Pr+Qx=V_1(V_1-V_2\cos\theta)
+x=\frac{P\alpha+Q\beta}{P^2+Q^2},\qquad r=\frac{P\beta-Q\alpha}{P^2+Q^2}
+\]"					"(3)の式の実数部と虚数部の式から，
+\[
+Pr+Qx=V_1(V_1-V_2\cos\delta)
 \]
 \[
--Qr+Px=V_1V_2\sin\theta
+-Qr+Px=V_1V_2\sin\delta
 \]
 したがって，
 \[
-r=\frac{PV_1(V_1-V_2\cos\theta)+QV_1V_2\sin\theta}{P^2+Q^2}
+r=\frac{PV_1(V_1-V_2\cos\delta)-QV_1V_2\sin\delta}{P^2+Q^2}
 \]
 \[
-x=\frac{PV_1V_2\sin\theta-QV_1(V_1-V_2\cos\theta)}{P^2+Q^2}
+x=\frac{PV_1V_2\sin\delta+QV_1(V_1-V_2\cos\delta)}{P^2+Q^2}
 \]
 よって，
 \[
-a=PV_1V_2\sin\theta-QV_1(V_1-V_2\cos\theta)
+\alpha=V_1V_2\sin\delta
 \]
 \[
-b=PV_1(V_1-V_2\cos\theta)+QV_1V_2\sin\theta
-\]"																														(5) \(V_1=1.05\) p.u.、\(V_2=1.01\) p.u.、\(\theta=\pi/12\) rad、\(P=1.23\) p.u.、\(Q=0.195\) p.u. のときの\(x\) [p.u.] と\(r\) [p.u.] を求めよ。なお、\(\sin\frac{\pi}{12}=0.25882\)、\(\cos\frac{\pi}{12}=0.96593\)を使用すること。					"数値を代入すると，
-\[
-x=0.228\mathrm{p.u.},\qquad r=0.0275\mathrm{p.u.}
-\]
-となる。"																											"(1) 送電端と受電端の複素電圧をそれぞれ\(\dot{V}_1=V_1\angle\theta\)、\(\dot{V}_2=V_2\angle0\)、送電線電流を\(\dot{I}\)として、\(\dot{V}_1\)と\(\dot{V}_2\)の関係を\(\dot{I}\)、\(r\)、\(x\)を用いて表せ。
+\beta=V_1(V_1-V_2\cos\delta)
+\]"																														(5) \(V_1=1.05\) p.u.、\(V_2=1.01\) p.u.、\(\delta=\frac{\pi}{12}\) rad、\(P=1.23\) p.u.、\(Q=0.195\) p.u. のときの\(x\) [p.u.] と\(r\) [p.u.] を求めよ。なお、\(\sin\frac{\pi}{12}=0.25882\)、\(\cos\frac{\pi}{12}=0.96593\)を使用すること。					"\[
+x=0.228\ \mathrm{p.u.},\qquad r=0.0275\ \mathrm{p.u.}
+\]"																											"(1) 送電端と受電端の複素電圧をそれぞれ\(\dot{V}_1=V_1\angle\delta\)、\(\dot{V}_2=V_2\angle0\)、送電線電流を\(\dot{I}\)として、\(\dot{V}_1\)を\(\dot{V}_2\)、\(\dot{I}\)、\(r\)、\(x\)を用いて表せ。
 \[
 \dot{V}_1=\dot{V}_2+(r+jx)\dot{I}
 \]
@@ -7955,65 +7956,60 @@ P+jQ=\dot{V}_1\overline{\dot{I}}
 \]
 より，
 \[
-\dot{I}=\frac{P-jQ}{\dot{V}_1}
+\dot{I}=\frac{P-jQ}{\overline{\dot{V}_1}}
 \]
 
-(3) 上記(1)及び(2)にて表した式から\(\dot{I}\)を消去して、\(V_1,V_2,\theta,P,Q,r,x\)の関係を表す式を示せ。
+(3) 上記(1)及び(2)にて表した式から\(\dot{I}\)を消去して、\(V_1,V_2,\delta,P,Q,r,x\)間の関係を表す式を示せ。
 (2)の式を(1)の式に代入して，
 \[
-\dot{V}_1=\dot{V}_2+(r+jx)\frac{P-jQ}{\dot{V}_1}
+\dot{V}_1=\dot{V}_2+(r+jx)\frac{P-jQ}{\overline{\dot{V}_1}}
 \]
 より，
 \[
-V_1^2=V_1V_2e^{j\theta}+(r+jx)(P-jQ)
+V_1^2=V_1V_2e^{-j\delta}+(r+jx)(P-jQ)
 \]
 
-(4) 上記(3)の式で、実数部と虚数部に分けて考えると、\(x=\frac{a}{P^2+Q^2}\)、\(r=\frac{b}{P^2+Q^2}\)が導かれる。\(a\)と\(b\)を\(V_1,V_2,\theta,P,Q\)の関数として表せ。
+(4) 上記(3)の式で、実数部と虚数部に分けて考えると、\(x\)と\(r\)に関する下記の式が導かれる。\(\alpha\)と\(\beta\)は、\(V_1,V_2,\delta\)の関数である。\(\alpha\)と\(\beta\)を表す式を示せ。
+\[
+x=\frac{P\alpha+Q\beta}{P^2+Q^2},\qquad r=\frac{P\beta-Q\alpha}{P^2+Q^2}
+\]
 (3)の式の実数部と虚数部の式から，
 \[
-Pr+Qx=V_1(V_1-V_2\cos\theta)
+Pr+Qx=V_1(V_1-V_2\cos\delta)
 \]
 \[
--Qr+Px=V_1V_2\sin\theta
+-Qr+Px=V_1V_2\sin\delta
 \]
 したがって，
 \[
-r=\frac{PV_1(V_1-V_2\cos\theta)+QV_1V_2\sin\theta}{P^2+Q^2}
+r=\frac{PV_1(V_1-V_2\cos\delta)-QV_1V_2\sin\delta}{P^2+Q^2}
 \]
 \[
-x=\frac{PV_1V_2\sin\theta-QV_1(V_1-V_2\cos\theta)}{P^2+Q^2}
+x=\frac{PV_1V_2\sin\delta+QV_1(V_1-V_2\cos\delta)}{P^2+Q^2}
 \]
 よって，
 \[
-a=PV_1V_2\sin\theta-QV_1(V_1-V_2\cos\theta)
+\alpha=V_1V_2\sin\delta
 \]
 \[
-b=PV_1(V_1-V_2\cos\theta)+QV_1V_2\sin\theta
+\beta=V_1(V_1-V_2\cos\delta)
 \]
 
-(5) \(V_1=1.05\) p.u.、\(V_2=1.01\) p.u.、\(\theta=\pi/12\) rad、\(P=1.23\) p.u.、\(Q=0.195\) p.u. のときの\(x\) [p.u.] と\(r\) [p.u.] を求めよ。なお、\(\sin\frac{\pi}{12}=0.25882\)、\(\cos\frac{\pi}{12}=0.96593\)を使用すること。
-数値を代入すると，
+(5) \(V_1=1.05\) p.u.、\(V_2=1.01\) p.u.、\(\delta=\frac{\pi}{12}\) rad、\(P=1.23\) p.u.、\(Q=0.195\) p.u. のときの\(x\) [p.u.] と\(r\) [p.u.] を求めよ。なお、\(\sin\frac{\pi}{12}=0.25882\)、\(\cos\frac{\pi}{12}=0.96593\)を使用すること。
 \[
-x=0.228\mathrm{p.u.},\qquad r=0.0275\mathrm{p.u.}
-\]
-となる。"									data/pdfs/h27/second	h27|second|denryoku_kanri		data/pdfs/h27/second/kaitou.pdf p.6	draft															
+x=0.228\ \mathrm{p.u.},\qquad r=0.0275\ \mathrm{p.u.}
+\]"									data/pdfs/h27/second	h27|second|denryoku_kanri		data/pdfs/h27/second/kaitou.pdf p.6	draft															
 h27_second_denryoku_kanri_q05	h27	second	denryoku_kanri	5	calculation	"定格容量9500 kV・Aの変圧器1台を有する変電所から、配電線A，Bにより、下表に示す需要設備a，b，cに電力を供給しているとき、次の問に答えよ。
 
-ただし、需要設備a，b，cの需要率はそれぞれ80 %、需要設備a，b，cの負荷力率はそれぞれ遅れの一定値とし、結果は、小数第1位を四捨五入せよ。
-
-| 配電線 | 需要設備 | 設備容量 [kV・A] | 最大電力 [kW] | 負荷率 [%] | 需要設備間の不等率 | 配電線間の不等率 |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| A | a | 7500 | 5700 | 70 | - | 1.1 |
-| B | b | 4000 | 3040 | 80 | 1.25 | 1.1 |
-| B | c | 3500 | 2660 | 60 | 1.25 | 1.1 |"	data/questions/h27/second/figures/denryoku_kanri_q05_table.png	(1) 需要設備a，b，cの平均電力 [kW] をそれぞれ求めよ。					"需要設備a，b，cの平均電力を，それぞれ\(P_a\)，\(P_b\)，\(P_c\)とすると，平均電力=最大電力×負荷率の関係があるので，
+ただし、需要設備a，b，cの需要率はそれぞれ80 %、需要設備a，b，cの負荷力率はそれぞれ遅れの一定値とし、結果は、小数第1位を四捨五入せよ。"	data/questions/h27/second/figures/denryoku_kanri_q05_table.png	(1) 需要設備a，b，cの平均電力 [kW] をそれぞれ求めよ。					"需要設備a，b，cの平均電力を，それぞれ\(\overline{P}_a\)，\(\overline{P}_b\)，\(\overline{P}_c\)とすると，平均電力=最大電力×負荷率の関係があるので，
 \[
-P_a=5700\times0.7=3990\mathrm{kW}
+\overline{P}_a=5700\times0.7=3990\mathrm{kW}
 \]
 \[
-P_b=3040\times0.8=2432\mathrm{kW}
+\overline{P}_b=3040\times0.8=2432\mathrm{kW}
 \]
 \[
-P_c=2660\times0.6=1596\mathrm{kW}
+\overline{P}_c=2660\times0.6=1596\mathrm{kW}
 \]"																(2) 変電所の総合最大電力 [kW] を求めよ。					"配電線A，Bの最大電力を，それぞれ\(P_A\)，\(P_B\)とすると，総合最大電力=合計最大電力/不等率の関係があるので，
 \[
 P_A=5700\mathrm{kW}
@@ -8026,11 +8022,14 @@ P_B=\frac{3040+2660}{1.25}=4560\mathrm{kW}
 P_S=\frac{P_A+P_B}{1.1}=\frac{5700+4560}{1.1}\simeq9327.27\rightarrow9327\mathrm{kW}
 \]"																							(3) 変電所の総合負荷率 [%] を求めよ。					"変電所の平均電力を\(\overline{P}_S\)とすると，
 \[
-\overline{P}_S=P_a+P_b+P_c
+\overline{P}_S=\overline{P}_a+\overline{P}_b+\overline{P}_c
 \]
-よって，変電所の総合負荷率\(LF\)は，
+よって，(1)で示した関係式より，変電所の総合負荷率\(LF\)は，
 \[
-LF=\frac{\overline{P}_S}{P_S}\times100=\frac{3990+2432+1596}{9327}\times100\simeq85.97\rightarrow86\%
+LF=\frac{\overline{P}_S}{P_S}\times100
+\]
+\[
+=\frac{3990+2432+1596}{9327}\times100\simeq85.97\rightarrow86\%
 \]"																														(4) 需要設備a，b，cの負荷力率 [%] をそれぞれ求めよ。					"需要設備a，b，cの負荷力率を，それぞれ\(\cos\theta_a\)，\(\cos\theta_b\)，\(\cos\theta_c\)とすると，最大電力=設備容量×負荷力率×需要率の関係があるので，
 \[
 \cos\theta_a=\frac{5700}{7500\times0.80}\times100=95\%\quad(\text{遅れ})
@@ -8059,15 +8058,15 @@ Q_c\geqq P_S\tan\theta-\sqrt{S^2-P_S^2}
 =9327.27\sqrt{\frac{1}{0.95^2}-1}-\sqrt{9500^2-9327.27^2}\simeq1262.38\rightarrow1262\mathrm{kvar}
 \]
 よって，\(Q_c\)の最小値は1262 kvarとなる。"																											"(1) 需要設備a，b，cの平均電力 [kW] をそれぞれ求めよ。
-需要設備a，b，cの平均電力を，それぞれ\(P_a\)，\(P_b\)，\(P_c\)とすると，平均電力=最大電力×負荷率の関係があるので，
+需要設備a，b，cの平均電力を，それぞれ\(\overline{P}_a\)，\(\overline{P}_b\)，\(\overline{P}_c\)とすると，平均電力=最大電力×負荷率の関係があるので，
 \[
-P_a=5700\times0.7=3990\mathrm{kW}
+\overline{P}_a=5700\times0.7=3990\mathrm{kW}
 \]
 \[
-P_b=3040\times0.8=2432\mathrm{kW}
+\overline{P}_b=3040\times0.8=2432\mathrm{kW}
 \]
 \[
-P_c=2660\times0.6=1596\mathrm{kW}
+\overline{P}_c=2660\times0.6=1596\mathrm{kW}
 \]
 
 (2) 変電所の総合最大電力 [kW] を求めよ。
@@ -8086,11 +8085,14 @@ P_S=\frac{P_A+P_B}{1.1}=\frac{5700+4560}{1.1}\simeq9327.27\rightarrow9327\mathrm
 (3) 変電所の総合負荷率 [%] を求めよ。
 変電所の平均電力を\(\overline{P}_S\)とすると，
 \[
-\overline{P}_S=P_a+P_b+P_c
+\overline{P}_S=\overline{P}_a+\overline{P}_b+\overline{P}_c
 \]
-よって，変電所の総合負荷率\(LF\)は，
+よって，(1)で示した関係式より，変電所の総合負荷率\(LF\)は，
 \[
-LF=\frac{\overline{P}_S}{P_S}\times100=\frac{3990+2432+1596}{9327}\times100\simeq85.97\rightarrow86\%
+LF=\frac{\overline{P}_S}{P_S}\times100
+\]
+\[
+=\frac{3990+2432+1596}{9327}\times100\simeq85.97\rightarrow86\%
 \]
 
 (4) 需要設備a，b，cの負荷力率 [%] をそれぞれ求めよ。
@@ -8284,7 +8286,15 @@ x=(x_1+a^2x_2)
 \[
 =\sqrt{207.01-27.320}=\sqrt{179.69}=13.405\simeq13.4\,\Omega
 \]
-となる。"																														(4) 図2に示すように、一次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|Z_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)に保ち、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2が答案用紙に印刷されているので、電圧\(\dot{V}_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{b0},\dot{I}_{g0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。					概略ベクトル図は次のとおりである。	data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig1.png																													(5) 一次端子電圧を\(\dot{V}_{10}\)のままにして、無負荷としたときの二次端子電圧を\(\dot{V}_{20}\)とする。このとき、この変圧器の電圧変動率\(\varepsilon\)が、\(\varepsilon\simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]\)で近似できることを示せ。					"二次側に換算した諸量のベクトル図を用いて、電圧成分について抜き出すと、
+となる。"																														(4) 図1に示すように、二次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|\dot{Z}_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)としたとき、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2は、このときの電圧電流ベクトル概略図の一部である。図2が答案用紙に印刷されているので、電圧\(\dot{V}_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{g0},\dot{I}_{b0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。					概略ベクトル図は次のとおりである。	data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig1.png																													"(5) 一次端子電圧を\(V_{10}\)のままにして，無負荷としたときの二次端子電圧を\(V_{20}\)とする。このとき，この変圧器の電圧の変動率\(\varepsilon\)を，次式で表す。
+\[
+\varepsilon=\frac{V_{20}-V_{2n}}{V_{2n}}\times100\,[\%]
+\]
+これは，次式で近似できることを示せ。
+\[
+\varepsilon\simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]
+\]
+ただし，\(R=\frac{r}{a^2}\)，\(X=\frac{x}{a^2}\)，\(q_R=\frac{RI_{2n}}{V_{2n}}\ll1\)，\(q_X=\frac{XI_{2n}}{V_{2n}}\ll1\)とする。また，必要に応じて，展開式\(\sqrt{1+\delta}=1+\frac{1}{2}\delta-\frac{1}{8}\delta^2+\cdots\)，\((|\delta|<1)\)を用いよ。"					"二次側に換算した諸量のベクトル図を用いて、電圧成分について抜き出すと、
 \[
 \dot{V}_{20}=\left(V_{2n}+RI_{2n}\cos\theta+XI_{2n}\sin\theta\right)
 +j\left(XI_{2n}\cos\theta-RI_{2n}\sin\theta\right)
@@ -8317,7 +8327,7 @@ V_{20}=\sqrt{(V_{2n}+RI_{2n}\cos\theta+XI_{2n}\sin\theta)^2+(XI_{2n}\cos\theta-R
 \varepsilon=\frac{V_{20}-V_{2n}}{V_{2n}}\times100
 \simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]
 \]
-となる。"	data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig2.png																										"(1) 定格容量\(S_n=100\,\mathrm{kV\cdot A}\)、定格一次電圧\(V_{1n}=6600\,\mathrm{V}\)、定格二次電圧\(V_{2n}=210\,\mathrm{V}\)、定格周波数60Hzの単相変圧器がある。巻数比\(a\)、定格一次電流\(I_{1n}\,[\mathrm{A}]\)を求めよ。
+となる。"	data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig2.png|data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig3.png																										"(1) 定格容量\(S_n=100\,\mathrm{kV\cdot A}\)、定格一次電圧\(V_{1n}=6600\,\mathrm{V}\)、定格二次電圧\(V_{2n}=210\,\mathrm{V}\)、定格周波数60Hzの単相変圧器がある。巻数比\(a\)、定格一次電流\(I_{1n}\,[\mathrm{A}]\)を求めよ。
 巻数比は、
 \[
 a=\frac{V_{1n}}{V_{2n}}=\frac{6600}{210}=31.429\simeq31.4
@@ -8359,10 +8369,18 @@ x=(x_1+a^2x_2)
 \]
 となる。
 
-(4) 図2に示すように、一次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|Z_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)に保ち、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2が答案用紙に印刷されているので、電圧\(\dot{V}_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{b0},\dot{I}_{g0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。
+(4) 図1に示すように、二次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|\dot{Z}_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)としたとき、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2は、このときの電圧電流ベクトル概略図の一部である。図2が答案用紙に印刷されているので、電圧\(\dot{V}_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{g0},\dot{I}_{b0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。
 概略ベクトル図は次のとおりである。
 
-(5) 一次端子電圧を\(\dot{V}_{10}\)のままにして、無負荷としたときの二次端子電圧を\(\dot{V}_{20}\)とする。このとき、この変圧器の電圧変動率\(\varepsilon\)が、\(\varepsilon\simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]\)で近似できることを示せ。
+(5) 一次端子電圧を\(V_{10}\)のままにして，無負荷としたときの二次端子電圧を\(V_{20}\)とする。このとき，この変圧器の電圧の変動率\(\varepsilon\)を，次式で表す。
+\[
+\varepsilon=\frac{V_{20}-V_{2n}}{V_{2n}}\times100\,[\%]
+\]
+これは，次式で近似できることを示せ。
+\[
+\varepsilon\simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]
+\]
+ただし，\(R=\frac{r}{a^2}\)，\(X=\frac{x}{a^2}\)，\(q_R=\frac{RI_{2n}}{V_{2n}}\ll1\)，\(q_X=\frac{XI_{2n}}{V_{2n}}\ll1\)とする。また，必要に応じて，展開式\(\sqrt{1+\delta}=1+\frac{1}{2}\delta-\frac{1}{8}\delta^2+\cdots\)，\((|\delta|<1)\)を用いよ。
 二次側に換算した諸量のベクトル図を用いて、電圧成分について抜き出すと、
 \[
 \dot{V}_{20}=\left(V_{2n}+RI_{2n}\cos\theta+XI_{2n}\sin\theta\right)
@@ -8397,12 +8415,15 @@ V_{20}=\sqrt{(V_{2n}+RI_{2n}\cos\theta+XI_{2n}\sin\theta)^2+(XI_{2n}\cos\theta-R
 \simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]
 \]
 となる。"									data/pdfs/h27/second	h27|second|kikai_seigyo		data/pdfs/h27/second/kaitou.pdf pp.12-13	draft															
-h27_second_kikai_seigyo_q03	h27	second	kikai_seigyo	3	calculation	図1は、三相交流電源から単相交流を出力するサイクロコンバータである。このサイクロコンバータに関する次の問に答えよ。ただし、交流電源のインピーダンス、及びコンバータでの電圧降下は無視する。また、負荷は誘導性である。	data/questions/h27/second/figures/kikai_seigyo_q03_fig.png	(1a) このサイクロコンバータの実用的な出力周波数の上限は、電源周波数に対して何分の1程度であるか。					実用的な出力周波数の上限は，電源周波数の\(\frac{1}{2}\)から\(\frac{1}{3}\)程度である。																(1b) どのような要因で上限が決まるかを全体で100字程度で説明せよ。					出力交流電流の方向が切り換わるときに電源を短絡しないように電流を零としておく期間が必要である。このため、出力周波数が高くなると波形のひずみが大きくなるので出力周波数に上限がある。																							(2) 正群コンバータが、入力交流線間電圧実効値\(E\)及び制御遅れ角\(\alpha\)が一定で、連続した出力電流\(i\)で定常的に動作しているときの出力電圧\(v\)の平均値（直流電圧）\(V_d\)を求める式を示せ。					"正群コンバータの出力電圧\(v\)は，制御遅れ角\(\alpha\)が0の時点を基準にした電気角\(\theta\)で表すと，\(\theta\)が\(\alpha\)から\(\alpha+\frac{\pi}{3}\)の期間，\(v=\sqrt{2}E\cos\theta\)となるので，平均電圧\(V_d\)はそれを平均して次となる。
+h27_second_kikai_seigyo_q03	h27	second	kikai_seigyo	3	calculation	図1は、三相交流電源から単相交流を出力するサイクロコンバータである。このサイクロコンバータに関する次の問に答えよ。ただし、交流電源のインピーダンス、及びコンバータでの電圧降下は無視する。また、負荷は誘導性である。	data/questions/h27/second/figures/kikai_seigyo_q03_fig.png	(1a) このサイクロコンバータの実用的な出力周波数の上限は、電源周波数に対して何分の1程度であるか。					実用的な出力周波数の上限は，電源周波数の\(\frac{1}{2}\)から\(\frac{1}{3}\)程度である。																(1b) どのような要因で上限が決まるかを全体で100字程度で説明せよ。					出力交流電流の方向が切り換わるときに電源を短絡しないように電流を零としておく期間が必要である。このため、出力周波数が高くなると波形のひずみが大きくなるので出力周波数に上限がある。																							(2) 正群コンバータが、入力交流線間電圧実効値\(E\)及び制御遅れ角\(\alpha\)が一定で、連続した出力電流\(i\)で定常的に動作しているときの出力電圧\(v\)の平均値（直流電圧）\(V_d\)を求める式を示せ。					"正群コンバータの出力電圧\(v\)は，制御遅れ角\(\alpha\)が0の時点を基準にした電気角\(\theta\)で表すと，\(\theta\)が\(\alpha\)から\(\alpha+\frac{\pi}{3}\)の期間，\(v=\sqrt{2}E\cos\left(\theta-\frac{\pi}{6}\right)\)となるので，平均電圧\(V_d\)はそれを平均して次となる。
 \[
-V_d=\frac{3}{\pi}\int_{\alpha}^{\alpha+\frac{\pi}{3}}\sqrt{2}E\cos\theta\,d\theta
+V_d=\frac{3}{\pi}\int_{\alpha}^{\alpha+\frac{\pi}{3}}\sqrt{2}E\cos\left(\theta-\frac{\pi}{6}\right)d\theta
 \]
 \[
-=\frac{3\sqrt{2}}{\pi}E\cos\alpha
+=\frac{3\sqrt{2}}{\pi}E\left[\sin\left(\theta-\frac{\pi}{6}\right)\right]_{\alpha}^{\alpha+\frac{\pi}{3}}
+\]
+\[
+=\frac{3\sqrt{2}}{\pi}E\left\{\sin\left(\alpha+\frac{\pi}{6}\right)-\sin\left(\alpha-\frac{\pi}{6}\right)\right\}=\frac{3\sqrt{2}}{\pi}E\cos\alpha
 \]
 又は，
 \[
@@ -8420,19 +8441,22 @@ V_d=1.35E\cos\alpha
 又は，
 \[
 \alpha(t)=\cos^{-1}\{0.838\sin(2\pi f_1t)\}
-\]"																														(4) 正群コンバータは、サイリスタが\(T_{P1},T_{P3},\ldots,T_{P6},T_{P1},\ldots\)と順番にオンされて動作する。\(T_{P1}\)がオンした直後に出力される電圧は、図2に示す6種類の交流線間電圧のうち、どの電圧となるか。					\(T_{P1}\)がオンすると\(T_{P5}\)に流れていた電流が\(T_{P1}\)に転流し，\(T_{P6}\rightarrow\)V相\(\rightarrow\)U相\(\rightarrow T_{P1}\)を通電して出力されるので，\(v_{UV}\)の電圧が出力される。																(5) サイクロコンバータの出力には図2に示す電流が流れているものとする。図2が答案用紙に印刷されているので、このときに正群コンバータのサイリスタ\(T_{P1}\)に流れる電流\(i_{TP1}\)の波形を太い線で明確に描け。					\(T_{P1}\)がオンすると\(v_{UV}\)の電圧が出力され，それから\(T_{P3}\)がオンするまで通電するので次の図となる。	data/questions/h27/second/figures/kikai_seigyo_q03_answer_fig1.png					"(1a) このサイクロコンバータの実用的な出力周波数の上限は、電源周波数に対して何分の1程度であるか。
+\]"																														(4) 正群コンバータは，サイリスタが\(T_{P1},T_{P2},\cdots,T_{P6},T_{P1},\cdots\)と順番にオンされて動作する。\(T_{P1}\)がオンした直後に出力される電圧は，図2に示す\(v_{UV},v_{UW},v_{VW},v_{VU},v_{WU},v_{WV}\)の6種類の交流線間電圧のうち，どの電圧となるか。なお，交流線間電圧の記号は，例えば\(v_{UV}\)は三相交流電源のV相を基準としたU相の電圧\(v_{UV}=v_U-v_V\)を表す。また，\(v\)は出力電圧，\(v_1\)はその基本波電圧である。					\(T_{P1}\)がオンすると\(T_{P5}\)に流れていた電流が\(T_{P1}\)に転流し，\(T_{P6}\rightarrow\)V相\(\rightarrow\)U相\(\rightarrow T_{P1}\)を通電して出力されるので，\(v_{UV}\)の電圧が出力される。																(5) サイクロコンバータの出力には図2に示す電流が流れているものとする。図2が答案用紙に印刷されているので、このときに正群コンバータのサイリスタ\(T_{P1}\)に流れる電流\(i_{TP1}\)の波形を太い線で明確に描け。					\(T_{P1}\)がオンすると\(v_{UV}\)の電圧が出力され，それから\(T_{P3}\)がオンするまで通電するので次の図となる。	data/questions/h27/second/figures/kikai_seigyo_q03_answer_fig1.png					"(1a) このサイクロコンバータの実用的な出力周波数の上限は、電源周波数に対して何分の1程度であるか。
 実用的な出力周波数の上限は，電源周波数の\(\frac{1}{2}\)から\(\frac{1}{3}\)程度である。
 
 (1b) どのような要因で上限が決まるかを全体で100字程度で説明せよ。
 出力交流電流の方向が切り換わるときに電源を短絡しないように電流を零としておく期間が必要である。このため、出力周波数が高くなると波形のひずみが大きくなるので出力周波数に上限がある。
 
 (2) 正群コンバータが、入力交流線間電圧実効値\(E\)及び制御遅れ角\(\alpha\)が一定で、連続した出力電流\(i\)で定常的に動作しているときの出力電圧\(v\)の平均値（直流電圧）\(V_d\)を求める式を示せ。
-正群コンバータの出力電圧\(v\)は，制御遅れ角\(\alpha\)が0の時点を基準にした電気角\(\theta\)で表すと，\(\theta\)が\(\alpha\)から\(\alpha+\frac{\pi}{3}\)の期間，\(v=\sqrt{2}E\cos\theta\)となるので，平均電圧\(V_d\)はそれを平均して次となる。
+正群コンバータの出力電圧\(v\)は，制御遅れ角\(\alpha\)が0の時点を基準にした電気角\(\theta\)で表すと，\(\theta\)が\(\alpha\)から\(\alpha+\frac{\pi}{3}\)の期間，\(v=\sqrt{2}E\cos\left(\theta-\frac{\pi}{6}\right)\)となるので，平均電圧\(V_d\)はそれを平均して次となる。
 \[
-V_d=\frac{3}{\pi}\int_{\alpha}^{\alpha+\frac{\pi}{3}}\sqrt{2}E\cos\theta\,d\theta
+V_d=\frac{3}{\pi}\int_{\alpha}^{\alpha+\frac{\pi}{3}}\sqrt{2}E\cos\left(\theta-\frac{\pi}{6}\right)d\theta
 \]
 \[
-=\frac{3\sqrt{2}}{\pi}E\cos\alpha
+=\frac{3\sqrt{2}}{\pi}E\left[\sin\left(\theta-\frac{\pi}{6}\right)\right]_{\alpha}^{\alpha+\frac{\pi}{3}}
+\]
+\[
+=\frac{3\sqrt{2}}{\pi}E\left\{\sin\left(\alpha+\frac{\pi}{6}\right)-\sin\left(\alpha-\frac{\pi}{6}\right)\right\}=\frac{3\sqrt{2}}{\pi}E\cos\alpha
 \]
 又は，
 \[
@@ -8455,31 +8479,31 @@ V_d=1.35E\cos\alpha
 \alpha(t)=\cos^{-1}\{0.838\sin(2\pi f_1t)\}
 \]
 
-(4) 正群コンバータは、サイリスタが\(T_{P1},T_{P3},\ldots,T_{P6},T_{P1},\ldots\)と順番にオンされて動作する。\(T_{P1}\)がオンした直後に出力される電圧は、図2に示す6種類の交流線間電圧のうち、どの電圧となるか。
+(4) 正群コンバータは，サイリスタが\(T_{P1},T_{P2},\cdots,T_{P6},T_{P1},\cdots\)と順番にオンされて動作する。\(T_{P1}\)がオンした直後に出力される電圧は，図2に示す\(v_{UV},v_{UW},v_{VW},v_{VU},v_{WU},v_{WV}\)の6種類の交流線間電圧のうち，どの電圧となるか。なお，交流線間電圧の記号は，例えば\(v_{UV}\)は三相交流電源のV相を基準としたU相の電圧\(v_{UV}=v_U-v_V\)を表す。また，\(v\)は出力電圧，\(v_1\)はその基本波電圧である。
 \(T_{P1}\)がオンすると\(T_{P5}\)に流れていた電流が\(T_{P1}\)に転流し，\(T_{P6}\rightarrow\)V相\(\rightarrow\)U相\(\rightarrow T_{P1}\)を通電して出力されるので，\(v_{UV}\)の電圧が出力される。
 
 (5) サイクロコンバータの出力には図2に示す電流が流れているものとする。図2が答案用紙に印刷されているので、このときに正群コンバータのサイリスタ\(T_{P1}\)に流れる電流\(i_{TP1}\)の波形を太い線で明確に描け。
 \(T_{P1}\)がオンすると\(v_{UV}\)の電圧が出力され，それから\(T_{P3}\)がオンするまで通電するので次の図となる。"									data/pdfs/h27/second	h27|second|kikai_seigyo		data/pdfs/h27/second/kaitou.pdf pp.14-15	draft															
-h27_second_kikai_seigyo_q04	h27	second	kikai_seigyo	4	calculation	"図に示すフィードバック制御系において、\(R(s),E(s),U(s),Y(s)\)はそれぞれ、目標値\(r(t)\)、制御偏差\(e(t)\)、操作入力\(u(t)\)、制御量\(y(t)\)のラプラス変換を表している。また、\(G(s)\)は制御対象の伝達関数、\(k/s\)は積分動作の直列補償要素、\(F(s)\)はフィードバック補償要素を表している。
+h27_second_kikai_seigyo_q04	h27	second	kikai_seigyo	4	calculation	"図に示すフィードバック制御系において、\(R(s),E(s),U(s),Y(s)\)はそれぞれ、目標値\(r(t)\)、制御偏差\(e(t)\)、操作入力\(u(t)\)、制御量\(y(t)\)のラプラス変換を表している。また、\(G(s)\)は制御対象の伝達関数、\(k/s\)は積分動作の直列補償要素、\(f(s)\)はフィードバック補償要素を表している。
 
-以下において、\(k\)と\(F(s)\)とに含まれる制御定数を調整することで、フィードバック制御系の目標値\(R(s)\)から制御量\(Y(s)\)までの伝達関数を、望ましい動特性を実現する参照モデルの伝達関数に一致させることを考える。"	data/questions/h27/second/figures/kikai_seigyo_q04_fig.png	(1) 制御対象は零点をもたない遅れ系であって、多項式\(h(s)\)を用いて\(G(s)=1/h(s)\)と表されている。フィードバック制御系の目標値\(R(s)\)から制御量\(Y(s)\)までの伝達関数\(W(s)\)を\(s,k,F(s),h(s)\)を用いて表せ。					"内側のフィードバックループを一つのブロックで表すと，
+以下において、\(k\)と\(f(s)\)とに含まれる制御定数を調整することで、フィードバック制御系の目標値\(R(s)\)から制御量\(Y(s)\)までの伝達関数を、望ましい動特性を実現する参照モデルの伝達関数に一致させることを考える。"	data/questions/h27/second/figures/kikai_seigyo_q04_fig.png	(1) 制御対象は零点をもたない遅れ系であって、多項式\(h(s)\)を用いて\(G(s)=1/h(s)\)と表されている。フィードバック制御系の目標値\(R(s)\)から制御量\(Y(s)\)までの伝達関数\(W(s)\)を\(s,k,f(s),h(s)\)を用いて表せ。					"内側のフィードバックループを一つのブロックで表すと，
 \[
-\frac{G(s)}{1+G(s)F(s)}=\frac{\frac{1}{h(s)}}{1+\frac{F(s)}{h(s)}}=\frac{1}{h(s)+F(s)}
+\frac{G(s)}{1+G(s)f(s)}=\frac{\frac{1}{h(s)}}{1+\frac{1}{h(s)}f(s)}=\frac{1}{h(s)+f(s)}
 \]
 となる。よって，フィードバック制御系の目標値から制御量までの伝達関数\(W(s)\)は，
 \[
-W(s)=\frac{\frac{k}{s}\frac{1}{h(s)+F(s)}}{1+\frac{k}{s}\frac{1}{h(s)+F(s)}}=\frac{k}{s\{h(s)+F(s)\}+k}
+W(s)=\frac{\frac{k}{s[h(s)+f(s)]}}{1+\frac{k}{s[h(s)+f(s)]}}=\frac{1}{1+\frac{s}{k}[h(s)+f(s)]}
 \]
-である。"																(2) 制御対象は2次遅れ系\(G(s)=1/(s^2+h_1s+h_0)\)であるとする。また、フィードバック補償要素\(F(s)\)は定数であるとし、\(F(s)=f_0\)とおく。参照モデル\(W_d(s)=1/(1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3)\)を導入する。\(W(s)\)と\(W_d(s)\)を一致させるために、パラメータ\(\sigma\)と制御定数\(k,f_0\)が満たさなくてはならない連立方程式を求めよ。					"(1)の式と問題中の
+である。"																(2) 制御対象は2次遅れ系\(G(s)=1/(h_2s^2+h_1s+h_0)\)であるとする。また、フィードバック補償要素\(f(s)\)は定数であるとし、\(f(s)=f_0\)とおく。参照モデル\(W_d(s)=1/(1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3)\)を導入する。\(W(s)\)と\(W_d(s)\)を一致させるために、パラメータ\(\sigma\)と制御定数\(k,f_0\)が満たさなくてはならない連立方程式を求めよ。					"(1)の式と問題中の
 \[
 W_d(s)=\frac{1}{1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3}
 \]
 とを等しいとおくことによって，次の関係式を得る。
 \[
-\frac{s}{k}\{h(s)+F(s)\}+1=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
+1+\frac{s}{k}[h(s)+f(s)]=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
 \]
 \[
-\frac{s}{k}(h_0+f_0+h_1s+s^2)+1=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
+1+\frac{s}{k}(h_0+f_0+h_1s+h_2s^2)=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
 \]
 上式は\(s\)に関する恒等式であるから，係数比較法によって次となる。
 \[
@@ -8489,41 +8513,53 @@ W_d(s)=\frac{1}{1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3}
 \frac{h_1}{k}=a_2\sigma^2
 \]
 \[
-\frac{1}{k}=a_3\sigma^3
-\]"																							(3) 連立方程式を解いてパラメータ\(\sigma\)を\(a_2,a_3,h_1,h_0\)を用いて表せ。					"上の第2式と第3式から，
-\[
-\sigma=\frac{a_2h_1}{a_3}
+\frac{h_2}{k}=a_3\sigma^3
+\]"																							(3) 連立方程式を解いてパラメータ\(\sigma\)を\(a_2,a_3,h_1,h_2\)を用いて表せ。					"\[
+\frac{h_1}{k}=a_2\sigma^2
 \]
-を得る。"																														(4) 制御定数\(k\)を求める式を\(a_3,h_1,\sigma\)を用いて表せ。					"上の第2式から，
+\[
+\frac{h_2}{k}=a_3\sigma^3
+\]
+より，
+\[
+\sigma=\frac{a_2h_2}{a_3h_1}
+\]
+を得る。"																														(4) 制御定数\(k\)を求める式を\(a_2,h_1,\sigma\)を用いて表せ。					"\[
+\frac{h_1}{k}=a_2\sigma^2
+\]
+より，
 \[
 k=\frac{h_1}{a_2\sigma^2}
 \]
-を得る。"																														(5) 制御定数\(f_0\)を求める式を\(k,h_0,\sigma\)を用いて表せ。					"上の第1式から，
+を得る。"																														(5) 制御定数\(f_0\)を求める式を\(k,h_0,\sigma\)を用いて表せ。					"\[
+\frac{h_0+f_0}{k}=\sigma
+\]
+より，
 \[
 f_0=k\sigma-h_0
 \]
-を得る。"																											"(1) 制御対象は零点をもたない遅れ系であって、多項式\(h(s)\)を用いて\(G(s)=1/h(s)\)と表されている。フィードバック制御系の目標値\(R(s)\)から制御量\(Y(s)\)までの伝達関数\(W(s)\)を\(s,k,F(s),h(s)\)を用いて表せ。
+を得る。"																											"(1) 制御対象は零点をもたない遅れ系であって、多項式\(h(s)\)を用いて\(G(s)=1/h(s)\)と表されている。フィードバック制御系の目標値\(R(s)\)から制御量\(Y(s)\)までの伝達関数\(W(s)\)を\(s,k,f(s),h(s)\)を用いて表せ。
 内側のフィードバックループを一つのブロックで表すと，
 \[
-\frac{G(s)}{1+G(s)F(s)}=\frac{\frac{1}{h(s)}}{1+\frac{F(s)}{h(s)}}=\frac{1}{h(s)+F(s)}
+\frac{G(s)}{1+G(s)f(s)}=\frac{\frac{1}{h(s)}}{1+\frac{1}{h(s)}f(s)}=\frac{1}{h(s)+f(s)}
 \]
 となる。よって，フィードバック制御系の目標値から制御量までの伝達関数\(W(s)\)は，
 \[
-W(s)=\frac{\frac{k}{s}\frac{1}{h(s)+F(s)}}{1+\frac{k}{s}\frac{1}{h(s)+F(s)}}=\frac{k}{s\{h(s)+F(s)\}+k}
+W(s)=\frac{\frac{k}{s[h(s)+f(s)]}}{1+\frac{k}{s[h(s)+f(s)]}}=\frac{1}{1+\frac{s}{k}[h(s)+f(s)]}
 \]
 である。
 
-(2) 制御対象は2次遅れ系\(G(s)=1/(s^2+h_1s+h_0)\)であるとする。また、フィードバック補償要素\(F(s)\)は定数であるとし、\(F(s)=f_0\)とおく。参照モデル\(W_d(s)=1/(1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3)\)を導入する。\(W(s)\)と\(W_d(s)\)を一致させるために、パラメータ\(\sigma\)と制御定数\(k,f_0\)が満たさなくてはならない連立方程式を求めよ。
+(2) 制御対象は2次遅れ系\(G(s)=1/(h_2s^2+h_1s+h_0)\)であるとする。また、フィードバック補償要素\(f(s)\)は定数であるとし、\(f(s)=f_0\)とおく。参照モデル\(W_d(s)=1/(1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3)\)を導入する。\(W(s)\)と\(W_d(s)\)を一致させるために、パラメータ\(\sigma\)と制御定数\(k,f_0\)が満たさなくてはならない連立方程式を求めよ。
 (1)の式と問題中の
 \[
 W_d(s)=\frac{1}{1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3}
 \]
 とを等しいとおくことによって，次の関係式を得る。
 \[
-\frac{s}{k}\{h(s)+F(s)\}+1=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
+1+\frac{s}{k}[h(s)+f(s)]=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
 \]
 \[
-\frac{s}{k}(h_0+f_0+h_1s+s^2)+1=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
+1+\frac{s}{k}(h_0+f_0+h_1s+h_2s^2)=1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3
 \]
 上式は\(s\)に関する恒等式であるから，係数比較法によって次となる。
 \[
@@ -8533,25 +8569,37 @@ W_d(s)=\frac{1}{1+\sigma s+a_2\sigma^2s^2+a_3\sigma^3s^3}
 \frac{h_1}{k}=a_2\sigma^2
 \]
 \[
-\frac{1}{k}=a_3\sigma^3
+\frac{h_2}{k}=a_3\sigma^3
 \]
 
-(3) 連立方程式を解いてパラメータ\(\sigma\)を\(a_2,a_3,h_1,h_0\)を用いて表せ。
-上の第2式と第3式から，
+(3) 連立方程式を解いてパラメータ\(\sigma\)を\(a_2,a_3,h_1,h_2\)を用いて表せ。
 \[
-\sigma=\frac{a_2h_1}{a_3}
+\frac{h_1}{k}=a_2\sigma^2
+\]
+\[
+\frac{h_2}{k}=a_3\sigma^3
+\]
+より，
+\[
+\sigma=\frac{a_2h_2}{a_3h_1}
 \]
 を得る。
 
-(4) 制御定数\(k\)を求める式を\(a_3,h_1,\sigma\)を用いて表せ。
-上の第2式から，
+(4) 制御定数\(k\)を求める式を\(a_2,h_1,\sigma\)を用いて表せ。
+\[
+\frac{h_1}{k}=a_2\sigma^2
+\]
+より，
 \[
 k=\frac{h_1}{a_2\sigma^2}
 \]
 を得る。
 
 (5) 制御定数\(f_0\)を求める式を\(k,h_0,\sigma\)を用いて表せ。
-上の第1式から，
+\[
+\frac{h_0+f_0}{k}=\sigma
+\]
+より，
 \[
 f_0=k\sigma-h_0
 \]
