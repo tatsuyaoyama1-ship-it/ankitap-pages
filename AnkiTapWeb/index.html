@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AnkiTap Web</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      startup: { typeset: false }
+    };
+  </script>
+  <script defer src="MathJax/tex-svg.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-bar">
+      <button class="icon-button hidden" id="backToCategories" type="button" aria-label="カテゴリへ戻る">
+        <span aria-hidden="true">≡</span>
+      </button>
+      <h1>暗記カード</h1>
+      <button class="icon-button" id="shuffleButton" type="button" aria-label="ランダムに並べ替える" disabled>
+        <span aria-hidden="true">↬</span>
+      </button>
+    </header>
+
+    <section class="mode-view" id="modeView">
+      <h2>学習モードを選択</h2>
+      <div class="mode-list">
+        <button class="mode-card" id="formulaModeButton" type="button">
+          <strong>公式暗記</strong>
+          <span>cards.csv のカードをカテゴリ別に練習</span>
+        </button>
+        <button class="mode-card" id="pastQuestionModeButton" type="button">
+          <strong>過去問モード</strong>
+          <span>denken_questions.tsv の問題を段階表示</span>
+        </button>
+        <button class="mode-card" id="printReviewModeButton" type="button">
+          <strong>印刷レビュー</strong>
+          <span>過去問データをA4確認用に一覧表示</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="category-view hidden" id="categoryView">
+      <h2>カテゴリを選択</h2>
+      <div class="category-list" id="categoryList"></div>
+    </section>
+
+    <section class="past-filter-view hidden" id="pastFilterView">
+      <h2>過去問を選択</h2>
+      <div class="past-filter-list" id="pastFilterList"></div>
+    </section>
+
+    <section class="study-view hidden" id="studyView">
+      <div class="progress-panel">
+        <div class="progress-row">
+          <strong id="cardCounter">1 / 1</strong>
+          <span id="cardState">出題中</span>
+        </div>
+        <progress id="progressBar" value="1" max="1"></progress>
+        <div class="debug-meta hidden" id="debugMeta"></div>
+      </div>
+
+      <button class="card" id="cardButton" type="button">
+        <span class="category-pill" id="cardCategory"></span>
+        <span class="mode-label" id="modeLabel">問題</span>
+        <span class="card-content math" id="cardContent"></span>
+        <span class="tap-hint" id="tapHint">タップして回答を表示</span>
+      </button>
+
+      <button class="explanation-button hidden" id="explanationButton" type="button">解説を表示</button>
+
+      <nav class="nav-buttons">
+        <button id="previousButton" type="button">前へ</button>
+        <button id="nextButton" type="button">次へ</button>
+      </nav>
+    </section>
+
+    <section class="past-study-view hidden" id="pastStudyView">
+      <div class="progress-panel">
+        <div class="progress-row">
+          <strong id="pastCounter">1 / 1</strong>
+          <span id="pastSubject">過去問</span>
+        </div>
+        <div class="debug-meta hidden" id="pastDebugMeta"></div>
+        <div class="review-status-meta hidden" id="pastReviewStatus"></div>
+      </div>
+
+      <section class="past-question-panel" aria-label="問題">
+        <div class="past-section-label">問題文</div>
+        <div class="past-question-text math" id="pastQuestionText"></div>
+        <div class="past-section-label" id="pastQuestionImageLabel">問題図</div>
+        <div class="past-question-image" id="pastQuestionImage"></div>
+      </section>
+
+      <section class="past-answer-panel" aria-label="解答表示">
+        <div class="past-tabs" id="pastTabs"></div>
+        <div class="past-answer-content math" id="pastAnswerContent"></div>
+      </section>
+
+      <nav class="nav-buttons">
+        <button id="pastPreviousButton" type="button">前へ</button>
+        <button id="pastNextButton" type="button">次へ</button>
+      </nav>
+    </section>
+
+    <section class="print-review-view hidden" id="printReviewView">
+      <div class="print-review-toolbar">
+        <h2>印刷レビュー</h2>
+        <div class="print-filter-grid">
+          <label>
+            <span>year</span>
+            <select id="printYearFilter"></select>
+          </label>
+          <label>
+            <span>stage</span>
+            <select id="printStageFilter"></select>
+          </label>
+          <label>
+            <span>subject</span>
+            <select id="printSubjectFilter"></select>
+          </label>
+          <label>
+            <span>review_status</span>
+            <select id="printReviewStatusFilter"></select>
+          </label>
+        </div>
+        <div class="print-toolbar-actions">
+          <span id="printReviewCount">0問</span>
+          <button id="printButton" type="button">印刷</button>
+        </div>
+      </div>
+      <div class="print-review-pages" id="printReviewPages"></div>
+    </section>
+
+    <section class="empty-view hidden" id="emptyView">
+      <h2>カードがありません</h2>
+      <p id="emptyMessage">cards.csvを読み込み中です。</p>
+    </section>
+  </main>
+
+  <dialog class="explanation-dialog" id="explanationDialog">
+    <div class="dialog-header">
+      <h2>公式の解説</h2>
+      <button class="icon-button" id="closeExplanation" type="button" aria-label="閉じる">×</button>
+    </div>
+    <div class="explanation-content" id="explanationContent"></div>
+  </dialog>
+</body>
+</html>

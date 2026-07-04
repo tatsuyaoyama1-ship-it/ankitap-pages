@@ -1,0 +1,121 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: #17202a;
+  background: #f4f6f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+}
+
+.viewer {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.viewer-header p,
+.viewer-header h1 {
+  margin: 0;
+}
+
+.viewer-header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.viewer-header h1 {
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.viewer-header a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.filters button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+  color: inherit;
+  cursor: pointer;
+}
+
+.filters button.active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: white;
+}
+
+.question-list {
+  display: grid;
+  gap: 18px;
+}
+
+.question-card {
+  overflow: hidden;
+  border: 1px solid #d8e0e8;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.question-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.question-card h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.question-card span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.question-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: white;
+}
+
+.meta {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.message {
+  color: #64748b;
+}

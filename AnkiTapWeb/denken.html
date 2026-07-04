@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>電験問題ビューア</title>
+  <link rel="stylesheet" href="denken.css">
+  <script defer src="denken.js"></script>
+</head>
+<body>
+  <main class="viewer">
+    <header class="viewer-header">
+      <div>
+        <p>令和7年度 二次試験</p>
+        <h1>電験問題ビューア</h1>
+      </div>
+      <a href="./">暗記カードへ</a>
+    </header>
+
+    <nav class="filters" aria-label="科目選択">
+      <button type="button" data-subject="all" class="active">すべて</button>
+      <button type="button" data-subject="denryoku_kanri">電力・管理</button>
+      <button type="button" data-subject="kikai_seigyo">機械・制御</button>
+    </nav>
+
+    <section class="question-list" id="questionList"></section>
+    <p class="message" id="message">読み込み中です。</p>
+  </main>
+</body>
+</html>
