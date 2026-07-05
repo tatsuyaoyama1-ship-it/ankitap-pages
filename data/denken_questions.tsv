@@ -9829,7 +9829,7 @@ Z_2=\frac{V_2}{I_2}=\frac{1}{2\pi f C_o}
 と表すことができる。②式より，
 \[
 C_o=\frac{I_2}{2\pi f V_2}
-\]"																(1) 測定条件から \(C_m\) と \(C_o\) を求める式を示せ。\(C_m\) を求める。					"三導体に三相平衡電圧 \(V_1\) [V] を加えた際の条件より，このときの実効的なインピーダンス \(Z_1\) [Ω] については，
+\]"	data/questions/h25/second/figures/denryoku_kanri_q02_answer_fig1.png															(1) 測定条件から \(C_m\) と \(C_o\) を求める式を示せ。\(C_m\) を求める。					"三導体に三相平衡電圧 \(V_1\) [V] を加えた際の条件より，このときの実効的なインピーダンス \(Z_1\) [Ω] については，
 \[
 Z_1=\frac{V_1/\sqrt{3}}{I_1}=\frac{1}{2\pi f(C_o+3C_m)}
 \]
@@ -9905,7 +9905,7 @@ P=\frac{EV}{X}\sin\delta
 \]
 \[
 Q=\frac{EV}{X}\cos\delta-\frac{V^2}{X}
-\]"																(2) 関係式を導く					"(1)と \(\cos^2\delta+\sin^2\delta=1\) より，
+\]"	data/questions/h25/second/figures/denryoku_kanri_q04_answer_fig1.png															(2) 関係式を導く					"(1)と \(\cos^2\delta+\sin^2\delta=1\) より，
 \[
 P^2+\left(Q+\frac{V^2}{X}\right)^2=\frac{E^2V^2}{X^2}
 \]"																							(3) 力率1の安定限界を求める					"\(y=\frac{1}{X}\)，\(I=\frac{E}{X}\) とし，\(V\) について整理すると，
@@ -10194,7 +10194,7 @@ I_2=\frac{V_t}{R+r_2+jX}
 となり，その大きさは
 \[
 |I_2|=301.08\rightarrow301\,\mathrm{A}
-\]"																														(3) 始動トルクを求める					"同期速度は \(\omega_0\)，極対数を \(p\)，周波数を \(f\) とすれば，
+\]"	data/questions/h25/second/figures/kikai_seigyo_q01_answer_fig1.png																													(3) 始動トルクを求める					"同期速度は \(\omega_0\)，極対数を \(p\)，周波数を \(f\) とすれば，
 \[
 \omega_0=2\pi\frac{f}{p}=2\pi\frac{60}{2}=188.50\,\mathrm{rad/s}
 \]
@@ -10366,7 +10366,7 @@ P_{2ab}=10000\sqrt{3}=17320\,\mathrm{W}=17.3\,\mathrm{kW}
 \[
 P_{2cb}=10000\sqrt{3}=17320\,\mathrm{W}=17.3\,\mathrm{kW}
 \]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.10-11	draft															
-h25_second_kikai_seigyo_q03	h25	second	kikai_seigyo	3	calculation	逆並列接続されたサイリスタによる単相交流電力調整回路について、電源電圧を \(v=\sqrt2V\sin\omega t\)、制御遅れ角を \(\alpha\) として、波形、負荷電流実効値、誘導性負荷時の制御可能範囲、TCR式三相SVCの主回路構成を答える。	data/questions/h25/second/figures/kikai_seigyo_q03_fig.png	(1) 波形を描く					\(Th_1\) の電圧 \(v_1\)，\(Th_1\) の電流 \(i_1\)，及び負荷電流 \(i_L\) の波形は標準解答図の波形となる。電圧 \(v_1\) にはサイリスタ \(Th_2\) がオンしたときに電圧が零となる影響が現れるが，電流 \(i_1\) はサイリスタ \(Th_1\) に流れる電流だけである。負荷電流 \(i_L\) は正負の電流が流れる。																(2) 実効値を求める					"\(Th_1\) 又は \(Th_2\) がオンしている期間，負荷には次の電流 \(i_{L0}\) が流れる。
+h25_second_kikai_seigyo_q03	h25	second	kikai_seigyo	3	calculation	逆並列接続されたサイリスタによる単相交流電力調整回路について、電源電圧を \(v=\sqrt2V\sin\omega t\)、制御遅れ角を \(\alpha\) として、波形、負荷電流実効値、誘導性負荷時の制御可能範囲、TCR式三相SVCの主回路構成を答える。	data/questions/h25/second/figures/kikai_seigyo_q03_fig.png	(1) 波形を描く					\(Th_1\) の電圧 \(v_1\)，\(Th_1\) の電流 \(i_1\)，及び負荷電流 \(i_L\) の波形は標準解答図の波形となる。電圧 \(v_1\) にはサイリスタ \(Th_2\) がオンしたときに電圧が零となる影響が現れるが，電流 \(i_1\) はサイリスタ \(Th_1\) に流れる電流だけである。負荷電流 \(i_L\) は正負の電流が流れる。	data/questions/h25/second/figures/kikai_seigyo_q03_answer_fig1.png															(2) 実効値を求める					"\(Th_1\) 又は \(Th_2\) がオンしている期間，負荷には次の電流 \(i_{L0}\) が流れる。
 \[
 i_{L0}=\frac{\sqrt{2}V}{R}\sin\omega t=\sqrt{2}I\sin\omega t\quad[\mathrm{A}],\qquad I=\frac{V}{R}
 \]
@@ -10395,7 +10395,7 @@ I_L=I\sqrt{\frac{1}{\pi}\left(\pi-\alpha+\frac{\sin2\alpha}{2}\right)}
 \frac{\pi}{2}<\alpha<\pi
 \]となる。"																														(4) TCR式三相SVCを説明する					"三相負荷と並列接続される三相無効電力補償装置（TCR式三相SVC）の主回路構成は，固定の進み電流を流す固定のコンデンサ \(C\) と並列に，可変の遅れ電流を流す逆並列サイリスタと固定のリアクトル \(L\) との直列回路を接続した回路となる。
 
-回路構成としてはΔ接続でもY接続でもよい。サイリスタとリアクトルの接続も，直列に接続するか，Y接続のリアクトルとΔ接続のサイリスタとの組合せでもよい。また，進相コンデンサ \(C\) にフィルタ機能のリアクトルを追加した構成でもよい。"																																																														"(1) 波形を描く
+回路構成としてはΔ接続でもY接続でもよい。サイリスタとリアクトルの接続も，直列に接続するか，Y接続のリアクトルとΔ接続のサイリスタとの組合せでもよい。また，進相コンデンサ \(C\) にフィルタ機能のリアクトルを追加した構成でもよい。"	data/questions/h25/second/figures/kikai_seigyo_q03_answer_fig2.png																																																													"(1) 波形を描く
 \(Th_1\) の電圧 \(v_1\)，\(Th_1\) の電流 \(i_1\)，及び負荷電流 \(i_L\) の波形は標準解答図の波形となる。電圧 \(v_1\) にはサイリスタ \(Th_2\) がオンしたときに電圧が零となる影響が現れるが，電流 \(i_1\) はサイリスタ \(Th_1\) に流れる電流だけである。負荷電流 \(i_L\) は正負の電流が流れる。
 
 (2) 実効値を求める
