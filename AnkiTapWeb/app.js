@@ -947,9 +947,19 @@ function renderPastProblem(question) {
 
   const image = document.createElement("img");
   image.className = "past-question-img";
+  if (isFitWidthQuestionFigure(question)) {
+    image.classList.add("past-question-img-fit-width");
+  }
   image.alt = "過去問の問題図";
   setImageSource(image, question.questionImage);
   elements.pastQuestionImage.append(image);
+}
+
+function isFitWidthQuestionFigure(question) {
+  return [
+    "r06_second_kikai_seigyo_q03",
+    "r06_second_denryoku_kanri_q04"
+  ].includes(question.id);
 }
 
 function renderPastTabs(tabs) {
