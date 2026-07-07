@@ -947,19 +947,9 @@ function renderPastProblem(question) {
 
   const image = document.createElement("img");
   image.className = "past-question-img";
-  if (isLargeQuestionFigure(question)) {
-    image.classList.add("past-question-img-large");
-  }
   image.alt = "過去問の問題図";
   setImageSource(image, question.questionImage);
   elements.pastQuestionImage.append(image);
-}
-
-function isLargeQuestionFigure(question) {
-  return [
-    "r06_second_kikai_seigyo_q03",
-    "r06_second_denryoku_kanri_q04"
-  ].includes(question.id);
 }
 
 function renderPastTabs(tabs) {
@@ -1437,15 +1427,17 @@ function formulaTextToLatex(text) {
 }
 
 function targetAwareWrapText(text) {
-  return normalizeFormulaText(typeof text === "string" ? text : String(text ?? ""));
+  return normalizeFormulaText(normalizeNestedQuestionLabels(typeof text === "string" ? text : String(text ?? "")));
 }
 
 function wrapAnswerText(text) {
-  if (String(text ?? "").includes("\\(") || String(text ?? "").includes("\\[")) {
-    return String(text ?? "").trim();
+  const normalizedText = normalizeNestedQuestionLabels(String(text ?? ""));
+
+  if (normalizedText.includes("\\(") || normalizedText.includes("\\[")) {
+    return normalizedText.trim();
   }
 
-  return cleanupWrappedLines(String(text ?? "")
+  return cleanupWrappedLines(normalizedText
     .replace(/\s+\/\s+/g, "\n")
     .replace(/\s*、\s*(?=\()/g, "\n")
     .replace(/\s*。\s*(?=\()/g, "。\n")
@@ -1457,6 +1449,12 @@ function wrapAnswerText(text) {
     .replace(/(\\\([^)]{34,}\\\))/g, "\n$1\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim());
+}
+
+function normalizeNestedQuestionLabels(text) {
+  return String(text ?? "")
+    .replace(/\((\d+)\)(?:\s|<br\s*\/?>)+\(([a-z])\)/gi, "($1)($2)")
+    .replace(/\((\d+)\)\(([a-z])\)/gi, "($1)\u2060($2)");
 }
 
 function cleanupWrappedLines(text) {
