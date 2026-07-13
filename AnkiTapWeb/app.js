@@ -933,6 +933,7 @@ function renderPastProblem(question) {
   }
 
   elements.pastQuestionImage.textContent = "";
+  elements.pastQuestionImage.classList.remove("past-question-image-full-height");
 
   if (!question.questionImage) {
     elements.pastQuestionImage.closest(".past-question-panel").classList.add("no-question-image");
@@ -950,6 +951,9 @@ function renderPastProblem(question) {
   if (isFitWidthQuestionFigure(question)) {
     image.classList.add("past-question-img-fit-width");
   }
+  if (question.id === "r05_second_kikai_seigyo_q03") {
+    elements.pastQuestionImage.classList.add("past-question-image-full-height");
+  }
   image.alt = "過去問の問題図";
   setImageSource(image, question.questionImage);
   elements.pastQuestionImage.append(image);
@@ -960,6 +964,7 @@ function isFitWidthQuestionFigure(question) {
     "r06_second_kikai_seigyo_q03",
     "r06_second_denryoku_kanri_q04",
     "r05_second_kikai_seigyo_q02",
+    "r05_second_kikai_seigyo_q03",
     "r05_second_kikai_seigyo_q04",
     "r05_second_denryoku_kanri_q03",
     "r05_second_denryoku_kanri_q04",

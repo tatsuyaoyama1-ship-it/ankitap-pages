@@ -329,6 +329,11 @@ progress::-webkit-progress-value {
   max-height: none;
 }
 
+.past-question-image.past-question-image-full-height {
+  max-height: none;
+  overflow: visible;
+}
+
 .past-answer-panel {
   display: grid;
   grid-template-rows: auto minmax(96px, 1fr);
