@@ -962,7 +962,8 @@ function isFitWidthQuestionFigure(question) {
     "r05_second_kikai_seigyo_q02",
     "r05_second_kikai_seigyo_q04",
     "r05_second_denryoku_kanri_q03",
-    "r05_second_denryoku_kanri_q04"
+    "r05_second_denryoku_kanri_q04",
+    "r03_second_denryoku_kanri_q05"
   ].includes(question.id);
 }
 
@@ -1005,7 +1006,10 @@ function renderPastTabContent(question, tab) {
   }
 
   if (tab.key === "blank_answers_list") {
-    renderAnswerTextWithImages(elements.pastAnswerContent, blankAnswersListText(question), null);
+    const answerText = /\([A-Z]\)\s*[:：]/.test(question.final_answer || "")
+      ? `${filledQuestionText(question)}\n\n${blankAnswersListText(question)}`
+      : blankAnswersListText(question);
+    renderAnswerTextWithImages(elements.pastAnswerContent, answerText, null);
     return;
   }
 
@@ -1273,7 +1277,9 @@ function renderFillBlankQuestion(target, question, filled) {
 }
 
 function blankedQuestionText(question) {
-  return (question.questionText || "未入力です。").replace(/【blank(\d+)】/g, (_match, number) => `【空欄${number}】`);
+  return (question.questionText || "未入力です。").replace(/【blank(\d+)】/g, (_match, number) => {
+    return `【空欄${blankDisplayLabel(question, number)}】`;
+  });
 }
 
 function filledQuestionText(question) {
@@ -1286,7 +1292,7 @@ function blankAnswersListText(question) {
   const answers = Object.entries(question.blankAnswers)
     .map(([key, answer]) => {
       const number = key.replace(/^blank/, "");
-      return `空欄${number}: ${answer}`;
+      return `空欄${blankDisplayLabel(question, number)}: ${answer}`;
     });
 
   if (answers.length > 0) {
@@ -1294,6 +1300,15 @@ function blankAnswersListText(question) {
   }
 
   return question.final_answer || "未入力です。";
+}
+
+function blankDisplayLabel(question, number) {
+  if (/\([A-Z]\)\s*[:：]/.test(question.final_answer || "")) {
+    const index = Number(number) - 1;
+    return index >= 0 && index < 26 ? String.fromCharCode(65 + index) : number;
+  }
+
+  return number;
 }
 
 function countCards(category) {
