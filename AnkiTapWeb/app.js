@@ -898,21 +898,8 @@ function calculationTabsFor(question) {
   }];
 }
 
-function renderDebugMeta(question) {
-  const values = [
-    `year: ${question.year || "-"}`,
-    `stage: ${question.stage || "-"}`,
-    `subject: ${question.subject || "-"}`,
-    `question_no: ${question.questionNo || "-"}`,
-    `question_type: ${question.questionType || "calculation"}`
-  ];
-
-  elements.debugMeta.textContent = values.join(" / ");
-  elements.debugMeta.classList.remove("hidden");
-  elements.pastDebugMeta.textContent = values.join(" / ");
-  elements.pastDebugMeta.classList.remove("hidden");
-  elements.pastReviewStatus.textContent = `確認状態: ${question.reviewStatus || "draft"}`;
-  elements.pastReviewStatus.classList.remove("hidden");
+function renderDebugMeta() {
+  hideDebugMeta();
 }
 
 function hideDebugMeta() {
@@ -950,9 +937,14 @@ function renderPastProblem(question) {
   image.className = "past-question-img";
   if (isFitWidthQuestionFigure(question)) {
     image.classList.add("past-question-img-fit-width");
-  }
-  if (question.id === "r05_second_kikai_seigyo_q03") {
     elements.pastQuestionImage.classList.add("past-question-image-full-height");
+  }
+  if (isTallQuestionFigure(question)) {
+    image.classList.add("past-question-img-tall");
+    elements.pastQuestionImage.classList.add("past-question-image-full-height");
+  }
+  if (hasTrimmedImageBorder(question.questionImage)) {
+    image.classList.add("image-trim-border");
   }
   image.alt = "過去問の問題図";
   setImageSource(image, question.questionImage);
@@ -970,6 +962,35 @@ function isFitWidthQuestionFigure(question) {
     "r05_second_denryoku_kanri_q04",
     "r03_second_denryoku_kanri_q05"
   ].includes(question.id);
+}
+
+function isTallQuestionFigure(question) {
+  return [
+    "h29_second_kikai_seigyo_q03",
+    "h26_second_kikai_seigyo_q02",
+    "h26_second_kikai_seigyo_q03",
+    "h25_second_kikai_seigyo_q03",
+    "r02_second_kikai_seigyo_q03",
+    "r02_second_denryoku_kanri_q06"
+  ].includes(question.id);
+}
+
+function hasTrimmedImageBorder(path) {
+  const normalizedPath = String(path || "").replace(/\.(?:png|webp)$/i, "");
+  return [
+    "data/questions/r02/second/figures/kikai_seigyo_q03_fig",
+    "data/questions/r02/second/figures/kikai_seigyo_q03_answer_fig1",
+    "data/questions/r02/second/figures/kikai_seigyo_q04_fig",
+    "data/questions/r02/second/figures/denryoku_kanri_q03_fig",
+    "data/questions/r02/second/figures/denryoku_kanri_q03_answer_fig1",
+    "data/questions/r02/second/figures/denryoku_kanri_q04_answer_fig1",
+    "data/questions/r02/second/figures/denryoku_kanri_q04_answer_fig2",
+    "data/questions/r01/second/figures/kikai_seigyo_q03_fig",
+    "data/questions/r01/second/figures/kikai_seigyo_q04_fig",
+    "data/questions/r01/second/figures/denryoku_kanri_q04_answer_fig1",
+    "data/questions/r01/second/figures/denryoku_kanri_q05_fig",
+    "data/questions/r01/second/figures/denryoku_kanri_q05_answer_fig1"
+  ].includes(normalizedPath);
 }
 
 function renderPastTabs(tabs) {
@@ -1113,7 +1134,19 @@ function renderEssayContent(target, question) {
 }
 
 function subQuestionsForDisplay(question) {
-  return question.subQuestions.length > 0 ? question.subQuestions : [{
+  if (question.subQuestions.length > 0) {
+    if (question.id === "r04_second_denryoku_kanri_q01") {
+      return question.subQuestions.map((subQuestion, index) => ({
+        ...subQuestion,
+        label: /^\(\d+\)/.test(subQuestion.label)
+          ? subQuestion.label
+          : `(${index + 1}) ${subQuestion.label}`
+      }));
+    }
+    return question.subQuestions;
+  }
+
+  return [{
     label: "解答",
     policy: question.answer_policy,
     formulas: question.formulas,
@@ -1232,6 +1265,9 @@ function appendAnswerImages(target, images) {
   section.append(heading, ...images.map((path, index) => {
     const image = document.createElement("img");
     image.className = "answer-image";
+    if (hasTrimmedImageBorder(path)) {
+      image.classList.add("image-trim-border");
+    }
     image.alt = `解答図${index + 1}`;
     setImageSource(image, path);
     return image;
@@ -1379,7 +1415,10 @@ function mathMarkup(text) {
     return escapeHTML(String(text ?? "")).replace(/\n/g, "<br>");
   }
 
-  const normalizedText = targetAwareWrapText(text);
+  const normalizedText = String(text ?? "")
+    .split("\n")
+    .map(line => isRawLatexFormulaLine(line) ? line : targetAwareWrapText(line))
+    .join("\n");
   return mathTextMarkup(normalizedText);
 }
 
@@ -1391,6 +1430,10 @@ function mathTextMarkup(text) {
 }
 
 function inlineFormulaMarkup(line) {
+  if (isRawLatexFormulaLine(line)) {
+    return `\\(${escapeHTML(line.trim())}\\)`;
+  }
+
   if (!looksLikeFormulaLine(line)) {
     return escapeHTML(line);
   }
@@ -1421,6 +1464,10 @@ function inlineFormulaMarkup(line) {
   }
 
   return escapeHTML(line);
+}
+
+function isRawLatexFormulaLine(line) {
+  return /\\[A-Za-z]+/.test(line);
 }
 
 function formulaToMathHtml(formula) {

@@ -329,6 +329,15 @@ progress::-webkit-progress-value {
   max-height: none;
 }
 
+.past-question-img.past-question-img-tall {
+  width: min(100%, 520px);
+  max-height: none;
+}
+
+.image-trim-border {
+  clip-path: inset(20px);
+}
+
 .past-question-image.past-question-image-full-height {
   max-height: none;
   overflow: visible;
