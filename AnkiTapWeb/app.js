@@ -1032,7 +1032,9 @@ function renderPastTabContent(question, tab) {
   }
 
   if (tab.key === "blank_answers_list") {
-    const answerText = /\([A-Z]\)\s*[:：]/.test(question.final_answer || "")
+    const shouldIncludeFilledQuestion = question.id !== "r03_second_denryoku_kanri_q05"
+      && /\([A-Z]\)\s*[:：]/.test(question.final_answer || "");
+    const answerText = shouldIncludeFilledQuestion
       ? `${filledQuestionText(question)}\n\n${blankAnswersListText(question)}`
       : blankAnswersListText(question);
     renderAnswerTextWithImages(elements.pastAnswerContent, answerText, null);
@@ -1534,6 +1536,7 @@ function wrapAnswerText(text) {
 
 function normalizeNestedQuestionLabels(text) {
   return String(text ?? "")
+    .replace(/(\(\d+\))、(?=\(\d+\))/g, "$1\u2060、\u2060")
     .replace(/\((\d+)\)(?:\s|<br\s*\/?>)+\(([a-z])\)/gi, "($1)($2)")
     .replace(/\((\d+)\)\(([a-z])\)/gi, "($1)\u2060($2)");
 }
