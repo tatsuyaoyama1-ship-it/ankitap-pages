@@ -703,7 +703,8 @@ function printQuestionText(question) {
 }
 
 function appendPrintImage(target, question) {
-  if (!question.questionImage) {
+  const paths = imageList(question.questionImage);
+  if (paths.length === 0) {
     return;
   }
 
@@ -711,11 +712,14 @@ function appendPrintImage(target, question) {
   section.className = "print-section print-image-section";
   const heading = document.createElement("h3");
   heading.textContent = "問題図";
-  const image = document.createElement("img");
-  image.className = "print-question-image";
-  image.alt = "問題図";
-  setImageSource(image, question.questionImage);
-  section.append(heading, image);
+  const images = paths.map((path, index) => {
+    const image = document.createElement("img");
+    image.className = "print-question-image";
+    image.alt = `問題図${index + 1}`;
+    setImageSource(image, path);
+    return image;
+  });
+  section.append(heading, ...images);
   target.append(section);
 }
 
@@ -921,8 +925,9 @@ function renderPastProblem(question) {
 
   elements.pastQuestionImage.textContent = "";
   elements.pastQuestionImage.classList.remove("past-question-image-full-height");
+  const imagePaths = imageList(question.questionImage);
 
-  if (!question.questionImage) {
+  if (imagePaths.length === 0) {
     elements.pastQuestionImage.closest(".past-question-panel").classList.add("no-question-image");
     elements.pastQuestionImageLabel.classList.add("hidden");
     elements.pastQuestionImage.classList.add("hidden");
@@ -933,22 +938,25 @@ function renderPastProblem(question) {
   elements.pastQuestionImageLabel.classList.remove("hidden");
   elements.pastQuestionImage.classList.remove("hidden");
 
-  const image = document.createElement("img");
-  image.className = "past-question-img";
-  if (isFitWidthQuestionFigure(question)) {
-    image.classList.add("past-question-img-fit-width");
-    elements.pastQuestionImage.classList.add("past-question-image-full-height");
-  }
-  if (isTallQuestionFigure(question)) {
-    image.classList.add("past-question-img-tall");
-    elements.pastQuestionImage.classList.add("past-question-image-full-height");
-  }
-  if (hasTrimmedImageBorder(question.questionImage)) {
-    image.classList.add("image-trim-border");
-  }
-  image.alt = "過去問の問題図";
-  setImageSource(image, question.questionImage);
-  elements.pastQuestionImage.append(image);
+  const images = imagePaths.map((path, index) => {
+    const image = document.createElement("img");
+    image.className = "past-question-img";
+    if (isFitWidthQuestionFigure(question)) {
+      image.classList.add("past-question-img-fit-width");
+      elements.pastQuestionImage.classList.add("past-question-image-full-height");
+    }
+    if (isTallQuestionFigure(question)) {
+      image.classList.add("past-question-img-tall");
+      elements.pastQuestionImage.classList.add("past-question-image-full-height");
+    }
+    if (hasTrimmedImageBorder(path)) {
+      image.classList.add("image-trim-border");
+    }
+    image.alt = `過去問の問題図${index + 1}`;
+    setImageSource(image, path);
+    return image;
+  });
+  elements.pastQuestionImage.append(...images);
 }
 
 function isFitWidthQuestionFigure(question) {
@@ -960,7 +968,9 @@ function isFitWidthQuestionFigure(question) {
     "r05_second_kikai_seigyo_q04",
     "r05_second_denryoku_kanri_q03",
     "r05_second_denryoku_kanri_q04",
-    "r03_second_denryoku_kanri_q05"
+    "r03_second_denryoku_kanri_q05",
+    "r01_second_denryoku_kanri_q03",
+    "r01_second_denryoku_kanri_q04"
   ].includes(question.id);
 }
 
@@ -988,7 +998,6 @@ function hasTrimmedImageBorder(path) {
     "data/questions/r01/second/figures/kikai_seigyo_q03_fig",
     "data/questions/r01/second/figures/kikai_seigyo_q04_fig",
     "data/questions/r01/second/figures/denryoku_kanri_q04_answer_fig1",
-    "data/questions/r01/second/figures/denryoku_kanri_q05_fig",
     "data/questions/r01/second/figures/denryoku_kanri_q05_answer_fig1"
   ].includes(normalizedPath);
 }
