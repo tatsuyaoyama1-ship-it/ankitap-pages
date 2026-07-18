@@ -961,6 +961,9 @@ function renderPastProblem(question) {
 
 function isFitWidthQuestionFigure(question) {
   return [
+    "h30_second_kikai_seigyo_q03",
+    "h30_second_kikai_seigyo_q04",
+    "h30_second_denryoku_kanri_q02",
     "r06_second_kikai_seigyo_q03",
     "r06_second_denryoku_kanri_q04",
     "r05_second_kikai_seigyo_q02",
