@@ -10613,12 +10613,23 @@ I_{L5}=\frac{j\frac{1}{X_{C5}}}{jX_{L05}+jX_{L5}+j\frac{1}{X_{C5}}}I_5
 \]
 "	data/questions/h25/second/figures/denryoku_kanri_q05_answer_fig1.png																						(3) 6 [%]の直列リアクトルを接続しない場合の高圧配電系に流出する第5調波電流を \(I'_{L5}\,[\mathrm{A}]\) とすると、\(I'_{L5}\) は、接続時の流出電流 \(I_{L5}\) の何 [%]となるか求めよ。					"題意より \(X_L\) がない場合は，(2)において \(X_{L5}=0\) となるので，
 \[
-I_{L5}=12.0\,\mathrm{A}
+I'_{L5}
+=\frac{\dfrac{1}{j}X_{C5}}{jX_{L05}+\dfrac{1}{j}X_{C5}}\times I_5
+\]
+\[
+=\frac{j(-6)}{j(1-6)}\times10
+\]
+\[
+=\frac{6}{5}\times10
+\]
+\[
+=12.0\,[\mathrm{A}]
 \]
 よって，
 \[
-\frac{I_{L5}\text{（リアクトルなし）}}{I_{L5}\text{（リアクトルあり）}}\times100
-=\frac{12.0}{7.50}\times100=160\,\%
+\left(\frac{I'_{L5}}{I_{L5}}\right)\times100
+=\frac{12.0}{7.50}\times100
+=160\,[\%]
 \]"																																																																																																	"(1) 進相コンデンサに直列リアクトルを接続する理由を二つ述べよ。
 ① 配電系に流出する高調波電流を抑制し，配電系の電圧ひずみ率の上昇を抑える。
 
@@ -10796,13 +10807,13 @@ I_2=\frac{V_t}{R+r_2+jX}
 \[
 T_s=\frac{3r_2I_2^2}{\omega_0}=\frac{3\times0.1\times301.08^2}{188.50}=144.27\rightarrow144\,\mathrm{N\cdot m}
 \]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf p.9	draft
-h25_second_kikai_seigyo_q02	h25	second	kikai_seigyo	2	calculation	図のように同一の単相変圧器2台をV結線し、一次側を線間電圧400 [V]の平衡三相交流電源に接続する。一次巻線と二次巻線の巻数比は2:1であり、一次及び二次の漏れリアクタンスはそれぞれ0.32 [\Omega]、0.12 [\Omega]である。ある三相負荷を二次側に接続すると、三相交流電源には50 [A]で力率1の平衡三相電流が流れた。次の問に答えよ。ただし、励磁電流、鉄損及び巻線抵抗は無視でき、変圧器鉄心は磁気飽和しないものとする。	data/questions/h25/second/figures/kikai_seigyo_q02_fig.png	(1) 無負荷時の二次電圧 \(V_{2ab}\,[\mathrm{V}]\) を求めよ。					"\(V_{1ab}:V_{2ab}=2:1\) であるので，
+h25_second_kikai_seigyo_q02	h25	second	kikai_seigyo	2	calculation	図のように同一の単相変圧器2台をV結線し、一次側を線間電圧 \(400\,[\mathrm{V}]\) の平衡三相交流電源に接続する。一次巻線と二次巻線の巻数比は \(2:1\) であり、一次及び二次の漏れリアクタンスはそれぞれ \(0.32\,[\Omega]\)、\(0.12\,[\Omega]\) である。ある三相負荷を二次側に接続すると、三相交流電源には \(50\,[\mathrm{A}]\) で力率1の平衡三相電流が流れた。次の問に答えよ。ただし、励磁電流、鉄損及び巻線抵抗は無視でき、変圧器鉄心は磁気飽和しないものとする。	data/questions/h25/second/figures/kikai_seigyo_q02_fig.png	(1) 無負荷時の二次電圧 \(V_{2ab}\,[\mathrm{V}]\) を求めよ。					"\(V_{1ab}:V_{2ab}=2:1\) であるので，
 \[
 V_{2ab}=\frac{1}{2}V_{1ab}=\frac{1}{2}\times400=200\,\mathrm{V}
 \]"																(2) 三相負荷を接続した場合の変圧器二次電流 \(I_{2a}\,[\mathrm{A}]\) を求めよ。					"\(I_{1a}:I_{2a}=1:2\) であるので，
 \[
 I_{2a}=2I_{1a}=2\times50=100\,\mathrm{A}
-\]"																							(3) 一次及び二次の漏れリアクタンスを合成したリアクタンスの二次側換算値 [\Omega]を求めよ。					"一次漏れリアクタンス \(x_1\) を二次側換算すると，
+\]"																							(3) 一次及び二次の漏れリアクタンスを合成したリアクタンスの二次側換算値 \([\Omega]\) を求めよ。					"一次漏れリアクタンス \(x_1\) を二次側換算すると，
 \[
 x_1^{\prime}=\left(\frac{1}{2}\right)^2\times0.32=0.08\,\Omega
 \]
@@ -10835,28 +10846,27 @@ V_{2cb}=\sqrt{(10\sqrt{3})^2+210^2}=210.71\rightarrow211\,\mathrm{V}
 \]
 であるので，2台の変圧器の有効電力 \(P_{2ab}\)，\(P_{2cb}\) 及び無効電力 \(Q_{2ab}\)，\(Q_{2cb}\) は，
 \[
-P_{2ab}+jQ_{2ab}=\dot{V}_{2ab}\dot{I}_{2a}=(100\sqrt{3}+j80)100=10000\sqrt{3}+j8000
+P_{2ab}+jQ_{2ab}=\overline{\dot{V}}_{2ab}\dot{I}_{2a}=(100\sqrt{3}-j80)\times100=10000\sqrt{3}-j8000
 \]
 \[
-P_{2cb}+jQ_{2cb}=\dot{V}_{2cb}\dot{I}_{2c}=(10\sqrt{3}+j210)(-50+j50\sqrt{3})=10000\sqrt{3}+j12000
+P_{2cb}+jQ_{2cb}=\overline{\dot{V}}_{2cb}\dot{I}_{2c}=(10\sqrt{3}-j210)\times(-50+j50\sqrt{3})=10000\sqrt{3}+j12000
 \]
 したがって，
 \[
-P_{2ab}=10000\sqrt{3}=17320\,\mathrm{W}=17.3\,\mathrm{kW}
+P_{2ab}=10000\sqrt{3}=17320\,[\mathrm{W}]\to17.3\,[\mathrm{kW}]
 \]
 \[
-P_{2cb}=10000\sqrt{3}=17320\,\mathrm{W}=17.3\,\mathrm{kW}
+P_{2cb}=10000\sqrt{3}=17320\,[\mathrm{W}]\to17.3\,[\mathrm{kW}]
 \]
 
-［別解］なお，変圧器の損失は無視できるので，負荷へ供給する電力は一次入力電力に等しく，\(P_{2ab}=P_{1ab}\) かつ \(P_{2cb}=P_{1cb}\) である。このとき，一次電圧と一次電流の位相差は \(\pi/6\,[\mathrm{rad}]\) であるので，
+［別解］なお，変圧器の損失は無視できるので，負荷へ供給する電力は一次入力電力に等しく，\(P_{2ab}=P_{1ab}\) かつ \(P_{2cb}=P_{1cb}\) である。このとき，一次電圧と一次電流の位相差は \(\dfrac{\pi}{6}\,[\mathrm{rad}]\) であるので，
 \[
-P_{2ab}=P_{1ab}=V_{ab}I_a\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=17320\,[\mathrm{W}]=17.3\,[\mathrm{kW}]
+P_{2ab}=P_{1ab}=V_{ab}I_a\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=17320\,[\mathrm{W}]\to17.3\,[\mathrm{kW}]
 \]
 \[
-P_{2cb}=P_{1cb}=V_{cb}I_c\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=17320\,[\mathrm{W}]=17.3\,[\mathrm{kW}]
+P_{2cb}=P_{1cb}=V_{cb}I_c\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=17320\,[\mathrm{W}]\to17.3\,[\mathrm{kW}]
 \]
-としてもよい。
-"																											"(1) 無負荷時の二次電圧 \(V_{2ab}\,[\mathrm{V}]\) を求めよ。
+としてもよい。"																											"(1) 無負荷時の二次電圧 \(V_{2ab}\,[\mathrm{V}]\) を求めよ。
 \(V_{1ab}:V_{2ab}=2:1\) であるので，
 \[
 V_{2ab}=\frac{1}{2}V_{1ab}=\frac{1}{2}\times400=200\,\mathrm{V}
@@ -10929,24 +10939,29 @@ P_{2ab}=P_{1ab}=V_{ab}I_a\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=1
 P_{2cb}=P_{1cb}=V_{cb}I_c\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=17320\,[\mathrm{W}]=17.3\,[\mathrm{kW}]
 \]
 としてもよい。"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.10-11	draft
-h25_second_kikai_seigyo_q03	h25	second	kikai_seigyo	3	calculation	図1は、逆並列接続されたサイリスタによる単相交流電力調整回路を示す。交流電源の電圧を \(v=\sqrt{2}V\sin\omega t\,[\mathrm{V}]\)、サイリスタ \(\mathrm{Th}_1\)、\(\mathrm{Th}_2\) の制御遅れ角を \(\alpha\,[\mathrm{rad}]\) として、次の問に答えよ。ただし、サイリスタの損失は無視できるものとする。	data/questions/h25/second/figures/kikai_seigyo_q03_fig.png	(1) 横軸を \(\omega t\,[\mathrm{rad}]\) とし、電圧 \(v\)、及び \(\mathrm{Th}_1\)、\(\mathrm{Th}_2\) に加えられるゲートパルス \(G_1\)、\(G_2\) の波形を示した図2と同じ図が答案用紙に印刷されている。これに、負荷が純抵抗 \(R\,[\Omega]\) の場合の \(\mathrm{Th}_1\) に加わる電圧 \(v_1\) 及び流れる電流 \(i_1\) の波形、並びに負荷電流 \(i_L\) の波形を太線で明確に示せ。					\(Th_1\) の電圧 \(v_1\)，\(Th_1\) の電流 \(i_1\)，及び負荷電流 \(i_L\) の波形は標準解答図の波形となる。電圧 \(v_1\) にはサイリスタ \(Th_2\) がオンしたときに電圧が零となる影響が現れるが，電流 \(i_1\) はサイリスタ \(Th_1\) に流れる電流だけである。負荷電流 \(i_L\) は正負の電流が流れる。	data/questions/h25/second/figures/kikai_seigyo_q03_answer_fig1.png															(2) 小問(1)における負荷電流 \(i_L\) の実効値 \(I_L\,[\mathrm{A}]\) を \(V\)、\(R\) 及び \(\alpha\) を用いて表せ。ただし、\(\int\sin^2\theta\,d\theta=-\frac{1}{4}\sin2\theta+\frac{1}{2}\theta+C\) を利用してよい。					"\(Th_1\) 又は \(Th_2\) がオンしている期間，負荷には次の電流 \(i_{L0}\) が流れる。
+h25_second_kikai_seigyo_q03	h25	second	kikai_seigyo	3	calculation	図1は、逆並列接続されたサイリスタによる単相交流電力調整回路を示す。交流電源の電圧を \(v=\sqrt{2}V\sin\omega t\,[\mathrm{V}]\)、サイリスタ \(\mathrm{Th}_1\)、\(\mathrm{Th}_2\) の制御遅れ角を \(\alpha\,[\mathrm{rad}]\) として、次の問に答えよ。ただし、サイリスタの損失は無視できるものとする。	data/questions/h25/second/figures/kikai_seigyo_q03_fig.png	(1) 横軸を \(\omega t\,[\mathrm{rad}]\) とし、電圧 \(v\)、及び \(\mathrm{Th}_1\)、\(\mathrm{Th}_2\) に加えられるゲートパルス \(G_1\)、\(G_2\) の波形を示した図2と同じ図が答案用紙に印刷されている。これに、負荷が純抵抗 \(R\,[\Omega]\) の場合の \(\mathrm{Th}_1\) に加わる電圧 \(v_1\) 及び流れる電流 \(i_1\) の波形、並びに負荷電流 \(i_L\) の波形を太線で明確に示せ。					\(Th_1\) の電圧 \(v_1\)，\(Th_1\) の電流 \(i_1\)，及び負荷電流 \(i_L\) の波形は標準解答図の波形となる。電圧 \(v_1\) にはサイリスタ \(Th_2\) がオンしたときに電圧が零となる影響が現れるが，電流 \(i_1\) はサイリスタ \(Th_1\) に流れる電流だけである。負荷電流 \(i_L\) は正負の電流が流れる。	data/questions/h25/second/figures/kikai_seigyo_q03_answer_fig1.png															(2) 小問(1)における負荷電流 \(i_L\) の実効値 \(I_L\,[\mathrm{A}]\) を \(V\)、\(R\) 及び \(\alpha\) を用いて表せ。ただし、\(\int\sin^2\theta\,d\theta=-\frac{1}{4}\sin2\theta+\frac{1}{2}\theta+C\) を利用してよい。					"\(\mathrm{Th}_1\) 又は \(\mathrm{Th}_2\) がオンしている期間，負荷には次の電流 \(i_{L0}\) が流れる。
 \[
-i_{L0}=\frac{\sqrt{2}V}{R}\sin\omega t=\sqrt{2}I\sin\omega t\quad[\mathrm{A}],\qquad I=\frac{V}{R}
+i_{L0}=\sqrt{2}\frac{V}{R}\sin\omega t=\sqrt{2}I\sin\omega t\,[\mathrm{A}],\qquad I=\frac{V}{R}
 \]
-制御遅れ角 \(\alpha\) [rad] における負荷電流 \(i_L\) の実効値 \(I_L\) [A] は，半周期で求めればよいので次式となる。
+制御遅れ角 \(\alpha\,[\mathrm{rad}]\) における負荷電流 \(i_L\) の実効値 \(I_L\,[\mathrm{A}]\) は，半周期で求めればよいので次式となる。
 \[
-I_L=\sqrt{\frac{1}{\pi}\int_{\alpha}^{\pi}(\sqrt{2}I\sin\omega t)^2d(\omega t)}
-\]
-\[
-=I\sqrt{\frac{2}{\pi}\int_{\alpha}^{\pi}\sin^2\omega t\,d(\omega t)}
+I_L=\sqrt{\frac{1}{\pi}\int_{\alpha}^{\pi}(\sqrt{2}I\sin\omega t)^2\,d(\omega t)}
+=I\sqrt{\frac{2}{\pi}\int_{\alpha}^{\pi}\sin^2\omega t\,d(\omega t)}\,[\mathrm{A}]
 \]
 ここで，
 \[
-\int\sin^2\theta\,d\theta=\frac{\theta}{2}-\frac{\sin2\theta}{4}+C
+\int\sin^2\theta\,d\theta=-\frac{1}{4}\sin2\theta+\frac{1}{2}\theta+C
 \]
-を利用すると，
+を利用する。
 \[
-I_L=I\sqrt{\frac{1}{\pi}\left(\pi-\alpha+\frac{\sin2\alpha}{2}\right)}
+\int_{\alpha}^{\pi}\sin^2\omega t\,d(\omega t)
+=\left[-\frac{1}{4}\sin2\omega t+\frac{1}{2}\omega t\right]_{\alpha}^{\pi}
+=\frac{\pi-\alpha}{2}+\frac{\sin2\alpha}{4}
+\]
+したがって，実効値 \(I_L\,[\mathrm{A}]\) は次式となる。
+\[
+I_L=I\sqrt{\frac{2}{\pi}\left(\frac{\pi-\alpha}{2}+\frac{\sin2\alpha}{4}\right)}
+=\frac{V}{R}\sqrt{\frac{2(\pi-\alpha)+\sin2\alpha}{2\pi}}\,[\mathrm{A}]
 \]"																							(3) 負荷が純インダクタンスのリアクトルの場合、リアクトルに印加する電圧の制御が可能な制御遅れ角 \(\alpha\,[\mathrm{rad}]\) の範囲を示せ。					"負荷がインダクタンス \(L\) のリアクトルと抵抗 \(R\) とが直列接続された誘導性負荷の場合，負荷の力率角を \(\gamma=\tan^{-1}(\omega L/R)\) [rad] とすると，制御遅れ角 \(\alpha>\gamma\) [rad] の範囲で電圧制御が可能である。
 
 純インダクタンスの負荷であれば，
@@ -11050,32 +11065,52 @@ E(s)=R(s)-\boxed{\text{(d)}}\cdot U(s)
 \]
 となる。"					"図から各変数の間に成り立つ関係を記述すると，
 \[
-U(s)=F(s)R(s)+C_1(s)E(s)-C_2(s)G(s)U(s)
+U(s)=F(s)R(s)+C_1(s)E(s)-C_2(s)G(s)U(s)\qquad\cdots\text{①}
 \]
 \[
-E(s)=R(s)-G(s)U(s)
+E(s)=R(s)-G(s)U(s)\qquad\cdots\text{②}
 \]
-が得られる。これから，
+が得られる。これから，答は次となる。
 \[
 (a)=F(s),\quad(b)=C_1(s),\quad(c)=C_2(s)G(s),\quad(d)=G(s)
 \]
-となる。
-
-また，整理すると，
+①式から，
 \[
-\frac{E(s)}{R(s)}=\frac{1+C_2(s)G(s)-F(s)G(s)}{1+C_2(s)G(s)+C_1(s)G(s)}
+U(s)=\frac{F(s)R(s)+C_1(s)E(s)}{1+C_2(s)G(s)}
 \]
-となる。したがって，
+が得られ，これを②式へ代入すると，
+\[
+E(s)=R(s)-G(s)\cdot\frac{F(s)R(s)+C_1(s)E(s)}{1+C_2(s)G(s)}
+\]
+となり，上式を整理すると，
+\[
+\left[1+\frac{C_1(s)G(s)}{1+C_2(s)G(s)}\right]E(s)
+=\left[1-\frac{G(s)F(s)}{1+C_2(s)G(s)}\right]R(s)
+\]
+が得られる。したがって，
+\[
+\frac{E(s)}{R(s)}
+=\frac{1+C_2(s)G(s)-F(s)G(s)}{1+C_2(s)G(s)+C_1(s)G(s)}
+\]
+となる。以上から，答は次となる。
 \[
 (e)=G(s)[C_2(s)-F(s)],\quad(f)=G(s)[C_2(s)+C_1(s)]
-\]となる。"																														(5) 小問(4)において、\(F(s)=4\)、\(C_1(s)=K_1\left(1+\dfrac{1}{s}\right)\)、\(C_2(s)=K_2s\)、\(G(s)=\dfrac{1}{s^2+4}\) を代入したとき、ランプ状の目標値 \(r(t)=t\) に対する定常偏差を求めよ。					"\(F(s)\)，\(C_1(s)\)，\(C_2(s)\) 及び \(G(s)\) の各伝達関数を代入すると，
+\]"																														(5) 小問(4)において、\(F(s)=4\)、\(C_1(s)=K_1\left(1+\dfrac{1}{s}\right)\)、\(C_2(s)=K_2s\)、\(G(s)=\dfrac{1}{s^2+4}\) を代入したとき、ランプ状の目標値 \(r(t)=t\) に対する定常偏差を求めよ。					"\(F(s)\)，\(C_1(s)\)，\(C_2(s)\) 及び \(G(s)\) の各伝達関数を代入すると，
 \[
-\frac{E(s)}{R(s)}=\frac{s^2(s+K_2)}{s(s^2+4)+K_2s^2+K_1s+K_1}
+\frac{E(s)}{R(s)}
+=\frac{1+\dfrac{K_2s}{s^2+4}-\dfrac{4}{s^2+4}}
+{1+\dfrac{K_2s}{s^2+4}+\dfrac{K_1s+K_1}{s(s^2+4)}}
 \]
-ここで，目標値 \(r(t)=t\) のラプラス変換 \(\mathcal{L}[t]=1/s^2\) を利用し，最終値の定理を用いると，
 \[
-e(\infty)=\lim_{s\to0}s\frac{s^2(s+K_2)}{s(s^2+4)+K_2s^2+K_1s+K_1}\frac{1}{s^2}=0
-\]"																											"(1) 図の制御対象の伝達関数が \(G(s)=\dfrac{1}{s^2+4}\) で与えられるとき、制御対象の単位インパルス応答を求めよ。
+=\frac{s^2(s+K_2)}{s(s^2+4)+K_2s^2+K_1s+K_1}
+\]
+となる。ここで，目標値 \(r(t)=t\) のラプラス変換 \(\mathcal{L}[t]=\dfrac{1}{s^2}\) を利用し，最終値の定理を用いると，
+\[
+e_s=\lim_{s\to0}s\cdot
+\frac{s^2(s+K_2)}{s(s^2+4)+K_2s^2+K_1s+K_1}
+\cdot\frac{1}{s^2}=0
+\]
+が得られる。"																											"(1) 図の制御対象の伝達関数が \(G(s)=\dfrac{1}{s^2+4}\) で与えられるとき、制御対象の単位インパルス応答を求めよ。
 ラプラス変換の公式と \(\mathcal{L}[\delta(t)]=1\) を利用する。ここで，\(\delta(t)\) は単位インパルス入力とする。単位インパルス応答 \(g(t)\) は次式で求められる。
 \[
 g(t)=\mathcal{L}^{-1}\left[\frac{1}{s^2+4}\right]=\frac{1}{2}\sin2t,\quad t\geqq0
