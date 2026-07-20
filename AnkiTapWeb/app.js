@@ -964,6 +964,9 @@ function isFitWidthQuestionFigure(question) {
     "h30_second_kikai_seigyo_q03",
     "h30_second_kikai_seigyo_q04",
     "h30_second_denryoku_kanri_q02",
+    "h28_second_kikai_seigyo_q03",
+    "h28_second_denryoku_kanri_q06",
+    "h27_second_denryoku_kanri_q03",
     "r06_second_kikai_seigyo_q03",
     "r06_second_denryoku_kanri_q04",
     "r05_second_kikai_seigyo_q02",
@@ -979,7 +982,9 @@ function isFitWidthQuestionFigure(question) {
 
 function isTallQuestionFigure(question) {
   return [
+    "h29_second_kikai_seigyo_q04",
     "h29_second_kikai_seigyo_q03",
+    "h27_second_kikai_seigyo_q03",
     "h26_second_kikai_seigyo_q02",
     "h26_second_kikai_seigyo_q03",
     "h25_second_kikai_seigyo_q03",
