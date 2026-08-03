@@ -88,6 +88,23 @@ button {
   gap: 10px;
 }
 
+.past-stage-section,
+.past-stage-list {
+  display: grid;
+  gap: 10px;
+}
+
+.past-stage-section + .past-stage-section {
+  margin-top: 12px;
+}
+
+.past-stage-heading {
+  margin: 0;
+  padding: 4px 2px 0;
+  font-size: 18px;
+  color: #334155;
+}
+
 .mode-card,
 .category-card {
   width: 100%;

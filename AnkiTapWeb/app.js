@@ -69,6 +69,11 @@ const subjectLabels = {
   kikai_seigyo: "機械・制御"
 };
 
+const stageLabels = {
+  first: "一次試験",
+  second: "二次試験"
+};
+
 const state = {
   mode: null,
   allCards: [],
@@ -647,17 +652,40 @@ function showListeningMessage(message, isError) {
 
 function renderPastFilters() {
   const filters = pastQuestionFilters();
+  const filtersByStage = new Map();
 
-  elements.pastFilterList.replaceChildren(...filters.map(filter => {
-    const button = document.createElement("button");
-    button.className = "category-card";
-    button.type = "button";
-    button.innerHTML = `<strong></strong><span></span><span aria-hidden="true">›</span>`;
-    button.querySelector("strong").textContent = `${formatYear(filter.year)} ${subjectLabels[filter.subject] ?? filter.subject}`;
-    button.querySelector("span").textContent = `${filter.count}問`;
-    button.addEventListener("click", () => selectPastFilter(filter));
-    return button;
-  }));
+  filters.forEach(filter => {
+    const stageFilters = filtersByStage.get(filter.stage) ?? [];
+    stageFilters.push(filter);
+    filtersByStage.set(filter.stage, stageFilters);
+  });
+
+  const sections = [...filtersByStage.entries()].map(([stage, stageFilters]) => {
+    const section = document.createElement("section");
+    section.className = "past-stage-section";
+
+    const heading = document.createElement("h3");
+    heading.className = "past-stage-heading";
+    heading.textContent = stageLabels[stage] ?? stage;
+
+    const list = document.createElement("div");
+    list.className = "past-stage-list";
+    list.replaceChildren(...stageFilters.map(filter => {
+      const button = document.createElement("button");
+      button.className = "category-card";
+      button.type = "button";
+      button.innerHTML = `<strong></strong><span></span><span aria-hidden="true">›</span>`;
+      button.querySelector("strong").textContent = `${formatYear(filter.year)} ${subjectLabels[filter.subject] ?? filter.subject}`;
+      button.querySelector("span").textContent = `${filter.count}問`;
+      button.addEventListener("click", () => selectPastFilter(filter));
+      return button;
+    }));
+
+    section.append(heading, list);
+    return section;
+  });
+
+  elements.pastFilterList.replaceChildren(...sections);
 
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
@@ -682,16 +710,34 @@ function pastQuestionFilters() {
     }
     return 0;
   };
+  const sortStage = stage => {
+    if (stage === "first") {
+      return 0;
+    }
+    if (stage === "second") {
+      return 1;
+    }
+    return 2;
+  };
   const grouped = new Map();
 
   state.pastQuestions.forEach(question => {
-    const key = `${question.year}\t${question.subject}`;
-    const current = grouped.get(key) ?? { year: question.year, subject: question.subject, count: 0 };
+    const key = `${question.stage}\t${question.year}\t${question.subject}`;
+    const current = grouped.get(key) ?? {
+      stage: question.stage,
+      year: question.year,
+      subject: question.subject,
+      count: 0
+    };
     current.count += 1;
     grouped.set(key, current);
   });
 
   return [...grouped.values()].sort((a, b) => {
+    const stageDiff = sortStage(a.stage) - sortStage(b.stage);
+    if (stageDiff !== 0) {
+      return stageDiff;
+    }
     const yearDiff = sortYear(b.year) - sortYear(a.year);
     if (yearDiff !== 0) {
       return yearDiff;
@@ -715,7 +761,9 @@ function formatYear(year) {
 function selectPastFilter(filter) {
   state.selectedPastFilter = filter;
   state.visiblePastQuestions = state.pastQuestions.filter(question => (
-    question.year === filter.year && question.subject === filter.subject
+    question.stage === filter.stage
+      && question.year === filter.year
+      && question.subject === filter.subject
   ));
   state.pastIndex = 0;
   state.pastStep = 0;
@@ -1064,7 +1112,7 @@ function renderPastQuestion() {
 }
 
 function waitsForAnswerTap(question) {
-  return question.questionType === "essay" || question.questionType === "fill_blank";
+  return question.questionType === "fill_blank";
 }
 
 function pastTabsFor(question) {
