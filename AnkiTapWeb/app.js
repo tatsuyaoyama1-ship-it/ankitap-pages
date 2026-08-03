@@ -81,6 +81,8 @@ const state = {
   pastIndex: 0,
   pastStep: 0,
   pastTabsRevealed: false,
+  revealedBlankCount: 0,
+  blankRevealInProgress: false,
   selectedPastFilter: null
 };
 
@@ -123,6 +125,7 @@ const elements = {
   pastSubject: document.querySelector("#pastSubject"),
   pastDebugMeta: document.querySelector("#pastDebugMeta"),
   pastReviewStatus: document.querySelector("#pastReviewStatus"),
+  pastQuestionPanel: document.querySelector(".past-question-panel"),
   pastQuestionText: document.querySelector("#pastQuestionText"),
   pastQuestionImageLabel: document.querySelector("#pastQuestionImageLabel"),
   pastQuestionImage: document.querySelector("#pastQuestionImage"),
@@ -151,7 +154,8 @@ function bindEvents() {
   elements.nextButton.addEventListener("click", () => handleMove(1));
   elements.pastPreviousButton.addEventListener("click", () => movePastQuestion(-1));
   elements.pastNextButton.addEventListener("click", () => movePastQuestion(1));
-  elements.pastAnswerContent.addEventListener("click", revealPastTabs);
+  elements.pastQuestionPanel.addEventListener("click", handlePastQuestionTap);
+  elements.pastAnswerContent.addEventListener("click", handlePastAnswerTap);
   elements.explanationButton.addEventListener("click", showExplanation);
   elements.closeExplanation.addEventListener("click", () => elements.explanationDialog.close());
   [elements.printYearFilter, elements.printStageFilter, elements.printSubjectFilter, elements.printReviewStatusFilter].forEach(select => {
@@ -407,6 +411,7 @@ function showModeSelection() {
   state.pastIndex = 0;
   state.pastStep = 0;
   state.pastTabsRevealed = false;
+  resetProgressiveBlankState();
   state.visiblePastQuestions = [];
   state.selectedPastFilter = null;
 
@@ -522,6 +527,7 @@ function selectPastFilter(filter) {
   state.pastIndex = 0;
   state.pastStep = 0;
   state.pastTabsRevealed = false;
+  resetProgressiveBlankState();
 
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
@@ -832,6 +838,12 @@ function renderPastQuestion() {
   state.pastStep = Math.max(selectedIndex, 0);
   const tab = tabs[state.pastStep];
   const waitsForTap = waitsForAnswerTap(question);
+  const progressiveBlankKeys = blankKeysInQuestionOrder(question);
+  const usesProgressiveBlanks = question.questionType === "fill_blank" && progressiveBlankKeys.length > 0;
+
+  if (usesProgressiveBlanks) {
+    state.pastTabsRevealed = state.revealedBlankCount >= progressiveBlankKeys.length;
+  }
 
   elements.pastCounter.textContent = `${state.pastIndex + 1} / ${questions.length}`;
   elements.pastSubject.textContent = `${formatYear(question.year)} ${subjectLabels[question.subject] ?? question.subject} 問${question.questionNo}`;
@@ -839,17 +851,19 @@ function renderPastQuestion() {
   elements.pastPreviousButton.disabled = state.pastIndex === 0;
   elements.pastNextButton.textContent = state.pastIndex === questions.length - 1 ? "最初へ" : "次へ";
   elements.shuffleButton.disabled = true;
-  renderPastProblem(question);
+  const problemRender = renderPastProblem(question);
+  setProgressiveBlankTapState(usesProgressiveBlanks && !state.pastTabsRevealed);
 
   if (waitsForTap && !state.pastTabsRevealed) {
     elements.pastTabs.classList.add("hidden");
     elements.pastTabs.replaceChildren();
-    renderAnswerPlaceholder(elements.pastAnswerContent);
-    return;
+    renderAnswerPlaceholder(elements.pastAnswerContent, question);
+    return problemRender;
   }
 
   renderPastTabs(tabs);
   renderPastTabContent(question, tab);
+  return problemRender;
 }
 
 function waitsForAnswerTap(question) {
@@ -917,9 +931,15 @@ function hideDebugMeta() {
 }
 
 function renderPastProblem(question) {
+  let problemRender = Promise.resolve();
+
   if (question.questionText) {
-    const text = question.questionType === "fill_blank" ? blankedQuestionText(question) : question.questionText;
-    renderMath(elements.pastQuestionText, text);
+    if (question.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+      problemRender = renderProgressiveFillBlankQuestion(elements.pastQuestionText, question);
+    } else {
+      const text = question.questionType === "fill_blank" ? blankedQuestionText(question) : question.questionText;
+      renderMath(elements.pastQuestionText, text);
+    }
   } else {
     elements.pastQuestionText.textContent = "問題文は画像を確認してください。";
   }
@@ -932,7 +952,7 @@ function renderPastProblem(question) {
     elements.pastQuestionImage.closest(".past-question-panel").classList.add("no-question-image");
     elements.pastQuestionImageLabel.classList.add("hidden");
     elements.pastQuestionImage.classList.add("hidden");
-    return;
+    return problemRender;
   }
 
   elements.pastQuestionImage.closest(".past-question-panel").classList.remove("no-question-image");
@@ -958,6 +978,7 @@ function renderPastProblem(question) {
     return image;
   });
   elements.pastQuestionImage.append(...images);
+  return problemRender;
 }
 
 function isFitWidthQuestionFigure(question) {
@@ -1086,16 +1107,69 @@ function renderAnswerTextWithImages(target, text, question) {
   }
 }
 
-function renderAnswerPlaceholder(target) {
+function renderAnswerPlaceholder(target, question) {
   target.textContent = "";
   target.classList.remove("sub-question-content");
 
   const button = document.createElement("button");
   button.className = "answer-reveal-button";
   button.type = "button";
-  button.textContent = "タップして解答タブを表示";
-  button.addEventListener("click", revealPastTabs);
+  const blankKeys = blankKeysInQuestionOrder(question);
+
+  if (question.questionType === "fill_blank" && blankKeys.length > 0) {
+    const nextKey = blankKeys[state.revealedBlankCount];
+    const number = nextKey?.replace(/^blank/, "") || state.revealedBlankCount + 1;
+    button.textContent = `空欄${blankDisplayLabel(question, number)}を表示（${state.revealedBlankCount}/${blankKeys.length}）`;
+  } else {
+    button.textContent = "タップして解答タブを表示";
+  }
+
   target.append(button);
+}
+
+function handlePastQuestionTap(event) {
+  if (event.target.closest("button, a, input, select, textarea, summary")) {
+    return;
+  }
+
+  const question = currentPastQuestions()[state.pastIndex];
+  if (question?.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+    revealNextBlank();
+  }
+}
+
+function handlePastAnswerTap() {
+  const question = currentPastQuestions()[state.pastIndex];
+
+  if (question?.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+    revealNextBlank();
+    return;
+  }
+
+  revealPastTabs();
+}
+
+async function revealNextBlank() {
+  if (state.mode !== "past" || state.blankRevealInProgress) {
+    return;
+  }
+
+  const question = currentPastQuestions()[state.pastIndex];
+  const blankKeys = blankKeysInQuestionOrder(question);
+
+  if (question?.questionType !== "fill_blank" || state.revealedBlankCount >= blankKeys.length) {
+    return;
+  }
+
+  state.blankRevealInProgress = true;
+  state.revealedBlankCount += 1;
+  state.pastTabsRevealed = state.revealedBlankCount >= blankKeys.length;
+
+  try {
+    await Promise.resolve(renderPastQuestion());
+  } finally {
+    state.blankRevealInProgress = false;
+  }
 }
 
 function revealPastTabs() {
@@ -1335,6 +1409,90 @@ function renderFillBlankQuestion(target, question, filled) {
   }
 
   renderMath(target, "未入力です。");
+}
+
+function blankKeysInQuestionOrder(question) {
+  const keys = [];
+  const seen = new Set();
+
+  for (const match of String(question?.questionText || "").matchAll(/【(blank\d+)】/g)) {
+    const key = match[1];
+    if (!seen.has(key)) {
+      seen.add(key);
+      keys.push(key);
+    }
+  }
+
+  return keys;
+}
+
+function renderProgressiveFillBlankQuestion(target, question) {
+  target.textContent = "";
+  target.classList.remove("sub-question-content");
+
+  const wrapper = document.createElement("span");
+  wrapper.className = "progressive-blank-text";
+  const questionText = question.questionText || "未入力です。";
+  const blankKeys = blankKeysInQuestionOrder(question);
+  const blankIndexes = new Map(blankKeys.map((key, index) => [key, index]));
+  const revealedKeys = new Set(blankKeys.slice(0, state.revealedBlankCount));
+  const pattern = /【(blank\d+)】/g;
+  let cursor = 0;
+
+  for (const match of questionText.matchAll(pattern)) {
+    appendProgressiveMathText(wrapper, questionText.slice(cursor, match.index));
+
+    const key = match[1];
+    const number = key.replace(/^blank/, "");
+    const blank = document.createElement("span");
+    blank.className = "blank-answer";
+    blank.dataset.blankIndex = String(blankIndexes.get(key) ?? 0);
+    blank.classList.toggle("revealed", revealedKeys.has(key));
+
+    const label = document.createElement("span");
+    label.className = "blank-label";
+    label.textContent = `【空欄${blankDisplayLabel(question, number)}】`;
+
+    const value = document.createElement("span");
+    value.className = "blank-value";
+    const answer = Object.prototype.hasOwnProperty.call(question.blankAnswers, key)
+      ? question.blankAnswers[key]
+      : "＿＿＿";
+    value.innerHTML = mathMarkup(`【${answer}】`);
+
+    blank.append(label, value);
+    wrapper.append(blank);
+    cursor = match.index + match[0].length;
+  }
+
+  appendProgressiveMathText(wrapper, questionText.slice(cursor));
+  target.append(wrapper);
+
+  if (window.MathJax?.typesetPromise) {
+    return MathJax.typesetPromise([target]).catch(error => console.error(error));
+  }
+
+  return Promise.resolve();
+}
+
+function appendProgressiveMathText(target, text) {
+  if (!text) {
+    return;
+  }
+
+  const segment = document.createElement("span");
+  segment.innerHTML = mathMarkup(text);
+  target.append(segment);
+}
+
+function setProgressiveBlankTapState(active) {
+  elements.pastQuestionPanel.classList.toggle("progressive-blank-tap-target", active);
+  elements.pastAnswerContent.classList.toggle("progressive-blank-tap-target", active);
+}
+
+function resetProgressiveBlankState() {
+  state.revealedBlankCount = 0;
+  state.blankRevealInProgress = false;
 }
 
 function blankedQuestionText(question) {
@@ -1732,6 +1890,11 @@ function moveCard(offset) {
 function advancePastStep() {
   const question = currentPastQuestions()[state.pastIndex];
 
+  if (question.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+    revealNextBlank();
+    return;
+  }
+
   if (waitsForAnswerTap(question) && !state.pastTabsRevealed) {
     state.pastTabsRevealed = true;
     renderPastQuestion();
@@ -1753,6 +1916,7 @@ function movePastQuestion(offset) {
 
   state.pastStep = 0;
   state.pastTabsRevealed = false;
+  resetProgressiveBlankState();
   renderPastQuestion();
 }
 

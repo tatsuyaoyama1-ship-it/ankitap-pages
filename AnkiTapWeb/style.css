@@ -301,6 +301,35 @@ progress::-webkit-progress-value {
   overflow-wrap: anywhere;
 }
 
+.progressive-blank-tap-target {
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: rgba(40, 119, 212, 0.12);
+}
+
+.blank-answer {
+  display: inline;
+  border-radius: 4px;
+}
+
+.blank-value {
+  display: none;
+}
+
+.blank-answer.revealed .blank-label {
+  display: none;
+}
+
+.blank-answer.revealed .blank-value {
+  display: inline;
+  padding: 0 0.14em;
+  background: rgba(40, 119, 212, 0.1);
+  color: #185ea8;
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .past-question-image {
   min-height: 0;
   max-height: min(42vh, 520px);
