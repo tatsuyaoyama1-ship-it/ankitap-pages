@@ -64,6 +64,7 @@ const subQuestionSections = [
 ];
 
 const subjectLabels = {
+  denryoku: "電力",
   denryoku_kanri: "電力・管理",
   kikai_seigyo: "機械・制御"
 };
