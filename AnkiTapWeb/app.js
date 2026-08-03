@@ -86,12 +86,16 @@ const state = {
   selectedPastFilter: null
 };
 
+let listeningPlayer = null;
+let listeningSkippedCount = 0;
+
 const elements = {
   backToCategories: document.querySelector("#backToCategories"),
   shuffleButton: document.querySelector("#shuffleButton"),
   modeView: document.querySelector("#modeView"),
   formulaModeButton: document.querySelector("#formulaModeButton"),
   pastQuestionModeButton: document.querySelector("#pastQuestionModeButton"),
+  listeningModeButton: document.querySelector("#listeningModeButton"),
   printReviewModeButton: document.querySelector("#printReviewModeButton"),
   categoryView: document.querySelector("#categoryView"),
   categoryList: document.querySelector("#categoryList"),
@@ -99,6 +103,22 @@ const elements = {
   pastFilterList: document.querySelector("#pastFilterList"),
   studyView: document.querySelector("#studyView"),
   pastStudyView: document.querySelector("#pastStudyView"),
+  listeningView: document.querySelector("#listeningView"),
+  listeningCounter: document.querySelector("#listeningCounter"),
+  listeningStatus: document.querySelector("#listeningStatus"),
+  listeningMeta: document.querySelector("#listeningMeta"),
+  listeningText: document.querySelector("#listeningText"),
+  listeningMessage: document.querySelector("#listeningMessage"),
+  listeningRate: document.querySelector("#listeningRate"),
+  listeningInterval: document.querySelector("#listeningInterval"),
+  listeningRepeat: document.querySelector("#listeningRepeat"),
+  listeningOrderInputs: [...document.querySelectorAll('input[name="listeningOrder"]')],
+  listeningPrevious: document.querySelector("#listeningPrevious"),
+  listeningPlay: document.querySelector("#listeningPlay"),
+  listeningPause: document.querySelector("#listeningPause"),
+  listeningResume: document.querySelector("#listeningResume"),
+  listeningStop: document.querySelector("#listeningStop"),
+  listeningNext: document.querySelector("#listeningNext"),
   printReviewView: document.querySelector("#printReviewView"),
   printYearFilter: document.querySelector("#printYearFilter"),
   printStageFilter: document.querySelector("#printStageFilter"),
@@ -139,6 +159,7 @@ const elements = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  initializeListeningMode();
   bindEvents();
   loadCards();
 });
@@ -146,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindEvents() {
   elements.formulaModeButton.addEventListener("click", enterFormulaMode);
   elements.pastQuestionModeButton.addEventListener("click", enterPastQuestionMode);
+  elements.listeningModeButton.addEventListener("click", enterListeningMode);
   elements.printReviewModeButton.addEventListener("click", enterPrintReviewMode);
   elements.backToCategories.addEventListener("click", handleBack);
   elements.shuffleButton.addEventListener("click", shuffleCards);
@@ -162,6 +184,22 @@ function bindEvents() {
     select.addEventListener("change", renderPrintReviewPages);
   });
   elements.printButton.addEventListener("click", printReviewPages);
+  elements.listeningPlay.addEventListener("click", () => listeningPlayer?.start());
+  elements.listeningPause.addEventListener("click", () => listeningPlayer?.pause());
+  elements.listeningResume.addEventListener("click", () => listeningPlayer?.resume());
+  elements.listeningStop.addEventListener("click", () => listeningPlayer?.stop());
+  elements.listeningPrevious.addEventListener("click", () => listeningPlayer?.previous());
+  elements.listeningNext.addEventListener("click", () => listeningPlayer?.next());
+  elements.listeningRate.addEventListener("change", event => listeningPlayer?.setRate(event.target.value));
+  elements.listeningInterval.addEventListener("change", event => listeningPlayer?.setIntervalMs(event.target.value));
+  elements.listeningRepeat.addEventListener("change", event => listeningPlayer?.setRepeat(event.target.checked));
+  elements.listeningOrderInputs.forEach(input => {
+    input.addEventListener("change", event => {
+      if (event.target.checked) {
+        listeningPlayer?.setRandom(event.target.value === "random");
+      }
+    });
+  });
 }
 
 async function loadCards() {
@@ -328,6 +366,7 @@ function parsePastQuestions(text) {
       answerImages: imageList(value(row, "answer_images") || value(row, "answer_image")),
       blankAnswersText: value(row, "blank_answers"),
       blankAnswers: parseBlankAnswers(value(row, "blank_answers")),
+      speechOverride: value(row, "speech_override"),
       answer_policy: value(row, "answer_policy"),
       formulas: value(row, "formulas"),
       calculation_tips: value(row, "calculation_tips"),
@@ -403,6 +442,7 @@ function parseBlankAnswers(text) {
 }
 
 function showModeSelection() {
+  stopListeningMode();
   state.mode = null;
   state.selectedCategory = null;
   state.cards = [];
@@ -420,6 +460,7 @@ function showModeSelection() {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.backToCategories.classList.add("hidden");
@@ -428,12 +469,14 @@ function showModeSelection() {
 }
 
 function enterFormulaMode() {
+  stopListeningMode();
   state.mode = "formula";
   renderCategories();
 }
 
 async function enterPastQuestionMode() {
   try {
+    stopListeningMode();
     state.mode = "past";
     await loadPastQuestions();
     renderPastFilters();
@@ -444,6 +487,7 @@ async function enterPastQuestionMode() {
 
 async function enterPrintReviewMode() {
   try {
+    stopListeningMode();
     state.mode = "print";
     await loadPastQuestions();
     renderPrintReviewFilters();
@@ -451,6 +495,154 @@ async function enterPrintReviewMode() {
   } catch (error) {
     showEmpty(`${error.message} ローカルサーバーから開いているか確認してください。`);
   }
+}
+
+async function enterListeningMode() {
+  try {
+    stopListeningMode();
+    state.mode = "listening";
+    await loadPastQuestions();
+
+    const candidates = state.pastQuestions.filter(question => (
+      window.AnkiTapSpeech?.isPrimaryPowerFillBlank(question)
+    ));
+    const entries = [];
+    listeningSkippedCount = 0;
+
+    candidates.forEach(question => {
+      const entry = window.AnkiTapSpeech.buildSpeechEntry(question);
+      if (entry.ok) {
+        entries.push(entry);
+        return;
+      }
+
+      listeningSkippedCount += 1;
+      console.warn("音声聞き流し対象をスキップしました。", {
+        id: question.id,
+        year: question.year,
+        questionNo: question.questionNo,
+        error: entry.error,
+        missing: entry.missing
+      });
+    });
+
+    showListeningView();
+    listeningPlayer?.setEntries(entries);
+    listeningPlayer?.setRate(elements.listeningRate.value);
+    listeningPlayer?.setIntervalMs(elements.listeningInterval.value);
+    listeningPlayer?.setRepeat(elements.listeningRepeat.checked);
+    const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
+    listeningPlayer?.setRandom(selectedOrder === "random");
+
+    if (!window.AnkiTapSpeech?.isSupported()) {
+      showListeningMessage("このブラウザは音声読み上げに対応していません。", true);
+    } else if (entries.length === 0) {
+      showListeningMessage(
+        candidates.length === 0
+          ? "一次試験・電力の空欄穴埋め問題がありません。"
+          : "読み上げ用文章を生成できる問題がありません。",
+        true
+      );
+    } else if (listeningSkippedCount > 0) {
+      showListeningMessage(`${listeningSkippedCount}件をデータ不備のため除外しました。`, false);
+    } else {
+      showListeningMessage("", false);
+    }
+  } catch (error) {
+    showEmpty(`${error.message} ローカルサーバーから開いているか確認してください。`);
+  }
+}
+
+function initializeListeningMode() {
+  if (!window.AnkiTapSpeech) {
+    elements.listeningModeButton.disabled = true;
+    console.error("speech.jsを読み込めませんでした。");
+    return;
+  }
+
+  listeningPlayer = window.AnkiTapSpeech.createPlayer({
+    onStateChange: renderListeningState,
+    onEntryChange: renderListeningEntry,
+    onError: handleListeningError
+  });
+
+  window.addEventListener("beforeunload", () => listeningPlayer?.stop(), { once: true });
+}
+
+function stopListeningMode() {
+  listeningPlayer?.stop();
+}
+
+function showListeningView() {
+  elements.modeView.classList.add("hidden");
+  elements.categoryView.classList.add("hidden");
+  elements.pastFilterView.classList.add("hidden");
+  elements.studyView.classList.add("hidden");
+  elements.pastStudyView.classList.add("hidden");
+  elements.printReviewView.classList.add("hidden");
+  elements.emptyView.classList.add("hidden");
+  elements.listeningView.classList.remove("hidden");
+  elements.backToCategories.classList.remove("hidden");
+  elements.shuffleButton.disabled = true;
+  hideDebugMeta();
+}
+
+function renderListeningEntry(entry, index, count) {
+  elements.listeningCounter.textContent = count > 0 ? `${index + 1} / ${count}` : "0 / 0";
+
+  if (!entry) {
+    elements.listeningMeta.textContent = "";
+    elements.listeningText.textContent = "読み上げ対象の問題がありません。";
+    return;
+  }
+
+  const question = entry.question;
+  elements.listeningMeta.textContent = `${formatYear(question.year)} 電力 問${question.questionNo}`;
+  renderMath(elements.listeningText, entry.displayText);
+}
+
+function renderListeningState(playerState) {
+  const statusLabels = {
+    stopped: "停止中",
+    speaking: "読み上げ中",
+    paused: "一時停止中",
+    waiting: "次の文章を待機中",
+    completed: "再生完了"
+  };
+  const unsupported = !window.AnkiTapSpeech?.isSupported();
+  const noEntries = playerState.count === 0;
+
+  elements.listeningStatus.textContent = statusLabels[playerState.status] || "停止中";
+  elements.listeningCounter.textContent = noEntries
+    ? "0 / 0"
+    : `${playerState.currentIndex + 1} / ${playerState.count}`;
+  elements.listeningPlay.disabled = unsupported || noEntries || playerState.active;
+  elements.listeningPause.disabled = !playerState.active || playerState.paused;
+  elements.listeningResume.disabled = !playerState.active || !playerState.paused;
+  elements.listeningStop.disabled = !playerState.active;
+  elements.listeningPrevious.disabled = noEntries
+    || playerState.count < 2
+    || (!playerState.repeat && playerState.currentIndex === 0);
+  elements.listeningNext.disabled = noEntries
+    || playerState.count < 2
+    || (!playerState.repeat && playerState.currentIndex === playerState.count - 1);
+}
+
+function handleListeningError(error, entry) {
+  const question = entry?.question;
+  console.warn("音声聞き流しでエラーが発生しました。", {
+    id: question?.id,
+    year: question?.year,
+    questionNo: question?.questionNo,
+    error
+  });
+  showListeningMessage(error.message || "音声を再生できませんでした。", true);
+}
+
+function showListeningMessage(message, isError) {
+  elements.listeningMessage.textContent = message;
+  elements.listeningMessage.classList.toggle("hidden", !message);
+  elements.listeningMessage.classList.toggle("error", Boolean(isError));
 }
 
 function renderPastFilters() {
@@ -471,6 +663,7 @@ function renderPastFilters() {
   elements.categoryView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.pastFilterView.classList.remove("hidden");
@@ -534,6 +727,7 @@ function selectPastFilter(filter) {
   elements.pastFilterView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.pastStudyView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
@@ -559,6 +753,7 @@ function renderCategories() {
   elements.modeView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.categoryView.classList.remove("hidden");
@@ -577,6 +772,7 @@ function selectCategory(category) {
   elements.pastFilterView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.studyView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
@@ -595,6 +791,7 @@ function renderPrintReviewFilters() {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.printReviewView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
@@ -1966,6 +2163,7 @@ function showExplanation() {
 }
 
 function showEmpty(message) {
+  stopListeningMode();
   elements.emptyMessage.textContent = message;
   hideDebugMeta();
   elements.modeView.classList.add("hidden");
@@ -1973,6 +2171,7 @@ function showEmpty(message) {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
+  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.remove("hidden");
 }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260803-highlight-blanks">
+  <link rel="stylesheet" href="style.css?v=20260803-listening-mode">
   <script>
     window.MathJax = {
       tex: {
@@ -16,7 +16,8 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="app.js?v=20260803-progressive-blanks"></script>
+  <script defer src="speech.js?v=20260803-listening-mode"></script>
+  <script defer src="app.js?v=20260803-listening-mode"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -40,6 +41,10 @@
         <button class="mode-card" id="pastQuestionModeButton" type="button">
           <strong>過去問モード</strong>
           <span>denken_questions.tsv の問題を段階表示</span>
+        </button>
+        <button class="mode-card" id="listeningModeButton" type="button">
+          <strong>音声聞き流し</strong>
+          <span>一次試験・電力の完成文を連続再生</span>
         </button>
         <button class="mode-card" id="printReviewModeButton" type="button">
           <strong>印刷レビュー</strong>
@@ -108,6 +113,85 @@
       <nav class="nav-buttons">
         <button id="pastPreviousButton" type="button">前へ</button>
         <button id="pastNextButton" type="button">次へ</button>
+      </nav>
+    </section>
+
+    <section class="listening-view hidden" id="listeningView" aria-label="音声聞き流し">
+      <div class="listening-progress">
+        <div class="progress-row">
+          <strong id="listeningCounter">0 / 0</strong>
+          <span id="listeningStatus" aria-live="polite">停止中</span>
+        </div>
+        <div class="listening-meta" id="listeningMeta"></div>
+      </div>
+
+      <article class="listening-current" aria-label="読み上げ文章">
+        <div class="listening-text math" id="listeningText" aria-live="polite"></div>
+      </article>
+
+      <p class="listening-message hidden" id="listeningMessage" role="status"></p>
+
+      <div class="listening-settings">
+        <fieldset class="listening-order">
+          <legend>再生順</legend>
+          <div class="segmented-control">
+            <label>
+              <input type="radio" name="listeningOrder" value="sequential" checked>
+              <span>順番</span>
+            </label>
+            <label>
+              <input type="radio" name="listeningOrder" value="random">
+              <span>ランダム</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="listening-select">
+          <span>速度</span>
+          <select id="listeningRate">
+            <option value="0.8">0.8</option>
+            <option value="1" selected>1.0</option>
+            <option value="1.2">1.2</option>
+            <option value="1.5">1.5</option>
+          </select>
+        </label>
+
+        <label class="listening-select">
+          <span>文章間隔</span>
+          <select id="listeningInterval">
+            <option value="0">0秒</option>
+            <option value="1000" selected>1秒</option>
+            <option value="2000">2秒</option>
+            <option value="3000">3秒</option>
+          </select>
+        </label>
+
+        <label class="listening-repeat">
+          <input id="listeningRepeat" type="checkbox">
+          <span class="toggle-track" aria-hidden="true"></span>
+          <span>リピート</span>
+        </label>
+      </div>
+
+      <nav class="listening-transport" aria-label="音声操作">
+        <button id="listeningPrevious" type="button" title="前へ">
+          <span aria-hidden="true">|◀</span><span>前へ</span>
+        </button>
+        <button class="primary" id="listeningPlay" type="button" title="再生">
+          <span aria-hidden="true">▶</span><span>再生</span>
+        </button>
+        <button id="listeningPause" type="button" title="一時停止" disabled>
+          <span aria-hidden="true">Ⅱ</span><span>一時停止</span>
+        </button>
+        <button id="listeningResume" type="button" title="再開" disabled>
+          <span aria-hidden="true">▶</span><span>再開</span>
+        </button>
+        <button id="listeningStop" type="button" title="停止" disabled>
+          <span aria-hidden="true">■</span><span>停止</span>
+        </button>
+        <button id="listeningNext" type="button" title="次へ">
+          <span aria-hidden="true">▶|</span><span>次へ</span>
+        </button>
       </nav>
     </section>
 
