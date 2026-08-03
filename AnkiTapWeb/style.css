@@ -312,6 +312,18 @@ progress::-webkit-progress-value {
   border-radius: 4px;
 }
 
+.blank-label {
+  display: inline;
+  padding: 0.04em 0.3em;
+  border: 1px solid rgba(217, 119, 6, 0.48);
+  border-radius: 4px;
+  background: rgba(250, 204, 21, 0.22);
+  color: #854d0e;
+  font-weight: 800;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .blank-value {
   display: none;
 }
