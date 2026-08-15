@@ -266,10 +266,20 @@ progress::-webkit-progress-value {
 }
 
 .card-content mjx-container[jax="SVG"] {
+  display: block;
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   margin: 0.25em 0;
+}
+
+.card-content mjx-container[jax="SVG"] > svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .past-question-panel,
