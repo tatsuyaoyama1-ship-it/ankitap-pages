@@ -85,6 +85,7 @@ const state = {
   selectedCategory: null,
   favoriteOnly: false,
   favoriteCardKeys: loadFavoriteCardKeys(),
+  explanationTransitionInProgress: false,
   pastQuestions: [],
   visiblePastQuestions: [],
   pastIndex: 0,
@@ -173,7 +174,9 @@ const elements = {
   pastNextButton: document.querySelector("#pastNextButton"),
   explanationDialog: document.querySelector("#explanationDialog"),
   explanationContent: document.querySelector("#explanationContent"),
-  closeExplanation: document.querySelector("#closeExplanation")
+  closeExplanation: document.querySelector("#closeExplanation"),
+  closeExplanationFooter: document.querySelector("#closeExplanationFooter"),
+  nextFromExplanation: document.querySelector("#nextFromExplanation")
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -196,13 +199,15 @@ function bindEvents() {
   elements.emptyBackToCategoriesButton.addEventListener("click", showCategories);
   elements.cardButton.addEventListener("click", handleCardTap);
   elements.previousButton.addEventListener("click", () => handleMove(-1));
-  elements.nextButton.addEventListener("click", () => handleMove(1));
+  elements.nextButton.addEventListener("click", goToNextCard);
   elements.pastPreviousButton.addEventListener("click", () => movePastQuestion(-1));
   elements.pastNextButton.addEventListener("click", () => movePastQuestion(1));
   elements.pastQuestionPanel.addEventListener("click", handlePastQuestionTap);
   elements.pastAnswerContent.addEventListener("click", handlePastAnswerTap);
   elements.explanationButton.addEventListener("click", showExplanation);
-  elements.closeExplanation.addEventListener("click", () => elements.explanationDialog.close());
+  elements.closeExplanation.addEventListener("click", closeExplanationDialog);
+  elements.closeExplanationFooter.addEventListener("click", closeExplanationDialog);
+  elements.nextFromExplanation.addEventListener("click", handleNextFromExplanation);
   [elements.printYearFilter, elements.printStageFilter, elements.printSubjectFilter, elements.printReviewStatusFilter].forEach(select => {
     select.addEventListener("change", renderPrintReviewPages);
   });
@@ -2287,6 +2292,10 @@ function handleMove(offset) {
   moveCard(offset);
 }
 
+function goToNextCard() {
+  moveCard(1);
+}
+
 function moveCard(offset) {
   if (state.favoriteOnly) {
     const currentCard = state.cards[state.currentIndex];
@@ -2435,8 +2444,38 @@ function showFavoriteEmpty() {
 
 function showExplanation() {
   const card = state.cards[state.currentIndex];
+  state.explanationTransitionInProgress = false;
+  elements.nextFromExplanation.disabled = false;
   elements.explanationContent.textContent = card.explanation ?? "";
   elements.explanationDialog.showModal();
+}
+
+function closeExplanationDialog(event) {
+  event?.preventDefault();
+  event?.stopPropagation();
+
+  if (elements.explanationDialog.open) {
+    elements.explanationDialog.close();
+  }
+}
+
+function handleNextFromExplanation(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  if (state.explanationTransitionInProgress) {
+    return;
+  }
+
+  state.explanationTransitionInProgress = true;
+  elements.nextFromExplanation.disabled = true;
+  closeExplanationDialog();
+  goToNextCard();
+
+  queueMicrotask(() => {
+    state.explanationTransitionInProgress = false;
+    elements.nextFromExplanation.disabled = false;
+  });
 }
 
 function showEmpty(message) {

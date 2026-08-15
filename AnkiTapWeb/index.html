@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260816-favorites">
+  <link rel="stylesheet" href="style.css?v=20260816-explanation-next">
   <script>
     window.MathJax = {
       tex: {
@@ -16,8 +16,8 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="speech.js?v=20260815-secondary-formulas"></script>
-  <script defer src="app.js?v=20260816-favorites"></script>
+  <script defer src="speech.js?v=20260803-listening-mode"></script>
+  <script defer src="app.js?v=20260816-explanation-next"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -256,6 +256,10 @@
       <button class="icon-button" id="closeExplanation" type="button" aria-label="閉じる">×</button>
     </div>
     <div class="explanation-content" id="explanationContent"></div>
+    <div class="dialog-footer">
+      <button id="closeExplanationFooter" type="button" aria-label="解説を閉じる">閉じる</button>
+      <button class="primary" id="nextFromExplanation" type="button" aria-label="解説を閉じて次の問題へ進む">次の問題</button>
+    </div>
   </dialog>
 </body>
 </html>
