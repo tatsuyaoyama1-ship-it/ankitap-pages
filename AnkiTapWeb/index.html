@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260815-secondary-formulas">
+  <link rel="stylesheet" href="style.css?v=20260816-favorites">
   <script>
     window.MathJax = {
       tex: {
@@ -17,7 +17,7 @@
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
   <script defer src="speech.js?v=20260815-secondary-formulas"></script>
-  <script defer src="app.js?v=20260815-secondary-formulas"></script>
+  <script defer src="app.js?v=20260816-favorites"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -55,6 +55,11 @@
 
     <section class="category-view hidden" id="categoryView">
       <h2>カテゴリを選択</h2>
+      <label class="favorite-only-toggle">
+        <input id="favoriteOnlyToggle" type="checkbox">
+        <span class="favorite-only-check" aria-hidden="true">★</span>
+        <span>お気に入りのみ<span id="favoriteOnlyCount">（0）</span></span>
+      </label>
       <div class="category-list" id="categoryList"></div>
     </section>
 
@@ -72,6 +77,17 @@
         <progress id="progressBar" value="1" max="1"></progress>
         <div class="debug-meta hidden" id="debugMeta"></div>
       </div>
+
+      <button
+        class="favorite-button hidden"
+        id="favoriteButton"
+        type="button"
+        aria-pressed="false"
+        aria-label="このカードをお気に入りに登録"
+      >
+        <span class="favorite-star" id="favoriteStar" aria-hidden="true">☆</span>
+        <span id="favoriteButtonText">お気に入り</span>
+      </button>
 
       <button class="card" id="cardButton" type="button">
         <span class="category-pill" id="cardCategory"></span>
@@ -225,8 +241,12 @@
     </section>
 
     <section class="empty-view hidden" id="emptyView">
-      <h2>カードがありません</h2>
+      <h2 id="emptyTitle">カードがありません</h2>
       <p id="emptyMessage">cards.csvを読み込み中です。</p>
+      <div class="empty-actions hidden" id="favoriteEmptyActions">
+        <button id="disableFavoriteOnlyButton" type="button">お気に入りのみを解除</button>
+        <button id="emptyBackToCategoriesButton" type="button">カテゴリ選択へ戻る</button>
+      </div>
     </section>
   </main>
 

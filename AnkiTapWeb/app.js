@@ -3,6 +3,8 @@ const DATA_URLS = [
   assetUrl("AnkiTap/AnkiTap/cards.csv")
 ];
 const DENKEN_URL = assetUrl("data/denken_questions.tsv");
+const FAVORITE_STORAGE_KEY = "ankitap.favoriteCardKeys.v1";
+const ALL_CATEGORIES = "__all_categories__";
 
 function assetUrl(path) {
   return new URL(`../${path.replace(/^\/+/, "")}`, document.baseURI).href;
@@ -81,6 +83,8 @@ const state = {
   currentIndex: 0,
   showingAnswer: false,
   selectedCategory: null,
+  favoriteOnly: false,
+  favoriteCardKeys: loadFavoriteCardKeys(),
   pastQuestions: [],
   visiblePastQuestions: [],
   pastIndex: 0,
@@ -104,6 +108,8 @@ const elements = {
   printReviewModeButton: document.querySelector("#printReviewModeButton"),
   categoryView: document.querySelector("#categoryView"),
   categoryList: document.querySelector("#categoryList"),
+  favoriteOnlyToggle: document.querySelector("#favoriteOnlyToggle"),
+  favoriteOnlyCount: document.querySelector("#favoriteOnlyCount"),
   pastFilterView: document.querySelector("#pastFilterView"),
   pastFilterList: document.querySelector("#pastFilterList"),
   studyView: document.querySelector("#studyView"),
@@ -133,11 +139,18 @@ const elements = {
   printButton: document.querySelector("#printButton"),
   printReviewPages: document.querySelector("#printReviewPages"),
   emptyView: document.querySelector("#emptyView"),
+  emptyTitle: document.querySelector("#emptyTitle"),
   emptyMessage: document.querySelector("#emptyMessage"),
+  favoriteEmptyActions: document.querySelector("#favoriteEmptyActions"),
+  disableFavoriteOnlyButton: document.querySelector("#disableFavoriteOnlyButton"),
+  emptyBackToCategoriesButton: document.querySelector("#emptyBackToCategoriesButton"),
   cardCounter: document.querySelector("#cardCounter"),
   cardState: document.querySelector("#cardState"),
   progressBar: document.querySelector("#progressBar"),
   debugMeta: document.querySelector("#debugMeta"),
+  favoriteButton: document.querySelector("#favoriteButton"),
+  favoriteStar: document.querySelector("#favoriteStar"),
+  favoriteButtonText: document.querySelector("#favoriteButtonText"),
   cardButton: document.querySelector("#cardButton"),
   cardCategory: document.querySelector("#cardCategory"),
   modeLabel: document.querySelector("#modeLabel"),
@@ -176,6 +189,11 @@ function bindEvents() {
   elements.printReviewModeButton.addEventListener("click", enterPrintReviewMode);
   elements.backToCategories.addEventListener("click", handleBack);
   elements.shuffleButton.addEventListener("click", shuffleCards);
+  elements.favoriteOnlyToggle.addEventListener("change", handleFavoriteOnlyChange);
+  elements.favoriteButton.addEventListener("pointerdown", event => event.stopPropagation());
+  elements.favoriteButton.addEventListener("click", handleFavoriteButtonClick);
+  elements.disableFavoriteOnlyButton.addEventListener("click", disableFavoriteOnlyFromEmpty);
+  elements.emptyBackToCategoriesButton.addEventListener("click", showCategories);
   elements.cardButton.addEventListener("click", handleCardTap);
   elements.previousButton.addEventListener("click", () => handleMove(-1));
   elements.nextButton.addEventListener("click", () => handleMove(1));
@@ -251,6 +269,7 @@ function parseDelimitedCards(text) {
   const answerIndex = column("answer");
   const categoryIndex = column("category");
   const explanationIndex = column("explanation");
+  const formulaIdIndex = column("formula_id");
 
   if (questionIndex < 0 || answerIndex < 0) {
     return [];
@@ -267,6 +286,7 @@ function parseDelimitedCards(text) {
     return {
       question,
       answer,
+      formulaId: (row[formulaIdIndex] ?? "").trim() || null,
       category: (row[categoryIndex] ?? "").trim() || null,
       explanation: (row[explanationIndex] ?? "").trim() || null
     };
@@ -453,12 +473,14 @@ function showModeSelection() {
   state.cards = [];
   state.currentIndex = 0;
   state.showingAnswer = false;
+  state.favoriteOnly = false;
   state.pastIndex = 0;
   state.pastStep = 0;
   state.pastTabsRevealed = false;
   resetProgressiveBlankState();
   state.visiblePastQuestions = [];
   state.selectedPastFilter = null;
+  elements.favoriteOnlyToggle.checked = false;
 
   elements.modeView.classList.remove("hidden");
   elements.categoryView.classList.add("hidden");
@@ -784,15 +806,18 @@ function selectPastFilter(filter) {
 }
 
 function renderCategories() {
-  const categories = [...new Set(state.allCards.map(card => card.category).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja"));
+  const namedCategories = [...new Set(state.allCards.map(card => card.category).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja"));
+  const categories = [ALL_CATEGORIES, ...namedCategories];
+
+  updateFavoriteOnlyControl();
 
   elements.categoryList.replaceChildren(...categories.map(category => {
     const button = document.createElement("button");
     button.className = "category-card";
     button.type = "button";
     button.innerHTML = `<strong></strong><span></span><span aria-hidden="true">›</span>`;
-    button.querySelector("strong").textContent = category;
-    button.querySelector("span").textContent = `${countCards(category)}枚`;
+    button.querySelector("strong").textContent = category === ALL_CATEGORIES ? "すべて" : category;
+    button.querySelector("span").textContent = `${countEligibleCards(category)}枚`;
     button.addEventListener("click", () => selectCategory(category));
     return button;
   }));
@@ -812,9 +837,14 @@ function renderCategories() {
 
 function selectCategory(category) {
   state.selectedCategory = category;
-  state.cards = state.allCards.filter(card => card.category === category);
+  state.cards = getEligibleCards(category);
   state.currentIndex = 0;
   state.showingAnswer = false;
+
+  if (state.cards.length === 0 && state.favoriteOnly) {
+    showFavoriteEmpty();
+    return;
+  }
 
   elements.categoryView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
@@ -1775,13 +1805,148 @@ function blankDisplayLabel(question, number) {
   return number;
 }
 
-function countCards(category) {
-  return state.allCards.filter(card => card.category === category).length;
+function loadFavoriteCardKeys() {
+  try {
+    const storedValue = window.localStorage.getItem(FAVORITE_STORAGE_KEY);
+
+    if (!storedValue) {
+      return new Set();
+    }
+
+    const parsedValue = JSON.parse(storedValue);
+
+    if (!Array.isArray(parsedValue)) {
+      throw new TypeError("お気に入りデータが配列ではありません。");
+    }
+
+    return new Set(parsedValue.filter(value => typeof value === "string" && value.length > 0));
+  } catch (error) {
+    console.warn("お気に入りデータを読み込めないため、空の状態で開始します。", error);
+
+    try {
+      window.localStorage.setItem(FAVORITE_STORAGE_KEY, "[]");
+    } catch (storageError) {
+      console.warn("localStorageを初期化できませんでした。お気に入りはメモリ上で保持します。", storageError);
+    }
+
+    return new Set();
+  }
+}
+
+function saveFavoriteCardKeys() {
+  try {
+    window.localStorage.setItem(
+      FAVORITE_STORAGE_KEY,
+      JSON.stringify([...state.favoriteCardKeys])
+    );
+  } catch (error) {
+    console.warn("お気に入りをlocalStorageへ保存できませんでした。メモリ上の状態は維持します。", error);
+  }
+}
+
+function favoriteCardKey(card) {
+  if (card?.formulaId) {
+    return `formula-id:${card.formulaId}`;
+  }
+
+  return `card-content:${JSON.stringify([
+    card?.category ?? "",
+    card?.question ?? "",
+    card?.answer ?? ""
+  ])}`;
+}
+
+function isFavoriteCard(card) {
+  return Boolean(card) && state.favoriteCardKeys.has(favoriteCardKey(card));
+}
+
+function matchesCategory(card, category) {
+  return category === ALL_CATEGORIES || card.category === category;
+}
+
+function getEligibleCards(category = state.selectedCategory) {
+  return state.allCards.filter(card => (
+    matchesCategory(card, category)
+      && (!state.favoriteOnly || isFavoriteCard(card))
+  ));
+}
+
+function countEligibleCards(category) {
+  return getEligibleCards(category).length;
+}
+
+function countFavoriteCards(category = ALL_CATEGORIES) {
+  return state.allCards.filter(card => matchesCategory(card, category) && isFavoriteCard(card)).length;
+}
+
+function updateFavoriteOnlyControl() {
+  elements.favoriteOnlyToggle.checked = state.favoriteOnly;
+  const category = state.selectedCategory || ALL_CATEGORIES;
+  elements.favoriteOnlyCount.textContent = `（${countFavoriteCards(category)}）`;
+}
+
+function handleFavoriteOnlyChange(event) {
+  state.favoriteOnly = event.target.checked;
+  state.selectedCategory = null;
+  state.cards = [];
+  state.currentIndex = 0;
+  state.showingAnswer = false;
+  renderCategories();
+}
+
+function handleFavoriteButtonClick(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  if (state.mode !== "formula") {
+    return;
+  }
+
+  const card = state.cards[state.currentIndex];
+
+  if (!card) {
+    return;
+  }
+
+  const key = favoriteCardKey(card);
+
+  if (state.favoriteCardKeys.has(key)) {
+    state.favoriteCardKeys.delete(key);
+  } else {
+    state.favoriteCardKeys.add(key);
+  }
+
+  saveFavoriteCardKeys();
+  updateFavoriteButton(card);
+  updateFavoriteOnlyControl();
+}
+
+function updateFavoriteButton(card = state.cards[state.currentIndex]) {
+  if (state.mode !== "formula" || !card) {
+    elements.favoriteButton.classList.add("hidden");
+    elements.favoriteButton.disabled = true;
+    return;
+  }
+
+  const favorite = isFavoriteCard(card);
+  elements.favoriteButton.classList.remove("hidden");
+  elements.favoriteButton.disabled = false;
+  elements.favoriteButton.setAttribute("aria-pressed", String(favorite));
+  elements.favoriteButton.setAttribute(
+    "aria-label",
+    favorite ? "このカードをお気に入りから解除" : "このカードをお気に入りに登録"
+  );
+  elements.favoriteStar.textContent = favorite ? "★" : "☆";
+  elements.favoriteButtonText.textContent = favorite ? "お気に入り済み" : "お気に入り";
 }
 
 function renderCard() {
   if (state.cards.length === 0) {
-    showEmpty("選択したカテゴリにカードがありません。");
+    if (state.favoriteOnly) {
+      showFavoriteEmpty();
+    } else {
+      showEmpty("選択したカテゴリにカードがありません。");
+    }
     return;
   }
 
@@ -1802,6 +1967,7 @@ function renderCard() {
   elements.cardButton.classList.remove("past-question-card");
   elements.cardContent.classList.remove("question-image-content");
   hideDebugMeta();
+  updateFavoriteButton(card);
 
   renderMath(elements.cardContent, text);
 }
@@ -2122,6 +2288,42 @@ function handleMove(offset) {
 }
 
 function moveCard(offset) {
+  if (state.favoriteOnly) {
+    const currentCard = state.cards[state.currentIndex];
+    const currentKey = currentCard ? favoriteCardKey(currentCard) : null;
+    const previousIndex = state.currentIndex;
+    const eligibleByKey = new Map(getEligibleCards().map(card => [favoriteCardKey(card), card]));
+    const refreshedCards = [];
+
+    state.cards.forEach(card => {
+      const key = favoriteCardKey(card);
+      if (eligibleByKey.has(key)) {
+        refreshedCards.push(eligibleByKey.get(key));
+        eligibleByKey.delete(key);
+      }
+    });
+    refreshedCards.push(...eligibleByKey.values());
+    state.cards = refreshedCards;
+
+    if (state.cards.length === 0) {
+      showFavoriteEmpty();
+      return;
+    }
+
+    const refreshedIndex = state.cards.findIndex(card => favoriteCardKey(card) === currentKey);
+
+    if (refreshedIndex < 0) {
+      state.currentIndex = offset > 0
+        ? Math.min(previousIndex, state.cards.length - 1)
+        : Math.max(Math.min(previousIndex - 1, state.cards.length - 1), 0);
+      state.showingAnswer = false;
+      renderCard();
+      return;
+    }
+
+    state.currentIndex = refreshedIndex;
+  }
+
   if (state.currentIndex === state.cards.length - 1 && offset > 0) {
     state.currentIndex = 0;
   } else {
@@ -2166,6 +2368,15 @@ function movePastQuestion(offset) {
 }
 
 function shuffleCards() {
+  if (state.favoriteOnly) {
+    state.cards = getEligibleCards();
+
+    if (state.cards.length === 0) {
+      showFavoriteEmpty();
+      return;
+    }
+  }
+
   for (let index = state.cards.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1));
     [state.cards[index], state.cards[swapIndex]] = [state.cards[swapIndex], state.cards[index]];
@@ -2204,6 +2415,24 @@ function showCategories() {
   renderCategories();
 }
 
+function disableFavoriteOnlyFromEmpty() {
+  state.favoriteOnly = false;
+  elements.favoriteOnlyToggle.checked = false;
+
+  if (state.selectedCategory) {
+    selectCategory(state.selectedCategory);
+  } else {
+    showCategories();
+  }
+}
+
+function showFavoriteEmpty() {
+  showEmpty("この条件に該当するお気に入り問題はありません。");
+  elements.emptyTitle.textContent = "お気に入りがありません";
+  elements.favoriteEmptyActions.classList.remove("hidden");
+  elements.backToCategories.classList.remove("hidden");
+}
+
 function showExplanation() {
   const card = state.cards[state.currentIndex];
   elements.explanationContent.textContent = card.explanation ?? "";
@@ -2212,7 +2441,12 @@ function showExplanation() {
 
 function showEmpty(message) {
   stopListeningMode();
+  elements.emptyTitle.textContent = "カードがありません";
   elements.emptyMessage.textContent = message;
+  elements.favoriteEmptyActions.classList.add("hidden");
+  elements.favoriteButton.classList.add("hidden");
+  elements.favoriteButton.disabled = true;
+  elements.shuffleButton.disabled = true;
   hideDebugMeta();
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
