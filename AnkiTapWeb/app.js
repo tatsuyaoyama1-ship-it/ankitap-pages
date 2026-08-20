@@ -100,7 +100,9 @@ const state = {
 };
 
 let listeningPlayer = null;
+let listeningPlayerKind = "browser";
 let listeningSkippedCount = 0;
+let listeningRefreshToken = 0;
 let cardListSearchTimer = null;
 
 const elements = {
@@ -137,10 +139,12 @@ const elements = {
   listeningText: document.querySelector("#listeningText"),
   listeningMessage: document.querySelector("#listeningMessage"),
   listeningTargetInputs: [...document.querySelectorAll('input[name="listeningTarget"]')],
+  listeningVoiceInputs: [...document.querySelectorAll('input[name="listeningVoice"]')],
   listeningRate: document.querySelector("#listeningRate"),
   listeningInterval: document.querySelector("#listeningInterval"),
   listeningQaInterval: document.querySelector("#listeningQaInterval"),
   listeningRepeat: document.querySelector("#listeningRepeat"),
+  listeningAutoAdvance: document.querySelector("#listeningAutoAdvance"),
   listeningOrderInputs: [...document.querySelectorAll('input[name="listeningOrder"]')],
   listeningPrevious: document.querySelector("#listeningPrevious"),
   listeningPlay: document.querySelector("#listeningPlay"),
@@ -244,6 +248,7 @@ function bindEvents() {
   elements.listeningInterval.addEventListener("change", event => listeningPlayer?.setIntervalMs(event.target.value));
   elements.listeningQaInterval.addEventListener("change", event => listeningPlayer?.setQaIntervalMs(event.target.value));
   elements.listeningRepeat.addEventListener("change", event => listeningPlayer?.setRepeat(event.target.checked));
+  elements.listeningAutoAdvance.addEventListener("change", event => listeningPlayer?.setAutoAdvance(event.target.checked));
   elements.listeningOrderInputs.forEach(input => {
     input.addEventListener("change", event => {
       if (event.target.checked) {
@@ -252,7 +257,10 @@ function bindEvents() {
     });
   });
   elements.listeningTargetInputs.forEach(input => {
-    input.addEventListener("change", refreshListeningEntries);
+    input.addEventListener("change", () => void refreshListeningEntries());
+  });
+  elements.listeningVoiceInputs.forEach(input => {
+    input.addEventListener("change", () => void refreshListeningEntries());
   });
 }
 
@@ -576,7 +584,7 @@ async function enterListeningMode() {
     state.mode = "listening";
     await loadPastQuestions();
     showListeningView();
-    refreshListeningEntries();
+    await refreshListeningEntries();
   } catch (error) {
     showEmpty(`${error.message} ローカルサーバーから開いているか確認してください。`);
   }
@@ -590,11 +598,124 @@ function selectedListeningTargets() {
   );
 }
 
-function refreshListeningEntries() {
+function selectedListeningVoice() {
+  return elements.listeningVoiceInputs.find(input => input.checked)?.value || "browser";
+}
+
+function createListeningPlayer(kind) {
+  if (listeningPlayer && listeningPlayerKind === kind) {
+    return listeningPlayer;
+  }
+
+  listeningPlayer?.stop();
+  const callbacks = {
+    onStateChange: renderListeningState,
+    onEntryChange: renderListeningEntry,
+    onError: handleListeningError
+  };
+  listeningPlayer = kind === "neural"
+    ? window.AnkiTapSpeech.createAudioPlayer(callbacks)
+    : window.AnkiTapSpeech.createPlayer(callbacks);
+  listeningPlayerKind = kind;
+  return listeningPlayer;
+}
+
+function applyListeningSettings() {
+  listeningPlayer.setRate(elements.listeningRate.value);
+  listeningPlayer.setIntervalMs(elements.listeningInterval.value);
+  listeningPlayer.setQaIntervalMs(elements.listeningQaInterval.value);
+  listeningPlayer.setRepeat(elements.listeningRepeat.checked);
+  listeningPlayer.setAutoAdvance(elements.listeningAutoAdvance.checked);
+  const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
+  listeningPlayer.setRandom(selectedOrder === "random");
+}
+
+async function checkNeuralAudio(url) {
+  try {
+    const response = await fetch(url, { method: "HEAD", cache: "no-store" });
+    return response.ok || response.status === 405;
+  } catch (error) {
+    console.warn("ニューラル音声ファイルの存在確認に失敗しました。", { url, error });
+    return false;
+  }
+}
+
+async function refreshNeuralListeningEntries(refreshToken) {
+  const dataUrl = new URL("audio/power_management/tts_texts.json", document.baseURI);
+  const response = await fetch(dataUrl, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`ニューラルTTS試作データを読み込めませんでした（${response.status}）。`);
+  }
+
+  const records = await response.json();
+  if (!Array.isArray(records) || records.length === 0) {
+    throw new Error("ニューラルTTS試作の対象データがありません。");
+  }
+
+  const entries = await Promise.all(records.map(async record => {
+    const audioUrl = new URL(
+      `audio/power_management/${encodeURIComponent(record.audioFile)}`,
+      document.baseURI
+    ).href;
+    const audioAvailable = await checkNeuralAudio(audioUrl);
+    return {
+      ok: true,
+      question: {
+        id: record.sourceCardId || record.id,
+        category: "電力管理論説",
+        question: record.title,
+        answer: record.speechText
+      },
+      displayText: record.speechText,
+      speechText: record.speechText,
+      audioUrl,
+      audioFile: record.audioFile,
+      audioAvailable,
+      metaText: `ニューラルTTS試作・${record.title}`
+    };
+  }));
+
+  if (refreshToken !== listeningRefreshToken || state.mode !== "listening") {
+    return;
+  }
+
+  listeningSkippedCount = 0;
+  listeningPlayer.setEntries(entries);
+  applyListeningSettings();
+
+  const missingCount = entries.filter(entry => !entry.audioAvailable).length;
+  if (missingCount > 0) {
+    showListeningMessage(
+      `ニューラル音声未生成の問題があります（${missingCount}件）。この問題にはニューラル音声がありません。`,
+      true
+    );
+  } else {
+    showListeningMessage("", false);
+  }
+}
+
+async function refreshListeningEntries() {
   if (state.mode !== "listening" || !listeningPlayer) {
     return;
   }
 
+  const refreshToken = ++listeningRefreshToken;
+  const voiceMode = selectedListeningVoice();
+  if (voiceMode === "neuralPower") {
+    createListeningPlayer("neural");
+    try {
+      await refreshNeuralListeningEntries(refreshToken);
+    } catch (error) {
+      if (refreshToken !== listeningRefreshToken || state.mode !== "listening") {
+        return;
+      }
+      listeningPlayer.setEntries([]);
+      showListeningMessage(error.message, true);
+    }
+    return;
+  }
+
+  createListeningPlayer("browser");
   const targets = selectedListeningTargets();
   const candidates = [];
 
@@ -647,12 +768,7 @@ function refreshListeningEntries() {
   });
 
   listeningPlayer.setEntries(entries);
-  listeningPlayer.setRate(elements.listeningRate.value);
-  listeningPlayer.setIntervalMs(elements.listeningInterval.value);
-  listeningPlayer.setQaIntervalMs(elements.listeningQaInterval.value);
-  listeningPlayer.setRepeat(elements.listeningRepeat.checked);
-  const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
-  listeningPlayer.setRandom(selectedOrder === "random");
+  applyListeningSettings();
 
   if (!window.AnkiTapSpeech?.isSupported()) {
     showListeningMessage("このブラウザは音声読み上げに対応していません。", true);
@@ -677,11 +793,7 @@ function initializeListeningMode() {
     return;
   }
 
-  listeningPlayer = window.AnkiTapSpeech.createPlayer({
-    onStateChange: renderListeningState,
-    onEntryChange: renderListeningEntry,
-    onError: handleListeningError
-  });
+  createListeningPlayer("browser");
 
   window.addEventListener("beforeunload", () => listeningPlayer?.stop(), { once: true });
 }
@@ -718,6 +830,10 @@ function renderListeningEntry(entry, index, count) {
   elements.listeningMeta.textContent = entry.metaText
     || (question.year ? `${formatYear(question.year)} 電力 問${question.questionNo}` : "");
   renderMath(elements.listeningText, entry.displayText);
+
+  if (listeningPlayerKind === "neural" && entry.audioAvailable === false) {
+    showListeningMessage("この問題にはニューラル音声がありません。生成後に再読み込みしてください。", true);
+  }
 }
 
 function renderListeningState(playerState) {
@@ -729,7 +845,8 @@ function renderListeningState(playerState) {
     waitingQa: "問題・解答の間隔待機中",
     completed: "再生完了"
   };
-  const unsupported = !window.AnkiTapSpeech?.isSupported();
+  const unsupported = playerState.supported === false
+    || (listeningPlayerKind === "browser" && !window.AnkiTapSpeech?.isSupported());
   const noEntries = playerState.count === 0;
 
   elements.listeningStatus.textContent = statusLabels[playerState.status] || "停止中";

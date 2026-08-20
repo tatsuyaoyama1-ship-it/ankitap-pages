@@ -416,6 +416,7 @@
       qaIntervalMs: 1000,
       repeat: false,
       random: false,
+      autoAdvance: true,
       sessionId: 0,
       entries: [],
       questions: [],
@@ -441,6 +442,7 @@
         qaIntervalMs: state.qaIntervalMs,
         repeat: state.repeat,
         random: state.random,
+        autoAdvance: state.autoAdvance,
         status: state.status,
         currentEntry: state.questions[state.currentIndex] || null
       };
@@ -765,6 +767,11 @@
       emit();
     }
 
+    function setAutoAdvance(autoAdvance) {
+      state.autoAdvance = Boolean(autoAdvance);
+      emit();
+    }
+
     function setRandom(random) {
       const restart = state.active;
       cancelCurrentSpeech();
@@ -800,6 +807,399 @@
       setIntervalMs,
       setQaIntervalMs,
       setRepeat,
+      setAutoAdvance,
+      setRandom
+    };
+  }
+
+  function createAudioPlayer(callbacks = {}) {
+    const supported = "Audio" in window;
+    const audio = supported ? new Audio() : null;
+    if (audio) {
+      audio.preload = "auto";
+    }
+
+    const state = {
+      active: false,
+      paused: false,
+      waiting: false,
+      completed: false,
+      currentIndex: 0,
+      rate: 0.9,
+      intervalMs: 1000,
+      qaIntervalMs: 1000,
+      repeat: false,
+      random: false,
+      autoAdvance: true,
+      sessionId: 0,
+      entries: [],
+      questions: [],
+      timerId: null,
+      timerDueAt: 0,
+      remainingDelay: 0,
+      status: "stopped"
+    };
+
+    function snapshot() {
+      return {
+        active: state.active,
+        paused: state.paused,
+        waiting: state.waiting,
+        completed: state.completed,
+        currentIndex: state.currentIndex,
+        partIndex: 0,
+        count: state.questions.length,
+        rate: state.rate,
+        intervalMs: state.intervalMs,
+        qaIntervalMs: state.qaIntervalMs,
+        repeat: state.repeat,
+        random: state.random,
+        autoAdvance: state.autoAdvance,
+        supported,
+        status: state.status,
+        currentEntry: state.questions[state.currentIndex] || null
+      };
+    }
+
+    function emit() {
+      callbacks.onStateChange?.(snapshot());
+    }
+
+    function emitEntry() {
+      callbacks.onEntryChange?.(
+        state.questions[state.currentIndex] || null,
+        state.currentIndex,
+        state.questions.length
+      );
+      emit();
+    }
+
+    function clearTimer() {
+      if (state.timerId != null) {
+        window.clearTimeout(state.timerId);
+      }
+      state.timerId = null;
+      state.timerDueAt = 0;
+    }
+
+    function cancelCurrentAudio() {
+      state.sessionId += 1;
+      clearTimer();
+      if (audio) {
+        audio.onended = null;
+        audio.onerror = null;
+        audio.pause();
+        audio.removeAttribute("src");
+        audio.load();
+      }
+      state.waiting = false;
+      state.remainingDelay = 0;
+      return state.sessionId;
+    }
+
+    function rebuildQuestions() {
+      state.questions = state.random ? shuffled(state.entries) : state.entries.slice();
+      state.currentIndex = Math.min(state.currentIndex, Math.max(0, state.questions.length - 1));
+    }
+
+    function finish() {
+      state.active = false;
+      state.paused = false;
+      state.waiting = false;
+      state.completed = true;
+      state.status = "completed";
+      audio?.pause();
+      emit();
+    }
+
+    function advance(sessionId) {
+      if (!state.active || sessionId !== state.sessionId) {
+        return;
+      }
+
+      if (state.currentIndex < state.questions.length - 1) {
+        state.currentIndex += 1;
+      } else if (state.repeat) {
+        if (state.random) {
+          state.questions = shuffled(state.entries);
+        }
+        state.currentIndex = 0;
+      } else {
+        finish();
+        return;
+      }
+
+      playCurrent(sessionId);
+    }
+
+    function scheduleAdvance(sessionId, delay = state.intervalMs) {
+      if (!state.active || sessionId !== state.sessionId) {
+        return;
+      }
+
+      if (!state.autoAdvance) {
+        state.active = false;
+        state.status = "stopped";
+        emit();
+        return;
+      }
+
+      if (state.currentIndex >= state.questions.length - 1 && !state.repeat) {
+        finish();
+        return;
+      }
+
+      state.waiting = true;
+      state.remainingDelay = Math.max(0, delay);
+      state.status = "waiting";
+      emit();
+      state.timerDueAt = Date.now() + state.remainingDelay;
+      state.timerId = window.setTimeout(() => {
+        state.timerId = null;
+        state.timerDueAt = 0;
+        state.waiting = false;
+        state.remainingDelay = 0;
+        advance(sessionId);
+      }, state.remainingDelay);
+    }
+
+    function reportMissingAudio(entry, sessionId) {
+      callbacks.onError?.(
+        new Error("この問題にはニューラル音声がありません。生成後に再読み込みしてください。"),
+        entry
+      );
+      scheduleAdvance(sessionId);
+    }
+
+    function playCurrent(sessionId) {
+      if (!state.active || sessionId !== state.sessionId) {
+        return;
+      }
+
+      const entry = state.questions[state.currentIndex];
+      if (!entry) {
+        finish();
+        return;
+      }
+
+      callbacks.onEntryChange?.(entry, state.currentIndex, state.questions.length);
+      if (!supported || !audio) {
+        callbacks.onError?.(new Error("このブラウザは音声ファイルの再生に対応していません。"), entry);
+        state.active = false;
+        state.status = "stopped";
+        emit();
+        return;
+      }
+
+      if (!entry.audioUrl || entry.audioAvailable === false) {
+        reportMissingAudio(entry, sessionId);
+        return;
+      }
+
+      state.waiting = false;
+      state.completed = false;
+      state.status = "speaking";
+      audio.onended = () => {
+        if (sessionId !== state.sessionId || !state.active) {
+          return;
+        }
+        audio.onended = null;
+        audio.onerror = null;
+        scheduleAdvance(sessionId);
+      };
+      audio.onerror = () => {
+        if (sessionId !== state.sessionId || !state.active) {
+          return;
+        }
+        audio.onended = null;
+        audio.onerror = null;
+        callbacks.onError?.(new Error("ニューラル音声を再生できませんでした。"), entry);
+        scheduleAdvance(sessionId);
+      };
+      audio.src = entry.audioUrl;
+      audio.playbackRate = state.rate;
+      audio.currentTime = 0;
+      emit();
+      const playPromise = audio.play();
+      playPromise?.catch(error => {
+        if (sessionId !== state.sessionId || !state.active) {
+          return;
+        }
+        callbacks.onError?.(new Error("ニューラル音声の再生を開始できませんでした。"), entry);
+        console.warn("ニューラル音声の再生に失敗しました。", { error, entry });
+        scheduleAdvance(sessionId);
+      });
+    }
+
+    function start() {
+      if (!supported) {
+        callbacks.onError?.(new Error("このブラウザは音声ファイルの再生に対応していません。"), null);
+        return false;
+      }
+      if (state.questions.length === 0) {
+        callbacks.onError?.(new Error("ニューラルTTS試作の対象問題がありません。"), null);
+        return false;
+      }
+
+      if (state.completed) {
+        if (state.random) {
+          state.questions = shuffled(state.entries);
+        }
+        state.currentIndex = 0;
+      }
+
+      const sessionId = cancelCurrentAudio();
+      state.active = true;
+      state.paused = false;
+      state.completed = false;
+      playCurrent(sessionId);
+      return true;
+    }
+
+    function pause() {
+      if (!state.active || state.paused) {
+        return;
+      }
+
+      state.paused = true;
+      state.status = "paused";
+      if (state.waiting) {
+        state.remainingDelay = Math.max(0, state.timerDueAt - Date.now());
+        clearTimer();
+      } else {
+        audio?.pause();
+      }
+      emit();
+    }
+
+    function resume() {
+      if (!state.active || !state.paused) {
+        return;
+      }
+
+      state.paused = false;
+      if (state.waiting) {
+        scheduleAdvance(state.sessionId, state.remainingDelay);
+        return;
+      }
+
+      state.status = "speaking";
+      audio?.play().catch(error => {
+        callbacks.onError?.(new Error("ニューラル音声を再開できませんでした。"), state.questions[state.currentIndex]);
+        console.warn("ニューラル音声の再開に失敗しました。", { error });
+      });
+      emit();
+    }
+
+    function stop() {
+      cancelCurrentAudio();
+      state.active = false;
+      state.paused = false;
+      state.completed = false;
+      state.status = "stopped";
+      emit();
+    }
+
+    function move(offset) {
+      if (state.questions.length === 0) {
+        return;
+      }
+
+      let nextIndex = state.currentIndex + offset;
+      if (nextIndex < 0) {
+        nextIndex = state.repeat ? state.questions.length - 1 : 0;
+      } else if (nextIndex >= state.questions.length) {
+        nextIndex = state.repeat ? 0 : state.questions.length - 1;
+      }
+
+      const restart = state.active;
+      const sessionId = cancelCurrentAudio();
+      state.currentIndex = nextIndex;
+      state.paused = false;
+      state.completed = false;
+      if (restart) {
+        state.active = true;
+        playCurrent(sessionId);
+      } else {
+        state.active = false;
+        state.status = "stopped";
+        emitEntry();
+      }
+    }
+
+    function setEntries(entries) {
+      stop();
+      state.entries = Array.isArray(entries) ? entries.slice() : [];
+      state.currentIndex = 0;
+      rebuildQuestions();
+      emitEntry();
+    }
+
+    function setRate(rate) {
+      const numericRate = Number(rate);
+      if (![0.8, 0.9, 1, 1.2, 1.5].includes(numericRate)) {
+        return;
+      }
+      state.rate = numericRate;
+      if (audio) {
+        audio.playbackRate = numericRate;
+      }
+      emit();
+    }
+
+    function setIntervalMs(intervalMs) {
+      state.intervalMs = Math.max(0, Number(intervalMs) || 0);
+      emit();
+    }
+
+    function setQaIntervalMs(intervalMs) {
+      state.qaIntervalMs = Math.max(0, Number(intervalMs) || 0);
+      emit();
+    }
+
+    function setRepeat(repeat) {
+      state.repeat = Boolean(repeat);
+      emit();
+    }
+
+    function setAutoAdvance(autoAdvance) {
+      state.autoAdvance = Boolean(autoAdvance);
+      emit();
+    }
+
+    function setRandom(random) {
+      const restart = state.active;
+      cancelCurrentAudio();
+      state.random = Boolean(random);
+      state.currentIndex = 0;
+      state.completed = false;
+      rebuildQuestions();
+
+      if (restart) {
+        state.active = true;
+        state.paused = false;
+        playCurrent(state.sessionId);
+      } else {
+        state.active = false;
+        state.status = "stopped";
+        emitEntry();
+      }
+    }
+
+    return {
+      getState: snapshot,
+      setEntries,
+      start,
+      pause,
+      resume,
+      stop,
+      previous: () => move(-1),
+      next: () => move(1),
+      setRate,
+      setIntervalMs,
+      setQaIntervalMs,
+      setRepeat,
+      setAutoAdvance,
       setRandom
     };
   }
@@ -819,6 +1219,7 @@
     normalizeTextForSpeech,
     buildEssaySpeechEntry,
     buildSpeechEntry,
-    createPlayer
+    createPlayer,
+    createAudioPlayer
   };
 })();

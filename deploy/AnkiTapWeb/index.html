@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260820-listening-cues">
+  <link rel="stylesheet" href="style.css?v=20260820-neural-tts">
   <script>
     window.MathJax = {
       tex: {
@@ -16,8 +16,8 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="speech.js?v=20260820-listening-cues"></script>
-  <script defer src="app.js?v=20260820-listening-cues"></script>
+  <script defer src="speech.js?v=20260820-neural-tts"></script>
+  <script defer src="app.js?v=20260820-neural-tts"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -196,6 +196,20 @@
         </div>
       </fieldset>
 
+      <fieldset class="listening-voice-mode">
+        <legend>音声方式</legend>
+        <div class="listening-voice-options">
+          <label class="listening-voice-option">
+            <input type="radio" name="listeningVoice" value="browser" checked>
+            <span>ブラウザ音声</span>
+          </label>
+          <label class="listening-voice-option">
+            <input type="radio" name="listeningVoice" value="neuralPower">
+            <span>ニューラル音声（試作10問）</span>
+          </label>
+        </div>
+      </fieldset>
+
       <p class="listening-message hidden" id="listeningMessage" role="status"></p>
 
       <div class="listening-settings">
@@ -248,6 +262,12 @@
           <input id="listeningRepeat" type="checkbox">
           <span class="toggle-track" aria-hidden="true"></span>
           <span>リピート</span>
+        </label>
+
+        <label class="listening-repeat">
+          <input id="listeningAutoAdvance" type="checkbox" checked>
+          <span class="toggle-track" aria-hidden="true"></span>
+          <span>自動連続再生</span>
         </label>
       </div>
 
