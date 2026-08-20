@@ -139,6 +139,7 @@ const elements = {
   listeningTargetInputs: [...document.querySelectorAll('input[name="listeningTarget"]')],
   listeningRate: document.querySelector("#listeningRate"),
   listeningInterval: document.querySelector("#listeningInterval"),
+  listeningQaInterval: document.querySelector("#listeningQaInterval"),
   listeningRepeat: document.querySelector("#listeningRepeat"),
   listeningOrderInputs: [...document.querySelectorAll('input[name="listeningOrder"]')],
   listeningPrevious: document.querySelector("#listeningPrevious"),
@@ -241,6 +242,7 @@ function bindEvents() {
   elements.listeningNext.addEventListener("click", () => listeningPlayer?.next());
   elements.listeningRate.addEventListener("change", event => listeningPlayer?.setRate(event.target.value));
   elements.listeningInterval.addEventListener("change", event => listeningPlayer?.setIntervalMs(event.target.value));
+  elements.listeningQaInterval.addEventListener("change", event => listeningPlayer?.setQaIntervalMs(event.target.value));
   elements.listeningRepeat.addEventListener("change", event => listeningPlayer?.setRepeat(event.target.checked));
   elements.listeningOrderInputs.forEach(input => {
     input.addEventListener("change", event => {
@@ -647,6 +649,7 @@ function refreshListeningEntries() {
   listeningPlayer.setEntries(entries);
   listeningPlayer.setRate(elements.listeningRate.value);
   listeningPlayer.setIntervalMs(elements.listeningInterval.value);
+  listeningPlayer.setQaIntervalMs(elements.listeningQaInterval.value);
   listeningPlayer.setRepeat(elements.listeningRepeat.checked);
   const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
   listeningPlayer.setRandom(selectedOrder === "random");
@@ -723,6 +726,7 @@ function renderListeningState(playerState) {
     speaking: "読み上げ中",
     paused: "一時停止中",
     waiting: "次の文章を待機中",
+    waitingQa: "問題・解答の間隔待機中",
     completed: "再生完了"
   };
   const unsupported = !window.AnkiTapSpeech?.isSupported();

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260820-listening-essay">
+  <link rel="stylesheet" href="style.css?v=20260820-listening-cues">
   <script>
     window.MathJax = {
       tex: {
@@ -16,8 +16,8 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="speech.js?v=20260820-listening-essay"></script>
-  <script defer src="app.js?v=20260820-listening-essay"></script>
+  <script defer src="speech.js?v=20260820-listening-cues"></script>
+  <script defer src="app.js?v=20260820-listening-cues"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -227,6 +227,16 @@
         <label class="listening-select">
           <span>文章間隔</span>
           <select id="listeningInterval">
+            <option value="0">0秒</option>
+            <option value="1000" selected>1秒</option>
+            <option value="2000">2秒</option>
+            <option value="3000">3秒</option>
+          </select>
+        </label>
+
+        <label class="listening-select">
+          <span>問題・解答間隔</span>
+          <select id="listeningQaInterval">
             <option value="0">0秒</option>
             <option value="1000" selected>1秒</option>
             <option value="2000">2秒</option>

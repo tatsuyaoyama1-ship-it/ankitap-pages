@@ -1016,7 +1016,7 @@ progress::-webkit-progress-value {
 
 .listening-settings {
   display: grid;
-  grid-template-columns: minmax(180px, 1.5fr) repeat(3, minmax(112px, 1fr));
+  grid-template-columns: minmax(180px, 1.5fr) repeat(4, minmax(112px, 1fr));
   align-items: end;
   gap: 10px;
 }

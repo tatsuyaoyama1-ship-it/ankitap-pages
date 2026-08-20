@@ -3,6 +3,74 @@
 
   const blankTokenPattern = /(?:【|［|\[|（|\()\s*(?:blank|空欄)\s*\d+\s*(?:】|］|\]|）|\))/gi;
   let availableVoices = [];
+  let audioContext = null;
+
+  function getAudioContext() {
+    if (audioContext) {
+      return audioContext;
+    }
+
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) {
+      return null;
+    }
+
+    audioContext = new AudioContextClass();
+    return audioContext;
+  }
+
+  function primeAudioContext() {
+    const context = getAudioContext();
+    if (context?.state === "suspended") {
+      context.resume().catch(error => {
+        console.warn("効果音を有効化できませんでした。", error);
+      });
+    }
+  }
+
+  function playCueNow(kind) {
+    const context = getAudioContext();
+    if (!context || context.state !== "running") {
+      return;
+    }
+
+    const now = context.currentTime;
+    const gain = context.createGain();
+    const frequencies = kind === "answer" ? [880, 1174.66] : [523.25, 659.25];
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.045, now + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+    gain.connect(context.destination);
+
+    frequencies.forEach((frequency, index) => {
+      const oscillator = context.createOscillator();
+      const start = now + index * 0.085;
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(frequency, start);
+      oscillator.connect(gain);
+      oscillator.start(start);
+      oscillator.stop(start + 0.075);
+    });
+
+    window.setTimeout(() => gain.disconnect(), 260);
+  }
+
+  function playCue(kind) {
+    const context = getAudioContext();
+    if (!context) {
+      return;
+    }
+
+    if (context.state === "suspended") {
+      context.resume()
+        .then(() => playCueNow(kind))
+        .catch(error => console.warn("効果音を再生できませんでした。", error));
+      return;
+    }
+
+    playCueNow(kind);
+  }
 
   function normalizeValue(value) {
     return String(value ?? "")
@@ -282,6 +350,10 @@
       question: card,
       displayText: `${questionText}\n${answerText}`,
       speechText: `${speechQuestion} ${speechAnswer}`,
+      speechParts: [
+        { text: speechQuestion, cue: "question" },
+        { text: speechAnswer, cue: "answer" }
+      ],
       metaText: `二次試験・${card.category}`
     };
   }
@@ -301,7 +373,8 @@
       ok: true,
       question,
       displayText: completed.displayText,
-      speechText
+      speechText,
+      speechParts: [{ text: speechText, cue: "question" }]
     };
   }
 
@@ -337,8 +410,10 @@
       waiting: false,
       completed: false,
       currentIndex: 0,
+      partIndex: 0,
       rate: 0.9,
       intervalMs: 1000,
+      qaIntervalMs: 1000,
       repeat: false,
       random: false,
       sessionId: 0,
@@ -348,6 +423,7 @@
       timerId: null,
       timerDueAt: 0,
       remainingDelay: 0,
+      waitingPhase: null,
       status: "stopped"
     };
 
@@ -358,9 +434,11 @@
         waiting: state.waiting,
         completed: state.completed,
         currentIndex: state.currentIndex,
+        partIndex: state.partIndex,
         count: state.questions.length,
         rate: state.rate,
         intervalMs: state.intervalMs,
+        qaIntervalMs: state.qaIntervalMs,
         repeat: state.repeat,
         random: state.random,
         status: state.status,
@@ -395,6 +473,7 @@
       state.currentUtterance = null;
       state.waiting = false;
       state.remainingDelay = 0;
+      state.waitingPhase = null;
       if (isSupported()) {
         window.speechSynthesis.cancel();
       }
@@ -412,6 +491,8 @@
       state.waiting = false;
       state.completed = true;
       state.currentUtterance = null;
+      state.partIndex = 0;
+      state.waitingPhase = null;
       state.status = "completed";
       emit();
     }
@@ -433,17 +514,21 @@
         return;
       }
 
+      state.partIndex = 0;
       speakCurrent(sessionId);
     }
 
-    function scheduleAdvance(sessionId, delay = state.intervalMs) {
+    function scheduleNext(sessionId, delay, phase, callback) {
       if (!state.active || sessionId !== state.sessionId) {
         return;
       }
 
       state.waiting = true;
       state.remainingDelay = Math.max(0, delay);
-      state.status = state.paused ? "paused" : "waiting";
+      state.waitingPhase = phase;
+      state.status = state.paused
+        ? "paused"
+        : phase === "qa" ? "waitingQa" : "waiting";
       emit();
 
       if (state.paused) {
@@ -456,8 +541,17 @@
         state.timerDueAt = 0;
         state.waiting = false;
         state.remainingDelay = 0;
-        advance(sessionId);
+        state.waitingPhase = null;
+        callback(sessionId);
       }, state.remainingDelay);
+    }
+
+    function scheduleAdvance(sessionId, delay = state.intervalMs) {
+      scheduleNext(sessionId, delay, "entry", advance);
+    }
+
+    function schedulePartAdvance(sessionId, delay = state.qaIntervalMs) {
+      scheduleNext(sessionId, delay, "qa", speakCurrent);
     }
 
     function speakCurrent(sessionId) {
@@ -471,12 +565,23 @@
         return;
       }
 
+      const parts = Array.isArray(entry.speechParts) && entry.speechParts.length > 0
+        ? entry.speechParts
+        : [{ text: entry.speechText, cue: "question" }];
+      const part = parts[state.partIndex];
+      if (!part?.text) {
+        finish();
+        return;
+      }
+
       state.waiting = false;
+      state.waitingPhase = null;
       state.completed = false;
       state.status = "speaking";
       callbacks.onEntryChange?.(entry, state.currentIndex, state.questions.length);
 
-      const utterance = new SpeechSynthesisUtterance(entry.speechText);
+      playCue(part.cue);
+      const utterance = new SpeechSynthesisUtterance(part.text);
       utterance.lang = "ja-JP";
       utterance.rate = state.rate;
       utterance.pitch = 1;
@@ -492,7 +597,13 @@
           return;
         }
         state.currentUtterance = null;
-        scheduleAdvance(sessionId);
+        if (state.partIndex < parts.length - 1) {
+          state.partIndex += 1;
+          schedulePartAdvance(sessionId);
+        } else {
+          state.partIndex = 0;
+          scheduleAdvance(sessionId);
+        }
       };
       utterance.onerror = event => {
         if (sessionId !== state.sessionId || state.currentUtterance !== utterance || !state.active) {
@@ -503,7 +614,13 @@
           return;
         }
         callbacks.onError?.(new Error(`音声合成エラー: ${event.error || "unknown"}`), entry);
-        scheduleAdvance(sessionId);
+        if (state.partIndex < parts.length - 1) {
+          state.partIndex += 1;
+          schedulePartAdvance(sessionId);
+        } else {
+          state.partIndex = 0;
+          scheduleAdvance(sessionId);
+        }
       };
 
       emit();
@@ -527,10 +644,12 @@
         state.currentIndex = 0;
       }
 
+      primeAudioContext();
       const sessionId = cancelCurrentSpeech();
       state.active = true;
       state.paused = false;
       state.completed = false;
+      state.partIndex = 0;
       speakCurrent(sessionId);
       return true;
     }
@@ -558,7 +677,9 @@
 
       state.paused = false;
       if (state.waiting) {
-        scheduleAdvance(state.sessionId, state.remainingDelay);
+        const phase = state.waitingPhase;
+        const callback = phase === "qa" ? speakCurrent : advance;
+        scheduleNext(state.sessionId, state.remainingDelay, phase || "entry", callback);
       } else {
         state.status = "speaking";
         if (isSupported()) {
@@ -573,6 +694,7 @@
       state.active = false;
       state.paused = false;
       state.completed = false;
+      state.partIndex = 0;
       state.status = "stopped";
       emit();
     }
@@ -594,6 +716,7 @@
       state.currentIndex = nextIndex;
       state.paused = false;
       state.completed = false;
+      state.partIndex = 0;
 
       if (restart) {
         state.active = true;
@@ -609,6 +732,7 @@
       stop();
       state.entries = Array.isArray(entries) ? entries.slice() : [];
       state.currentIndex = 0;
+      state.partIndex = 0;
       rebuildQuestions();
       emitEntry();
     }
@@ -631,6 +755,11 @@
       emit();
     }
 
+    function setQaIntervalMs(intervalMs) {
+      state.qaIntervalMs = Math.max(0, Number(intervalMs) || 0);
+      emit();
+    }
+
     function setRepeat(repeat) {
       state.repeat = Boolean(repeat);
       emit();
@@ -641,6 +770,7 @@
       cancelCurrentSpeech();
       state.random = Boolean(random);
       state.currentIndex = 0;
+      state.partIndex = 0;
       state.completed = false;
       rebuildQuestions();
 
@@ -668,6 +798,7 @@
       next: () => move(1),
       setRate,
       setIntervalMs,
+      setQaIntervalMs,
       setRepeat,
       setRandom
     };
