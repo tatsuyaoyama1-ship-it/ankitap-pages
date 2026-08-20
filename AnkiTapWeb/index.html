@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260819-card-list">
+  <link rel="stylesheet" href="style.css?v=20260820-listening-essay">
   <script>
     window.MathJax = {
       tex: {
@@ -16,8 +16,8 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="speech.js?v=20260803-listening-mode"></script>
-  <script defer src="app.js?v=20260819-card-list"></script>
+  <script defer src="speech.js?v=20260820-listening-essay"></script>
+  <script defer src="app.js?v=20260820-listening-essay"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -44,7 +44,7 @@
         </button>
         <button class="mode-card" id="listeningModeButton" type="button">
           <strong>音声聞き流し</strong>
-          <span>一次試験・電力の完成文を連続再生</span>
+          <span>一次電力・二次論説カードを連続再生</span>
         </button>
         <button class="mode-card" id="printReviewModeButton" type="button">
           <strong>印刷レビュー</strong>
@@ -178,6 +178,24 @@
         <div class="listening-text math" id="listeningText" aria-live="polite"></div>
       </article>
 
+      <fieldset class="listening-targets">
+        <legend>再生対象</legend>
+        <div class="listening-target-options">
+          <label class="listening-target-option">
+            <input type="checkbox" name="listeningTarget" value="primaryPowerFillBlank" checked>
+            <span>一次・電力・空欄穴埋め</span>
+          </label>
+          <label class="listening-target-option">
+            <input type="checkbox" name="listeningTarget" value="powerEssay" checked>
+            <span>二次・電力管理論説</span>
+          </label>
+          <label class="listening-target-option">
+            <input type="checkbox" name="listeningTarget" value="machineEssay" checked>
+            <span>二次・機械制御論説</span>
+          </label>
+        </div>
+      </fieldset>
+
       <p class="listening-message hidden" id="listeningMessage" role="status"></p>
 
       <div class="listening-settings">
@@ -199,7 +217,8 @@
           <span>速度</span>
           <select id="listeningRate">
             <option value="0.8">0.8</option>
-            <option value="1" selected>1.0</option>
+            <option value="0.9" selected>0.9</option>
+            <option value="1">1.0</option>
             <option value="1.2">1.2</option>
             <option value="1.5">1.5</option>
           </select>

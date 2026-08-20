@@ -136,6 +136,7 @@ const elements = {
   listeningMeta: document.querySelector("#listeningMeta"),
   listeningText: document.querySelector("#listeningText"),
   listeningMessage: document.querySelector("#listeningMessage"),
+  listeningTargetInputs: [...document.querySelectorAll('input[name="listeningTarget"]')],
   listeningRate: document.querySelector("#listeningRate"),
   listeningInterval: document.querySelector("#listeningInterval"),
   listeningRepeat: document.querySelector("#listeningRepeat"),
@@ -247,6 +248,9 @@ function bindEvents() {
         listeningPlayer?.setRandom(event.target.value === "random");
       }
     });
+  });
+  elements.listeningTargetInputs.forEach(input => {
+    input.addEventListener("change", refreshListeningEntries);
   });
 }
 
@@ -569,54 +573,97 @@ async function enterListeningMode() {
     stopListeningMode();
     state.mode = "listening";
     await loadPastQuestions();
-
-    const candidates = state.pastQuestions.filter(question => (
-      window.AnkiTapSpeech?.isPrimaryPowerFillBlank(question)
-    ));
-    const entries = [];
-    listeningSkippedCount = 0;
-
-    candidates.forEach(question => {
-      const entry = window.AnkiTapSpeech.buildSpeechEntry(question);
-      if (entry.ok) {
-        entries.push(entry);
-        return;
-      }
-
-      listeningSkippedCount += 1;
-      console.warn("音声聞き流し対象をスキップしました。", {
-        id: question.id,
-        year: question.year,
-        questionNo: question.questionNo,
-        error: entry.error,
-        missing: entry.missing
-      });
-    });
-
     showListeningView();
-    listeningPlayer?.setEntries(entries);
-    listeningPlayer?.setRate(elements.listeningRate.value);
-    listeningPlayer?.setIntervalMs(elements.listeningInterval.value);
-    listeningPlayer?.setRepeat(elements.listeningRepeat.checked);
-    const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
-    listeningPlayer?.setRandom(selectedOrder === "random");
-
-    if (!window.AnkiTapSpeech?.isSupported()) {
-      showListeningMessage("このブラウザは音声読み上げに対応していません。", true);
-    } else if (entries.length === 0) {
-      showListeningMessage(
-        candidates.length === 0
-          ? "一次試験・電力の空欄穴埋め問題がありません。"
-          : "読み上げ用文章を生成できる問題がありません。",
-        true
-      );
-    } else if (listeningSkippedCount > 0) {
-      showListeningMessage(`${listeningSkippedCount}件をデータ不備のため除外しました。`, false);
-    } else {
-      showListeningMessage("", false);
-    }
+    refreshListeningEntries();
   } catch (error) {
     showEmpty(`${error.message} ローカルサーバーから開いているか確認してください。`);
+  }
+}
+
+function selectedListeningTargets() {
+  return new Set(
+    elements.listeningTargetInputs
+      .filter(input => input.checked)
+      .map(input => input.value)
+  );
+}
+
+function refreshListeningEntries() {
+  if (state.mode !== "listening" || !listeningPlayer) {
+    return;
+  }
+
+  const targets = selectedListeningTargets();
+  const candidates = [];
+
+  if (targets.has("primaryPowerFillBlank")) {
+    candidates.push(
+      ...state.pastQuestions
+        .filter(question => window.AnkiTapSpeech?.isPrimaryPowerFillBlank(question))
+        .map(question => ({ kind: "past", item: question }))
+    );
+  }
+
+  if (targets.has("powerEssay")) {
+    candidates.push(
+      ...state.allCards
+        .filter(card => window.AnkiTapSpeech?.isSecondaryEssayCard(card, "電力管理論説"))
+        .map(card => ({ kind: "essay", item: card }))
+    );
+  }
+
+  if (targets.has("machineEssay")) {
+    candidates.push(
+      ...state.allCards
+        .filter(card => window.AnkiTapSpeech?.isSecondaryEssayCard(card, "機械制御論説"))
+        .map(card => ({ kind: "essay", item: card }))
+    );
+  }
+
+  const entries = [];
+  listeningSkippedCount = 0;
+
+  candidates.forEach(({ kind, item }) => {
+    const entry = kind === "essay"
+      ? window.AnkiTapSpeech.buildEssaySpeechEntry(item)
+      : window.AnkiTapSpeech.buildSpeechEntry(item);
+
+    if (entry.ok) {
+      entries.push(entry);
+      return;
+    }
+
+    listeningSkippedCount += 1;
+    console.warn("音声聞き流し対象をスキップしました。", {
+      id: item.id || item.formulaId,
+      category: item.category,
+      year: item.year,
+      questionNo: item.questionNo,
+      error: entry.error,
+      missing: entry.missing
+    });
+  });
+
+  listeningPlayer.setEntries(entries);
+  listeningPlayer.setRate(elements.listeningRate.value);
+  listeningPlayer.setIntervalMs(elements.listeningInterval.value);
+  listeningPlayer.setRepeat(elements.listeningRepeat.checked);
+  const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
+  listeningPlayer.setRandom(selectedOrder === "random");
+
+  if (!window.AnkiTapSpeech?.isSupported()) {
+    showListeningMessage("このブラウザは音声読み上げに対応していません。", true);
+  } else if (entries.length === 0) {
+    showListeningMessage(
+      candidates.length === 0
+        ? "選択した再生対象に該当する問題がありません。"
+        : "読み上げ用文章を生成できる問題がありません。",
+      true
+    );
+  } else if (listeningSkippedCount > 0) {
+    showListeningMessage(`${listeningSkippedCount}件をデータ不備のため除外しました。`, false);
+  } else {
+    showListeningMessage("", false);
   }
 }
 
@@ -665,7 +712,8 @@ function renderListeningEntry(entry, index, count) {
   }
 
   const question = entry.question;
-  elements.listeningMeta.textContent = `${formatYear(question.year)} 電力 問${question.questionNo}`;
+  elements.listeningMeta.textContent = entry.metaText
+    || (question.year ? `${formatYear(question.year)} 電力 問${question.questionNo}` : "");
   renderMath(elements.listeningText, entry.displayText);
 }
 
