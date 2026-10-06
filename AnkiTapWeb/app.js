@@ -4,6 +4,7 @@ const DATA_URLS = [
 ];
 const DENKEN_URL = assetUrl("data/denken_questions.tsv");
 const FAVORITE_STORAGE_KEY = "ankitap.favoriteCardKeys.v1";
+const PAST_FAVORITE_STORAGE_KEY = "ankitap.favoriteQuestionIds.v1";
 const ALL_CATEGORIES = "__all_categories__";
 
 function assetUrl(path) {
@@ -72,7 +73,6 @@ const subjectLabels = {
 };
 
 const stageLabels = {
-  first: "一次試験",
   second: "二次試験"
 };
 
@@ -88,6 +88,8 @@ const state = {
   cardListScrollTop: 0,
   favoriteOnly: false,
   favoriteCardKeys: loadFavoriteCardKeys(),
+  pastFavoriteOnly: false,
+  favoriteQuestionIds: loadFavoriteQuestionIds(),
   explanationTransitionInProgress: false,
   pastQuestions: [],
   visiblePastQuestions: [],
@@ -99,10 +101,6 @@ const state = {
   selectedPastFilter: null
 };
 
-let listeningPlayer = null;
-let listeningPlayerKind = "browser";
-let listeningSkippedCount = 0;
-let listeningRefreshToken = 0;
 let cardListSearchTimer = null;
 
 const elements = {
@@ -111,7 +109,6 @@ const elements = {
   modeView: document.querySelector("#modeView"),
   formulaModeButton: document.querySelector("#formulaModeButton"),
   pastQuestionModeButton: document.querySelector("#pastQuestionModeButton"),
-  listeningModeButton: document.querySelector("#listeningModeButton"),
   printReviewModeButton: document.querySelector("#printReviewModeButton"),
   formulaViewTools: document.querySelector("#formulaViewTools"),
   formulaCardViewButton: document.querySelector("#formulaCardViewButton"),
@@ -130,31 +127,13 @@ const elements = {
   cardList: document.querySelector("#cardList"),
   pastFilterView: document.querySelector("#pastFilterView"),
   pastFilterList: document.querySelector("#pastFilterList"),
+  pastFilterEmpty: document.querySelector("#pastFilterEmpty"),
+  pastFavoriteOnlyToggle: document.querySelector("#pastFavoriteOnlyToggle"),
+  pastFavoriteOnlyCount: document.querySelector("#pastFavoriteOnlyCount"),
   studyView: document.querySelector("#studyView"),
   pastStudyView: document.querySelector("#pastStudyView"),
-  listeningView: document.querySelector("#listeningView"),
-  listeningCounter: document.querySelector("#listeningCounter"),
-  listeningStatus: document.querySelector("#listeningStatus"),
-  listeningMeta: document.querySelector("#listeningMeta"),
-  listeningText: document.querySelector("#listeningText"),
-  listeningMessage: document.querySelector("#listeningMessage"),
-  listeningTargetInputs: [...document.querySelectorAll('input[name="listeningTarget"]')],
-  listeningVoiceInputs: [...document.querySelectorAll('input[name="listeningVoice"]')],
-  listeningRate: document.querySelector("#listeningRate"),
-  listeningInterval: document.querySelector("#listeningInterval"),
-  listeningQaInterval: document.querySelector("#listeningQaInterval"),
-  listeningRepeat: document.querySelector("#listeningRepeat"),
-  listeningAutoAdvance: document.querySelector("#listeningAutoAdvance"),
-  listeningOrderInputs: [...document.querySelectorAll('input[name="listeningOrder"]')],
-  listeningPrevious: document.querySelector("#listeningPrevious"),
-  listeningPlay: document.querySelector("#listeningPlay"),
-  listeningPause: document.querySelector("#listeningPause"),
-  listeningResume: document.querySelector("#listeningResume"),
-  listeningStop: document.querySelector("#listeningStop"),
-  listeningNext: document.querySelector("#listeningNext"),
   printReviewView: document.querySelector("#printReviewView"),
   printYearFilter: document.querySelector("#printYearFilter"),
-  printStageFilter: document.querySelector("#printStageFilter"),
   printSubjectFilter: document.querySelector("#printSubjectFilter"),
   printReviewStatusFilter: document.querySelector("#printReviewStatusFilter"),
   printReviewCount: document.querySelector("#printReviewCount"),
@@ -183,6 +162,8 @@ const elements = {
   nextButton: document.querySelector("#nextButton"),
   pastCounter: document.querySelector("#pastCounter"),
   pastSubject: document.querySelector("#pastSubject"),
+  pastFavoriteButton: document.querySelector("#pastFavoriteButton"),
+  pastFavoriteStar: document.querySelector("#pastFavoriteStar"),
   pastDebugMeta: document.querySelector("#pastDebugMeta"),
   pastReviewStatus: document.querySelector("#pastReviewStatus"),
   pastQuestionPanel: document.querySelector(".past-question-panel"),
@@ -201,7 +182,6 @@ const elements = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  initializeListeningMode();
   bindEvents();
   loadCards();
 });
@@ -209,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindEvents() {
   elements.formulaModeButton.addEventListener("click", enterFormulaMode);
   elements.pastQuestionModeButton.addEventListener("click", enterPastQuestionMode);
-  elements.listeningModeButton.addEventListener("click", enterListeningMode);
   elements.printReviewModeButton.addEventListener("click", enterPrintReviewMode);
   elements.backToCategories.addEventListener("click", handleBack);
   elements.shuffleButton.addEventListener("click", shuffleCards);
@@ -218,6 +197,8 @@ function bindEvents() {
   elements.formulaCategorySelect.addEventListener("change", handleFormulaCategoryChange);
   elements.favoriteOnlyToggle.addEventListener("change", handleFavoriteOnlyChange);
   elements.cardListFavoriteOnlyToggle.addEventListener("change", handleCardListFavoriteOnlyChange);
+  elements.pastFavoriteOnlyToggle.addEventListener("change", handlePastFavoriteOnlyChange);
+  elements.pastFavoriteButton.addEventListener("click", handlePastFavoriteButtonClick);
   elements.cardListSearch.addEventListener("input", handleCardListSearchInput);
   elements.favoriteButton.addEventListener("pointerdown", event => event.stopPropagation());
   elements.favoriteButton.addEventListener("click", handleFavoriteButtonClick);
@@ -234,34 +215,10 @@ function bindEvents() {
   elements.closeExplanation.addEventListener("click", closeExplanationDialog);
   elements.closeExplanationFooter.addEventListener("click", closeExplanationDialog);
   elements.nextFromExplanation.addEventListener("click", handleNextFromExplanation);
-  [elements.printYearFilter, elements.printStageFilter, elements.printSubjectFilter, elements.printReviewStatusFilter].forEach(select => {
+  [elements.printYearFilter, elements.printSubjectFilter, elements.printReviewStatusFilter].forEach(select => {
     select.addEventListener("change", renderPrintReviewPages);
   });
   elements.printButton.addEventListener("click", printReviewPages);
-  elements.listeningPlay.addEventListener("click", () => listeningPlayer?.start());
-  elements.listeningPause.addEventListener("click", () => listeningPlayer?.pause());
-  elements.listeningResume.addEventListener("click", () => listeningPlayer?.resume());
-  elements.listeningStop.addEventListener("click", () => listeningPlayer?.stop());
-  elements.listeningPrevious.addEventListener("click", () => listeningPlayer?.previous());
-  elements.listeningNext.addEventListener("click", () => listeningPlayer?.next());
-  elements.listeningRate.addEventListener("change", event => listeningPlayer?.setRate(event.target.value));
-  elements.listeningInterval.addEventListener("change", event => listeningPlayer?.setIntervalMs(event.target.value));
-  elements.listeningQaInterval.addEventListener("change", event => listeningPlayer?.setQaIntervalMs(event.target.value));
-  elements.listeningRepeat.addEventListener("change", event => listeningPlayer?.setRepeat(event.target.checked));
-  elements.listeningAutoAdvance.addEventListener("change", event => listeningPlayer?.setAutoAdvance(event.target.checked));
-  elements.listeningOrderInputs.forEach(input => {
-    input.addEventListener("change", event => {
-      if (event.target.checked) {
-        listeningPlayer?.setRandom(event.target.value === "random");
-      }
-    });
-  });
-  elements.listeningTargetInputs.forEach(input => {
-    input.addEventListener("change", () => void refreshListeningEntries());
-  });
-  elements.listeningVoiceInputs.forEach(input => {
-    input.addEventListener("change", () => void refreshListeningEntries());
-  });
 }
 
 async function loadCards() {
@@ -289,7 +246,7 @@ async function loadPastQuestions() {
   }
 
   const text = await fetchTextFromUrls([DENKEN_URL], "denken_questions.tsv");
-  state.pastQuestions = parsePastQuestions(text);
+  state.pastQuestions = parsePastQuestions(text).filter(question => question.stage === "second");
 
   if (state.pastQuestions.length === 0) {
     throw new Error("denken_questions.tsvに表示できる問題がありません。");
@@ -433,7 +390,6 @@ function parsePastQuestions(text) {
       answerImages: imageList(value(row, "answer_images") || value(row, "answer_image")),
       blankAnswersText: value(row, "blank_answers"),
       blankAnswers: parseBlankAnswers(value(row, "blank_answers")),
-      speechOverride: value(row, "speech_override"),
       answer_policy: value(row, "answer_policy"),
       formulas: value(row, "formulas"),
       calculation_tips: value(row, "calculation_tips"),
@@ -514,7 +470,6 @@ function hideFormulaListInterface() {
 }
 
 function showModeSelection() {
-  stopListeningMode();
   state.mode = null;
   state.selectedCategory = null;
   state.cards = [];
@@ -530,9 +485,11 @@ function showModeSelection() {
   resetProgressiveBlankState();
   state.visiblePastQuestions = [];
   state.selectedPastFilter = null;
+  state.pastFavoriteOnly = false;
   clearTimeout(cardListSearchTimer);
   elements.favoriteOnlyToggle.checked = false;
   elements.cardListFavoriteOnlyToggle.checked = false;
+  elements.pastFavoriteOnlyToggle.checked = false;
   elements.cardListSearch.value = "";
 
   hideFormulaListInterface();
@@ -541,7 +498,6 @@ function showModeSelection() {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.backToCategories.classList.add("hidden");
@@ -550,14 +506,12 @@ function showModeSelection() {
 }
 
 function enterFormulaMode() {
-  stopListeningMode();
   state.mode = "formula";
   renderCategories();
 }
 
 async function enterPastQuestionMode() {
   try {
-    stopListeningMode();
     state.mode = "past";
     await loadPastQuestions();
     renderPastFilters();
@@ -568,7 +522,6 @@ async function enterPastQuestionMode() {
 
 async function enterPrintReviewMode() {
   try {
-    stopListeningMode();
     state.mode = "print";
     await loadPastQuestions();
     renderPrintReviewFilters();
@@ -578,313 +531,14 @@ async function enterPrintReviewMode() {
   }
 }
 
-async function enterListeningMode() {
-  try {
-    stopListeningMode();
-    state.mode = "listening";
-    await loadPastQuestions();
-    showListeningView();
-    await refreshListeningEntries();
-  } catch (error) {
-    showEmpty(`${error.message} ローカルサーバーから開いているか確認してください。`);
-  }
-}
-
-function selectedListeningTargets() {
-  return new Set(
-    elements.listeningTargetInputs
-      .filter(input => input.checked)
-      .map(input => input.value)
-  );
-}
-
-function selectedListeningVoice() {
-  return elements.listeningVoiceInputs.find(input => input.checked)?.value || "browser";
-}
-
-function createListeningPlayer(kind) {
-  if (listeningPlayer && listeningPlayerKind === kind) {
-    return listeningPlayer;
-  }
-
-  listeningPlayer?.stop();
-  const callbacks = {
-    onStateChange: renderListeningState,
-    onEntryChange: renderListeningEntry,
-    onError: handleListeningError
-  };
-  listeningPlayer = kind === "neural"
-    ? window.AnkiTapSpeech.createAudioPlayer(callbacks)
-    : window.AnkiTapSpeech.createPlayer(callbacks);
-  listeningPlayerKind = kind;
-  return listeningPlayer;
-}
-
-function applyListeningSettings() {
-  listeningPlayer.setRate(elements.listeningRate.value);
-  listeningPlayer.setIntervalMs(elements.listeningInterval.value);
-  listeningPlayer.setQaIntervalMs(elements.listeningQaInterval.value);
-  listeningPlayer.setRepeat(elements.listeningRepeat.checked);
-  listeningPlayer.setAutoAdvance(elements.listeningAutoAdvance.checked);
-  const selectedOrder = elements.listeningOrderInputs.find(input => input.checked)?.value;
-  listeningPlayer.setRandom(selectedOrder === "random");
-}
-
-async function checkNeuralAudio(url) {
-  try {
-    const response = await fetch(url, { method: "HEAD", cache: "no-store" });
-    return response.ok || response.status === 405;
-  } catch (error) {
-    console.warn("ニューラル音声ファイルの存在確認に失敗しました。", { url, error });
-    return false;
-  }
-}
-
-async function refreshNeuralListeningEntries(refreshToken) {
-  const dataUrl = new URL("audio/power_management/tts_texts.json", document.baseURI);
-  const response = await fetch(dataUrl, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`ニューラルTTS試作データを読み込めませんでした（${response.status}）。`);
-  }
-
-  const records = await response.json();
-  if (!Array.isArray(records) || records.length === 0) {
-    throw new Error("ニューラルTTS試作の対象データがありません。");
-  }
-
-  const entries = await Promise.all(records.map(async record => {
-    const audioUrl = new URL(
-      `audio/power_management/${encodeURIComponent(record.audioFile)}`,
-      document.baseURI
-    ).href;
-    const audioAvailable = await checkNeuralAudio(audioUrl);
-    return {
-      ok: true,
-      question: {
-        id: record.sourceCardId || record.id,
-        category: "電力管理論説",
-        question: record.title,
-        answer: record.speechText
-      },
-      displayText: record.speechText,
-      speechText: record.speechText,
-      audioUrl,
-      audioFile: record.audioFile,
-      audioAvailable,
-      metaText: `ニューラルTTS試作・${record.title}`
-    };
-  }));
-
-  if (refreshToken !== listeningRefreshToken || state.mode !== "listening") {
-    return;
-  }
-
-  listeningSkippedCount = 0;
-  listeningPlayer.setEntries(entries);
-  applyListeningSettings();
-
-  const missingCount = entries.filter(entry => !entry.audioAvailable).length;
-  if (missingCount > 0) {
-    showListeningMessage(
-      `ニューラル音声未生成の問題があります（${missingCount}件）。この問題にはニューラル音声がありません。`,
-      true
-    );
-  } else {
-    showListeningMessage("", false);
-  }
-}
-
-async function refreshListeningEntries() {
-  if (state.mode !== "listening" || !listeningPlayer) {
-    return;
-  }
-
-  const refreshToken = ++listeningRefreshToken;
-  const voiceMode = selectedListeningVoice();
-  if (voiceMode === "neuralPower") {
-    createListeningPlayer("neural");
-    try {
-      await refreshNeuralListeningEntries(refreshToken);
-    } catch (error) {
-      if (refreshToken !== listeningRefreshToken || state.mode !== "listening") {
-        return;
-      }
-      listeningPlayer.setEntries([]);
-      showListeningMessage(error.message, true);
-    }
-    return;
-  }
-
-  createListeningPlayer("browser");
-  const targets = selectedListeningTargets();
-  const candidates = [];
-
-  if (targets.has("primaryPowerFillBlank")) {
-    candidates.push(
-      ...state.pastQuestions
-        .filter(question => window.AnkiTapSpeech?.isPrimaryPowerFillBlank(question))
-        .map(question => ({ kind: "past", item: question }))
-    );
-  }
-
-  if (targets.has("powerEssay")) {
-    candidates.push(
-      ...state.allCards
-        .filter(card => window.AnkiTapSpeech?.isSecondaryEssayCard(card, "電力管理論説"))
-        .map(card => ({ kind: "essay", item: card }))
-    );
-  }
-
-  if (targets.has("machineEssay")) {
-    candidates.push(
-      ...state.allCards
-        .filter(card => window.AnkiTapSpeech?.isSecondaryEssayCard(card, "機械制御論説"))
-        .map(card => ({ kind: "essay", item: card }))
-    );
-  }
-
-  const entries = [];
-  listeningSkippedCount = 0;
-
-  candidates.forEach(({ kind, item }) => {
-    const entry = kind === "essay"
-      ? window.AnkiTapSpeech.buildEssaySpeechEntry(item)
-      : window.AnkiTapSpeech.buildSpeechEntry(item);
-
-    if (entry.ok) {
-      entries.push(entry);
-      return;
-    }
-
-    listeningSkippedCount += 1;
-    console.warn("音声聞き流し対象をスキップしました。", {
-      id: item.id || item.formulaId,
-      category: item.category,
-      year: item.year,
-      questionNo: item.questionNo,
-      error: entry.error,
-      missing: entry.missing
-    });
-  });
-
-  listeningPlayer.setEntries(entries);
-  applyListeningSettings();
-
-  if (!window.AnkiTapSpeech?.isSupported()) {
-    showListeningMessage("このブラウザは音声読み上げに対応していません。", true);
-  } else if (entries.length === 0) {
-    showListeningMessage(
-      candidates.length === 0
-        ? "選択した再生対象に該当する問題がありません。"
-        : "読み上げ用文章を生成できる問題がありません。",
-      true
-    );
-  } else if (listeningSkippedCount > 0) {
-    showListeningMessage(`${listeningSkippedCount}件をデータ不備のため除外しました。`, false);
-  } else {
-    showListeningMessage("", false);
-  }
-}
-
-function initializeListeningMode() {
-  if (!window.AnkiTapSpeech) {
-    elements.listeningModeButton.disabled = true;
-    console.error("speech.jsを読み込めませんでした。");
-    return;
-  }
-
-  createListeningPlayer("browser");
-
-  window.addEventListener("beforeunload", () => listeningPlayer?.stop(), { once: true });
-}
-
-function stopListeningMode() {
-  listeningPlayer?.stop();
-}
-
-function showListeningView() {
-  hideFormulaListInterface();
-  elements.modeView.classList.add("hidden");
-  elements.categoryView.classList.add("hidden");
-  elements.pastFilterView.classList.add("hidden");
-  elements.studyView.classList.add("hidden");
-  elements.pastStudyView.classList.add("hidden");
-  elements.printReviewView.classList.add("hidden");
-  elements.emptyView.classList.add("hidden");
-  elements.listeningView.classList.remove("hidden");
-  elements.backToCategories.classList.remove("hidden");
-  elements.shuffleButton.disabled = true;
-  hideDebugMeta();
-}
-
-function renderListeningEntry(entry, index, count) {
-  elements.listeningCounter.textContent = count > 0 ? `${index + 1} / ${count}` : "0 / 0";
-
-  if (!entry) {
-    elements.listeningMeta.textContent = "";
-    elements.listeningText.textContent = "読み上げ対象の問題がありません。";
-    return;
-  }
-
-  const question = entry.question;
-  elements.listeningMeta.textContent = entry.metaText
-    || (question.year ? `${formatYear(question.year)} 電力 問${question.questionNo}` : "");
-  renderMath(elements.listeningText, entry.displayText);
-
-  if (listeningPlayerKind === "neural" && entry.audioAvailable === false) {
-    showListeningMessage("この問題にはニューラル音声がありません。生成後に再読み込みしてください。", true);
-  }
-}
-
-function renderListeningState(playerState) {
-  const statusLabels = {
-    stopped: "停止中",
-    speaking: "読み上げ中",
-    paused: "一時停止中",
-    waiting: "次の文章を待機中",
-    waitingQa: "問題・解答の間隔待機中",
-    completed: "再生完了"
-  };
-  const unsupported = playerState.supported === false
-    || (listeningPlayerKind === "browser" && !window.AnkiTapSpeech?.isSupported());
-  const noEntries = playerState.count === 0;
-
-  elements.listeningStatus.textContent = statusLabels[playerState.status] || "停止中";
-  elements.listeningCounter.textContent = noEntries
-    ? "0 / 0"
-    : `${playerState.currentIndex + 1} / ${playerState.count}`;
-  elements.listeningPlay.disabled = unsupported || noEntries || playerState.active;
-  elements.listeningPause.disabled = !playerState.active || playerState.paused;
-  elements.listeningResume.disabled = !playerState.active || !playerState.paused;
-  elements.listeningStop.disabled = !playerState.active;
-  elements.listeningPrevious.disabled = noEntries
-    || playerState.count < 2
-    || (!playerState.repeat && playerState.currentIndex === 0);
-  elements.listeningNext.disabled = noEntries
-    || playerState.count < 2
-    || (!playerState.repeat && playerState.currentIndex === playerState.count - 1);
-}
-
-function handleListeningError(error, entry) {
-  const question = entry?.question;
-  console.warn("音声聞き流しでエラーが発生しました。", {
-    id: question?.id,
-    year: question?.year,
-    questionNo: question?.questionNo,
-    error
-  });
-  showListeningMessage(error.message || "音声を再生できませんでした。", true);
-}
-
-function showListeningMessage(message, isError) {
-  elements.listeningMessage.textContent = message;
-  elements.listeningMessage.classList.toggle("hidden", !message);
-  elements.listeningMessage.classList.toggle("error", Boolean(isError));
-}
-
 function renderPastFilters() {
   const filters = pastQuestionFilters();
   const filtersByStage = new Map();
+  const favoriteCount = state.pastQuestions.filter(isFavoritePastQuestion).length;
+
+  elements.pastFavoriteOnlyToggle.checked = state.pastFavoriteOnly;
+  elements.pastFavoriteOnlyCount.textContent = `（${favoriteCount}）`;
+  elements.pastFilterEmpty.classList.toggle("hidden", filters.length > 0);
 
   filters.forEach(filter => {
     const stageFilters = filtersByStage.get(filter.stage) ?? [];
@@ -924,7 +578,6 @@ function renderPastFilters() {
   elements.categoryView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.pastFilterView.classList.remove("hidden");
@@ -943,18 +596,9 @@ function pastQuestionFilters() {
     }
     return 0;
   };
-  const sortStage = stage => {
-    if (stage === "first") {
-      return 0;
-    }
-    if (stage === "second") {
-      return 1;
-    }
-    return 2;
-  };
   const grouped = new Map();
 
-  state.pastQuestions.forEach(question => {
+  eligiblePastQuestions().forEach(question => {
     const key = `${question.stage}\t${question.year}\t${question.subject}`;
     const current = grouped.get(key) ?? {
       stage: question.stage,
@@ -967,10 +611,6 @@ function pastQuestionFilters() {
   });
 
   return [...grouped.values()].sort((a, b) => {
-    const stageDiff = sortStage(a.stage) - sortStage(b.stage);
-    if (stageDiff !== 0) {
-      return stageDiff;
-    }
     const yearDiff = sortYear(b.year) - sortYear(a.year);
     if (yearDiff !== 0) {
       return yearDiff;
@@ -993,11 +633,7 @@ function formatYear(year) {
 
 function selectPastFilter(filter) {
   state.selectedPastFilter = filter;
-  state.visiblePastQuestions = state.pastQuestions.filter(question => (
-    question.stage === filter.stage
-      && question.year === filter.year
-      && question.subject === filter.subject
-  ));
+  state.visiblePastQuestions = pastQuestionsForFilter(filter);
   state.pastIndex = 0;
   state.pastStep = 0;
   state.pastTabsRevealed = false;
@@ -1009,12 +645,28 @@ function selectPastFilter(filter) {
   elements.pastFilterView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.pastStudyView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
 
   renderPastQuestion();
+}
+
+function eligiblePastQuestions() {
+  return state.pastQuestions.filter(question => !state.pastFavoriteOnly || isFavoritePastQuestion(question));
+}
+
+function pastQuestionsForFilter(filter) {
+  return eligiblePastQuestions().filter(question => (
+    question.stage === filter.stage
+      && question.year === filter.year
+      && question.subject === filter.subject
+  ));
+}
+
+function handlePastFavoriteOnlyChange(event) {
+  state.pastFavoriteOnly = event.target.checked;
+  renderPastFilters();
 }
 
 function formulaCategories() {
@@ -1074,7 +726,6 @@ function renderCategories() {
   elements.modeView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.categoryView.classList.remove("hidden");
@@ -1106,7 +757,6 @@ function selectCategory(category, cardKey = null) {
   elements.pastFilterView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.studyView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
@@ -1147,7 +797,6 @@ function showFormulaListView() {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.cardListView.classList.remove("hidden");
@@ -1318,7 +967,6 @@ function openCardFromList(card) {
 
 function renderPrintReviewFilters() {
   setSelectOptions(elements.printYearFilter, uniqueValues(state.pastQuestions, "year"), "すべて", formatYear);
-  setSelectOptions(elements.printStageFilter, uniqueValues(state.pastQuestions, "stage"), "すべて");
   setSelectOptions(elements.printSubjectFilter, uniqueValues(state.pastQuestions, "subject"), "すべて", value => subjectLabels[value] ?? value);
   setSelectOptions(elements.printReviewStatusFilter, uniqueValues(state.pastQuestions, "reviewStatus"), "すべて");
 
@@ -1328,7 +976,6 @@ function renderPrintReviewFilters() {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.printReviewView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
@@ -1392,13 +1039,11 @@ function renderPrintReviewPages() {
 
 function filteredPrintQuestions() {
   const year = elements.printYearFilter.value;
-  const stage = elements.printStageFilter.value;
   const subject = elements.printSubjectFilter.value;
   const reviewStatus = elements.printReviewStatusFilter.value;
 
   return state.pastQuestions.filter(question => (
     (!year || question.year === year)
-    && (!stage || question.stage === stage)
     && (!subject || question.subject === subject)
     && (!reviewStatus || question.reviewStatus === reviewStatus)
   ));
@@ -1412,7 +1057,7 @@ function renderPrintQuestionPage(question, mathTargets) {
   header.className = "print-question-header";
   header.append(
     textBlock("年度", formatYear(question.year)),
-    textBlock("試験区分", question.stage || "-"),
+    textBlock("試験区分", stageLabels[question.stage] ?? question.stage ?? "-"),
     textBlock("科目", subjectLabels[question.subject] ?? question.subject),
     textBlock("問題番号", `問${question.questionNo || "-"}`),
     textBlock("question_type", question.questionType || "calculation"),
@@ -1581,6 +1226,7 @@ function renderPastQuestion() {
 
   elements.pastCounter.textContent = `${state.pastIndex + 1} / ${questions.length}`;
   elements.pastSubject.textContent = `${formatYear(question.year)} ${subjectLabels[question.subject] ?? question.subject} 問${question.questionNo}`;
+  updatePastFavoriteButton(question);
   renderDebugMeta(question);
   elements.pastPreviousButton.disabled = state.pastIndex === 0;
   elements.pastNextButton.textContent = state.pastIndex === questions.length - 1 ? "最初へ" : "次へ";
@@ -2264,9 +1910,9 @@ function blankDisplayLabel(question, number) {
   return number;
 }
 
-function loadFavoriteCardKeys() {
+function loadFavoriteKeys(storageKey) {
   try {
-    const storedValue = window.localStorage.getItem(FAVORITE_STORAGE_KEY);
+    const storedValue = window.localStorage.getItem(storageKey);
 
     if (!storedValue) {
       return new Set();
@@ -2283,7 +1929,7 @@ function loadFavoriteCardKeys() {
     console.warn("お気に入りデータを読み込めないため、空の状態で開始します。", error);
 
     try {
-      window.localStorage.setItem(FAVORITE_STORAGE_KEY, "[]");
+      window.localStorage.setItem(storageKey, "[]");
     } catch (storageError) {
       console.warn("localStorageを初期化できませんでした。お気に入りはメモリ上で保持します。", storageError);
     }
@@ -2292,15 +1938,68 @@ function loadFavoriteCardKeys() {
   }
 }
 
-function saveFavoriteCardKeys() {
+function loadFavoriteCardKeys() {
+  return loadFavoriteKeys(FAVORITE_STORAGE_KEY);
+}
+
+function loadFavoriteQuestionIds() {
+  return loadFavoriteKeys(PAST_FAVORITE_STORAGE_KEY);
+}
+
+function saveFavoriteKeys(storageKey, keys) {
   try {
-    window.localStorage.setItem(
-      FAVORITE_STORAGE_KEY,
-      JSON.stringify([...state.favoriteCardKeys])
-    );
+    window.localStorage.setItem(storageKey, JSON.stringify([...keys]));
   } catch (error) {
     console.warn("お気に入りをlocalStorageへ保存できませんでした。メモリ上の状態は維持します。", error);
   }
+}
+
+function saveFavoriteCardKeys() {
+  saveFavoriteKeys(FAVORITE_STORAGE_KEY, state.favoriteCardKeys);
+}
+
+function isFavoritePastQuestion(question) {
+  return Boolean(question?.id) && state.favoriteQuestionIds.has(question.id);
+}
+
+function updatePastFavoriteButton(question) {
+  const favorite = isFavoritePastQuestion(question);
+  const label = favorite ? "この問題をお気に入りから解除" : "この問題をお気に入りに登録";
+  elements.pastFavoriteButton.setAttribute("aria-pressed", String(favorite));
+  elements.pastFavoriteButton.setAttribute("aria-label", label);
+  elements.pastFavoriteButton.title = label;
+  elements.pastFavoriteStar.textContent = favorite ? "★" : "☆";
+}
+
+function handlePastFavoriteButtonClick() {
+  const question = currentPastQuestions()[state.pastIndex];
+  if (!question?.id) {
+    return;
+  }
+
+  if (isFavoritePastQuestion(question)) {
+    state.favoriteQuestionIds.delete(question.id);
+  } else {
+    state.favoriteQuestionIds.add(question.id);
+  }
+  saveFavoriteKeys(PAST_FAVORITE_STORAGE_KEY, state.favoriteQuestionIds);
+
+  if (state.pastFavoriteOnly && state.selectedPastFilter) {
+    state.visiblePastQuestions = pastQuestionsForFilter(state.selectedPastFilter);
+    if (state.visiblePastQuestions.length === 0) {
+      state.selectedPastFilter = null;
+      renderPastFilters();
+      return;
+    }
+    state.pastIndex = Math.min(state.pastIndex, state.visiblePastQuestions.length - 1);
+    state.pastStep = 0;
+    state.pastTabsRevealed = false;
+    resetProgressiveBlankState();
+    renderPastQuestion();
+    return;
+  }
+
+  updatePastFavoriteButton(question);
 }
 
 function favoriteCardKey(card) {
@@ -2877,7 +2576,7 @@ function handleBack() {
 }
 
 function currentPastQuestions() {
-  return state.visiblePastQuestions.length > 0 ? state.visiblePastQuestions : state.pastQuestions;
+  return state.selectedPastFilter ? state.visiblePastQuestions : state.pastQuestions;
 }
 
 function showCategories() {
@@ -2944,7 +2643,6 @@ function handleNextFromExplanation(event) {
 }
 
 function showEmpty(message) {
-  stopListeningMode();
   hideFormulaListInterface();
   elements.emptyTitle.textContent = "カードがありません";
   elements.emptyMessage.textContent = message;
@@ -2958,7 +2656,6 @@ function showEmpty(message) {
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
-  elements.listeningView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
   elements.emptyView.classList.remove("hidden");
 }

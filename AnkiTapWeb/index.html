@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20260820-neural-tts">
+  <link rel="stylesheet" href="style.css?v=20261006-past-favorites">
   <script>
     window.MathJax = {
       tex: {
@@ -16,8 +16,7 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="speech.js?v=20260820-neural-tts"></script>
-  <script defer src="app.js?v=20260820-neural-tts"></script>
+  <script defer src="app.js?v=20261006-past-favorites"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -41,10 +40,6 @@
         <button class="mode-card" id="pastQuestionModeButton" type="button">
           <strong>過去問モード</strong>
           <span>denken_questions.tsv の問題を段階表示</span>
-        </button>
-        <button class="mode-card" id="listeningModeButton" type="button">
-          <strong>音声聞き流し</strong>
-          <span>一次電力・二次論説カードを連続再生</span>
         </button>
         <button class="mode-card" id="printReviewModeButton" type="button">
           <strong>印刷レビュー</strong>
@@ -98,7 +93,13 @@
 
     <section class="past-filter-view hidden" id="pastFilterView">
       <h2>過去問を選択</h2>
+      <label class="favorite-only-toggle">
+        <input id="pastFavoriteOnlyToggle" type="checkbox">
+        <span class="favorite-only-check" aria-hidden="true">★</span>
+        <span>お気に入りのみ<span id="pastFavoriteOnlyCount">（0）</span></span>
+      </label>
       <div class="past-filter-list" id="pastFilterList"></div>
+      <p class="card-list-empty hidden" id="pastFilterEmpty" role="status">お気に入りの過去問はまだありません。</p>
     </section>
 
     <section class="study-view hidden" id="studyView">
@@ -139,9 +140,12 @@
 
     <section class="past-study-view hidden" id="pastStudyView">
       <div class="progress-panel">
-        <div class="progress-row">
+        <div class="progress-row past-progress-row">
           <strong id="pastCounter">1 / 1</strong>
           <span id="pastSubject">過去問</span>
+          <button class="past-favorite-button" id="pastFavoriteButton" type="button"
+            aria-pressed="false" aria-label="この問題をお気に入りに登録"
+            title="この問題をお気に入りに登録"><span id="pastFavoriteStar" aria-hidden="true">☆</span></button>
         </div>
         <div class="debug-meta hidden" id="pastDebugMeta"></div>
         <div class="review-status-meta hidden" id="pastReviewStatus"></div>
@@ -165,134 +169,6 @@
       </nav>
     </section>
 
-    <section class="listening-view hidden" id="listeningView" aria-label="音声聞き流し">
-      <div class="listening-progress">
-        <div class="progress-row">
-          <strong id="listeningCounter">0 / 0</strong>
-          <span id="listeningStatus" aria-live="polite">停止中</span>
-        </div>
-        <div class="listening-meta" id="listeningMeta"></div>
-      </div>
-
-      <article class="listening-current" aria-label="読み上げ文章">
-        <div class="listening-text math" id="listeningText" aria-live="polite"></div>
-      </article>
-
-      <fieldset class="listening-targets">
-        <legend>再生対象</legend>
-        <div class="listening-target-options">
-          <label class="listening-target-option">
-            <input type="checkbox" name="listeningTarget" value="primaryPowerFillBlank" checked>
-            <span>一次・電力・空欄穴埋め</span>
-          </label>
-          <label class="listening-target-option">
-            <input type="checkbox" name="listeningTarget" value="powerEssay" checked>
-            <span>二次・電力管理論説</span>
-          </label>
-          <label class="listening-target-option">
-            <input type="checkbox" name="listeningTarget" value="machineEssay" checked>
-            <span>二次・機械制御論説</span>
-          </label>
-        </div>
-      </fieldset>
-
-      <fieldset class="listening-voice-mode">
-        <legend>音声方式</legend>
-        <div class="listening-voice-options">
-          <label class="listening-voice-option">
-            <input type="radio" name="listeningVoice" value="browser" checked>
-            <span>ブラウザ音声</span>
-          </label>
-          <label class="listening-voice-option">
-            <input type="radio" name="listeningVoice" value="neuralPower">
-            <span>ニューラル音声（試作10問）</span>
-          </label>
-        </div>
-      </fieldset>
-
-      <p class="listening-message hidden" id="listeningMessage" role="status"></p>
-
-      <div class="listening-settings">
-        <fieldset class="listening-order">
-          <legend>再生順</legend>
-          <div class="segmented-control">
-            <label>
-              <input type="radio" name="listeningOrder" value="sequential" checked>
-              <span>順番</span>
-            </label>
-            <label>
-              <input type="radio" name="listeningOrder" value="random">
-              <span>ランダム</span>
-            </label>
-          </div>
-        </fieldset>
-
-        <label class="listening-select">
-          <span>速度</span>
-          <select id="listeningRate">
-            <option value="0.8">0.8</option>
-            <option value="0.9" selected>0.9</option>
-            <option value="1">1.0</option>
-            <option value="1.2">1.2</option>
-            <option value="1.5">1.5</option>
-          </select>
-        </label>
-
-        <label class="listening-select">
-          <span>文章間隔</span>
-          <select id="listeningInterval">
-            <option value="0">0秒</option>
-            <option value="1000" selected>1秒</option>
-            <option value="2000">2秒</option>
-            <option value="3000">3秒</option>
-          </select>
-        </label>
-
-        <label class="listening-select">
-          <span>問題・解答間隔</span>
-          <select id="listeningQaInterval">
-            <option value="0">0秒</option>
-            <option value="1000" selected>1秒</option>
-            <option value="2000">2秒</option>
-            <option value="3000">3秒</option>
-          </select>
-        </label>
-
-        <label class="listening-repeat">
-          <input id="listeningRepeat" type="checkbox">
-          <span class="toggle-track" aria-hidden="true"></span>
-          <span>リピート</span>
-        </label>
-
-        <label class="listening-repeat">
-          <input id="listeningAutoAdvance" type="checkbox" checked>
-          <span class="toggle-track" aria-hidden="true"></span>
-          <span>自動連続再生</span>
-        </label>
-      </div>
-
-      <nav class="listening-transport" aria-label="音声操作">
-        <button id="listeningPrevious" type="button" title="前へ">
-          <span aria-hidden="true">|◀</span><span>前へ</span>
-        </button>
-        <button class="primary" id="listeningPlay" type="button" title="再生">
-          <span aria-hidden="true">▶</span><span>再生</span>
-        </button>
-        <button id="listeningPause" type="button" title="一時停止" disabled>
-          <span aria-hidden="true">Ⅱ</span><span>一時停止</span>
-        </button>
-        <button id="listeningResume" type="button" title="再開" disabled>
-          <span aria-hidden="true">▶</span><span>再開</span>
-        </button>
-        <button id="listeningStop" type="button" title="停止" disabled>
-          <span aria-hidden="true">■</span><span>停止</span>
-        </button>
-        <button id="listeningNext" type="button" title="次へ">
-          <span aria-hidden="true">▶|</span><span>次へ</span>
-        </button>
-      </nav>
-    </section>
-
     <section class="print-review-view hidden" id="printReviewView">
       <div class="print-review-toolbar">
         <h2>印刷レビュー</h2>
@@ -300,10 +176,6 @@
           <label>
             <span>year</span>
             <select id="printYearFilter"></select>
-          </label>
-          <label>
-            <span>stage</span>
-            <select id="printStageFilter"></select>
           </label>
           <label>
             <span>subject</span>
