@@ -1,4 +1,4 @@
-id	year	stage	subject	question_no	question_type	question_text	question_image	sub1_label	sub1_policy	sub1_formulas	sub1_calculation	sub1_tips	sub1_answer	sub1_answer_images	sub1a_label	sub1a_policy	sub1a_formulas	sub1a_calculation	sub1a_tips	sub1a_answer	sub1a_answer_images	sub1b_label	sub1b_policy	sub1b_formulas	sub1b_calculation	sub1b_tips	sub1b_answer	sub1b_answer_images	sub2_label	sub2_policy	sub2_formulas	sub2_calculation	sub2_tips	sub2_answer	sub2_answer_images	sub2a_label	sub2a_policy	sub2a_formulas	sub2a_calculation	sub2a_tips	sub2a_answer	sub2a_answer_images	sub2b_label	sub2b_policy	sub2b_formulas	sub2b_calculation	sub2b_tips	sub2b_answer	sub2b_answer_images	sub2c_label	sub2c_policy	sub2c_formulas	sub2c_calculation	sub2c_tips	sub2c_answer	sub2c_answer_images	sub3_label	sub3_policy	sub3_formulas	sub3_calculation	sub3_tips	sub3_answer	sub3_answer_images	sub3a_label	sub3a_policy	sub3a_formulas	sub3a_calculation	sub3a_tips	sub3a_answer	sub3a_answer_images	sub3b_label	sub3b_policy	sub3b_formulas	sub3b_calculation	sub3b_tips	sub3b_answer	sub3b_answer_images	sub3c_label	sub3c_policy	sub3c_formulas	sub3c_calculation	sub3c_tips	sub3c_answer	sub3c_answer_images	sub3d_label	sub3d_policy	sub3d_formulas	sub3d_calculation	sub3d_tips	sub3d_answer	sub3d_answer_images	sub4_label	sub4_policy	sub4_formulas	sub4_calculation	sub4_tips	sub4_answer	sub4_answer_images	sub4a_label	sub4a_policy	sub4a_formulas	sub4a_calculation	sub4a_tips	sub4a_answer	sub4a_answer_images	sub4b_label	sub4b_policy	sub4b_formulas	sub4b_calculation	sub4b_tips	sub4b_answer	sub4b_answer_images	sub4c_label	sub4c_policy	sub4c_formulas	sub4c_calculation	sub4c_tips	sub4c_answer	sub4c_answer_images	sub4d_label	sub4d_policy	sub4d_formulas	sub4d_calculation	sub4d_tips	sub4d_answer	sub4d_answer_images	sub5_label	sub5_policy	sub5_formulas	sub5_calculation	sub5_tips	sub5_answer	sub5_answer_images	sub5a_label	sub5a_policy	sub5a_formulas	sub5a_calculation	sub5a_tips	sub5a_answer	sub5a_answer_images	sub5b_label	sub5b_policy	sub5b_formulas	sub5b_calculation	sub5b_tips	sub5b_answer	sub5b_answer_images	sub6_label	sub6_policy	sub6_formulas	sub6_calculation	sub6_tips	sub6_answer	sub6_answer_images	answer_policy	formulas	calculation_tips	study_tips	final_answer	blank_answers	explanation	essay_outline	keywords	answer_outline	important_keywords	model_answer	supplement	source	tags	formula_ids	official_answer_ref	review_status	sub7_label	sub7_policy	sub7_formulas	sub7_calculation	sub7_tips	sub7_answer	sub7_answer_images	sub8_label	sub8_policy	sub8_formulas	sub8_calculation	sub8_tips	sub8_answer	sub8_answer_images	answer_images
+﻿id	year	stage	subject	question_no	question_type	question_text	question_image	sub1_label	sub1_policy	sub1_formulas	sub1_calculation	sub1_tips	sub1_answer	sub1_answer_images	sub1a_label	sub1a_policy	sub1a_formulas	sub1a_calculation	sub1a_tips	sub1a_answer	sub1a_answer_images	sub1b_label	sub1b_policy	sub1b_formulas	sub1b_calculation	sub1b_tips	sub1b_answer	sub1b_answer_images	sub2_label	sub2_policy	sub2_formulas	sub2_calculation	sub2_tips	sub2_answer	sub2_answer_images	sub2a_label	sub2a_policy	sub2a_formulas	sub2a_calculation	sub2a_tips	sub2a_answer	sub2a_answer_images	sub2b_label	sub2b_policy	sub2b_formulas	sub2b_calculation	sub2b_tips	sub2b_answer	sub2b_answer_images	sub2c_label	sub2c_policy	sub2c_formulas	sub2c_calculation	sub2c_tips	sub2c_answer	sub2c_answer_images	sub3_label	sub3_policy	sub3_formulas	sub3_calculation	sub3_tips	sub3_answer	sub3_answer_images	sub3a_label	sub3a_policy	sub3a_formulas	sub3a_calculation	sub3a_tips	sub3a_answer	sub3a_answer_images	sub3b_label	sub3b_policy	sub3b_formulas	sub3b_calculation	sub3b_tips	sub3b_answer	sub3b_answer_images	sub3c_label	sub3c_policy	sub3c_formulas	sub3c_calculation	sub3c_tips	sub3c_answer	sub3c_answer_images	sub3d_label	sub3d_policy	sub3d_formulas	sub3d_calculation	sub3d_tips	sub3d_answer	sub3d_answer_images	sub4_label	sub4_policy	sub4_formulas	sub4_calculation	sub4_tips	sub4_answer	sub4_answer_images	sub4a_label	sub4a_policy	sub4a_formulas	sub4a_calculation	sub4a_tips	sub4a_answer	sub4a_answer_images	sub4b_label	sub4b_policy	sub4b_formulas	sub4b_calculation	sub4b_tips	sub4b_answer	sub4b_answer_images	sub4c_label	sub4c_policy	sub4c_formulas	sub4c_calculation	sub4c_tips	sub4c_answer	sub4c_answer_images	sub4d_label	sub4d_policy	sub4d_formulas	sub4d_calculation	sub4d_tips	sub4d_answer	sub4d_answer_images	sub5_label	sub5_policy	sub5_formulas	sub5_calculation	sub5_tips	sub5_answer	sub5_answer_images	sub5a_label	sub5a_policy	sub5a_formulas	sub5a_calculation	sub5a_tips	sub5a_answer	sub5a_answer_images	sub5b_label	sub5b_policy	sub5b_formulas	sub5b_calculation	sub5b_tips	sub5b_answer	sub5b_answer_images	sub6_label	sub6_policy	sub6_formulas	sub6_calculation	sub6_tips	sub6_answer	sub6_answer_images	answer_policy	formulas	calculation_tips	study_tips	final_answer	blank_answers	explanation	essay_outline	keywords	answer_outline	important_keywords	model_answer	supplement	source	tags	formula_ids	official_answer_ref	review_status	sub7_label	sub7_policy	sub7_formulas	sub7_calculation	sub7_tips	sub7_answer	sub7_answer_images	sub8_label	sub8_policy	sub8_formulas	sub8_calculation	sub8_tips	sub8_answer	sub8_answer_images	answer_images
 r07_second_denryoku_kanri_q01	r07	second	denryoku_kanri	1	fill_blank	"水力発電所の水車・発電機の劣化診断技術に関して、次の空欄に適当な語句を入れよ。
 
 設備の機能を維持し、安定した運転を確保するためには、設備の状態把握や計画的な点検・修理を実施していく必要がある。水力発電所は一品一様の設計であることから、効果的な設備保全を行ううえで、点検時などに設備の劣化度合いを把握するための設備診断は重要であり、水質を含めた河川の状況や機器の【blank1】を踏まえて評価することが求められる。
@@ -593,26 +593,26 @@ r06_second_denryoku_kanri_q03	r06	second	denryoku_kanri	3	calculation	図に示�
 
 (3)
 \(|\dot{I}_a|\le\frac{430}{2\pi\times50\times5\times10^{-3}\times0.8}=342.36\simeq342\,\mathrm{A}\)"									data/pdfs/r06/second/denryoku_kanri.pdf#pages=5,6	r06,second,denryoku_kanri		data/pdfs/r06/second/kaitou.pdf p.2	draft															
-r06_second_denryoku_kanri_q04	r06	second	denryoku_kanri	4	calculation	配電線のループ系統に関して、次の問に答えよ。異なる配電用変圧器に接続されているこう長1 kmの三相高圧配電線AとBの末端に開閉器が設置されている。開閉器を投入しループ系統にした場合を考える。	data/questions/r06/second/figures/denryoku_kanri_q04_fig.png	(1) 図1の系統で、開閉器投入後のA配電線とB配電線の送り出し電流の大きさを求めよ。送り出し電圧はどちらも6600 V、負荷電流はA配電線500 A、B配電線300 A、\(Z_A=Z_B=Z\) とする。					"ループ電流を \(I_l\,[\mathrm{A}]\) とすると，開閉器投入後のループ方程式は，
-\((500-I_l)Z_A-(300+I_l)Z_B=0\)
+r06_second_denryoku_kanri_q04	r06	second	denryoku_kanri	4	calculation	配電線のループ系統に関して、次の問に答えよ。異なる配電用変圧器に接続されているこう長1 kmの三相高圧配電線AとBの末端に開閉器が設置されている。開閉器を投入しループ系統にした場合を考える。	data/questions/r06/second/figures/denryoku_kanri_q04_fig.png	(1) 図1の系統で、開閉器投入後のA配電線とB配電線の送り出し電流の大きさを求めよ。送り出し電圧はどちらも6600 V、負荷電流はA配電線500 A、B配電線300 A、\(\dot{Z}_A=\dot{Z}_B=\dot{Z}\) とする。					"ループ電流を \(\dot{I}_l\,[\mathrm{A}]\) とすると，開閉器投入後のループ方程式は，
+\((500-\dot{I}_l)\dot{Z}_A-(300+\dot{I}_l)\dot{Z}_B=0\)
 である。したがって，
-\(I_l=\frac{500Z_A-300Z_B}{Z_A+Z_B}\)
-\(Z_A=Z_B\) より，
-\(I_l=\frac{500-300}{2}=100\,\mathrm{A}\)
-ループ系統におけるA配電線の送り出し電流を \(I'_A\)，B配電線の送り出し電流を \(I'_B\) とすると，
-\(I'_A=500-100=400\,\mathrm{A}\)
-\(I'_B=300+100=400\,\mathrm{A}\)
-よって，A配電線の送り出し電流は \(400\,\mathrm{A}\)，B配電線の送り出し電流は \(400\,\mathrm{A}\) である。"																(2) 図2のように送り出し電圧が異なる場合、開閉器投入後のA配電線とB配電線の送り出し電流の大きさを求めよ。1Bは6650 V、2Bは6600 V、\(Z_A=Z_B=0.5+j1.0\,\Omega/\mathrm{km}\) とする。					"ループ電流を \(I_l\,[\mathrm{A}]\) とすると，開閉器投入後の節点方程式は，
-\(\frac{6650}{\sqrt{3}}-(500-I_l)Z_A=\frac{6600}{\sqrt{3}}-(300+I_l)Z_B\)
-である。\(Z_A=Z_B=Z=0.5+j1.0\,[\Omega]\) のため，
-\(I_l=100-\frac{25}{\sqrt{3}Z}\)
+\(\dot{I}_l=\frac{500\dot{Z}_A-300\dot{Z}_B}{\dot{Z}_A+\dot{Z}_B}\)
+\(\dot{Z}_A=\dot{Z}_B\) より，
+\(\dot{I}_l=\frac{500-300}{2}=100\,\mathrm{A}\)
+ループ系統におけるA配電線の送り出し電流を \(\dot{I}'_A\)，B配電線の送り出し電流を \(\dot{I}'_B\) とすると，
+\(\dot{I}'_A=500-100=400\,\mathrm{A}\)
+\(\dot{I}'_B=300+100=400\,\mathrm{A}\)
+よって，A配電線の送り出し電流は \(400\,\mathrm{A}\)，B配電線の送り出し電流は \(400\,\mathrm{A}\) である。"																(2) 図2のように送り出し電圧が異なる場合、開閉器投入後のA配電線とB配電線の送り出し電流の大きさを求めよ。1Bは6650 V、2Bは6600 V、\(\dot{Z}_A=\dot{Z}_B=0.5+j1.0\,\Omega/\mathrm{km}\) とする。					"ループ電流を \(\dot{I}_l\,[\mathrm{A}]\) とすると，開閉器投入後の節点方程式は，
+\(\frac{6650}{\sqrt{3}}-(500-\dot{I}_l)\dot{Z}_A=\frac{6600}{\sqrt{3}}-(300+\dot{I}_l)\dot{Z}_B\)
+である。\(\dot{Z}_A=\dot{Z}_B=\dot{Z}=0.5+j1.0\,[\Omega]\) のため，
+\(\dot{I}_l=100-\frac{25}{\sqrt{3}\dot{Z}}\)
 \(=100-\frac{25}{\sqrt{3}(0.5+j1.0)}\)
 \(=94.226+j11.547\,\mathrm{A}\)
 したがって，
-\(I_A=500-I_l=405.774-j11.547\,\mathrm{A}\)
-\(|I_A|=405.94\simeq406\,\mathrm{A}\)
-\(I_B=300+I_l=394.226+j11.547\,\mathrm{A}\)
-\(|I_B|=394.40\simeq394\,\mathrm{A}\)
+\(\dot{I}_A=500-\dot{I}_l=405.774-j11.547\,\mathrm{A}\)
+\(|\dot{I}_A|=405.94\simeq406\,\mathrm{A}\)
+\(\dot{I}_B=300+\dot{I}_l=394.226+j11.547\,\mathrm{A}\)
+\(|\dot{I}_B|=394.40\simeq394\,\mathrm{A}\)
 よって，A配電線の送り出し電流は \(406\,\mathrm{A}\)，B配電線の送り出し電流は \(394\,\mathrm{A}\) である。"																							(3) 図3の系統で、開閉器投入後の三相短絡電流を求めよ。短絡箇所は開閉器、基準は6600 V・10 MV・A、背後％インピーダンスは1%、変圧器％インピーダンスは各7.5%、配電線は \(j0.5\,\Omega/\mathrm{km}\) とする。					"まず，配電線A及び配電線Bの％インピーダンスを求める。
 配電線Aの％インピーダンスは，
 \(\%Z_A=\frac{0.5\,\Omega\times10\,\mathrm{MV\cdot A}}{6.6\,\mathrm{kV}\times6.6\,\mathrm{kV}}\times100=11.478\%\)
@@ -637,29 +637,29 @@ I_{3\phi}[\mathrm{p.u.}]=\frac{1}{Z_{\mathrm{eq}}[\mathrm{p.u.}]}
 I_{3\phi}=I_B\frac{100}{\%Z_{\mathrm{eq}}}=\frac{S_B}{\sqrt{3}V_B}\frac{100}{\%Z_{\mathrm{eq}}}
 \]
 となる。"																																																																																																	"(1) 図1の系統で、開閉器投入後のA配電線とB配電線の送り出し電流の大きさを求めよ。送り出し電圧はどちらも6600 V、負荷電流はA配電線500 A、B配電線300 A、\(Z_A=Z_B=Z\) とする。
-ループ電流を \(I_l\,[\mathrm{A}]\) とすると，開閉器投入後のループ方程式は，
-\((500-I_l)Z_A-(300+I_l)Z_B=0\)
+ループ電流を \(\dot{I}_l\,[\mathrm{A}]\) とすると，開閉器投入後のループ方程式は，
+\((500-\dot{I}_l)\dot{Z}_A-(300+\dot{I}_l)\dot{Z}_B=0\)
 である。したがって，
-\(I_l=\frac{500Z_A-300Z_B}{Z_A+Z_B}\)
-\(Z_A=Z_B\) より，
-\(I_l=\frac{500-300}{2}=100\,\mathrm{A}\)
-ループ系統におけるA配電線の送り出し電流を \(I'_A\)，B配電線の送り出し電流を \(I'_B\) とすると，
-\(I'_A=500-100=400\,\mathrm{A}\)
-\(I'_B=300+100=400\,\mathrm{A}\)
+\(\dot{I}_l=\frac{500\dot{Z}_A-300\dot{Z}_B}{\dot{Z}_A+\dot{Z}_B}\)
+\(\dot{Z}_A=\dot{Z}_B\) より，
+\(\dot{I}_l=\frac{500-300}{2}=100\,\mathrm{A}\)
+ループ系統におけるA配電線の送り出し電流を \(\dot{I}'_A\)，B配電線の送り出し電流を \(\dot{I}'_B\) とすると，
+\(\dot{I}'_A=500-100=400\,\mathrm{A}\)
+\(\dot{I}'_B=300+100=400\,\mathrm{A}\)
 よって，A配電線の送り出し電流は \(400\,\mathrm{A}\)，B配電線の送り出し電流は \(400\,\mathrm{A}\) である。
 
 (2) 図2のように送り出し電圧が異なる場合、開閉器投入後のA配電線とB配電線の送り出し電流の大きさを求めよ。1Bは6650 V、2Bは6600 V、\(Z_A=Z_B=0.5+j1.0\,\Omega/\mathrm{km}\) とする。
-ループ電流を \(I_l\,[\mathrm{A}]\) とすると，開閉器投入後の節点方程式は，
-\(\frac{6650}{\sqrt{3}}-(500-I_l)Z_A=\frac{6600}{\sqrt{3}}-(300+I_l)Z_B\)
-である。\(Z_A=Z_B=Z=0.5+j1.0\,[\Omega]\) のため，
-\(I_l=100-\frac{25}{\sqrt{3}Z}\)
+ループ電流を \(\dot{I}_l\,[\mathrm{A}]\) とすると，開閉器投入後の節点方程式は，
+\(\frac{6650}{\sqrt{3}}-(500-\dot{I}_l)\dot{Z}_A=\frac{6600}{\sqrt{3}}-(300+\dot{I}_l)\dot{Z}_B\)
+である。\(\dot{Z}_A=\dot{Z}_B=\dot{Z}=0.5+j1.0\,[\Omega]\) のため，
+\(\dot{I}_l=100-\frac{25}{\sqrt{3}\dot{Z}}\)
 \(=100-\frac{25}{\sqrt{3}(0.5+j1.0)}\)
 \(=94.226+j11.547\,\mathrm{A}\)
 したがって，
-\(I_A=500-I_l=405.774-j11.547\,\mathrm{A}\)
-\(|I_A|=405.94\simeq406\,\mathrm{A}\)
-\(I_B=300+I_l=394.226+j11.547\,\mathrm{A}\)
-\(|I_B|=394.40\simeq394\,\mathrm{A}\)
+\(\dot{I}_A=500-\dot{I}_l=405.774-j11.547\,\mathrm{A}\)
+\(|\dot{I}_A|=405.94\simeq406\,\mathrm{A}\)
+\(\dot{I}_B=300+\dot{I}_l=394.226+j11.547\,\mathrm{A}\)
+\(|\dot{I}_B|=394.40\simeq394\,\mathrm{A}\)
 よって，A配電線の送り出し電流は \(406\,\mathrm{A}\)，B配電線の送り出し電流は \(394\,\mathrm{A}\) である。
 
 (3) 図3の系統で、開閉器投入後の三相短絡電流を求めよ。短絡箇所は開閉器、基準は6600 V・10 MV・A、背後％インピーダンスは1%、変圧器％インピーダンスは各7.5%、配電線は \(j0.5\,\Omega/\mathrm{km}\) とする。
@@ -686,7 +686,7 @@ I_{3\phi}[\mathrm{p.u.}]=\frac{1}{Z_{\mathrm{eq}}[\mathrm{p.u.}]}
 \[
 I_{3\phi}=I_B\frac{100}{\%Z_{\mathrm{eq}}}=\frac{S_B}{\sqrt{3}V_B}\frac{100}{\%Z_{\mathrm{eq}}}
 \]
-となる。"									data/pdfs/r06/second/denryoku_kanri.pdf#pages=7,8	r06,second,denryoku_kanri		data/pdfs/r06/second/kaitou.pdf p.3-p.4	draft															
+となる。"									data/pdfs/r06/second/denryoku_kanri.pdf#pages=7,8	r06,second,denryoku_kanri		data/pdfs/r06/second/kaitou.pdf p.3-p.4	needs_fix															
 r06_second_denryoku_kanri_q05	r06	second	denryoku_kanri	5	essay	ガス絶縁開閉装置に使用されるSF6ガスに関して、次の問に答えよ。		(1) ガス絶縁に影響を及ぼす項目を三つ挙げ、理由及び管理方法を項目ごとに70字程度で述べよ。					"下記のうち三つを解答する。
 ①ガス密度: \(\mathrm{SF_6}\) ガスはガス密度の低下に伴い絶縁破壊電圧が低下するため，ガス密度計等で絶縁性能の維持に必要なガス密度が確保できていることを確認する。
 ②ガス中水分量: \(\mathrm{SF_6}\) ガス中の水分は温度変化に伴い絶縁物表面で結露すると沿面絶縁破壊電圧を低下させるため，水分量が規定値以下であることを露点計等で確認する。
@@ -1211,7 +1211,7 @@ b) 抵抗接地方式
 a) 非接地方式
 b) 抵抗接地方式
 
-(3) 抵抗接地方式は，地絡電流を抑制して通信線への電磁誘導障害を軽減することが目的である。直接接地方式に比べ，1線地絡電流が小さく保護リレーの事故検出機能は低下する。また，直接接地方式よりも1線地絡時の健全相の電圧上昇が大きく，線路や機器の絶縁レベルを低減できない。"									data/pdfs/r05/second	r05|second|denryoku_kanri		data/pdfs/r05/second/kaitou.pdf p.4	draft
+(3) 抵抗接地方式は，地絡電流を抑制して通信線への電磁誘導障害を軽減することが目的である。直接接地方式に比べ，1線地絡電流が小さく保護リレーの事故検出機能は低下する。また，直接接地方式よりも1線地絡時の健全相の電圧上昇が大きく，線路や機器の絶縁レベルを低減できない。"									data/pdfs/r05/second	r05|second|denryoku_kanri		data/pdfs/r05/second/kaitou.pdf p.4	draft															
 r05_second_denryoku_kanri_q06	r05	second	denryoku_kanri	6	calculation	電力系統の周波数に関して、次の問に答えよ。	data/questions/r05/second/figures/denryoku_kanri_q06_fig.png	"(1) 電気事業法及び電気事業法施行規則において、電力系統の周波数をどのような値に維持するよう努めなければならないと規定されているか。最も適切なものを選んで記号で答えよ。
 a) 50±0.5 Hz又は60±0.5 Hz
 b) 50±1 Hz又は60±1 Hz
@@ -1260,8 +1260,8 @@ UFR，事故波及防止リレー
 \(K_B=40\,\mathrm{MW/0.1Hz}\)
 \(K=160\,\mathrm{MW/0.1Hz}\)
 \(\Delta F=1.25\,\mathrm{Hz}\)
-\(1.25\,\mathrm{Hz}<1.5\,\mathrm{Hz}\) のため，動作しない。"									data/pdfs/r05/second	r05|second|denryoku_kanri		data/pdfs/r05/second/kaitou.pdf p.5	needs_fix
-r05_second_kikai_seigyo_q01	r05	second	kikai_seigyo	1	calculation	三相円筒形同期発電機を無限大母線に接続して運転する場合に関して、次の問に答えよ。無限大母線の電圧は同期機の定格電圧に等しく、同期機の定格皮相電力は15 MV・A、定格力率は遅れ80%、同期リアクタンス \(X_s=1.8\) p.u. とする。単位法は自己定格皮相電力及び自己定格電圧を基準とし、磁気飽和と損失は無視する。	data/questions/r05/second/figures/kikai_seigyo_q01_fig.png	(1) 遅れ力率運転時のフェーザ図中の(a)〜(e)に当てはまる記号を答えよ。					"(a) \(\dot{E}\)
+\(1.25\,\mathrm{Hz}<1.5\,\mathrm{Hz}\) のため，動作しない。"									data/pdfs/r05/second	r05|second|denryoku_kanri		data/pdfs/r05/second/kaitou.pdf p.5	needs_fix															
+r05_second_kikai_seigyo_q01	r05	second	kikai_seigyo	1	calculation	三相円筒形同期発電機を無限大母線に接続して運転する場合に関して、次の問に答えよ。無限大母線の電圧は同期機の定格電圧に等しく、同期機の定格皮相電力は15 MV・A、定格力率は遅れ80%、同期リアクタンス \(X_s=1.8\) p.u. とする。単位法は自己定格皮相電力及び自己定格電圧を基準とし、磁気飽和と損失は無視する。	data/questions/r05/second/figures/kikai_seigyo_q01_fig.png	(1) この発電機を遅れ力率で運転したとき，端子電圧（相電圧）を \(V\) [p.u.]，無負荷誘導起電力を \(E\) [p.u.]，電流を \(I\) [p.u.]，負荷角を \(\delta\) [rad]，力率角を \(\theta\) [rad] として，端子電圧のフェーザ \(\dot{V}\) を基準にしたフェーザ図は以下のようになった。このフェーザ図中の (a)，(b)，(c)，(d)，(e) に当てはまる記号を答えよ。（解答例 (a) \(jX_s\dot{I}\)，(b) \(\theta\)，(c) \(\dot{I}\)，...）					"(a) \(\dot{E}\)
 (b) \(jX_s\dot{I}\)
 (c) \(\delta\)
 (d) \(\theta\)
@@ -1323,8 +1323,8 @@ P'_m=1.1244\times15=16.866\,\mathrm{MW}\simeq16.9\,\mathrm{MW}
 (5)
 \(P_m=\frac{1\times2.5298\times0.8}{1.8}\times15=16.866\simeq16.9\,\mathrm{MW}\)
 \(\sin\delta=\frac{0.8\times1.8}{1\times2.5298\times0.8}=0.71152\simeq0.712\)
-定態安定度は低下する。"									data/pdfs/r05/second	r05|second|kikai_seigyo		data/pdfs/r05/second/kaitou.pdf p.6-p.7	draft															
-r05_second_kikai_seigyo_q02	r05	second	kikai_seigyo	2	calculation	同一の2台の単相変圧器 Tr1、Tr2 をV結線し、一次側を線間電圧400 Vの対称三相交流電源に接続する。一次巻線と二次巻線の巻数比は4:1、一次及び二次の漏れリアクタンスはそれぞれ \(0.64\,\Omega\)、\(0.21\,\Omega\) である。三相負荷を二次側に接続すると、一次側線電流には30 Aで力率1の平衡三相電流が流れた。励磁電流、鉄損、巻線抵抗は無視し、鉄心は飽和しないものとする。	data/questions/r05/second/figures/kikai_seigyo_q02_fig.png	(1) 図2における一次側線間電圧 \(V_{1ab}\) の二次側換算値を求めよ。					"巻数比を \(a\) とすると，題意から \(a=4\) である。
+定態安定度は低下する。"									data/pdfs/r05/second	r05|second|kikai_seigyo		data/pdfs/r05/second/kaitou.pdf p.6-p.7	needs_fix															
+r05_second_kikai_seigyo_q02	r05	second	kikai_seigyo	2	calculation	同一の2台の単相変圧器 Tr1、Tr2 をV結線し、一次側を線間電圧400 Vの対称三相交流電源に接続する。一次巻線と二次巻線の巻数比は4:1、一次及び二次の漏れリアクタンスはそれぞれ \(0.64\,\Omega\)、\(0.21\,\Omega\) である。三相負荷を二次側に接続すると、一次側線電流には30 Aで力率1の平衡三相電流が流れた。励磁電流、鉄損、巻線抵抗は無視し、鉄心は飽和しないものとする。	data/questions/r05/second/figures/kikai_seigyo_q02_fig1.webp|data/questions/r05/second/figures/kikai_seigyo_q02_fig.png	(1) 図2における一次側線間電圧 \(V_{1ab}\) の二次側換算値を求めよ。					"巻数比を \(a\) とすると，題意から \(a=4\) である。
 図2における一次側線間電圧 \(V_{1ab}\) の二次側換算値 \(V'_{1ab}\) は，
 \(V'_{1ab}=\frac{1}{a}V_{1ab}\)
 \(=\frac{1}{4}\times400=100\,\mathrm{V}\)"																(2) 図2における一次側線電流 \(I_{1a}\) の二次側換算値を求めよ。					"図2における一次側線電流 \(I_{1a}\) の二次側換算値 \(I'_{1a}\) は，
@@ -1594,7 +1594,7 @@ P+jQ=\text{負荷電力 }0.5+j0.2+\text{調相設備電力}
 \]
 左辺を各電圧変数で表すと，線路電流を \(I\)，無限大母線から負荷母線に至る全体のリアクタンスを \(X_{\mathrm{total}}\) とするとき，
 \[
-P+jQ=V_d I^*=V_d\left(\frac{V_0-V_d}{jX_{\mathrm{total}}}\right)^*
+P+jQ=\dot{V}_d\overline{\dot{I}}=\dot{V}_d\left(\frac{\dot{V}_0-\dot{V}_d}{jX_{\mathrm{total}}}\right)^*
 \]
 \[
 =-\frac{V_0V_d\sin\theta_d}{X_{\mathrm{total}}}
@@ -1665,7 +1665,7 @@ P+jQ=\text{負荷電力 }0.5+j0.2+\text{調相設備電力}
 \]
 左辺を各電圧変数で表すと，線路電流を \(I\)，無限大母線から負荷母線に至る全体のリアクタンスを \(X_{\mathrm{total}}\) とするとき，
 \[
-P+jQ=V_d I^*=V_d\left(\frac{V_0-V_d}{jX_{\mathrm{total}}}\right)^*
+P+jQ=\dot{V}_d\overline{\dot{I}}=\dot{V}_d\left(\frac{\dot{V}_0-\dot{V}_d}{jX_{\mathrm{total}}}\right)^*
 \]
 \[
 =-\frac{V_0V_d\sin\theta_d}{X_{\mathrm{total}}}
@@ -2056,7 +2056,7 @@ E_0=7722.8\,\mathrm{V}
 \[
 123\%
 \]"									data/pdfs/r04/second	r04|second|kikai_seigyo		data/pdfs/r04/second/kaitou.pdf p.8-p.9	draft															
-r04_second_kikai_seigyo_q02	r04	second	kikai_seigyo	2	calculation	定格線間電圧200 V、定格周波数50 Hz、4極の三相かご形誘導電動機がある。三相星形結線1相分のL形等価回路の定数を、励磁アドミタンス \(y_0=0.05-j0.1\,\mathrm{S}\)、一次巻線抵抗 \(r_1=0.1\,\Omega\)、一次漏れリアクタンス \(x_1=0.3\,\Omega\)、二次抵抗の一次換算値 \(r_2'=0.15\,\Omega\)、二次漏れリアクタンスの一次換算値 \(x_2'=0.5\,\Omega\) とする。この誘導電動機を定格電圧・定格周波数の三相交流電源に接続して運転したところ、回転速度は1455 \(\mathrm{min^{-1}}\) であった。		(1) 滑り \(s\) [%]					"同期速度は
+r04_second_kikai_seigyo_q02	r04	second	kikai_seigyo	2	calculation	定格線間電圧200 V、定格周波数50 Hz、4極の三相かご形誘導電動機がある。三相星形結線1相分のL形等価回路の定数を、励磁アドミタンス \(\dot{y}_0=0.05-j0.1\,\mathrm{S}\)、一次巻線抵抗 \(r_1=0.1\,\Omega\)、一次漏れリアクタンス \(x_1=0.3\,\Omega\)、二次抵抗の一次換算値 \(r_2'=0.15\,\Omega\)、二次漏れリアクタンスの一次換算値 \(x_2'=0.5\,\Omega\) とする。この誘導電動機を定格電圧・定格周波数の三相交流電源に接続して運転したところ、回転速度は1455 \(\mathrm{min^{-1}}\) であった。		(1) 滑り \(s\) [%]					"同期速度は
 \[
 n_0=\frac{120f}{p}=\frac{120\times50}{4}=1500\,\mathrm{min^{-1}}
 \]
@@ -2069,34 +2069,34 @@ s=\frac{1500-1455}{1500}=0.03
 したがって
 \[
 s=3.0\%
-\]"																(2) 励磁電流 \(I_0\) [A]					"相電圧は \(200/\sqrt{3}\,\mathrm{V}\) である。
+\]"																(2) 励磁電流 \(\dot{I}_0\) [A]					"相電圧は \(200/\sqrt{3}\,\mathrm{V}\) である。
 
 励磁電流は
 \[
-I_0=y_0\frac{200}{\sqrt{3}}
+\dot{I}_0=\dot{y}_0\frac{200}{\sqrt{3}}
 =(0.05-j0.1)\frac{200}{\sqrt{3}}
 \]
 \[
-I_0=5.7735-j11.547\,\mathrm{A}
+\dot{I}_0=5.7735-j11.547\,\mathrm{A}
 \]
 したがって
 \[
-I_0\simeq 5.77-j11.5\,\mathrm{A}
-\]"																							(3) 二次電流の一次換算値 \(I_2'\) [A]					"二次電流の一次換算値は
+\dot{I}_0\simeq 5.77-j11.5\,\mathrm{A}
+\]"																							(3) 二次電流の一次換算値 \(\dot{I}_2'\) [A]					"二次電流の一次換算値は
 \[
-I_2'=\frac{200/\sqrt{3}}{r_1+r_2'/s+j(x_1+x_2')}
+\dot{I}_2'=\frac{200/\sqrt{3}}{r_1+r_2'/s+j(x_1+x_2')}
 \]
 である。
 
 \[
-I_2'=\frac{200/\sqrt{3}}{0.1+0.15/0.03+j(0.3+0.5)}
+\dot{I}_2'=\frac{200/\sqrt{3}}{0.1+0.15/0.03+j(0.3+0.5)}
 \]
 \[
-I_2'=22.097-j3.4663\,\mathrm{A}
+\dot{I}_2'=22.097-j3.4663\,\mathrm{A}
 \]
 したがって
 \[
-I_2'\simeq 22.1-j3.47\,\mathrm{A}
+\dot{I}_2'\simeq 22.1-j3.47\,\mathrm{A}
 \]"																														(4) 銅損[W]					"二次電流の大きさは
 \[
 |I_2'|=22.367\,\mathrm{A}
@@ -2114,17 +2114,17 @@ P_{1c}+P_{2c}=3\times22.367^2\times(0.1+0.15)
 したがって
 \[
 375\,\mathrm{W}
-\]"																														(5) 入力電流 \(I_1\) [A]					"電動機入力電流は
+\]"																														(5) 入力電流 \(\dot{I}_1\) [A]					"電動機入力電流は
 \[
-I_1=I_0+I_2'
+\dot{I}_1=\dot{I}_0+\dot{I}_2'
 \]
 である。
 
 \[
-I_1=(5.7735-j11.547)+(22.097-j3.4663)
+\dot{I}_1=(5.7735-j11.547)+(22.097-j3.4663)
 \]
 \[
-I_1=27.871-j15.013\,\mathrm{A}
+\dot{I}_1=27.871-j15.013\,\mathrm{A}
 \]
 \[
 |I_1|=31.657\,\mathrm{A}
@@ -2160,33 +2160,33 @@ s=3.0\%
 
 励磁電流は
 \[
-I_0=y_0\frac{200}{\sqrt{3}}
+\dot{I}_0=\dot{y}_0\frac{200}{\sqrt{3}}
 =(0.05-j0.1)\frac{200}{\sqrt{3}}
 \]
 \[
-I_0=5.7735-j11.547\,\mathrm{A}
+\dot{I}_0=5.7735-j11.547\,\mathrm{A}
 \]
 したがって
 \[
-I_0\simeq 5.77-j11.5\,\mathrm{A}
+\dot{I}_0\simeq 5.77-j11.5\,\mathrm{A}
 \]
 
 (3)
 二次電流の一次換算値は
 \[
-I_2'=\frac{200/\sqrt{3}}{r_1+r_2'/s+j(x_1+x_2')}
+\dot{I}_2'=\frac{200/\sqrt{3}}{r_1+r_2'/s+j(x_1+x_2')}
 \]
 である。
 
 \[
-I_2'=\frac{200/\sqrt{3}}{0.1+0.15/0.03+j(0.3+0.5)}
+\dot{I}_2'=\frac{200/\sqrt{3}}{0.1+0.15/0.03+j(0.3+0.5)}
 \]
 \[
-I_2'=22.097-j3.4663\,\mathrm{A}
+\dot{I}_2'=22.097-j3.4663\,\mathrm{A}
 \]
 したがって
 \[
-I_2'\simeq 22.1-j3.47\,\mathrm{A}
+\dot{I}_2'\simeq 22.1-j3.47\,\mathrm{A}
 \]
 
 (4)
@@ -2212,15 +2212,15 @@ P_{1c}+P_{2c}=3\times22.367^2\times(0.1+0.15)
 (5)
 電動機入力電流は
 \[
-I_1=I_0+I_2'
+\dot{I}_1=\dot{I}_0+\dot{I}_2'
 \]
 である。
 
 \[
-I_1=(5.7735-j11.547)+(22.097-j3.4663)
+\dot{I}_1=(5.7735-j11.547)+(22.097-j3.4663)
 \]
 \[
-I_1=27.871-j15.013\,\mathrm{A}
+\dot{I}_1=27.871-j15.013\,\mathrm{A}
 \]
 \[
 |I_1|=31.657\,\mathrm{A}
@@ -2238,7 +2238,7 @@ I_1\simeq31.7\,\mathrm{A}
 したがって
 \[
 88.0\%
-\]"									data/pdfs/r04/second	r04|second|kikai_seigyo		data/pdfs/r04/second/kaitou.pdf p.9-p.10	draft															
+\]"									data/pdfs/r04/second	r04|second|kikai_seigyo		data/pdfs/r04/second/kaitou.pdf p.9-p.10	needs_fix															
 r04_second_kikai_seigyo_q03	r04	second	kikai_seigyo	3	calculation	"三相誘導電動機を駆動する電力変換システムに関して，次の問に答えよ。
 
 図1は対称三相交流電源，三相ダイオード整流器，直流フィルタ回路，PWM制御三相電圧形インバータ及び三相誘導電動機からなるシステムを示す。ここで，交流電源は電源インピーダンスが無視でき，パワーデバイス及び回路に損失はないものとする。以下の問に答えよ。"	data/questions/r04/second/figures/kikai_seigyo_q03_fig.png	(1) 図1において，直流リアクトルDCLに流れる直流電流は一定とすると，直流電圧は三相整流電圧平均値となる。三相交流電源は実効値220 V，50 Hzとすると，直流電圧 \(E_d\) [V]はいくらであるか，数値で答えよ。					"三相ダイオード整流の平均電圧は \(1.35V_{ab}\) であるので，
@@ -2314,7 +2314,7 @@ V_{uve}=164\,\mathrm{V}
 (6)
 V/f一定となることが望ましいので，1/2の周波数のときに1/2の大きさの電圧となる。ただし，\(v_{u25}\) と \(v_{u50}\) の位相の関係は問わない。
 解答図のように，\(v_{u25}\) は \(v_{u50}\) に対して周波数が1/2，振幅が1/2の正弦波とする。"									data/pdfs/r04/second	r04|second|kikai_seigyo		data/pdfs/r04/second/kaitou.pdf p.10-p.11	draft															
-r04_second_kikai_seigyo_q04	r04	second	kikai_seigyo	4	calculation	図に示すフィードバック制御系について、次の問に答えよ。\(R(s)\) は目標値、\(Y(s)\) は制御量、\(E(s)\) は制御偏差である。	data/questions/r04/second/figures/kikai_seigyo_q04_fig.png	(1) フィードバック制御系の特性方程式を求めよ。					"開ループ伝達関数は
+r04_second_kikai_seigyo_q04	r04	second	kikai_seigyo	4	calculation	図に示すフィードバック制御系について，次の問に答えよ。ただし，\(R(s)\) は目標値，\(Y(s)\) は制御量，\(E(s)\) は制御偏差であり，時間信号 \(r(t)\)，\(y(t)\)，\(e(t)\) をそれぞれラプラス変換したものである。	data/questions/r04/second/figures/kikai_seigyo_q04_fig.png	(1) フィードバック制御系の特性方程式を求めよ。					"開ループ伝達関数は
 \[
 \frac{100K}{s(s+1)(s+40)}
 \]
@@ -2525,7 +2525,7 @@ T_{ER}(j)=\frac{41+j39}{159+j39}
 入力振幅は2であるから
 \[
 B=2\times0.34564=0.691
-\]"									data/pdfs/r04/second	r04|second|kikai_seigyo		data/pdfs/r04/second/kaitou.pdf p.11-p.14	draft															
+\]"									data/pdfs/r04/second	r04|second|kikai_seigyo		data/pdfs/r04/second/kaitou.pdf p.11-p.14	needs_fix															
 r03_second_denryoku_kanri_q01	r03	second	denryoku_kanri	1	essay	大気汚染防止法にて規制される以下の大気汚染物質について、それぞれ発生原因、我が国の火力発電所での対策装置又は設備、及びその原理を100字程度で述べよ。		(1) ばいじん					"ばいじん
 発生原因: 燃料に含まれる灰分が燃焼することで生成される。
 対策装置又は設備: 電気集じん機を使用する。
@@ -2840,7 +2840,7 @@ r03_second_denryoku_kanri_q05	r03	second	denryoku_kanri	5	fill_blank	"地中送�
 (F): 1線
 (G): 断線
 (H): 三相
-(I): 反射"	blank1=高調波|blank2=残留|blank3=直流|blank4=交流|blank5=ホイートストンブリッジ|blank6=1線|blank7=断線|blank8=三相|blank9=反射								data/pdfs/r03/second	r03|second|denryoku_kanri		data/pdfs/r03/second/kaitou.pdf p.5	needs_fix
+(I): 反射"	blank1=高調波|blank2=残留|blank3=直流|blank4=交流|blank5=ホイートストンブリッジ|blank6=1線|blank7=断線|blank8=三相|blank9=反射								data/pdfs/r03/second	r03|second|denryoku_kanri		data/pdfs/r03/second/kaitou.pdf p.5	needs_fix															
 r03_second_denryoku_kanri_q06	r03	second	denryoku_kanri	6	calculation	定格出力120 MW、定格周波数50 Hzの同期発電機Aと定格出力80 MW、定格周波数50 Hz、速度調定率4.0%の同期発電機Bとが並列運転可能な電力系統がある。次の問に答えよ。ただし、調速機（ガバナ）の特性は線形であるとし、負荷の周波数特性は無視する。		(1) 発電機Aのみの運転によって、系統周波数が50.00 Hzに保たれているとする。発電機が出力80 MWで運転しているときに系統負荷が40 MW減少した結果、周波数が50.50 Hzとなった。発電機Aの速度調定率[%]を求めよ。ただし、有効数字は、小数点以下1桁とする。					"発電機Aの速度調定率を \(x\,[\%]\) とする。
 系統負荷が40 MW減少し、周波数が50.00 Hzから50.50 Hzへ上昇したので
 \[
@@ -3280,14 +3280,16 @@ r03_second_kikai_seigyo_q03	r03	second	kikai_seigyo	3	calculation	図はIGBTを�
 \[
 v_L=V_{\mathrm{in}}=L\frac{di_{\mathrm{in}}}{dt}>0
 \]
-となる。したがって、電流 \(i_{\mathrm{in}}\) は増加する。"																							(3) \(T_{\mathrm{off}}\) の時間において、リアクトルの電圧 \(v_L\) を求めよ。また、求めた式をもとに電流 \(i_{\mathrm{in}}\) は増加するか、減少するか述べよ。次に、コンデンサのキャパシタンス \(C\) は十分に大きく、チョッパの出力電圧は一定値 \(V_{\mathrm{out}}\) に平滑されているものとする。さらに、電流 \(i_{\mathrm{in}}\) のリプルが十分に小さく一定値 \(I_{\mathrm{in}}\) と見なせると仮定する。					"デバイスSをオフしても電流は流れ続ける。ダイオードDが導通する。リアクトルの電圧は
+となる。したがって、電流 \(i_{\mathrm{in}}\) は増加する。"																							(3) \(T_{\mathrm{off}}\) の時間において、リアクトルの電圧 \(v_L\) を求めよ。また、求めた式をもとに電流 \(i_{\mathrm{in}}\) は増加するか、減少するか述べよ。					"デバイスSをオフしても電流は流れ続ける。ダイオードDが導通する。リアクトルの電圧は
 \[
 v_L=V_{\mathrm{in}}-V_{\mathrm{out}}=L\frac{di_{\mathrm{in}}}{dt}<0
 \]
-となる。したがって、電流 \(i_{\mathrm{in}}\) は減少する。"																														(4) ダイオードDに流れる電流 \(i_D\) の平均値 \(I_D\) を \(T_{\mathrm{on}},T_{\mathrm{off}},I_{\mathrm{in}}\) を用いて示せ。					"電流 \(I_{\mathrm{in}}\) がダイオードDを流れるのはスイッチSがオフの期間 \(T_{\mathrm{off}}\) だけであり、その大きさは \(I_{\mathrm{in}}\) である。スイッチSがオンの期間 \(T_{\mathrm{on}}\) にダイオードDを流れる電流はゼロである。したがって、平均値 \(I_D\) は、
+となる。したがって、電流 \(i_{\mathrm{in}}\) は減少する。"																														"次に、コンデンサのキャパシタンス \(C\) は十分に大きく、チョッパの出力電圧は一定値 \(V_{\mathrm{out}}\) に平滑されているものとする。さらに、電流 \(i_{\mathrm{in}}\) のリプルが十分に小さく一定値 \(I_{\mathrm{in}}\) と見なせると仮定する。
+(4) ダイオードDに流れる電流 \(i_D\) の平均値 \(I_D\) を \(T_{\mathrm{on}},T_{\mathrm{off}},I_{\mathrm{in}}\) を用いて示せ。"					"電流 \(I_{\mathrm{in}}\) がダイオードDを流れるのはスイッチSがオフの期間 \(T_{\mathrm{off}}\) だけであり、その大きさは \(I_{\mathrm{in}}\) である。スイッチSがオンの期間 \(T_{\mathrm{on}}\) にダイオードDを流れる電流はゼロである。したがって、平均値 \(I_D\) は、
 \[
 I_D=I_{\mathrm{in}}\left(\frac{T_{\mathrm{off}}}{T_{\mathrm{on}}+T_{\mathrm{off}}}\right)
-\]"																														(5) 出力電圧 \(V_{\mathrm{out}}\) を \(T_{\mathrm{on}},T_{\mathrm{off}},V_{\mathrm{in}}\) を用いて示せ。					"電源からチョッパへの入力電力 \(V_{\mathrm{in}}I_{\mathrm{in}}\) と、チョッパから負荷への出力電力 \(V_{\mathrm{out}}I_D\) は等しく、また小問(4)より
+\]"																														"次に、コンデンサのキャパシタンス \(C\) は十分に大きく、チョッパの出力電圧は一定値 \(V_{\mathrm{out}}\) に平滑されているものとする。さらに、電流 \(i_{\mathrm{in}}\) のリプルが十分に小さく一定値 \(I_{\mathrm{in}}\) と見なせると仮定する。
+(5) 出力電圧 \(V_{\mathrm{out}}\) を \(T_{\mathrm{on}},T_{\mathrm{off}},V_{\mathrm{in}}\) を用いて示せ。"					"電源からチョッパへの入力電力 \(V_{\mathrm{in}}I_{\mathrm{in}}\) と、チョッパから負荷への出力電力 \(V_{\mathrm{out}}I_D\) は等しく、また小問(4)より
 \[
 V_{\mathrm{out}}=V_{\mathrm{in}}\left(\frac{T_{\mathrm{on}}+T_{\mathrm{off}}}{T_{\mathrm{off}}}\right)
 \]"																											"(1)
@@ -3692,7 +3694,7 @@ r02_second_denryoku_kanri_q02	r02	second	denryoku_kanri	2	essay	保護リレー�
 
 (3) 一般に77又は66 kV系統に使用される遮断器の定格遮断時間をサイクル数で答えよ。また、遮断器において保護リレーからの事故除去指令を受ける箇所の名称を答え、あわせて同箇所が持つ引外し自由、すなわちトリップフリーの機能と目的について説明せよ。
 77 kV又は66 kV系統に使用される遮断器の定格遮断時間は5サイクル及び3サイクルである。事故除去指令を受ける箇所は引外しコイル、すなわちトリップコイルである。引外し自由機能は、引外しコイルと投入コイルが同時に付勢されても投入動作と無関係に自由に引外される機能であり、投入操作と事故が同時に発生した場合に開放を優先し、投入・開放を繰り返さないことで遮断器の損傷や大事故を防ぐ目的で用いられる。"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.2-p.3	draft															
-r02_second_denryoku_kanri_q03	r02	second	denryoku_kanri	3	calculation	対称座標法を用いた1線地絡故障の計算に関して、次の問に答えよ。図のような送受電端の変圧器の中性点をそれぞれ抵抗 \(R_e\) で接地した、こう長20 km、電圧66 kV、周波数50 Hzの三相3線式1回線送電線路がある。そのa相1線が抵抗 \(R_f\) を通じて地絡を生じた場合の地絡電流を求めたい。	data/questions/r02/second/figures/denryoku_kanri_q03_fig.png	"(1) 地絡電流 \(\dot{I}_g\) を、a相の無負荷電圧 \(\dot{E}_a\)、この送電回路の故障点から見た零相インピーダンス \(\dot{Z}_0\)、正相インピーダンス \(\dot{Z}_1\)、逆相インピーダンス \(\dot{Z}_2\)、及び地絡点の抵抗 \(R_f\) で表せ。
+r02_second_denryoku_kanri_q03	r02	second	denryoku_kanri	3	calculation	対称座標法を用いた1線地絡故障の計算に関して、次の問に答えよ。図のような送受電端の変圧器の中性点をそれぞれ抵抗 \(R_e\) で接地した、こう長20 km、電圧66 kV、周波数50 Hzの三相3線式1回線送電線路がある。そのa相1線が抵抗 \(R_f\) を通じて地絡を生じた場合の地絡電流を求めたい。	data/questions/r02/second/figures/denryoku_kanri_q03_fig_full.webp	"(1) 地絡電流 \(\dot{I}_g\) を、a相の無負荷電圧 \(\dot{E}_a\)、この送電回路の故障点から見た零相インピーダンス \(\dot{Z}_0\)、正相インピーダンス \(\dot{Z}_1\)、逆相インピーダンス \(\dot{Z}_2\)、及び地絡点の抵抗 \(R_f\) で表せ。
 
 なお、故障点での各相電圧、各相電流を図に示すように \(\dot{V}_a\)、\(\dot{V}_b\)、\(\dot{V}_c\)、\(\dot{I}_a\)、\(\dot{I}_b\)、\(\dot{I}_c\) とし、それを対称成分に変換したものを \(\dot{V}_0\)、\(\dot{V}_1\)、\(\dot{V}_2\)、\(\dot{I}_0\)、\(\dot{I}_1\)、\(\dot{I}_2\) としたとき、以下の関係となる。
 \[
@@ -3766,7 +3768,7 @@ j\omega C=j2\pi\times50\times0.005\times10^{-6}\times20
 \dot{Z}_1=0,\quad \dot{Z}_2=0
 \]"																							(3) 小問(2)の条件に加えて、地絡点の抵抗 \(R_f\) が \(10\,\Omega\) の場合における地絡電流の大きさ \(|\dot{I}_g|\,[\mathrm{A}]\) を求めよ。					"地絡電流の大きさは
 \[
-I_g=\left|\frac{3E_a}{3R_f+\dot{Z}_0+\dot{Z}_1+\dot{Z}_2}\right|
+|\dot{I}_g|=\left|\frac{3\dot{E}_a}{3R_f+\dot{Z}_0+\dot{Z}_1+\dot{Z}_2}\right|
 \]
 である。
 
@@ -3775,15 +3777,15 @@ E_a=\frac{66000}{\sqrt{3}}\,\mathrm{V},\quad R_f=10\,\Omega
 \]
 を用いると
 \[
-I_g=\left|\frac{3\times\dfrac{66000}{\sqrt{3}}}{3\times10+999.01-j31.385}\right|
+|\dot{I}_g|=\left|\frac{3\times\dfrac{66000}{\sqrt{3}}}{3\times10+999.01-j31.385}\right|
 \]
 \[
-I_g=111.04\,\mathrm{A}
+|\dot{I}_g|=111.04\,\mathrm{A}
 \]
 したがって
 \[
-I_g\simeq111\,\mathrm{A}
-\]"	data/questions/r02/second/figures/denryoku_kanri_q03_answer_fig1.png																																																																																																"(1) 地絡電流 \(\dot{I}_g\) を、a相の無負荷電圧 \(\dot{E}_a\)、この送電回路の故障点から見た零相インピーダンス \(\dot{Z}_0\)、正相インピーダンス \(\dot{Z}_1\)、逆相インピーダンス \(\dot{Z}_2\)、及び地絡点の抵抗 \(R_f\) で表せ。
+|\dot{I}_g|\simeq111\,\mathrm{A}
+\]"	data/questions/r02/second/figures/denryoku_kanri_q03_answer_fig1_full.webp																																																																																																"(1) 地絡電流 \(\dot{I}_g\) を、a相の無負荷電圧 \(\dot{E}_a\)、この送電回路の故障点から見た零相インピーダンス \(\dot{Z}_0\)、正相インピーダンス \(\dot{Z}_1\)、逆相インピーダンス \(\dot{Z}_2\)、及び地絡点の抵抗 \(R_f\) で表せ。
 
 なお、故障点での各相電圧、各相電流を図に示すように \(\dot{V}_a\)、\(\dot{V}_b\)、\(\dot{V}_c\)、\(\dot{I}_a\)、\(\dot{I}_b\)、\(\dot{I}_c\) とし、それを対称成分に変換したものを \(\dot{V}_0\)、\(\dot{V}_1\)、\(\dot{V}_2\)、\(\dot{I}_0\)、\(\dot{I}_1\)、\(\dot{I}_2\) としたとき、以下の関係となる。
 \[
@@ -3864,7 +3866,7 @@ j\omega C=j2\pi\times50\times0.005\times10^{-6}\times20
 (3) 小問(2)の条件に加えて、地絡点の抵抗 \(R_f\) が \(10\,\Omega\) の場合における地絡電流の大きさ \(|\dot{I}_g|\,[\mathrm{A}]\) を求めよ。
 地絡電流の大きさは
 \[
-I_g=\left|\frac{3E_a}{3R_f+\dot{Z}_0+\dot{Z}_1+\dot{Z}_2}\right|
+|\dot{I}_g|=\left|\frac{3\dot{E}_a}{3R_f+\dot{Z}_0+\dot{Z}_1+\dot{Z}_2}\right|
 \]
 である。
 
@@ -3873,15 +3875,15 @@ E_a=\frac{66000}{\sqrt{3}}\,\mathrm{V},\quad R_f=10\,\Omega
 \]
 を用いると
 \[
-I_g=\left|\frac{3\times\dfrac{66000}{\sqrt{3}}}{3\times10+999.01-j31.385}\right|
+|\dot{I}_g|=\left|\frac{3\times\dfrac{66000}{\sqrt{3}}}{3\times10+999.01-j31.385}\right|
 \]
 \[
-I_g=111.04\,\mathrm{A}
+|\dot{I}_g|=111.04\,\mathrm{A}
 \]
 したがって
 \[
-I_g\simeq111\,\mathrm{A}
-\]"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.3-p.5	needs_fix
+|\dot{I}_g|\simeq111\,\mathrm{A}
+\]"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.3-p.5	needs_fix															
 r02_second_denryoku_kanri_q04	r02	second	denryoku_kanri	4	essay	一般的に低圧配電方式として広く使用されている単相3線式について、次の問に答えよ。		(1) 我が国の単相2線式(200 Vと100 V)と単相3線式を図で示し、単相3線式を用いた電力供給の特徴を、単相2線式と比較して利便性及び安全性の観点から200字程度で述べよ。ただし、小問(2)、(3)に関する特徴は除く。					"単相3線式では、電源の単相変圧器の中性点から中性線を引き出し、両外側の電圧線とともに3線で負荷に電力を供給する。
 利便性として、一つの系統から単相100 Vと200 Vを取り出すことができ、100 Vと200 Vのどちらの機器も使用できる。
 安全性として、中性線が接地されているので、200 V回路の対地電位は100 Vとなり、200 V回路の安全性が高い。"	data/questions/r02/second/figures/denryoku_kanri_q04_answer_fig1.png															(2) 単相3線式は単相2線式と比較して電圧降下が小さいことを示したい。単相2線式と単相3線式とで100 V負荷を用いる場合、単相2線式の負荷電力と単相3線式の負荷電力の合計が等しい際の100 V負荷にかかる電圧降下について計算により比較せよ。ただし、単相3線式の各相間、すなわち電圧線と中性線との間の負荷は等しいものとし、各方式での電線の太さは同一とし抵抗のみを考慮するものとする。					"単相2線式、単相3線式の電線1条当たりの抵抗を \(R\)、負荷の力率を \(\cos\theta\) とする。それぞれの電流を \(I_2,I_3\)、100 V負荷端での電圧降下を \(\Delta V_2,\Delta V_3\) とする。
@@ -3937,7 +3939,7 @@ r02_second_denryoku_kanri_q04	r02	second	denryoku_kanri	4	essay	一般的に低�
 
 主な原因は、分電盤内の開閉器端子などで接触が不完全になることである。工事施工不良によるねじ締め不完全、導体温度変化による膨張・収縮、振動などにより、経年的に接触不完全へ発展することが考えられる。
 
-防止対策として、開閉器類端子部を2ねじ方式や圧着端子方式など緩みにくい構造とすること、欠相保護機能付き漏電遮断器を採用すること、端子締付けを適切な工具で確実に施工・確認すること、既設開閉器類の端子部を点検すること、低圧線末端にバランサを設置することなどがある。"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.5-p.7	draft															
+防止対策として、開閉器類端子部を2ねじ方式や圧着端子方式など緩みにくい構造とすること、欠相保護機能付き漏電遮断器を採用すること、端子締付けを適切な工具で確実に施工・確認すること、既設開閉器類の端子部を点検すること、低圧線末端にバランサを設置することなどがある。"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.5-p.7	needs_fix															
 r02_second_denryoku_kanri_q05	r02	second	denryoku_kanri	5	essay	特別高圧架空電線路による電磁誘導障害について、次の問に答えよ。		(1) 電磁誘導作用により通信線に誘起される電圧の種類を二つ挙げ、それぞれの発生原理を説明せよ。					"電磁誘導作用により通信線に誘起される電圧には、異常時誘導電圧、常時誘導電圧、誘導雑音電圧などがある。
 
 異常時誘導電圧は、送電線に一線地絡事故が発生した場合に地絡電流が大地帰路電流となって流れることにより、隣接する通信線路と大地間に誘起される電圧である。
@@ -4122,7 +4124,7 @@ Q_2=5048.8\,\mathrm{kvar}
 したがって
 \[
 Q_2\simeq5.05\times10^3\,\mathrm{kvar}
-\]"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.8-p.11	draft
+\]"									data/pdfs/r02/second	r02|second|denryoku_kanri		data/pdfs/r02/second/kaitou.pdf p.8-p.11	draft															
 r02_second_kikai_seigyo_q01	r02	second	kikai_seigyo	1	calculation	4極の三相かご形誘導電動機が60 Hz電源で5%の滑りで運転している。相対速度は \(\mathrm{min^{-1}}\) で答えよ。		(1) 固定子巻線電流による回転磁界と固定子との相対速度					"固定子巻線電流による回転磁界と固定子との相対速度は同期速度である。
 
 \[
@@ -4703,7 +4705,7 @@ e_v=-\frac{2}{A}=-\frac{2}{3.9063}=-0.512
 \[
 \frac{1}{10}
 \]
-倍になる。"									data/pdfs/r02/second	r02|second|kikai_seigyo		data/pdfs/r02/second/kaitou.pdf p.15-p.17	draft
+倍になる。"									data/pdfs/r02/second	r02|second|kikai_seigyo		data/pdfs/r02/second/kaitou.pdf p.15-p.17	draft															
 r01_second_denryoku_kanri_q01	r01	second	denryoku_kanri	1	essay	"火力発電所の所内交流回路には、送電系統や所内回路の事故により電源喪失した場合でも、安全面や設備保全で重要な補機電動機が運転継続できるように、非常用ディーゼル発電機を接続できる電源系統がある。
 
 この電源系統に接続されている補機電動機のうち、蒸気タービン又はタービン発電機に関するものを二つ挙げ、停止させない理由をそれぞれ200字以内で述べよ。"																																																																																																																																																									"接続されている代表的な負荷と理由は次のとおりである。
@@ -4877,7 +4879,7 @@ V_r=\cos\delta
 となる。小問(2)(b)の式より
 \[
 V_r=0.966\,\mathrm{p.u.}
-\]"									data/pdfs/r01/second	r01|second|denryoku_kanri		data/pdfs/r01/second/kaitou.pdf p.1-p.2	draft
+\]"									data/pdfs/r01/second	r01|second|denryoku_kanri		data/pdfs/r01/second/kaitou.pdf p.1-p.2	draft															
 r01_second_denryoku_kanri_q03	r01	second	denryoku_kanri	3	essay	電力系統の過渡安定性について、次の問に答えよ。	data/questions/r01/second/figures/denryoku_kanri_q03_fig.png	"(1) 図1の1機無限大母線系統の過渡安定性について考える。発電機は、過渡リアクタンスを無視し、電圧 \(E_1\angle\delta\) で表され、送電線路は、1回線あたりのリアクタンスが \(X_t\) の送電線が2回線併用されているものとする。また、発電機の機械的入力を \(P_m\)、無限大母線の電圧を \(E_0\angle0\) とする。
 
 送電端の至近で1回線三相地絡事故が発生し、同回線の両端の遮断器を開放することで事故を除去した場合を想定したとき、事故発生前、事故継続中、事故除去後の電力相差角曲線（\(P-\delta\)曲線）は図2のとおり表される。ここに、事故が除去されたときの \(\delta\) を \(\delta_a\) とし、\(\delta\) はその後、\(\delta_b\) まで至ったものとするとき、図2の面積abcdと面積defgのそれぞれについて、発電機の加速エネルギー又は減速エネルギーのどちらを表すか答えよ。"					面積abcdは加速エネルギーを表す。面積defgは減速エネルギーを表す。																(2) 事故除去が遅れ、\(\delta_a\) が大きくなった場合、過渡安定性を維持できる限界について、図2に記載されている記号を用いて簡潔に説明せよ。					面積abcdと面積dehが等しくなる場合が、過渡安定性を維持できる限界となる。																							(3) 図1の送電線路の中間点に開閉所を設置した図3の系統において、小問(1)と同じ事故が発生し、事故が発生した回線の両端の遮断器を開放することで事故を除去した場合を想定する。このとき、事故除去後の電力相差角曲線の電力の最大値は、開閉所の設置前の何倍になるか答えよ。					"電力相差角曲線の電力最大値は、電源と無限大母線の間のリアクタンスに反比例する。開閉所設置前の事故除去後リアクタンスは \(X_t\)、開閉所設置後の事故除去後リアクタンスは
@@ -4913,7 +4915,7 @@ r01_second_denryoku_kanri_q03	r01	second	denryoku_kanri	3	essay	電力系統の�
 加速エネルギーは開閉所設置前と変わらないが、事故除去後に位相角がある値に至るまでの減速エネルギーは開閉所設置前より増加する。このため、過渡安定性は向上する。
 
 (5) 図3の系統において、送電線路の中間点にある開閉所に無効電力を高速に補償する装置を設置し、事故除去後、位相角 \(\delta\) が最大値に至るまでの間、遅れ無効電力を系統側に注入した場合、小問(3)のときと比べ、位相角 \(\delta\) の最大値はどう変化するか。加速エネルギーと減速エネルギーの変化に触れながら200字程度以内で説明せよ。
-遅れの無効電力を系統側に注入すると、系統電圧が上昇し、事故除去後の電力相差角曲線がP軸の正方向に大きくなる。加速エネルギーは変わらないが、事故除去後に位相角がある値に至るまでの減速エネルギーは小問(3)のときより増加するため、位相角 \(\delta\) の最大値は小さくなる。"									data/pdfs/r01/second	r01|second|denryoku_kanri		data/pdfs/r01/second/kaitou.pdf p.3	draft
+遅れの無効電力を系統側に注入すると、系統電圧が上昇し、事故除去後の電力相差角曲線がP軸の正方向に大きくなる。加速エネルギーは変わらないが、事故除去後に位相角がある値に至るまでの減速エネルギーは小問(3)のときより増加するため、位相角 \(\delta\) の最大値は小さくなる。"									data/pdfs/r01/second	r01|second|denryoku_kanri		data/pdfs/r01/second/kaitou.pdf p.3	draft															
 r01_second_denryoku_kanri_q04	r01	second	denryoku_kanri	4	calculation	配電系統の電力損失低減について、次の問に答えよ。	data/questions/r01/second/figures/denryoku_kanri_q04_fig.png	(1) 柱上変圧器を重負荷地点近傍に設置すること以外の電力損失低減策を三つ述べよ。					"電力損失低減策として、例えば次のうち三項目を挙げればよい。
 
 配電電圧を格上げする、すなわち昇圧する。
@@ -5245,7 +5247,7 @@ Q_R=2.0\%\times\frac{10\,\mathrm{MV\cdot A}}{1.0098\%}=19.806\,\mathrm{MV\cdot A
 リアクトル容量単位をMvarとし、1 Mvar未満を四捨五入すると
 \[
 Q_R=20\,\mathrm{Mvar}
-\]"									data/pdfs/r01/second	r01|second|denryoku_kanri		data/pdfs/r01/second/kaitou.pdf p.7-p.9	draft
+\]"									data/pdfs/r01/second	r01|second|denryoku_kanri		data/pdfs/r01/second/kaitou.pdf p.7-p.9	draft															
 r01_second_denryoku_kanri_q06	r01	second	denryoku_kanri	6	essay	事業用電気工作物としての発電用風力設備に関して、次の問に答えよ。		(1) 発電用風力設備は、公衆安全と電気保安の確保のために、設置時のみならず、巡視・点検等継続的に保守管理を行うことにより、運用中も「発電用風力設備に関する技術基準を定める省令」に適合するよう維持しなければならない。発電用風力設備において維持すべき重要な技術要件を二つ答えよ。					重要な技術要件として、取扱者以外の者に対する危険防止措置を維持すること、風車のハブ・ナセルの落下やブレードの飛散などが発生しないように風車の構造上の安全を維持すること、タワーの倒壊などが発生しないように支持工作物の構造上の安全を維持すること、過回転時や制御機能喪失時の自動停止などにより風車の安全な状態を確保すること、雷撃防止措置などにより風車の安全な状態を確保すること、圧油装置などの危険防止を図ること、などがある。																(2) 風車が構造上安全であるために設計上考慮すべき風圧荷重を二つ答えよ。					設計上考慮すべき風圧荷重は、突風や台風などの強風による風圧荷重のうち最大のもの、及び風速・風向の時間的変化により生じる変動荷重である。																							(3) 避雷塔や避雷針を施設する方法以外に、雷撃からブレードを保護する措置を答えよ。					設置場所の落雷条件を考慮して、レセプターを風車へ取り付ける。また、雷撃によって生じる電流を、風車に損傷を与えることなく安全に地中へ流すことができる引下げ導体などを施設する。																														(4) 風力発電設備内部を雷撃から保護するために等電位ボンディングという方法が採用されている。この保護の方法について答えよ。					等電位ボンディングとは、風力発電設備内部の離れた導電性部分間を直接導体又はサージ保護装置で電気的に接続することである。これにより、その部分間に雷電流により発生する電位差を低減させて保護する。																																																														"(1) 発電用風力設備は、公衆安全と電気保安の確保のために、設置時のみならず、巡視・点検等継続的に保守管理を行うことにより、運用中も「発電用風力設備に関する技術基準を定める省令」に適合するよう維持しなければならない。発電用風力設備において維持すべき重要な技術要件を二つ答えよ。
 重要な技術要件として、取扱者以外の者に対する危険防止措置を維持すること、風車のハブ・ナセルの落下やブレードの飛散などが発生しないように風車の構造上の安全を維持すること、タワーの倒壊などが発生しないように支持工作物の構造上の安全を維持すること、過回転時や制御機能喪失時の自動停止などにより風車の安全な状態を確保すること、雷撃防止措置などにより風車の安全な状態を確保すること、圧油装置などの危険防止を図ること、などがある。
 
@@ -5716,7 +5718,7 @@ P_s=P_d
 したがって、電流連続モードの出力電力条件は
 \[
 P_s>1\,\mathrm{kW}
-\]"									data/pdfs/r01/second	r01|second|kikai_seigyo		data/pdfs/r01/second/kaitou.pdf p.13-p.14	draft
+\]"									data/pdfs/r01/second	r01|second|kikai_seigyo		data/pdfs/r01/second/kaitou.pdf p.13-p.14	draft															
 r01_second_kikai_seigyo_q04	r01	second	kikai_seigyo	4	calculation	図のフィードバック制御系について、次の問に答えよ。\(R(s)\) と \(Y(s)\) は、それぞれ目標値 \(r(t)\) と制御量 \(y(t)\) のラプラス変換である。	data/questions/r01/second/figures/kikai_seigyo_q04_fig.png	(1) 目標値 \(R(s)\) から制御量 \(Y(s)\) までの閉ループ伝達関数 \(W(s)\) を求めよ。					"まず内側のフィードバックループを計算すると
 \[
 \frac{\dfrac{1}{s(s+2)(s+4)}}{1+\dfrac{K_2s}{s(s+2)(s+4)}}
@@ -6116,7 +6118,7 @@ P^2+\left(Q_r+\frac{1}{X}\right)^2=\frac{1}{X^2}
 
 \(Q_s-Q_r=2\times0.043060=0.086120\simeq0.0861\,\mathrm{p.u.}\)
 
-標準解答図の送電円、受電円となる。"									data/pdfs/h30/second	h30|second|denryoku_kanri		data/pdfs/h30/second/kaitou.pdf pp.2-5	draft
+標準解答図の送電円、受電円となる。"									data/pdfs/h30/second	h30|second|denryoku_kanri		data/pdfs/h30/second/kaitou.pdf pp.2-5	draft															
 h30_second_denryoku_kanri_q04	h30	second	denryoku_kanri	4	essay	地中配電系統の特徴について，次の問に答えよ。		(1) 架空配電系統と比較したとき，地中配電系統のメリットとデメリットをそれぞれ一つずつ述べよ。					"メリットの例は次のとおり。
 
 ・都市の美観が向上する。
@@ -6325,7 +6327,7 @@ I=\frac{4162.0}{2.9040}=1433.2\simeq1430\,\mathrm{A}
 力率は
 \[
 \cos\phi=\frac{P\times10^3}{3VI}=\frac{13776\times10^3}{3\times3810\times1433.2}=0.84095\simeq0.841
-\]"		(2c) この発電機を三相平衡交流系統から切り離して、三相平衡抵抗器負荷に接続した。三相平衡抵抗器負荷に \(V=3700\) V、\(\delta=\pi/2\) rad で運転して最大の有効電力を供給した。このときの \(P\) [kW]、\(E\) [V]、\(I\) [A]、力率 \(\cos\phi\) の値を求めよ。					"抵抗器負荷のため，\(\cos\phi=1.00\)，\(\phi=0\,\mathrm{rad}\) である。フェーザ図より，
+\]"		(2c) この発電機を三相平衡交流系統から切り離して、三相平衡抵抗器負荷に接続した。三相平衡抵抗器負荷に \(V=3700\) V、\(\delta=\pi/3\) rad で運転して最大の有効電力を供給した。このときの \(P\) [kW]、\(E\) [V]、\(I\) [A]、力率 \(\cos\phi\) の値を求めよ。					"抵抗器負荷のため，\(\cos\phi=1.00\)，\(\phi=0\,\mathrm{rad}\) である。フェーザ図より，
 \[
 E\cos\delta=V+IX_s\sin\phi
 \]
@@ -6346,7 +6348,7 @@ I=\frac{P\times10^3}{3V\cos\phi}=\frac{24496\times10^3}{3\times3700\times1.00}=2
 
 (3) \(P=13800\,\mathrm{kW}\)，\(I=1430\,\mathrm{A}\)，力率 \(0.841\)
 
-(4) \(E=7400\,\mathrm{V}\)，\(P=24500\,\mathrm{kW}\)，\(I=2210\,\mathrm{A}\)"									data/pdfs/h30/second	h30|second|kikai_seigyo		data/pdfs/h30/second/kaitou.pdf pp.12-13	draft															
+(4) \(E=7400\,\mathrm{V}\)，\(P=24500\,\mathrm{kW}\)，\(I=2210\,\mathrm{A}\)"									data/pdfs/h30/second	h30|second|kikai_seigyo		data/pdfs/h30/second/kaitou.pdf pp.12-13	needs_fix															
 h30_second_kikai_seigyo_q03	h30	second	kikai_seigyo	3	calculation	図1に三相サイリスタ変換器を2台使用した変換装置を示す。対称三相電圧の①系統、②系統に接続されている変換器をそれぞれ変換器1、変換器2とし、その直流電圧を \(v_{dc1}\)、\(v_{dc2}\) とする。①系統の相順は u→v→w 相とし、変換器1のサイリスタの番号を図1に示す。直流リアクトル \(L\) のインダクタンスは十分に大きく、直流電流 \(I_d\) のリプルは無視できる。また、図示されていない回路内のインピーダンス及び回路内の損失も無視できるものとする。なお、\(I_d\)、\(v_{dc1}\)、\(v_{dc2}\) の極性は、図1に示す方向を正とする。動作は定常状態にあるものとして、次の問に答えよ。	data/questions/h30/second/figures/kikai_seigyo_q03_fig.png	(1) ある時刻に変換器1のサイリスタ \(T_1\) 及び \(T_5\) がオンしていたとする。電気角で120°に相当する時間後に通電しているのはどのサイリスタであるかを示せ。					電気角で120°に相当する時間後に通電しているのは，相順に従って \(T_1\to T_2\)，\(T_5\to T_6\) に転流しているので，サイリスタ \(T_2\) と \(T_6\) である。																(2) ①系統の三相交流線間電圧の実効値を \(V_1\) とする。変換器1を図2に示す制御角 \(\alpha_1\) で運転したときに、直流電圧 \(v_{dc1}\) の平均値 \(V_{dc1}\) を求める式を、\(V_1\) 及び \(\alpha_1\) を用いて示せ。					"直流電圧 \(v_{dc1}\) の平均値は
 \[
 V_{dc1}=\frac{1}{\pi/3}\int_{-\pi/6+\alpha_1}^{\pi/6+\alpha_1}\sqrt{2}V_1\cos\theta\,d\theta
@@ -6405,7 +6407,7 @@ Q_{ac1}=\sqrt{S_{ac1}^2-P_{ac1}^2}=\frac{3\sqrt{2}}{\pi}V_1I_d\sin\alpha_1=1.35V
 
 (5) 変換器2の直流電圧 \(v_{dc2}\) の平均値を \(V_{dc2}\) とする。①系統から②系統に電力を送る場合、電流 \(I_d\) の極性は正、平均電圧 \(V_{dc1}\)、\(V_{dc2}\) の両方の極性とも正である。逆に、②系統から①系統に電力を送る場合に、電流 \(I_d\)、平均電圧 \(V_{dc1}\)、\(V_{dc2}\) の極性は正であるか負であるかを示せ。
 
-電力の方向が系統2から系統1の場合，電流 \(I_d\) の極性は正，電圧 \(V_{dc1}\) の極性は負，電圧 \(V_{dc2}\) の極性は負である。"									data/pdfs/h30/second	h30|second|kikai_seigyo		data/pdfs/h30/second/kaitou.pdf pp.13-14	draft
+電力の方向が系統2から系統1の場合，電流 \(I_d\) の極性は正，電圧 \(V_{dc1}\) の極性は負，電圧 \(V_{dc2}\) の極性は負である。"									data/pdfs/h30/second	h30|second|kikai_seigyo		data/pdfs/h30/second/kaitou.pdf pp.13-14	draft															
 h30_second_kikai_seigyo_q04	h30	second	kikai_seigyo	4	calculation	図1のような2自由度制御系がある。ここで \(G(s)\) は制御対象、\(C(s)\) 及び \(F(s)\) は補償器である。また、\(R(s)\) は目標値、\(D(s)\) は外乱、\(Y(s)\) は制御量、\(E(s)\) は制御偏差である。この制御系について、次の問に答えよ。	data/questions/h30/second/figures/kikai_seigyo_q04_fig.png	(1) 図1に示すフィードバック補償器 \(C(s)\) の係数 \(K_P\) 及び \(T_I\) の名称を答えよ。					\(K_P\) は比例ゲイン，\(T_I\) は積分時間である。																(2) \(K_P=10\)、\(T_I=0.1\) のとき、\(C(s)\) の角周波数 [rad/s] に対するゲイン特性の概形を答案用紙に印刷されている図2に折れ線近似で図示せよ。					"フィードバック補償器は
 
 \(C(s)=K_P\left(1+\frac{1}{T_Is}\right)=K_P\frac{1+T_Is}{T_Is}\)
@@ -6469,7 +6471,7 @@ F(s)R(s)C(s)G(s)-Y(s)C(s)G(s)+F(s)R(s)=Y(s)
 
 (5) \(Y(s)/R(s)=F(s)\)
 
-(6) 目標値応答特性とフィードバック制御特性を独立に指定できる。"									data/pdfs/h30/second	h30|second|kikai_seigyo		data/pdfs/h30/second/kaitou.pdf pp.14-17	draft
+(6) 目標値応答特性とフィードバック制御特性を独立に指定できる。"									data/pdfs/h30/second	h30|second|kikai_seigyo		data/pdfs/h30/second/kaitou.pdf pp.14-17	draft															
 h29_second_denryoku_kanri_q01	h29	second	denryoku_kanri	1	essay	ガスタービン主体に構成されるコンバインドサイクル発電プラントに関して、次の問に答えよ。		(1) 大気温度上昇が最大出力に及ぼす影響について、その理由とともに説明せよ。					ガスタービン発電は大気温度の上昇によって最大出力が低下する特性がある。ガスタービン動翼入口温度は、高温部品の耐久性によって上限値が定められている。圧縮機が吸入する空気の体積流量はほぼ一定であり、大気温度の上昇により空気密度が低下するため、空気の質量流量が低下する。そのため、投入できる燃料量が減少し、ガスタービン出力は低下する。また、これにより排ガス量も減少することから、排熱回収ボイラで回収する熱量も減少し、蒸気タービン出力も低下するので、コンバインドサイクル発電の最大出力は低下する。																(2) 小問(1)に対する改善策を挙げよ。					この対策として、圧縮機入口の空気温度を下げるため、吸気に水を噴霧することで水の蒸発潜熱によって吸気温度を下げ、空気の質量流量を増加し、出力低下を改善する方法や、エバポレータークーラ方式、チラー方式などのガスタービン吸気冷却装置を設置することが挙げられる。また、蒸気タービン出力の低下分を改善するために、排熱回収ボイラに助燃バーナを追設することもある。																																																																																																																													"(1) 大気温度上昇が最大出力に及ぼす影響について、その理由とともに説明せよ。
 ガスタービン発電は大気温度の上昇によって最大出力が低下する特性がある。ガスタービン動翼入口温度は、高温部品の耐久性によって上限値が定められている。圧縮機が吸入する空気の体積流量はほぼ一定であり、大気温度の上昇により空気密度が低下するため、空気の質量流量が低下する。そのため、投入できる燃料量が減少し、ガスタービン出力は低下する。また、これにより排ガス量も減少することから、排熱回収ボイラで回収する熱量も減少し、蒸気タービン出力も低下するので、コンバインドサイクル発電の最大出力は低下する。
 
@@ -6658,24 +6660,24 @@ h29_second_denryoku_kanri_q04	h29	second	denryoku_kanri	4	calculation	"図に示
 =\frac{(1715-j457)\times10^3}{\sqrt{3}\times6.6\times10^3}
 \simeq150.02-j39.977\rightarrow150-j40.0\,\mathrm{A}
 \]
-ここで複素共役をとるため、\(P-jQ\) は \(P+jQ\) に、\(P+jQ\) は \(P-jQ\) に変わる。"																(2) (1)を用いて連系点に流れるループ電流 \(\dot{I}\) の大きさを求めよ。					"\(I_A\)、\(I_B\) の合計電流 \(I_{sum}\) は、
+ここで複素共役をとるため、\(P-jQ\) は \(P+jQ\) に、\(P+jQ\) は \(P-jQ\) に変わる。"																(2) (1)を用いて連系点に流れるループ電流 \(\dot{I}\) の大きさを求めよ。					"\(\dot{I}_A\)、\(\dot{I}_B\) の合計電流 \(\dot{I}_{sum}\) は、
 \[
-I_{sum}=I_A+I_B=(209.95+j69.982)+(150.02-j39.977)=359.97+j30.005\,\mathrm{A}
+\dot{I}_{sum}=\dot{I}_A+\dot{I}_B=(209.95+j69.982)+(150.02-j39.977)=359.97+j30.005\,\mathrm{A}
 \]
 
-連系開閉器投入後のA配電系統の線路電流 \(I_a\) は合計電流 \(I_{sum}\) に対して、線路インピーダンスの逆比で流れる。
+連系開閉器投入後のA配電系統の線路電流 \(\dot{I}_a\) は合計電流 \(\dot{I}_{sum}\) に対して、線路インピーダンスの逆比で流れる。
 
 \[
-I=I_a-I_A
+\dot{I}=\dot{I}_a-\dot{I}_A
 \]
 
 \[
-I_a=\frac{Z_B}{Z_A+Z_B}I_{sum}
+\dot{I}_a=\frac{\dot{Z}_B}{\dot{Z}_A+\dot{Z}_B}\dot{I}_{sum}
 \]
 
 したがって、
 \[
-I=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
+\dot{I}=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
 \]
 
 \[
@@ -6684,12 +6686,12 @@ I=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
 
 よって、
 \[
-|I|=\sqrt{85.833^2+(-79.318)^2}\simeq116.87\,\mathrm{A}
+|\dot{I}|=\sqrt{85.833^2+(-79.318)^2}\simeq116.87\,\mathrm{A}
 \]
 
 したがって、
 \[
-|I|=117\,\mathrm{A}
+|\dot{I}|=117\,\mathrm{A}
 \]
 となる。なお、ループ回路にキルヒホッフの法則を用いた場合も同じ解を導出できる。"	data/questions/h29/second/figures/denryoku_kanri_q04_answer_fig1.png																																																																																																																												"(1) 連系開閉器投入後の負荷電流 \(\dot{I}_A\)，\(\dot{I}_B\) を，連系点の電圧の位相を基準（位相0）として求めよ。
 連系開閉器投入後の各配電線の負荷電流 \(\dot{I}_A\)、\(\dot{I}_B\) は、連系点の電圧 \(V\) が6.6 kVであることから、
@@ -6705,24 +6707,24 @@ I=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
 \]
 ここで複素共役をとるため、\(P-jQ\) は \(P+jQ\) に、\(P+jQ\) は \(P-jQ\) に変わる。
 (2) 小問(1)を用いて連系点に流れるループ電流 \(I\) の大きさを求めよ。
-\(I_A\)、\(I_B\) の合計電流 \(I_{sum}\) は、
+\(\dot{I}_A\)、\(\dot{I}_B\) の合計電流 \(\dot{I}_{sum}\) は、
 \[
-I_{sum}=I_A+I_B=(209.95+j69.982)+(150.02-j39.977)=359.97+j30.005\,\mathrm{A}
+\dot{I}_{sum}=\dot{I}_A+\dot{I}_B=(209.95+j69.982)+(150.02-j39.977)=359.97+j30.005\,\mathrm{A}
 \]
 
-連系開閉器投入後のA配電系統の線路電流 \(I_a\) は合計電流 \(I_{sum}\) に対して、線路インピーダンスの逆比で流れる。
+連系開閉器投入後のA配電系統の線路電流 \(\dot{I}_a\) は合計電流 \(\dot{I}_{sum}\) に対して、線路インピーダンスの逆比で流れる。
 
 \[
-I=I_a-I_A
+\dot{I}=\dot{I}_a-\dot{I}_A
 \]
 
 \[
-I_a=\frac{Z_B}{Z_A+Z_B}I_{sum}
+\dot{I}_a=\frac{\dot{Z}_B}{\dot{Z}_A+\dot{Z}_B}\dot{I}_{sum}
 \]
 
 したがって、
 \[
-I=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
+\dot{I}=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
 \]
 
 \[
@@ -6731,12 +6733,12 @@ I=\frac{0.2+j0.16}{0.3+j0.39+0.2+j0.16}(359.97+j30.005)-(209.95+j69.982)
 
 よって、
 \[
-|I|=\sqrt{85.833^2+(-79.318)^2}\simeq116.87\,\mathrm{A}
+|\dot{I}|=\sqrt{85.833^2+(-79.318)^2}\simeq116.87\,\mathrm{A}
 \]
 
 したがって、
 \[
-|I|=117\,\mathrm{A}
+|\dot{I}|=117\,\mathrm{A}
 \]
 となる。なお、ループ回路にキルヒホッフの法則を用いた場合も同じ解を導出できる。"									data/pdfs/h29/second	h29|second|denryoku_kanri		data/pdfs/h29/second/kaitou.pdf pp.6-7	needs_fix															
 h29_second_denryoku_kanri_q05	h29	second	denryoku_kanri	5	essay	我が国の高圧配電系統に関して、次の問に答えよ。		(1) 現在、我が国の大部分の配電系統は6.6 kV三相3線式中性点非接地方式となっているが、我が国が従来から非接地方式を主体に発展してきた理由を、a. 誘導障害の観点、b. 保安の観点から簡潔に説明せよ。					"a. 6.6 kV配電線は通信線とともに架空線で同一電柱に施設されることが多く、大地帰路電流の大きい接地方式を採用すると通信線に対する電磁誘導障害が問題となってくる。このため、地絡電流の小さい非接地方式が採用された。
@@ -7936,7 +7938,7 @@ A-bf=\begin{pmatrix}0&1\\0&-1\end{pmatrix}-\begin{pmatrix}0\\1\end{pmatrix}(f_1\
 \[
 f=(12\quad 6)
 \]
-と求まる。"																(2) 小問(1)で求めた \(f\) を用いて特性改善をした見掛け上の制御対象に対して、目標値 \(r(t)\) に出力 \(y(t)\) が追従することを目的として直列補償器を考える。入力 \(u(t)\) を \(x(t)\)、\(r(t)\)、\(c\)、\(f\)、\(k\) を用いて表せ。					"図に示す制御系の構造から，
+と求まる。"																(2) 上記小問(1)で求めた \(f\) を用いて特性改善をした見掛け上の制御対象に対して，目標値 \(r(t)\) に出力 \(y(t)\) が追従することを目的に，図に示すフィードバック制御系を構成した。閉ループ系が安定になるように直列補償器のゲイン \(k\) を設計できたとするとき，入力 \(u(t)\) を \(x(t)\)，\(r(t)\)，\(c\)，\(f\)，\(k\) を用いて表せ。					"図に示す制御系の構造から，
 \[
 u(t)=-fx(t)+ke(t)
 \]
@@ -7966,7 +7968,7 @@ u(t)=-fx(t)+ke(t)=-fx(t)+k[r(t)-cx(t)]
 \]
 \[
 =\begin{pmatrix}0&1\\-12-2k&-7-k\end{pmatrix}x(t)+\begin{pmatrix}0\\1\end{pmatrix}kr(t)
-\]"																														(5) 目標値を大きさ \(r_0\) でステップ状に変化させる場合を考える。小問(2)の仮定より閉ループ系は安定なので、状態 \(x(t)\) は定常、すなわち \(\dot{x}(t)=0\) となる。このとき、定常状態における状態 \(x(\infty)\) を \(k\) と \(r_0\) を用いて求めよ。					"\(x(\infty)\) は次のように計算される。
+\]"																														(5) 目標値を大きさ \(r_0\) でステップ状に変化させる場合を考える。上記小問(2)の仮定より閉ループ系は安定なので，状態 \(x(t)\) は定常，すなわち \(\dot{x}(\infty)=\begin{pmatrix}0\\0\end{pmatrix}\) となる。このときの定常値 \(x(\infty)\) を \(k\) と \(r_0\) を用いて表せ。					"\(x(\infty)\) は次のように計算される。
 \[
 x(\infty)=-\begin{pmatrix}0&1\\-12-2k&-7-k\end{pmatrix}^{-1}\begin{pmatrix}0\\1\end{pmatrix}kr_0
 \]
@@ -8008,7 +8010,7 @@ f=(12\quad 6)
 \]
 と求まる。
 
-(2) 小問(1)で求めた \(f\) を用いて特性改善をした見掛け上の制御対象に対して、目標値 \(r(t)\) に出力 \(y(t)\) が追従することを目的として直列補償器を考える。入力 \(u(t)\) を \(x(t)\)、\(r(t)\)、\(c\)、\(f\)、\(k\) を用いて表せ。
+(2) 上記小問(1)で求めた \(f\) を用いて特性改善をした見掛け上の制御対象に対して，目標値 \(r(t)\) に出力 \(y(t)\) が追従することを目的に，図に示すフィードバック制御系を構成した。閉ループ系が安定になるように直列補償器のゲイン \(k\) を設計できたとするとき，入力 \(u(t)\) を \(x(t)\)，\(r(t)\)，\(c\)，\(f\)，\(k\) を用いて表せ。
 図に示す制御系の構造から，
 \[
 u(t)=-fx(t)+ke(t)
@@ -8047,7 +8049,7 @@ u(t)=-fx(t)+ke(t)=-fx(t)+k[r(t)-cx(t)]
 =\begin{pmatrix}0&1\\-12-2k&-7-k\end{pmatrix}x(t)+\begin{pmatrix}0\\1\end{pmatrix}kr(t)
 \]
 
-(5) 目標値を大きさ \(r_0\) でステップ状に変化させる場合を考える。小問(2)の仮定より閉ループ系は安定なので、状態 \(x(t)\) は定常、すなわち \(\dot{x}(t)=0\) となる。このとき、定常状態における状態 \(x(\infty)\) を \(k\) と \(r_0\) を用いて求めよ。
+(5) 目標値を大きさ \(r_0\) でステップ状に変化させる場合を考える。上記小問(2)の仮定より閉ループ系は安定なので，状態 \(x(t)\) は定常，すなわち \(\dot{x}(\infty)=\begin{pmatrix}0\\0\end{pmatrix}\) となる。このときの定常値 \(x(\infty)\) を \(k\) と \(r_0\) を用いて表せ。
 \(x(\infty)\) は次のように計算される。
 \[
 x(\infty)=-\begin{pmatrix}0&1\\-12-2k&-7-k\end{pmatrix}^{-1}\begin{pmatrix}0\\1\end{pmatrix}kr_0
@@ -8073,7 +8075,7 @@ e(\infty)=r_0-(2\quad 1)\frac{1}{12+2k}\begin{pmatrix}1\\0\end{pmatrix}kr_0
 \[
 =\frac{6}{6+k}r_0
 \]
-と計算できる。"									data/pdfs/h28/second	h28|second|kikai_seigyo		data/pdfs/h28/second/kaitou.pdf pp.14-15	draft															
+と計算できる。"									data/pdfs/h28/second	h28|second|kikai_seigyo		data/pdfs/h28/second/kaitou.pdf pp.14-15	needs_fix															
 h27_second_denryoku_kanri_q01	h27	second	denryoku_kanri	1	essay	大容量のタービン発電機に採用される冷却方式に関して、次の問に答えよ。		(1) 水素冷却方式が採用される理由を水素ガスの特徴を挙げて述べよ。また、安全上留意すべき事項を述べよ。					"空気と比較して水素ガスは密度が小さいため風損が小さく発電機効率を向上させることができるほか，熱伝導率，比熱が大きいので冷却効果が高く，発電機の小型化を図ることができる。さらに，加圧して用いることにより，熱容量，熱伝達率が大きくなり，より大きな冷却能力を発揮できる。また，水素ガスは不活性であるため，絶縁物の劣化影響が少ない。以上のように，発電機の機械寸法の大幅な増大を抑えることができるなどの利点があるため，大容量のタービン発電機では，水素冷却方式が採用される。
 
 また，安全上留意すべき事項については以下のとおり。
@@ -8635,7 +8637,7 @@ x=(x_1+a^2x_2)
 \[
 =\sqrt{207.01-27.320}=\sqrt{179.69}=13.405\simeq13.4\,\Omega
 \]
-となる。"																														(4) 図1に示すように、二次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|\dot{Z}_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)としたとき、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2は、このときの電圧電流ベクトル概略図の一部である。図2が答案用紙に印刷されているので、電圧\(\dot{V}_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{g0},\dot{I}_{b0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。					概略ベクトル図は次のとおりである。	data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig1.png																													"(5) 一次端子電圧を\(V_{10}\)のままにして，無負荷としたときの二次端子電圧を\(V_{20}\)とする。このとき，この変圧器の電圧の変動率\(\varepsilon\)を，次式で表す。
+となる。"																														(4) 図1に示すように、二次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|\dot{Z}_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)としたとき、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2は、このときの電圧電流ベクトル概略図の一部である。図2が答案用紙に印刷されているので、電圧\(\dot{V}'_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{g0},\dot{I}_{b0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。					概略ベクトル図は次のとおりである。	data/questions/h27/second/figures/kikai_seigyo_q02_answer_fig1.png																													"(5) 一次端子電圧を\(V_{10}\)のままにして，無負荷としたときの二次端子電圧を\(V_{20}\)とする。このとき，この変圧器の電圧の変動率\(\varepsilon\)を，次式で表す。
 \[
 \varepsilon=\frac{V_{20}-V_{2n}}{V_{2n}}\times100\,[\%]
 \]
@@ -8718,7 +8720,7 @@ x=(x_1+a^2x_2)
 \]
 となる。
 
-(4) 図1に示すように、二次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|\dot{Z}_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)としたとき、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2は、このときの電圧電流ベクトル概略図の一部である。図2が答案用紙に印刷されているので、電圧\(\dot{V}_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{g0},\dot{I}_{b0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。
+(4) 図1に示すように、二次巻線端子に力率\(\cos\theta\)の負荷（\(\dot{Z}_L=|\dot{Z}_L|\angle\theta\)）を接続して一次巻線電圧を\(\dot{V}_{10}\)としたとき、負荷に定格電圧\(\dot{V}_{2n}\)が印加され定格電流\(\dot{I}_{2n}\)が流れた。図2は、このときの電圧電流ベクトル概略図の一部である。図2が答案用紙に印刷されているので、電圧\(\dot{V}'_{20}(=\dot{V}_{10})\)及び電流\(\dot{I}_1,\dot{I}_{g0},\dot{I}_{b0}\)のベクトルを書き足して、ベクトル図を完成させよ。巻線抵抗\(r\)及び漏れリアクタンス\(x\)による電圧降下の成分も図中に明示せよ。
 概略ベクトル図は次のとおりである。
 
 (5) 一次端子電圧を\(V_{10}\)のままにして，無負荷としたときの二次端子電圧を\(V_{20}\)とする。このとき，この変圧器の電圧の変動率\(\varepsilon\)を，次式で表す。
@@ -8763,7 +8765,7 @@ V_{20}=\sqrt{(V_{2n}+RI_{2n}\cos\theta+XI_{2n}\sin\theta)^2+(XI_{2n}\cos\theta-R
 \varepsilon=\frac{V_{20}-V_{2n}}{V_{2n}}\times100
 \simeq(q_R\cos\theta+q_X\sin\theta)\times100\,[\%]
 \]
-となる。"									data/pdfs/h27/second	h27|second|kikai_seigyo		data/pdfs/h27/second/kaitou.pdf pp.12-13	draft															
+となる。"									data/pdfs/h27/second	h27|second|kikai_seigyo		data/pdfs/h27/second/kaitou.pdf pp.12-13	needs_fix															
 h27_second_kikai_seigyo_q03	h27	second	kikai_seigyo	3	calculation	図1は、三相交流電源から単相交流を出力するサイクロコンバータである。このサイクロコンバータに関する次の問に答えよ。ただし、交流電源のインピーダンス、及びコンバータでの電圧降下は無視する。また、負荷は誘導性である。	data/questions/h27/second/figures/kikai_seigyo_q03_fig.png|data/questions/h27/second/figures/kikai_seigyo_q03_fig2.png	(1a) このサイクロコンバータの実用的な出力周波数の上限は、電源周波数に対して何分の1程度であるか。					実用的な出力周波数の上限は，電源周波数の\(\frac{1}{2}\)から\(\frac{1}{3}\)程度である。																(1b) どのような要因で上限が決まるかを全体で100字程度で説明せよ。					出力交流電流の方向が切り換わるときに電源を短絡しないように電流を零としておく期間が必要である。このため、出力周波数が高くなると波形のひずみが大きくなるので出力周波数に上限がある。																							(2) 正群コンバータが、入力交流線間電圧実効値\(E\)及び制御遅れ角\(\alpha\)が一定で、連続した出力電流\(i\)で定常的に動作しているときの出力電圧\(v\)の平均値（直流電圧）\(V_d\)を求める式を示せ。					"正群コンバータの出力電圧\(v\)は，制御遅れ角\(\alpha\)が0の時点を基準にした電気角\(\theta\)で表すと，\(\theta\)が\(\alpha\)から\(\alpha+\frac{\pi}{3}\)の期間，\(v=\sqrt{2}E\cos\left(\theta-\frac{\pi}{6}\right)\)となるので，平均電圧\(V_d\)はそれを平均して次となる。
 \[
 V_d=\frac{3}{\pi}\int_{\alpha}^{\alpha+\frac{\pi}{3}}\sqrt{2}E\cos\left(\theta-\frac{\pi}{6}\right)d\theta
@@ -9207,14 +9209,14 @@ h26_second_denryoku_kanri_q03	h26	second	denryoku_kanri	3	essay	"架空送電線
 
 ⑦ 電圧降下
 電線の材質が同じであれば電線が太い方が抵抗，リアクタンスが低くなるため，電圧降下が小さくなるので有利である。"									data/pdfs/h26/second	h26|second|denryoku_kanri		data/pdfs/h26/second/kaitou.pdf pp.3-4	draft															
-h26_second_denryoku_kanri_q04	h26	second	denryoku_kanri	4	calculation	図に示す等価回路の三相3線式1回線の高圧配電系統がある。電源側S点の線間電圧6.93 kV、1線当たりの抵抗\(5\,\Omega\)、リアクタンス\(7\,\Omega\)であるとき、次の問に答えよ。ただし、負荷は三相抵抗負荷とする。	data/questions/h26/second/figures/denryoku_kanri_q04_fig.png	(1) 電源側の相電圧\(\dot{E}_s\)、受電端の相電圧\(\dot{E}_r\)、負荷電流\(\dot{I}_r\)のベクトルを図示せよ。					ベクトル関係は図のようになる。	data/questions/h26/second/figures/denryoku_kanri_q04_answer_fig1.png															(2) 負荷電流が50 A流れた際の受電端の線間電圧\(\sqrt{3}|\dot{E}_r|\,[\mathrm{kV}]\)を上記(1)で表したベクトル図の関係式から求めよ。ただし、当該線路に他の負荷はなく、漏れ電流等は無視できるものとする。					"負荷電流 \(I_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(E_s\)，\(E_r\) とおくと，\(I_r\) は抵抗負荷であるため \(E_r\) と同相となる。
+h26_second_denryoku_kanri_q04	h26	second	denryoku_kanri	4	calculation	図に示す等価回路の三相3線式1回線の高圧配電系統がある。電源側S点の線間電圧6.93 kV、1線当たりの抵抗\(5\,\Omega\)、リアクタンス\(7\,\Omega\)であるとき、次の問に答えよ。ただし、負荷は三相抵抗負荷とする。	data/questions/h26/second/figures/denryoku_kanri_q04_fig.png	(1) 電源側の相電圧\(\dot{E}_s\)、受電端の相電圧\(\dot{E}_r\)、負荷電流\(\dot{I}_r\)のベクトルを図示せよ。					ベクトル関係は図のようになる。	data/questions/h26/second/figures/denryoku_kanri_q04_answer_fig1.png															(2) 負荷電流が50 A流れた際の受電端の線間電圧\(\sqrt{3}|\dot{E}_r|\,[\mathrm{kV}]\)を上記(1)で表したベクトル図の関係式から求めよ。ただし、当該線路に他の負荷はなく、漏れ電流等は無視できるものとする。					"負荷電流 \(\dot{I}_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(\dot{E}_s\)，\(\dot{E}_r\) とおくと，\(\dot{I}_r\) は抵抗負荷であるため \(\dot{E}_r\) と同相となる。
 
 \[
-\dot{E}_s=\dot{E}_r+I_r(R+jX)
+\dot{E}_s=\dot{E}_r+\dot{I}_r(R+jX)
 \]
 
 \[
-=E_r+RI_r+jXI_r
+=\dot{E}_r+R\dot{I}_r+jX\dot{I}_r
 \]
 
 両辺の絶対値の2乗を求める。
@@ -9245,14 +9247,14 @@ E_r=-250+\sqrt{250^2+15823300}=3735.7\,\mathrm{V}
 
 \[
 \sqrt{3}E_r=\sqrt{3}\times3735.7=6470.4\,\mathrm{V}=6.47\,\mathrm{kV}
-\]"																							(3) 受電端B点において線路の電圧降下率が10%となる三相抵抗負荷電力[kW]及びそのときの負荷電流[A]を求めよ。					"負荷電流 \(I_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(E_s\)，\(E_r\) とおくと，\(I_r\) は抵抗負荷であるため \(E_r\) と同相となる。
+\]"																							(3) 受電端B点において線路の電圧降下率が10%となる三相抵抗負荷電力[kW]及びそのときの負荷電流[A]を求めよ。					"負荷電流 \(\dot{I}_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(\dot{E}_s\)，\(\dot{E}_r\) とおくと，\(\dot{I}_r\) は抵抗負荷であるため \(\dot{E}_r\) と同相となる。
 
 \[
-\dot{E}_s=\dot{E}_r+I_r(R+jX)
+\dot{E}_s=\dot{E}_r+\dot{I}_r(R+jX)
 \]
 
 \[
-=(E_r+RI_r)+jXI_r
+=(\dot{E}_r+R\dot{I}_r)+jX\dot{I}_r
 \]
 
 両辺の絶対値の2乗を求める。
@@ -9310,14 +9312,14 @@ P_1=\sqrt{3}E_rI_r=\sqrt{3}\times\frac{6300}{\sqrt{3}}\times67.2\simeq733281\rig
 ベクトル関係は図のようになる。
 
 (2) 負荷電流が50 A流れた際の受電端の線間電圧\(\sqrt{3}|\dot{E}_r|\,[\mathrm{kV}]\)を上記(1)で表したベクトル図の関係式から求めよ。ただし、当該線路に他の負荷はなく、漏れ電流等は無視できるものとする。
-負荷電流 \(I_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(E_s\)，\(E_r\) とおくと，\(I_r\) は抵抗負荷であるため \(E_r\) と同相となる。
+負荷電流 \(\dot{I}_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(\dot{E}_s\)，\(\dot{E}_r\) とおくと，\(\dot{I}_r\) は抵抗負荷であるため \(\dot{E}_r\) と同相となる。
 
 \[
-\dot{E}_s=\dot{E}_r+I_r(R+jX)
+\dot{E}_s=\dot{E}_r+\dot{I}_r(R+jX)
 \]
 
 \[
-=E_r+RI_r+jXI_r
+=\dot{E}_r+R\dot{I}_r+jX\dot{I}_r
 \]
 
 両辺の絶対値の2乗を求める。
@@ -9351,14 +9353,14 @@ E_r=-250+\sqrt{250^2+15823300}=3735.7\,\mathrm{V}
 \]
 
 (3) 受電端B点において線路の電圧降下率が10%となる三相抵抗負荷電力[kW]及びそのときの負荷電流[A]を求めよ。
-負荷電流 \(I_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(E_s\)，\(E_r\) とおくと，\(I_r\) は抵抗負荷であるため \(E_r\) と同相となる。
+負荷電流 \(\dot{I}_r\)，線路の抵抗及びリアクタンスを \(R\)，\(X\)，電源側，受電端の相電圧を \(\dot{E}_s\)，\(\dot{E}_r\) とおくと，\(\dot{I}_r\) は抵抗負荷であるため \(\dot{E}_r\) と同相となる。
 
 \[
-\dot{E}_s=\dot{E}_r+I_r(R+jX)
+\dot{E}_s=\dot{E}_r+\dot{I}_r(R+jX)
 \]
 
 \[
-=(E_r+RI_r)+jXI_r
+=(\dot{E}_r+R\dot{I}_r)+jX\dot{I}_r
 \]
 
 両辺の絶対値の2乗を求める。
@@ -9411,7 +9413,7 @@ I_r=\frac{-\frac{6.3}{\sqrt{3}}\times5+\sqrt{\left(\frac{6.3}{\sqrt{3}}\times5\r
 
 \[
 P_1=\sqrt{3}E_rI_r=\sqrt{3}\times\frac{6300}{\sqrt{3}}\times67.2\simeq733281\rightarrow733\,\mathrm{kW}
-\]"									data/pdfs/h26/second	h26|second|denryoku_kanri		data/pdfs/h26/second/kaitou.pdf pp.5-6	draft															
+\]"									data/pdfs/h26/second	h26|second|denryoku_kanri		data/pdfs/h26/second/kaitou.pdf pp.5-6	needs_fix															
 h26_second_denryoku_kanri_q05	h26	second	denryoku_kanri	5	calculation	"図に示すような三相3線式高圧配電線の末端に負荷が接続されており、新たに太陽電池発電所を設置した場合の逆潮流による電圧上昇について、次の問に答えよ。
 
 ただし、低圧需要家側の電流は無視し、計算諸元は次のとおりとする。高圧配電線電圧：高圧6600 V。高圧配電線インピーダンス：\(r+jx=2.82+j3.19\,\Omega\)。柱上変圧器のタップ比：一次電圧/二次電圧 6600 V/210 V。負荷：動力800 kW、遅れ力率0.6、力率改善用コンデンサ1000 kvar。太陽電池発電所：出力2000 kW、力率1。電流値計算にあたっては、高圧配電線電圧6600 Vを用いる。"	data/questions/h26/second/figures/denryoku_kanri_q05_fig.png	(1) 負荷側に流れる有効電流\(I_{PL}\,[\mathrm{A}]\)と無効電流\(I_{QL}\,[\mathrm{A}]\)を求めよ。					"負荷側に流れる電流 \(I_L\) のうち，有効分を \(I_{PL}\)，無効分を \(I_{QL}\) とすると，
@@ -9576,14 +9578,14 @@ h26_second_denryoku_kanri_q06	h26	second	denryoku_kanri	6	essay	電気工作物�
 ② 機器・設備の異常兆候の早期発見や予測などが可能であり，機器の故障やシステム停止を未然に防止できる。
 
 ③ 機器の劣化による機能低下を検知することができ，システムの機能及び性能の低下を防止できる。"									data/pdfs/h26/second	h26|second|denryoku_kanri		data/pdfs/h26/second/kaitou.pdf p.9	draft															
-h26_second_kikai_seigyo_q01	h26	second	kikai_seigyo	1	calculation	定格線間電圧200 V、定格周波数50 Hz、4極の三相かご形誘導電動機について、三相星形結線1相分のL形等価回路から動作特性を考える。三相星形結線1相分のL形等価回路の回路定数を、励磁アドミタンス\(y_0=0.05-j0.15\,\mathrm{S}\)、一次抵抗\(r_1=0.1\,\Omega\)、一次漏れリアクタンス\(x_1=0.3\,\Omega\)、二次抵抗の一次側換算値\(r'_2=0.15\,\Omega\)、二次漏れリアクタンスの一次側換算値\(x'_2=0.4\,\Omega\)とする。誘導電動機を定格電圧、定格周波数の三相交流電源に接続し、負荷トルクを\(T_L\,[\mathrm{N\cdot m}]\)としたとき、滑りは\(s=0.03\)であった。		(1) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの同期速度\(n_0\,[\mathrm{min^{-1}}]\)を求めよ。					"同期速度 \(n_0\) は，定格周波数 \(f_1\) と極対数 \(p\) から，
+h26_second_kikai_seigyo_q01	h26	second	kikai_seigyo	1	calculation	定格線間電圧200 V、定格周波数50 Hz、4極の三相かご形誘導電動機について、三相星形結線1相分のL形等価回路から動作特性を考える。三相星形結線1相分のL形等価回路の回路定数を、励磁アドミタンス\(\dot{y}_0=0.05-j0.15\,\mathrm{S}\)、一次抵抗\(r_1=0.1\,\Omega\)、一次漏れリアクタンス\(x_1=0.3\,\Omega\)、二次抵抗の一次側換算値\(r'_2=0.15\,\Omega\)、二次漏れリアクタンスの一次側換算値\(x'_2=0.4\,\Omega\)とする。誘導電動機を定格電圧、定格周波数の三相交流電源に接続し、負荷トルクを\(T_L\,[\mathrm{N\cdot m}]\)としたとき、滑りは\(s=0.03\)であった。		(1) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの同期速度\(n_0\,[\mathrm{min^{-1}}]\)を求めよ。					"同期速度 \(n_0\) は，定格周波数 \(f_1\) と極対数 \(p\) から，
 
 \[
 n_0=\frac{f_1}{p}\times60=\frac{50}{2}\times60=1500\rightarrow1500\,\mathrm{min^{-1}}
-\]"																(2) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの励磁電流\(I_0\,[\mathrm{A}]\)を求めよ。					"励磁電流 \(I_0\) は，相電圧 \(V_1\) と励磁回路のアドミタンス \(y_0\) から，
+\]"																(2) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの励磁電流\(I_0\,[\mathrm{A}]\)を求めよ。					"励磁電流 \(I_0\) は，相電圧 \(V_1\) と励磁回路のアドミタンス \(\dot{y}_0\) から，
 
 \[
-I_0=V_1y_0=\frac{200}{\sqrt{3}}(0.05-j0.15)
+\dot{I}_0=V_1\dot{y}_0=\frac{200}{\sqrt{3}}(0.05-j0.15)
 \]
 
 \[
@@ -9595,7 +9597,7 @@ I_0=V_1y_0=\frac{200}{\sqrt{3}}(0.05-j0.15)
 \]"																							(3) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの二次電流の一次換算値\(I'_2\,[\mathrm{A}]\)を求めよ。					"二次電流の一次換算値 \(I_2^{\prime}\) は，等価回路の二次等価抵抗を考慮して，
 
 \[
-I_2^{\prime}=\frac{V_1}{r_1+\frac{r_2^{\prime}}{s}+j(x_1+x_2^{\prime})}
+\dot{I}_2^{\prime}=\frac{V_1}{r_1+\frac{r_2^{\prime}}{s}+j(x_1+x_2^{\prime})}
 \]
 
 \[
@@ -9620,7 +9622,7 @@ T_L=\frac{P_m}{\omega_m}=\frac{p}{\omega_1}P_2=\frac{3p}{\omega_1}\frac{r_2^{\pr
 \]"																														(5) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの一次電流\(I_1\,[\mathrm{A}]\)を求めよ。					"一次電流 \(I_1\) は，
 
 \[
-I_1=I_0+I_2^{\prime}=(5.7735-j17.320)+(22.222-j3.0500)
+\dot{I}_1=\dot{I}_0+\dot{I}_2^{\prime}=(5.7735-j17.320)+(22.222-j3.0500)
 \]
 
 \[
@@ -9641,10 +9643,10 @@ n_0=\frac{f_1}{p}\times60=\frac{50}{2}\times60=1500\rightarrow1500\,\mathrm{min^
 \]
 
 (2) 負荷トルクが\(T_L\,[\mathrm{N\cdot m}]\)のときの励磁電流\(I_0\,[\mathrm{A}]\)を求めよ。
-励磁電流 \(I_0\) は，相電圧 \(V_1\) と励磁回路のアドミタンス \(y_0\) から，
+励磁電流 \(I_0\) は，相電圧 \(V_1\) と励磁回路のアドミタンス \(\dot{y}_0\) から，
 
 \[
-I_0=V_1y_0=\frac{200}{\sqrt{3}}(0.05-j0.15)
+\dot{I}_0=V_1\dot{y}_0=\frac{200}{\sqrt{3}}(0.05-j0.15)
 \]
 
 \[
@@ -9659,7 +9661,7 @@ I_0=V_1y_0=\frac{200}{\sqrt{3}}(0.05-j0.15)
 二次電流の一次換算値 \(I_2^{\prime}\) は，等価回路の二次等価抵抗を考慮して，
 
 \[
-I_2^{\prime}=\frac{V_1}{r_1+\frac{r_2^{\prime}}{s}+j(x_1+x_2^{\prime})}
+\dot{I}_2^{\prime}=\frac{V_1}{r_1+\frac{r_2^{\prime}}{s}+j(x_1+x_2^{\prime})}
 \]
 
 \[
@@ -9690,7 +9692,7 @@ T_L=\frac{P_m}{\omega_m}=\frac{p}{\omega_1}P_2=\frac{3p}{\omega_1}\frac{r_2^{\pr
 一次電流 \(I_1\) は，
 
 \[
-I_1=I_0+I_2^{\prime}=(5.7735-j17.320)+(22.222-j3.0500)
+\dot{I}_1=\dot{I}_0+\dot{I}_2^{\prime}=(5.7735-j17.320)+(22.222-j3.0500)
 \]
 
 \[
@@ -9706,13 +9708,13 @@ I_1=I_0+I_2^{\prime}=(5.7735-j17.320)+(22.222-j3.0500)
 
 \[
 \cos\phi=\frac{27.995}{34.621}=0.80861\rightarrow0.809
-\]"									data/pdfs/h26/second	h26|second|kikai_seigyo		data/pdfs/h26/second/kaitou.pdf p.10	draft															
+\]"									data/pdfs/h26/second	h26|second|kikai_seigyo		data/pdfs/h26/second/kaitou.pdf p.10	needs_fix															
 h26_second_kikai_seigyo_q02	h26	second	kikai_seigyo	2	calculation	三相星形結線の円筒形同期発電機（定格容量100000 kV・A、定格電圧（線間電圧）\(V_R=13800\,\mathrm{V}\)、定格電流（相電流）\(I_R=4184\,\mathrm{A}\)、定格周波数60 Hz、定格力率0.9（遅れ））における正相及び逆相リアクタンスの測定法に関して、次の問に答えよ。ただし、電機子抵抗などの抵抗分は無視する。	data/questions/h26/second/figures/kikai_seigyo_q02_fig.png	"(1) 正相リアクタンス
 
-円筒形同期発電機の正相リアクタンスは，定格回転速度で定常運転状態では同期リアクタンスとなる。同期リアクタンスは，図1に示す無負荷飽和曲線と三相短絡電流特性曲線から求めることができる。同期リアクタンスの定格電圧での飽和値\(X_{ss}\,[\Omega]\)及び同期リアクタンスの不飽和値\(X_{su}\,[\Omega]\)を，\(V_R\,[\mathrm{V}]\)，\(I_R\,[\mathrm{A}]\)，\(I_{f2}\,[\mathrm{A}]\)，\(I_{f0}\,[\mathrm{A}]\)又は\(I_{f0g}\,[\mathrm{A}]\)を用いて表す式を導出せよ。その導出過程も示すこと。なお，\(I_{f2}\)，\(I_{f0}\)及び\(I_{f0g}\)は図1に示す界磁電流である。また，\(I_{f2}=600\,\mathrm{A}\)，\(I_{f0}=300\,\mathrm{A}\)，\(I_{f0g}=270\,\mathrm{A}\)として，\(X_{ss}\,[\Omega]\)及び\(X_{su}\,[\Omega]\)を算出せよ。"					"短絡電流 \(I_{sc}\) は発電機の無負荷誘導起電力（相電圧）\(E_0\) と \(jX_s\) から，次の式となる。
+円筒形同期発電機の正相リアクタンスは，定格回転速度で定常運転状態では同期リアクタンスとなる。同期リアクタンスは，図1に示す無負荷飽和曲線と三相短絡電流特性曲線から求めることができる。同期リアクタンスの定格電圧での飽和値\(X_{ss}\,[\Omega]\)及び同期リアクタンスの不飽和値\(X_{su}\,[\Omega]\)を，\(V_R\,[\mathrm{V}]\)，\(I_R\,[\mathrm{A}]\)，\(I_{f2}\,[\mathrm{A}]\)，\(I_{f0}\,[\mathrm{A}]\)又は\(I_{f0g}\,[\mathrm{A}]\)を用いて表す式を導出せよ。その導出過程も示すこと。なお，\(I_{f2}\)，\(I_{f0}\)及び\(I_{f0g}\)は図1に示す界磁電流である。また，\(I_{f2}=600\,\mathrm{A}\)，\(I_{f0}=300\,\mathrm{A}\)，\(I_{f0g}=270\,\mathrm{A}\)として，\(X_{ss}\,[\Omega]\)及び\(X_{su}\,[\Omega]\)を算出せよ。"					"短絡電流 \(\dot{I}_{sc}\) は発電機の無負荷誘導起電力（相電圧）\(\dot{E}_0\) と \(jX_s\) から，次の式となる。
 
 \[
-I_{sc}=\frac{E_0}{jX_s}=\frac{1}{jX_s}\frac{V_R}{\sqrt{3}}=\frac{V_R}{\sqrt{3}X_s}e^{-j\pi/2}
+\dot{I}_{sc}=\frac{\dot{E}_0}{jX_s}=\frac{1}{jX_s}\frac{V_R}{\sqrt{3}}=\frac{V_R}{\sqrt{3}X_s}e^{-j\pi/2}
 \]
 
 同期リアクタンス \(X_s\) は，
@@ -9772,16 +9774,16 @@ X_{su}=\frac{13800\times600}{\sqrt{3}\times4184\times270}=4.2317\rightarrow4.23\
 \]
 "																"(2) 逆相リアクタンス
 
-図2に示すように，電機子巻線の2端子を短絡し，発電機を定格回転速度で運転する。界磁電流を流し，短絡回路の電流\(I_S\,[\mathrm{A}]\)及び短絡回路と開放端子との間の電圧\(V_{OS}\,[\mathrm{V}]\)を計測する。また，このときの対称座標法による等価回路を図3に示す。逆相リアクタンス\(X_2\,[\Omega]\)を，\(V_{OS}\,[\mathrm{V}]\)及び\(I_S\,[\mathrm{A}]\)を用いて表す式を導出せよ。その導出過程も示すこと。また，\(V_{OS}=250\,\mathrm{V}\)，\(I_S=400\,\mathrm{A}\)として，\(X_2\,[\Omega]\)を算出せよ。"					"二相短絡（V相とW相間短絡）状態であり，\(V_V=V_W\) から，
+図2に示すように，電機子巻線の2端子を短絡し，発電機を定格回転速度で運転する。界磁電流を流し，短絡回路の電流\(I_S\,[\mathrm{A}]\)及び短絡回路と開放端子との間の電圧\(V_{OS}\,[\mathrm{V}]\)を計測する。また，このときの対称座標法による等価回路を図3に示す。逆相リアクタンス\(X_2\,[\Omega]\)を，\(V_{OS}\,[\mathrm{V}]\)及び\(I_S\,[\mathrm{A}]\)を用いて表す式を導出せよ。その導出過程も示すこと。また，\(V_{OS}=250\,\mathrm{V}\)，\(I_S=400\,\mathrm{A}\)として，\(X_2\,[\Omega]\)を算出せよ。"					"二相短絡（V相とW相間短絡）状態であり，\(\dot{V}_V=\dot{V}_W\) から，
 
 \[
-V_V=V_0+a^2V_1+aV_2=V_0+aV_1+a^2V_2=V_W
+\dot{V}_V=\dot{V}_0+a^2\dot{V}_1+a\dot{V}_2=\dot{V}_0+a\dot{V}_1+a^2\dot{V}_2=\dot{V}_W
 \]
 
 より，
 
 \[
-V_1=V_2
+\dot{V}_1=\dot{V}_2
 \]
 
 となる。
@@ -9794,58 +9796,58 @@ a=e^{j\frac{2\pi}{3}}=-\frac{1}{2}+j\frac{\sqrt{3}}{2},\quad a^2=e^{j\frac{4\pi}
 
 である。
 
-\(I_U=0\)，\(I_V=-I_W\) から，
+\(\dot{I}_U=0\)，\(\dot{I}_V=-\dot{I}_W\) から，
 
 \[
-I_0=0
+\dot{I}_0=0
 \]
 
 となり，
 
 \[
-I_0+I_1+I_2=0
+\dot{I}_0+\dot{I}_1+\dot{I}_2=0
 \]
 
 から，
 
 \[
-I_1=-I_2
+\dot{I}_1=-\dot{I}_2
 \]
 
 となり，図3の等価回路となる。
 
 \[
-I_V=a^2I_1+aI_2=a^2I_1-aI_1=-j\sqrt{3}I_1
+\dot{I}_V=a^2\dot{I}_1+a\dot{I}_2=a^2\dot{I}_1-a\dot{I}_1=-j\sqrt{3}\dot{I}_1
 \]
 
 から，
 
 \[
-I_2=\frac{I_V}{j\sqrt{3}}
+\dot{I}_2=\frac{\dot{I}_V}{j\sqrt{3}}
 \]
 
 となる。
 
 \[
-V_{UV}=V_U-V_V
+\dot{V}_{UV}=\dot{V}_U-\dot{V}_V
 \]
 
 \[
-=V_0+V_1+V_2-(V_0+a^2V_1+aV_2)
+=\dot{V}_0+\dot{V}_1+\dot{V}_2-(\dot{V}_0+a^2\dot{V}_1+a\dot{V}_2)
 \]
 
 \[
-=2V_2-(-V_2)=3V_2
+=2\dot{V}_2-(-\dot{V}_2)=3\dot{V}_2
 \]
 
 から，
 
 \[
-V_2=\frac{V_{UV}}{3}
+\dot{V}_2=\frac{\dot{V}_{UV}}{3}
 \]
 
 \[
-jX_2=\frac{V_2}{I_2}=\frac{V_{UV}}{3I_V/(j\sqrt{3})}
+jX_2=\frac{\dot{V}_2}{\dot{I}_2}=\frac{\dot{V}_{UV}}{3\dot{I}_V/(j\sqrt{3})}
 \]
 
 \[
@@ -9866,10 +9868,10 @@ X_2=\frac{250}{\sqrt{3}\times400}=0.36084\rightarrow0.361\,\Omega
 "																																																																																																																													"(1) 正相リアクタンス
 
 円筒形同期発電機の正相リアクタンスは，定格回転速度で定常運転状態では同期リアクタンスとなる。同期リアクタンスは，図1に示す無負荷飽和曲線と三相短絡電流特性曲線から求めることができる。同期リアクタンスの定格電圧での飽和値\(X_{ss}\,[\Omega]\)及び同期リアクタンスの不飽和値\(X_{su}\,[\Omega]\)を，\(V_R\,[\mathrm{V}]\)，\(I_R\,[\mathrm{A}]\)，\(I_{f2}\,[\mathrm{A}]\)，\(I_{f0}\,[\mathrm{A}]\)又は\(I_{f0g}\,[\mathrm{A}]\)を用いて表す式を導出せよ。その導出過程も示すこと。なお，\(I_{f2}\)，\(I_{f0}\)及び\(I_{f0g}\)は図1に示す界磁電流である。また，\(I_{f2}=600\,\mathrm{A}\)，\(I_{f0}=300\,\mathrm{A}\)，\(I_{f0g}=270\,\mathrm{A}\)として，\(X_{ss}\,[\Omega]\)及び\(X_{su}\,[\Omega]\)を算出せよ。
-短絡電流 \(I_{sc}\) は発電機の無負荷誘導起電力（相電圧）\(E_0\) と \(jX_s\) から，次の式となる。
+短絡電流 \(\dot{I}_{sc}\) は発電機の無負荷誘導起電力（相電圧）\(\dot{E}_0\) と \(jX_s\) から，次の式となる。
 
 \[
-I_{sc}=\frac{E_0}{jX_s}=\frac{1}{jX_s}\frac{V_R}{\sqrt{3}}=\frac{V_R}{\sqrt{3}X_s}e^{-j\pi/2}
+\dot{I}_{sc}=\frac{\dot{E}_0}{jX_s}=\frac{1}{jX_s}\frac{V_R}{\sqrt{3}}=\frac{V_R}{\sqrt{3}X_s}e^{-j\pi/2}
 \]
 
 同期リアクタンス \(X_s\) は，
@@ -9931,16 +9933,16 @@ X_{su}=\frac{13800\times600}{\sqrt{3}\times4184\times270}=4.2317\rightarrow4.23\
 (2) 逆相リアクタンス
 
 図2に示すように，電機子巻線の2端子を短絡し，発電機を定格回転速度で運転する。界磁電流を流し，短絡回路の電流\(I_S\,[\mathrm{A}]\)及び短絡回路と開放端子との間の電圧\(V_{OS}\,[\mathrm{V}]\)を計測する。また，このときの対称座標法による等価回路を図3に示す。逆相リアクタンス\(X_2\,[\Omega]\)を，\(V_{OS}\,[\mathrm{V}]\)及び\(I_S\,[\mathrm{A}]\)を用いて表す式を導出せよ。その導出過程も示すこと。また，\(V_{OS}=250\,\mathrm{V}\)，\(I_S=400\,\mathrm{A}\)として，\(X_2\,[\Omega]\)を算出せよ。
-二相短絡（V相とW相間短絡）状態であり，\(V_V=V_W\) から，
+二相短絡（V相とW相間短絡）状態であり，\(\dot{V}_V=\dot{V}_W\) から，
 
 \[
-V_V=V_0+a^2V_1+aV_2=V_0+aV_1+a^2V_2=V_W
+\dot{V}_V=\dot{V}_0+a^2\dot{V}_1+a\dot{V}_2=\dot{V}_0+a\dot{V}_1+a^2\dot{V}_2=\dot{V}_W
 \]
 
 より，
 
 \[
-V_1=V_2
+\dot{V}_1=\dot{V}_2
 \]
 
 となる。
@@ -9953,58 +9955,58 @@ a=e^{j\frac{2\pi}{3}}=-\frac{1}{2}+j\frac{\sqrt{3}}{2},\quad a^2=e^{j\frac{4\pi}
 
 である。
 
-\(I_U=0\)，\(I_V=-I_W\) から，
+\(\dot{I}_U=0\)，\(\dot{I}_V=-\dot{I}_W\) から，
 
 \[
-I_0=0
+\dot{I}_0=0
 \]
 
 となり，
 
 \[
-I_0+I_1+I_2=0
+\dot{I}_0+\dot{I}_1+\dot{I}_2=0
 \]
 
 から，
 
 \[
-I_1=-I_2
+\dot{I}_1=-\dot{I}_2
 \]
 
 となり，図3の等価回路となる。
 
 \[
-I_V=a^2I_1+aI_2=a^2I_1-aI_1=-j\sqrt{3}I_1
+\dot{I}_V=a^2\dot{I}_1+a\dot{I}_2=a^2\dot{I}_1-a\dot{I}_1=-j\sqrt{3}\dot{I}_1
 \]
 
 から，
 
 \[
-I_2=\frac{I_V}{j\sqrt{3}}
+\dot{I}_2=\frac{\dot{I}_V}{j\sqrt{3}}
 \]
 
 となる。
 
 \[
-V_{UV}=V_U-V_V
+\dot{V}_{UV}=\dot{V}_U-\dot{V}_V
 \]
 
 \[
-=V_0+V_1+V_2-(V_0+a^2V_1+aV_2)
+=\dot{V}_0+\dot{V}_1+\dot{V}_2-(\dot{V}_0+a^2\dot{V}_1+a\dot{V}_2)
 \]
 
 \[
-=2V_2-(-V_2)=3V_2
+=2\dot{V}_2-(-\dot{V}_2)=3\dot{V}_2
 \]
 
 から，
 
 \[
-V_2=\frac{V_{UV}}{3}
+\dot{V}_2=\frac{\dot{V}_{UV}}{3}
 \]
 
 \[
-jX_2=\frac{V_2}{I_2}=\frac{V_{UV}}{3I_V/(j\sqrt{3})}
+jX_2=\frac{\dot{V}_2}{\dot{I}_2}=\frac{\dot{V}_{UV}}{3\dot{I}_V/(j\sqrt{3})}
 \]
 
 \[
@@ -10021,7 +10023,7 @@ X_2=\frac{V_{OS}}{\sqrt{3}I_S}
 
 \[
 X_2=\frac{250}{\sqrt{3}\times400}=0.36084\rightarrow0.361\,\Omega
-\]"									data/pdfs/h26/second	h26|second|kikai_seigyo		data/pdfs/h26/second/kaitou.pdf pp.11-13	draft															
+\]"									data/pdfs/h26/second	h26|second|kikai_seigyo		data/pdfs/h26/second/kaitou.pdf pp.11-13	needs_fix															
 h26_second_kikai_seigyo_q03	h26	second	kikai_seigyo	3	calculation	図1に示す昇降圧チョッパ及び図3に示す昇圧チョッパは、運転が定常状態にあるものとする。この動作特性について、次の問に答えよ。ただし、両図において、リアクトルのインダクタンスはその電流が連続するほどに適度に大きく、また、コンデンサの静電容量は出力直流電圧が一定とみなせるほど十分に大きいものとし、損失のない理想的なチョッパとする。	data/questions/h26/second/figures/kikai_seigyo_q03_fig.png	(1) 図1の昇降圧チョッパにおいて、トランジスタ\(Q_1\)が時刻0でターンオン、時刻\(T_1\)でターンオフ、時刻\(T_2\)でターンオンするという1周期の動作を繰り返しているとする。図2は、1周期の間の各部の電流波形である。図1に示す各部の電流\(i_S,i_D,i_L,i_C\)の波形を図2の波形の中から選び、その記号で答えよ。					"\[
 i_S\text{ は (b)}
 \]
@@ -10395,7 +10397,7 @@ h25_second_denryoku_kanri_q01	h25	second	denryoku_kanri	1	essay	汽力発電所�
 ・ドラムでの給水処理（薬品注入やブロー）が可能なため，復水脱塩装置などの高度な水質管理対策が不要
 ・保有水量が多いのでボイラが万一消火しても各種パラメータに注意すれば若干の時間は低負荷による運転継続が可能
 ・保有水量が多いので負荷の急変などの変動に強い
-・使用圧力が比較的低く，汽水の循環も自然対流によるので配管の圧力損失分の給水ポンプ動力が少なくてすむ"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf pp.1-2	draft
+・使用圧力が比較的低く，汽水の循環も自然対流によるので配管の圧力損失分の給水ポンプ動力が少なくてすむ"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf pp.1-2	draft															
 h25_second_denryoku_kanri_q02	h25	second	denryoku_kanri	2	calculation	図1に示すように、無負荷の三心ケーブルの金属遮へい部を接地して3本の導体に周波数 \(f\,[\mathrm{Hz}]\) の三相平衡電圧（線間電圧） \(V_1\,[\mathrm{V}]\) を加えたときに各導体に流れる電流を \(I_1\,[\mathrm{A}]\) とする。また、図2に示すように、全ての導体を接続して周波数 \(f\,[\mathrm{Hz}]\) の交流電圧 \(V_2\,[\mathrm{V}]\) を加えたときに各導体に流れる電流を \(I_2\,[\mathrm{A}]\) とする。このケーブルについて次の問に答えよ。ただし、導体相互間の静電容量は等しく、各導体と金属遮へい部間の静電容量も等しいものとする。また、各導体の抵抗、インダクタンスは無視する。	data/questions/h25/second/figures/denryoku_kanri_q02_fig.png	(1) 導体相互間の静電容量 \(C_m\,[\mathrm{F}]\)、及び各導体と金属遮へい部間の静電容量 \(C_o\,[\mathrm{F}]\) をそれぞれ求めよ。					"\(C_m\) 並びに \(C_o\) を含めた等価回路は標準解答図のようになる。したがって，三導体に三相平衡電圧 \(V_1\,[\mathrm{V}]\) を加えた際の条件より，このときの実効的なインピーダンス \(Z_1\,[\Omega]\) については，
 \[
 Z_1=\frac{V_1/\sqrt{3}}{I_1}=\frac{1}{2\pi f(C_o+3C_m)}\tag{①}
@@ -10466,7 +10468,7 @@ I_3=\frac{V_3}{Z_3}=20\pi f(C_m+C_o)V_3
 \]
 \[
 I_3=\frac{10}{3}\left(\frac{\sqrt{3}I_1}{V_1}+\frac{2I_2}{V_2}\right)V_3
-\]"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.3	needs_fix
+\]"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.3	needs_fix															
 h25_second_denryoku_kanri_q03	h25	second	denryoku_kanri	3	essay	高圧配電系統に同期発電機を連系する場合に、同期発電機を設置する構内の保護リレーについて、次の問に答えよ。		(1) 構内の地絡故障保護には、受電点近くに設置した地絡過電流リレー（OCGR）などを用いるが、同期発電機を連系する場合の高圧配電系統側の地絡故障保護には、地絡過電圧リレー（OVGR）を用いる理由を説明せよ。					配電線の地絡故障時には，地絡電流が配電用変電所側と発電機側との両方から地絡故障点へ供給されるが，高圧配電系統は非接地系統であり，同期発電機からの地絡電流は極めて小さいことから，地絡過電圧リレー(OVGR)を用いて地絡電圧を検出し保護する。																(2) 構内の短絡故障保護には、受電点近くに設置した過電流リレー（OCR）などを用いるが、同期発電機を連系する場合の高圧配電系統側の短絡故障保護には、短絡方向リレー（DSR）を用いる理由を説明せよ。					配電線の短絡故障時には，短絡電流が配電用変電所側と発電機側との両方から短絡故障点へ供給されるが，同期発電機からの短絡電流が比較的小さいため過電流リレー(OCR)の整定感度では検出できない場合があり，逆にOCRの感度を高くすると負荷電流などにより誤作動の原因となる。このため，同期発電機の場合は電流の方向も判断材料となる短絡方向リレー(DSR)を用いて保護する。																							(3) 地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）は配電用変電所の保護装置と時限協調を図って保護する理由を説明せよ。					地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）は連系する配電線以外の配電線事故で動作しないようにする必要がある。そのため，事故配電線の遮断後に地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）が動作するように時限協調を図る必要がある。																																																																																																	"(1) 構内の地絡故障保護には、受電点近くに設置した地絡過電流リレー（OCGR）などを用いるが、同期発電機を連系する場合の高圧配電系統側の地絡故障保護には、地絡過電圧リレー（OVGR）を用いる理由を説明せよ。
 配電線の地絡故障時には，地絡電流が配電用変電所側と発電機側との両方から地絡故障点へ供給されるが，高圧配電系統は非接地系統であり，同期発電機からの地絡電流は極めて小さいことから，地絡過電圧リレー(OVGR)を用いて地絡電圧を検出し保護する。
 
@@ -10474,7 +10476,7 @@ h25_second_denryoku_kanri_q03	h25	second	denryoku_kanri	3	essay	高圧配電系�
 配電線の短絡故障時には，短絡電流が配電用変電所側と発電機側との両方から短絡故障点へ供給されるが，同期発電機からの短絡電流が比較的小さいため過電流リレー(OCR)の整定感度では検出できない場合があり，逆にOCRの感度を高くすると負荷電流などにより誤作動の原因となる。このため，同期発電機の場合は電流の方向も判断材料となる短絡方向リレー(DSR)を用いて保護する。
 
 (3) 地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）は配電用変電所の保護装置と時限協調を図って保護する理由を説明せよ。
-地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）は連系する配電線以外の配電線事故で動作しないようにする必要がある。そのため，事故配電線の遮断後に地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）が動作するように時限協調を図る必要がある。"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.4	draft
+地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）は連系する配電線以外の配電線事故で動作しないようにする必要がある。そのため，事故配電線の遮断後に地絡過電圧リレー（OVGR）と短絡方向リレー（DSR）が動作するように時限協調を図る必要がある。"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.4	draft															
 h25_second_denryoku_kanri_q04	h25	second	denryoku_kanri	4	calculation	"図に示すように電圧 \(E\) の無限大母線から、リアクタンス \(X\) の送電線で負荷に電力を供給している。負荷の有効電力を \(P\)、無効電力を \(Q\)（遅れ無効電力を正とする。）、負荷端の複素電圧を \(\dot{V}=Ve^{-j\delta}\) として次の問に答えよ。
 
 なお、\(X=0.2\,[\mathrm{p.u.}]\)、\(E=1.0\,[\mathrm{p.u.}]\) とし、送電線の抵抗と静電容量は無視できるものとする。また、負荷の \(P\)、\(Q\) は電圧に対し定電力特性をもつものとする。"	data/questions/h25/second/figures/denryoku_kanri_q04_fig.png	(1) 負荷の \(P\)、\(Q\) を与えられた変数（\(E\)、\(V\)、\(X\)、\(\delta\)）で示せ。					"\[
@@ -10621,7 +10623,7 @@ P^2=-5\left(-\frac{5}{2}\right)+\frac{25}{4}=\frac{75}{4}
 \]
 \[
 P=4.33\,\mathrm{p.u.}
-\]"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.5	needs_fix
+\]"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.5	needs_fix															
 h25_second_denryoku_kanri_q05	h25	second	denryoku_kanri	5	calculation	"図のような三相3線式6 kV高圧配電系から受電している需要家がある。負荷の一部に三相の高調波発生機器があり、高調波電流 \(I_n\) を流出している。また、進相コンデンサにはそのリアクタンスの6 [%]のリアクタンスを有する直列リアクトルが接続されている。
 
 ただし、基準容量により換算した各部のリアクタンスは、\(X_{L0}=0.20\,[\mathrm{p.u.}]\)、\(X_C=30.0\,[\mathrm{p.u.}]\)、\(X_T=0.05\,[\mathrm{p.u.}]\) とする。このとき、次の問に答えよ。"	data/questions/h25/second/figures/denryoku_kanri_q05_fig.png	(1) 進相コンデンサに直列リアクトルを接続する理由を二つ述べよ。					"① 配電系に流出する高調波電流を抑制し，配電系の電圧ひずみ率の上昇を抑える。
@@ -10709,7 +10711,7 @@ I_{L5}=12.0\,\mathrm{A}
 \[
 \frac{I_{L5}\text{（リアクトルなし）}}{I_{L5}\text{（リアクトルあり）}}\times100
 =\frac{12.0}{7.50}\times100=160\,\%
-\]"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf pp.6-7	needs_fix
+\]"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf pp.6-7	needs_fix															
 h25_second_denryoku_kanri_q06	h25	second	denryoku_kanri	6	essay	電力の需給及び貯蔵に関する次の問に答えよ。		(1) 年負荷率が向上する場合の電力供給側のメリットを挙げよ。また、広域連系した場合、年負荷率は改善するが、その理由を説明せよ。					"［年負荷率向上のメリット］
 ・燃料費の安い電源をベース電源として活用することによるコスト低減
 ・ピークカットの場合は，電力設備投資の低減と設備利用率の向上
@@ -10751,7 +10753,7 @@ h25_second_denryoku_kanri_q06	h25	second	denryoku_kanri	6	essay	電力の需給�
 ・瞬時電圧低下対策
 ・電気料金の安い夜間電力の活用
 ・契約電力を下げることによるコスト削減
-・ピークカットによる電気設備の軽減"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.8	draft
+・ピークカットによる電気設備の軽減"									data/pdfs/h25/second	h25|second|denryoku_kanri		data/pdfs/h25/second/kaitou.pdf p.8	draft															
 h25_second_kikai_seigyo_q01	h25	second	kikai_seigyo	1	calculation	"400 [V]、60 [Hz]、4極の三相誘導電動機がある。二次側諸量を一次側に換算した星形1相分のT形等価回路を図1に示す。図中の \(s\) は滑り、\(V\) は一次電圧（星形相電圧）であり、また、等価回路定数は次のとおりである。
 
 \(r_1=0.2\,[\Omega]\)、\(x_1=0.5\,[\Omega]\)、\(x_M=20\,[\Omega]\)
@@ -10759,9 +10761,9 @@ h25_second_kikai_seigyo_q01	h25	second	kikai_seigyo	1	calculation	"400 [V]、60 
 
 次の問に答えよ。"	data/questions/h25/second/figures/kikai_seigyo_q01_fig.png	(1)(a) 図1のT形等価回路は鳳・テブナンの定理によると、図2の回路で表される。電動機に線間電圧400 [V]を印加し、同期速度で回転しているとき、図1の端子A、B間に現れる電圧 \(V_t\,[\mathrm{V}]\) を求めよ。					"鳳・テブナンの定理を用いると，図1のA，Bから左側の部分を等価回路で表すことができる。
 
-同期速度で回転しているので滑り \(s=0\) であるから，\(r_2/s\) には電流が流れないので，\(V_t\) は \(jx_M\) の両端の電圧である。したがって，
+同期速度で回転しているので滑り \(s=0\) であるから，\(r_2/s\) には電流が流れないので，\(\dot{V}_t\) は \(jx_M\) の両端の電圧である。したがって，
 \[
-V_t=\frac{jx_M}{r_1+j(x_1+x_M)}V
+\dot{V}_t=\frac{jx_M}{r_1+j(x_1+x_M)}V
 =\frac{j20}{0.2+j20.5}\frac{400}{\sqrt{3}}
 =225.29+j2.1979\,\mathrm{V}
 \]
@@ -10778,9 +10780,9 @@ R+jX=jx_2+\frac{jx_M(r_1+jx_1)}{r_1+j(x_1+x_M)}
 よって，
 \[
 R+jX=0.190+j0.690\,\Omega
-\]"																							(2) 図2の回路から、始動時に二次回路に流れる電流 \(I_2\,[\mathrm{A}]\)（一次側換算値）を求めよ。					"始動時に二次回路に流れる電流 \(I_2\) は滑り \(s=1\) としたときに \(r_2/s\) を流れる電流であるから，鳳・テブナンの等価回路から，
+\]"																							(2) 図2の回路から、始動時に二次回路に流れる電流 \(I_2\,[\mathrm{A}]\)（一次側換算値）を求めよ。					"始動時に二次回路に流れる電流 \(\dot{I}_2\) は滑り \(s=1\) としたときに \(r_2/s\) を流れる電流であるから，鳳・テブナンの等価回路から，
 \[
-I_2=\frac{V_t}{R+r_2+jX}
+\dot{I}_2=\frac{V_t}{R+r_2+jX}
 =\frac{225.30}{0.19035+0.1+j0.68966}
 \]
 \[
@@ -10799,9 +10801,9 @@ T_s=\frac{3r_2I_2^2}{\omega_0}=\frac{3\times0.1\times301.08^2}{188.50}=144.27\ri
 \]"																																																														"(1)(a) 図1のT形等価回路は鳳・テブナンの定理によると、図2の回路で表される。電動機に線間電圧400 [V]を印加し、同期速度で回転しているとき、図1の端子A、B間に現れる電圧 \(V_t\,[\mathrm{V}]\) を求めよ。
 鳳・テブナンの定理を用いると，図1のA，Bから左側の部分を等価回路で表すことができる。
 
-同期速度で回転しているので滑り \(s=0\) であるから，\(r_2/s\) には電流が流れないので，\(V_t\) は \(jx_M\) の両端の電圧である。したがって，
+同期速度で回転しているので滑り \(s=0\) であるから，\(r_2/s\) には電流が流れないので，\(\dot{V}_t\) は \(jx_M\) の両端の電圧である。したがって，
 \[
-V_t=\frac{jx_M}{r_1+j(x_1+x_M)}V
+\dot{V}_t=\frac{jx_M}{r_1+j(x_1+x_M)}V
 =\frac{j20}{0.2+j20.5}\frac{400}{\sqrt{3}}
 =225.29+j2.1979\,\mathrm{V}
 \]
@@ -10824,9 +10826,9 @@ R+jX=0.190+j0.690\,\Omega
 \]
 
 (2) 図2の回路から、始動時に二次回路に流れる電流 \(I_2\,[\mathrm{A}]\)（一次側換算値）を求めよ。
-始動時に二次回路に流れる電流 \(I_2\) は滑り \(s=1\) としたときに \(r_2/s\) を流れる電流であるから，鳳・テブナンの等価回路から，
+始動時に二次回路に流れる電流 \(\dot{I}_2\) は滑り \(s=1\) としたときに \(r_2/s\) を流れる電流であるから，鳳・テブナンの等価回路から，
 \[
-I_2=\frac{V_t}{R+r_2+jX}
+\dot{I}_2=\frac{V_t}{R+r_2+jX}
 =\frac{225.30}{0.19035+0.1+j0.68966}
 \]
 \[
@@ -10845,7 +10847,7 @@ I_2=\frac{V_t}{R+r_2+jX}
 であるから，始動トルクは，
 \[
 T_s=\frac{3r_2I_2^2}{\omega_0}=\frac{3\times0.1\times301.08^2}{188.50}=144.27\rightarrow144\,\mathrm{N\cdot m}
-\]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf p.9	draft
+\]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf p.9	needs_fix															
 h25_second_kikai_seigyo_q02	h25	second	kikai_seigyo	2	calculation	図のように同一の単相変圧器2台をV結線し、一次側を線間電圧 \(400\,[\mathrm{V}]\) の平衡三相交流電源に接続する。一次巻線と二次巻線の巻数比は \(2:1\) であり、一次及び二次の漏れリアクタンスはそれぞれ \(0.32\,[\Omega]\)、\(0.12\,[\Omega]\) である。ある三相負荷を二次側に接続すると、三相交流電源には \(50\,[\mathrm{A}]\) で力率1の平衡三相電流が流れた。次の問に答えよ。ただし、励磁電流、鉄損及び巻線抵抗は無視でき、変圧器鉄心は磁気飽和しないものとする。	data/questions/h25/second/figures/kikai_seigyo_q02_fig.png	(1) 無負荷時の二次電圧 \(V_{2ab}\,[\mathrm{V}]\) を求めよ。					"\(V_{1ab}:V_{2ab}=2:1\) であるので，
 \[
 V_{2ab}=\frac{1}{2}V_{1ab}=\frac{1}{2}\times400=200\,\mathrm{V}
@@ -10876,7 +10878,7 @@ V_{2ab}=\sqrt{(100\sqrt{3})^2+80^2}=190.78\rightarrow191\,\mathrm{V}
 \]
 \[
 V_{2cb}=\sqrt{(10\sqrt{3})^2+210^2}=210.71\rightarrow211\,\mathrm{V}
-\]"																														(5) 2台の変圧器がそれぞれ負荷に供給する電力 [kW]を求めよ。					"変圧器の二次電流は，
+\]"	data/questions/h25/second/figures/kikai_seigyo_q02_answer_fig1.webp																													(5) 2台の変圧器がそれぞれ負荷に供給する電力 [kW]を求めよ。					"変圧器の二次電流は，
 \[
 \dot{I}_{2a}=100
 \]
@@ -10977,7 +10979,7 @@ P_{2ab}=P_{1ab}=V_{ab}I_a\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=1
 \[
 P_{2cb}=P_{1cb}=V_{cb}I_c\cos\frac{\pi}{6}=400\times50\times\frac{\sqrt{3}}{2}=17320\,[\mathrm{W}]=17.3\,[\mathrm{kW}]
 \]
-としてもよい。"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.10-11	draft
+としてもよい。"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.10-11	needs_fix															
 h25_second_kikai_seigyo_q03	h25	second	kikai_seigyo	3	calculation	図1は、逆並列接続されたサイリスタによる単相交流電力調整回路を示す。交流電源の電圧を \(v=\sqrt{2}V\sin\omega t\,[\mathrm{V}]\)、サイリスタ \(\mathrm{Th}_1\)、\(\mathrm{Th}_2\) の制御遅れ角を \(\alpha\,[\mathrm{rad}]\) として、次の問に答えよ。ただし、サイリスタの損失は無視できるものとする。	data/questions/h25/second/figures/kikai_seigyo_q03_fig.png	(1) 横軸を \(\omega t\,[\mathrm{rad}]\) とし、電圧 \(v\)、及び \(\mathrm{Th}_1\)、\(\mathrm{Th}_2\) に加えられるゲートパルス \(G_1\)、\(G_2\) の波形を示した図2と同じ図が答案用紙に印刷されている。これに、負荷が純抵抗 \(R\,[\Omega]\) の場合の \(\mathrm{Th}_1\) に加わる電圧 \(v_1\) 及び流れる電流 \(i_1\) の波形、並びに負荷電流 \(i_L\) の波形を太線で明確に示せ。					\(Th_1\) の電圧 \(v_1\)，\(Th_1\) の電流 \(i_1\)，及び負荷電流 \(i_L\) の波形は標準解答図の波形となる。電圧 \(v_1\) にはサイリスタ \(Th_2\) がオンしたときに電圧が零となる影響が現れるが，電流 \(i_1\) はサイリスタ \(Th_1\) に流れる電流だけである。負荷電流 \(i_L\) は正負の電流が流れる。	data/questions/h25/second/figures/kikai_seigyo_q03_answer_fig1.png															(2) 小問(1)における負荷電流 \(i_L\) の実効値 \(I_L\,[\mathrm{A}]\) を \(V\)、\(R\) 及び \(\alpha\) を用いて表せ。ただし、\(\int\sin^2\theta\,d\theta=-\frac{1}{4}\sin2\theta+\frac{1}{2}\theta+C\) を利用してよい。					"\(\mathrm{Th}_1\) 又は \(\mathrm{Th}_2\) がオンしている期間，負荷には次の電流 \(i_{L0}\) が流れる。
 \[
 i_{L0}=\sqrt{2}\frac{V}{R}\sin\omega t=\sqrt{2}I\sin\omega t\,[\mathrm{A}],\qquad I=\frac{V}{R}
@@ -11051,25 +11053,23 @@ I_L=I\sqrt{\frac{1}{\pi}\left(\pi-\alpha+\frac{\sin2\alpha}{2}\right)}
 (4) 逆並列接続されたサイリスタによる交流電力調整回路の応用例として、三相無効電力補償装置（TCR式三相SVC）がある。この装置は、図3のように三相交流電源に接続された三相負荷 \(L_0\) と並列に設け、固定の進み電流と可変の遅れ電流との合計電流によって無効電力を調整する回路構成である。図3と同じ図が答案用紙に印刷されている。これにTCR式三相SVCを構成するコンデンサ、リアクトル及びサイリスタの接続図を示せ。
 三相負荷と並列接続される三相無効電力補償装置（TCR式三相SVC）の主回路構成は，固定の進み電流を流す固定のコンデンサ \(C\) と並列に，可変の遅れ電流を流す逆並列サイリスタと固定のリアクトル \(L\) との直列回路を接続した回路となる。
 
-回路構成としてはΔ接続でもY接続でもよい。サイリスタとリアクトルの接続も，直列に接続するか，Y接続のリアクトルとΔ接続のサイリスタとの組合せでもよい。また，進相コンデンサ \(C\) にフィルタ機能のリアクトルを追加した構成でもよい。"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.12-14	draft
+回路構成としてはΔ接続でもY接続でもよい。サイリスタとリアクトルの接続も，直列に接続するか，Y接続のリアクトルとΔ接続のサイリスタとの組合せでもよい。また，進相コンデンサ \(C\) にフィルタ機能のリアクトルを追加した構成でもよい。"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.12-14	draft															
 h25_second_kikai_seigyo_q04	h25	second	kikai_seigyo	4	calculation	図の制御系において、\(R(s)\)、\(E(s)\)、\(U(s)\) 及び \(Y(s)\) は、目標値 \(r(t)\)、偏差 \(e(t)\)、操作量 \(u(t)\) 及び出力 \(y(t)\) をそれぞれラプラス変換したものである。以下では、\(K_1>0\)、\(K_2>0\) とする。次の問に答えよ。	data/questions/h25/second/figures/kikai_seigyo_q04_fig.png	(1) 図の制御対象の伝達関数が \(G(s)=\dfrac{1}{s^2+4}\) で与えられるとき、制御対象の単位インパルス応答を求めよ。					"ラプラス変換の公式と \(\mathcal{L}[\delta(t)]=1\) を利用する。ここで，\(\delta(t)\) は単位インパルス入力とする。単位インパルス応答 \(g(t)\) は次式で求められる。
 \[
 g(t)=\mathcal{L}^{-1}\left[\frac{1}{s^2+4}\right]=\frac{1}{2}\sin2t,\quad t\geqq0
-\]"																(2) 小問(1)において、さらに \(F(s)=0\)、\(C_1(s)=K_1\left(1+\dfrac{1}{s}\right)\)、\(C_2(s)=K_2s\) のとき、\(R(s)\) から \(E(s)\) までの伝達関数を \(K_1\) と \(K_2\) を用いて表せ。					"マイナーループの伝達関数を求めると，
+\]"																(2) 小問(1)において、さらに \(F(s)=0\)、\(C_1(s)=K_1\left(1+\dfrac{1}{s}\right)\)、\(C_2(s)=K_2s\) のとき、\(R(s)\) から \(E(s)\) までの伝達関数を \(K_1\) と \(K_2\) を用いて表せ。					"閉ループ伝達関数の計算：
+マイナーループの伝達関数を求めると
 \[
-P(s)=\frac{\frac{1}{s^2+4}}{1+K_2s\frac{1}{s^2+4}}=\frac{1}{s^2+K_2s+4}
+P(s)=\frac{\dfrac{1}{s^2+4}}{1+\dfrac{K_2s}{s^2+4}}=\frac{1}{s^2+K_2s+4}
 \]
-となる。これを用いて，\(R(s)\) から \(E(s)\) までの伝達関数を求めると，
+となる。これを用いて，\(R(s)\) から \(E(s)\) までの伝達関数を求めると
 \[
-\frac{E(s)}{R(s)}=\frac{1}{1+\frac{K_1}{s}\frac{1}{s^2+K_2s+4}}
-\]
-\[
-=\frac{s(s^2+K_2s+4)}{s(s^2+K_2s+4)+K_1}
+\frac{E(s)}{R(s)}=\frac{1}{1+\dfrac{K_1s+K_1}{s}\cdot\dfrac{1}{s^2+K_2s+4}}
 \]
 \[
 =\frac{s(s^2+K_2s+4)}{s^3+K_2s^2+(K_1+4)s+K_1}
 \]
-"																							(3) 小問(2)において、図の制御系が安定限界となるとき、\(K_1\) と \(K_2\) が満たすべき関係を求めよ。また、このとき制御系が示す応答について簡単に述べよ。					"制御系が安定であるためには，特性方程式
+となる。"																							(3) 小問(2)において、図の制御系が安定限界となるとき、\(K_1\) と \(K_2\) が満たすべき関係を求めよ。また、このとき制御系が示す応答について簡単に述べよ。					"制御系が安定であるためには，特性方程式
 \[
 s^3+K_2s^2+(K_1+4)s+K_1=0
 \]
@@ -11156,21 +11156,19 @@ g(t)=\mathcal{L}^{-1}\left[\frac{1}{s^2+4}\right]=\frac{1}{2}\sin2t,\quad t\geqq
 \]
 
 (2) 小問(1)において、さらに \(F(s)=0\)、\(C_1(s)=K_1\left(1+\dfrac{1}{s}\right)\)、\(C_2(s)=K_2s\) のとき、\(R(s)\) から \(E(s)\) までの伝達関数を \(K_1\) と \(K_2\) を用いて表せ。
-マイナーループの伝達関数を求めると，
+閉ループ伝達関数の計算：
+マイナーループの伝達関数を求めると
 \[
-P(s)=\frac{\frac{1}{s^2+4}}{1+K_2s\frac{1}{s^2+4}}=\frac{1}{s^2+K_2s+4}
+P(s)=\frac{\dfrac{1}{s^2+4}}{1+\dfrac{K_2s}{s^2+4}}=\frac{1}{s^2+K_2s+4}
 \]
-となる。これを用いて，\(R(s)\) から \(E(s)\) までの伝達関数を求めると，
+となる。これを用いて，\(R(s)\) から \(E(s)\) までの伝達関数を求めると
 \[
-\frac{E(s)}{R(s)}=\frac{1}{1+\frac{K_1}{s}\frac{1}{s^2+K_2s+4}}
-\]
-\[
-=\frac{s(s^2+K_2s+4)}{s(s^2+K_2s+4)+K_1}
+\frac{E(s)}{R(s)}=\frac{1}{1+\dfrac{K_1s+K_1}{s}\cdot\dfrac{1}{s^2+K_2s+4}}
 \]
 \[
 =\frac{s(s^2+K_2s+4)}{s^3+K_2s^2+(K_1+4)s+K_1}
 \]
-
+となる。
 (3) 小問(2)において、図の制御系が安定限界となるとき、\(K_1\) と \(K_2\) が満たすべき関係を求めよ。また、このとき制御系が示す応答について簡単に述べよ。
 制御系が安定であるためには，特性方程式
 \[
@@ -11237,4 +11235,4 @@ E(s)=R(s)-G(s)U(s)
 ここで，目標値 \(r(t)=t\) のラプラス変換 \(\mathcal{L}[t]=1/s^2\) を利用し，最終値の定理を用いると，
 \[
 e(\infty)=\lim_{s\to0}s\frac{s^2(s+K_2)}{s(s^2+4)+K_2s^2+K_1s+K_1}\frac{1}{s^2}=0
-\]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.15-17	draft
+\]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.15-17	needs_fix															

@@ -1376,6 +1376,7 @@ function isFitWidthQuestionFigure(question) {
     "r05_second_kikai_seigyo_q04",
     "r05_second_denryoku_kanri_q03",
     "r05_second_denryoku_kanri_q04",
+    "r02_second_denryoku_kanri_q03",
     "r03_second_denryoku_kanri_q05",
     "r01_second_denryoku_kanri_q03",
     "r01_second_denryoku_kanri_q04"
@@ -1401,10 +1402,6 @@ function hasTrimmedImageBorder(path) {
     "data/questions/r02/second/figures/kikai_seigyo_q03_fig",
     "data/questions/r02/second/figures/kikai_seigyo_q03_answer_fig1",
     "data/questions/r02/second/figures/kikai_seigyo_q04_fig",
-    "data/questions/r02/second/figures/denryoku_kanri_q03_fig",
-    "data/questions/r02/second/figures/denryoku_kanri_q03_answer_fig1",
-    "data/questions/r02/second/figures/denryoku_kanri_q04_answer_fig1",
-    "data/questions/r02/second/figures/denryoku_kanri_q04_answer_fig2",
     "data/questions/r01/second/figures/kikai_seigyo_q03_fig",
     "data/questions/r01/second/figures/kikai_seigyo_q04_fig",
     "data/questions/r01/second/figures/denryoku_kanri_q04_answer_fig1",
