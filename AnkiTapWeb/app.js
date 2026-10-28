@@ -219,6 +219,15 @@ function bindEvents() {
     select.addEventListener("change", renderPrintReviewPages);
   });
   elements.printButton.addEventListener("click", printReviewPages);
+  let resizeFrame = 0;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => fitMathToAvailableWidth([
+      elements.pastQuestionText,
+      elements.pastAnswerContent,
+      elements.explanationContent
+    ]));
+  });
 }
 
 async function loadCards() {
@@ -1480,7 +1489,7 @@ function renderAnswerTextWithImages(target, text, question) {
   appendAnswerImages(target, question?.answerImages);
 
   if (window.MathJax?.typesetPromise) {
-    MathJax.typesetPromise([body]).catch(error => console.error(error));
+    typesetFittedMath([body]).catch(error => console.error(error));
   }
 }
 
@@ -1580,7 +1589,7 @@ function renderCalculationContent(target, question) {
   appendAnswerImages(target, question.answerImages);
 
   if (window.MathJax?.typesetPromise) {
-    MathJax.typesetPromise(mathTargets).catch(error => console.error(error));
+    typesetFittedMath(mathTargets).catch(error => console.error(error));
   }
 }
 
@@ -1600,7 +1609,7 @@ function renderEssayContent(target, question) {
   appendAnswerImages(target, question.answerImages);
 
   if (window.MathJax?.typesetPromise) {
-    MathJax.typesetPromise(mathTargets).catch(error => console.error(error));
+    typesetFittedMath(mathTargets).catch(error => console.error(error));
   }
 }
 
@@ -1846,7 +1855,7 @@ function renderProgressiveFillBlankQuestion(target, question) {
   target.append(wrapper);
 
   if (window.MathJax?.typesetPromise) {
-    return MathJax.typesetPromise([target]).catch(error => console.error(error));
+    return typesetFittedMath([target]).catch(error => console.error(error));
   }
 
   return Promise.resolve();
@@ -2157,16 +2166,46 @@ function renderMath(target, text) {
   target.append(wrapper);
 
   if (window.MathJax?.typesetPromise) {
-    MathJax.typesetPromise([target]).catch(error => {
+    typesetFittedMath([target]).catch(error => {
       target.textContent = text;
       console.error(error);
     });
   }
 }
 
+function typesetFittedMath(targets) {
+  return MathJax.typesetPromise(targets).then(() => fitMathToAvailableWidth(targets));
+}
+
+function fitMathToAvailableWidth(targets) {
+  for (const target of targets) {
+    if (!target?.isConnected) continue;
+
+    for (const math of target.querySelectorAll('mjx-container[jax="SVG"]')) {
+      const svg = math.querySelector("svg");
+      if (!svg) continue;
+
+      const area = math.closest(".sub-answer-body, .sub-question-summary, .past-question-text, .past-answer-content, .card-content") || target;
+      const style = getComputedStyle(area);
+      const available = area.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)
+        - (area.matches(".sub-question-summary") ? 16 : 0);
+      if (available <= 0) continue;
+
+      math.style.fontSize = "";
+      svg.style.maxWidth = "none";
+      for (let attempt = 0; attempt < 4; attempt += 1) {
+        const required = Math.max(math.getBoundingClientRect().width, svg.getBoundingClientRect().width, svg.scrollWidth);
+        if (required <= available + 2) break;
+        const currentSize = parseFloat(getComputedStyle(math).fontSize);
+        math.style.fontSize = `${currentSize * available / required * 0.98}px`;
+      }
+    }
+  }
+}
+
 function mathMarkup(text) {
   if (text.includes("\\(") || text.includes("\\[") || text.includes("$$") || text.includes("$")) {
-    return escapeHTML(String(text ?? "")).replace(/\n/g, "<br>");
+    return escapeHTML(wrapLongDisplayEquations(String(text ?? ""))).replace(/\n/g, "<br>");
   }
 
   const normalizedText = String(text ?? "")
@@ -2174,6 +2213,95 @@ function mathMarkup(text) {
     .map(line => isRawLatexFormulaLine(line) ? line : targetAwareWrapText(line))
     .join("\n");
   return mathTextMarkup(normalizedText);
+}
+
+function wrapLongDisplayEquations(text) {
+  return text.replace(/\\\[([\s\S]*?)\\\]/g, (block, expression) => {
+    if (expression.length < 60 || /\\(?:begin|end)\b|&|\\\\/.test(expression)) return block;
+
+    const tagMatch = expression.match(/\\tag\{[^{}]+\}\s*$/);
+    const tag = tagMatch?.[0].trim() || "";
+    let formula = tagMatch ? expression.slice(0, tagMatch.index).trim() : expression.trim();
+    const labelMatch = formula.match(/^\\text\{([^{}]+)\}\\quad\s*/);
+    const label = labelMatch ? `${labelMatch[1]}\n` : "";
+    if (labelMatch) formula = formula.slice(labelMatch[0].length);
+    const parts = [];
+    const relations = [];
+    let depth = 0;
+    let fenceDepth = 0;
+    let start = 0;
+    for (let index = 0; index < formula.length; index += 1) {
+      if (/^\\left\b/.test(formula.slice(index))) {
+        fenceDepth += 1;
+        index += 4;
+        continue;
+      }
+      if (/^\\right\b/.test(formula.slice(index))) {
+        fenceDepth -= 1;
+        index += 5;
+        continue;
+      }
+      if (formula[index] === "{" && formula[index - 1] !== "\\") depth += 1;
+      if (formula[index] === "}" && formula[index - 1] !== "\\") depth -= 1;
+      const relation = depth === 0 && fenceDepth === 0
+        ? formula.slice(index).match(/^(=|\\(?:simeq|approx|rightarrow)(?![A-Za-z]))/)?.[0]
+        : null;
+      if (relation) {
+        parts.push(formula.slice(start, index).trim());
+        relations.push(relation);
+        index += relation.length - 1;
+        start = index + 1;
+      }
+    }
+    parts.push(formula.slice(start).trim());
+    const hasLongSum = relations.length === 1 && splitLongTerms(parts[1]).length > 1;
+    if ((relations.length < 2 && !hasLongSum) || depth !== 0 || fenceDepth !== 0) {
+      return label ? `${label}\\[${formula}${tag}\\]` : block;
+    }
+    if (parts.slice(1).some(part => !part)) return block;
+
+    const rows = relations.flatMap((relation, index) => {
+      const terms = splitLongTerms(parts[index + 1]);
+      return [`&${relation}${terms[0]}`, ...terms.slice(1).map(term => `&${term}`)];
+    });
+    const lines = parts[0] + rows.map((row, index) => `${index ? "\\\\" : ""}${row}`).join("");
+    return `${label}\\[\\begin{aligned}${lines}\\end{aligned}${tag}\\]`;
+  });
+}
+
+function splitLongTerms(part) {
+  if (part.length < 52) return [part];
+
+  const terms = [];
+  let braceDepth = 0;
+  let parenDepth = 0;
+  let fenceDepth = 0;
+  let start = 0;
+  for (let index = 0; index < part.length; index += 1) {
+    if (/^\\left\b/.test(part.slice(index))) {
+      fenceDepth += 1;
+      index += 4;
+      continue;
+    }
+    if (/^\\right\b/.test(part.slice(index))) {
+      fenceDepth -= 1;
+      index += 5;
+      continue;
+    }
+    const character = part[index];
+    if (character === "{" && part[index - 1] !== "\\") braceDepth += 1;
+    if (character === "}" && part[index - 1] !== "\\") braceDepth -= 1;
+    if (braceDepth === 0 && (character === "(" || character === ")")) {
+      parenDepth += character === "(" ? 1 : -1;
+    }
+    if ((character === "+" || character === "-") && braceDepth === 0 && parenDepth === 0 && fenceDepth === 0
+      && index > start && !/[=+\-^]\s*$/.test(part.slice(start, index))) {
+      terms.push(part.slice(start, index).trim());
+      start = index;
+    }
+  }
+  terms.push(part.slice(start).trim());
+  return terms.some(term => !term) ? [part] : terms;
 }
 
 function mathTextMarkup(text) {
