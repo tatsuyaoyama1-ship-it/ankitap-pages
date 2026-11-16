@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20261006-past-favorites">
+  <link rel="stylesheet" href="style.css?v=20261116-past-genres">
   <script>
     window.MathJax = {
       tex: {
@@ -16,7 +16,7 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="app.js?v=20261028-math-fit7"></script>
+  <script defer src="app.js?v=20261116-power-essay"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -91,8 +91,23 @@
       <ol class="card-list" id="cardList"></ol>
     </section>
 
+    <section class="past-filter-view hidden" id="pastBrowseView">
+      <h2>過去問モード</h2>
+      <div class="past-filter-list">
+        <button class="category-card" id="pastPowerButton" type="button">
+          <strong>電力・管理</strong><span id="pastPowerCount"></span><span aria-hidden="true">›</span>
+        </button>
+        <button class="category-card" id="pastMachineButton" type="button">
+          <strong>機械・制御</strong><span id="pastMachineCount"></span><span aria-hidden="true">›</span>
+        </button>
+        <button class="category-card" id="pastYearButton" type="button">
+          <strong>年度別</strong><span id="pastYearCount"></span><span aria-hidden="true">›</span>
+        </button>
+      </div>
+    </section>
+
     <section class="past-filter-view hidden" id="pastFilterView">
-      <h2>過去問を選択</h2>
+      <h2 id="pastFilterHeading">過去問を選択</h2>
       <label class="favorite-only-toggle">
         <input id="pastFavoriteOnlyToggle" type="checkbox">
         <span class="favorite-only-check" aria-hidden="true">★</span>

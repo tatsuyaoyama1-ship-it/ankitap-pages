@@ -201,6 +201,11 @@ button {
   grid-template-columns: 1fr auto auto;
 }
 
+.category-card:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
 .mode-card strong,
 .category-card strong {
   font-size: 17px;

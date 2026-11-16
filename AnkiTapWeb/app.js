@@ -72,6 +72,67 @@ const subjectLabels = {
   kikai_seigyo: "機械・制御"
 };
 
+const pastGenreLabels = {
+  essay: "論説",
+  dc: "直流機",
+  synchronous: "同期機",
+  induction: "誘導機",
+  transformer: "変圧器",
+  power_electronics: "パワーエレクトロニクス",
+  control: "自動制御",
+  generation: "発電設備",
+  short_circuit: "短絡故障",
+  ground_fault: "地絡故障",
+  vector: "送配電線路のベクトル計算",
+  distribution: "配電・電圧",
+  lines: "送電線・ケーブル",
+  substation: "変電設備",
+  protection: "保護・絶縁",
+  grounding: "接地方式",
+  stability: "系統安定度",
+  supply: "需給・周波数",
+  renewables: "再生可能エネルギー"
+};
+
+const pastGenreOrder = {
+  kikai_seigyo: ["dc", "synchronous", "induction", "transformer", "power_electronics", "control"],
+  denryoku_kanri: ["essay", "generation", "short_circuit", "ground_fault", "vector", "distribution", "lines", "substation", "protection", "grounding", "stability", "supply", "renewables"]
+};
+
+// Each year's array follows question numbers 1 through 4 or 6.
+const pastGenresByYear = {
+  kikai_seigyo: {
+    r07: ["synchronous", "induction", "power_electronics", "control"],
+    r06: ["synchronous", "transformer", "power_electronics", "control"],
+    r05: ["synchronous", "transformer", "power_electronics", "control"],
+    r04: ["synchronous", "induction", "power_electronics", "control"],
+    r03: ["induction", "transformer", "power_electronics", "control"],
+    r02: ["induction", "transformer", "power_electronics", "control"],
+    r01: ["induction", "transformer", "power_electronics", "control"],
+    h30: ["induction", "synchronous", "power_electronics", "control"],
+    h29: ["synchronous", "transformer", "power_electronics", "control"],
+    h28: ["induction", "transformer", "power_electronics", "control"],
+    h27: ["synchronous", "transformer", "power_electronics", "control"],
+    h26: ["induction", "synchronous", "power_electronics", "control"],
+    h25: ["induction", "transformer", "power_electronics", "control"]
+  },
+  denryoku_kanri: {
+    r07: ["generation", "ground_fault", "short_circuit", "vector", "protection", "supply"],
+    r06: ["generation", "protection", "ground_fault", "vector", "substation", "renewables"],
+    r05: ["generation", "lines", "stability", "distribution", "grounding", "supply"],
+    r04: ["generation", "protection", "vector", "protection", "renewables", "distribution"],
+    r03: ["generation", "protection", "short_circuit", "renewables", "lines", "supply"],
+    r02: ["generation", "protection", "ground_fault", "distribution", "lines", "substation"],
+    r01: ["generation", "vector", "stability", "distribution", "distribution", "renewables"],
+    h30: ["generation", "substation", "vector", "lines", "substation", "grounding"],
+    h29: ["generation", "stability", "substation", "vector", "distribution", "substation"],
+    h28: ["generation", "substation", "lines", "ground_fault", "grounding", "short_circuit"],
+    h27: ["generation", "substation", "distribution", "vector", "distribution", "lines"],
+    h26: ["generation", "substation", "lines", "vector", "renewables", "substation"],
+    h25: ["generation", "lines", "protection", "vector", "substation", "supply"]
+  }
+};
+
 const stageLabels = {
   second: "二次試験"
 };
@@ -98,7 +159,9 @@ const state = {
   pastTabsRevealed: false,
   revealedBlankCount: 0,
   blankRevealInProgress: false,
-  selectedPastFilter: null
+  selectedPastFilter: null,
+  pastBrowseMode: null,
+  pastBrowseSubject: null
 };
 
 let cardListSearchTimer = null;
@@ -125,7 +188,15 @@ const elements = {
   cardListCount: document.querySelector("#cardListCount"),
   cardListEmpty: document.querySelector("#cardListEmpty"),
   cardList: document.querySelector("#cardList"),
+  pastBrowseView: document.querySelector("#pastBrowseView"),
+  pastPowerButton: document.querySelector("#pastPowerButton"),
+  pastMachineButton: document.querySelector("#pastMachineButton"),
+  pastYearButton: document.querySelector("#pastYearButton"),
+  pastPowerCount: document.querySelector("#pastPowerCount"),
+  pastMachineCount: document.querySelector("#pastMachineCount"),
+  pastYearCount: document.querySelector("#pastYearCount"),
   pastFilterView: document.querySelector("#pastFilterView"),
+  pastFilterHeading: document.querySelector("#pastFilterHeading"),
   pastFilterList: document.querySelector("#pastFilterList"),
   pastFilterEmpty: document.querySelector("#pastFilterEmpty"),
   pastFavoriteOnlyToggle: document.querySelector("#pastFavoriteOnlyToggle"),
@@ -189,6 +260,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindEvents() {
   elements.formulaModeButton.addEventListener("click", enterFormulaMode);
   elements.pastQuestionModeButton.addEventListener("click", enterPastQuestionMode);
+  elements.pastPowerButton.addEventListener("click", () => selectPastBrowse("genre", "denryoku_kanri"));
+  elements.pastMachineButton.addEventListener("click", () => selectPastBrowse("genre", "kikai_seigyo"));
+  elements.pastYearButton.addEventListener("click", () => selectPastBrowse("year", null));
   elements.printReviewModeButton.addEventListener("click", enterPrintReviewMode);
   elements.backToCategories.addEventListener("click", handleBack);
   elements.shuffleButton.addEventListener("click", shuffleCards);
@@ -391,6 +465,7 @@ function parsePastQuestions(text) {
       year: value(row, "year"),
       stage: value(row, "stage"),
       subject: value(row, "subject"),
+      genre: value(row, "genre"),
       questionNo: value(row, "question_no"),
       questionType: value(row, "question_type") || "calculation",
       reviewStatus: value(row, "review_status") || "draft",
@@ -494,6 +569,8 @@ function showModeSelection() {
   resetProgressiveBlankState();
   state.visiblePastQuestions = [];
   state.selectedPastFilter = null;
+  state.pastBrowseMode = null;
+  state.pastBrowseSubject = null;
   state.pastFavoriteOnly = false;
   clearTimeout(cardListSearchTimer);
   elements.favoriteOnlyToggle.checked = false;
@@ -504,6 +581,7 @@ function showModeSelection() {
   hideFormulaListInterface();
   elements.modeView.classList.remove("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
@@ -523,10 +601,54 @@ async function enterPastQuestionMode() {
   try {
     state.mode = "past";
     await loadPastQuestions();
-    renderPastFilters();
+    renderPastBrowse();
   } catch (error) {
     showEmpty(`${error.message} ローカルサーバーから開いているか確認してください。`);
   }
+}
+
+function genreForQuestion(question) {
+  if (question.subject === "denryoku_kanri" && ["essay", "fill_blank"].includes(question.questionType)) {
+    return pastGenreLabels.essay;
+  }
+  const explicit = question.genre?.trim();
+  if (explicit) {
+    return pastGenreLabels[explicit] ?? explicit;
+  }
+  const key = pastGenresByYear[question.subject]?.[question.year]?.[Number(question.questionNo) - 1];
+  return pastGenreLabels[key] ?? "未分類";
+}
+
+function renderPastBrowse() {
+  state.pastBrowseMode = null;
+  state.pastBrowseSubject = null;
+  state.selectedPastFilter = null;
+  state.visiblePastQuestions = [];
+  const count = subject => state.pastQuestions.filter(question => question.subject === subject).length;
+  elements.pastPowerCount.textContent = `${count("denryoku_kanri")}問`;
+  elements.pastMachineCount.textContent = `${count("kikai_seigyo")}問`;
+  elements.pastYearCount.textContent = `${state.pastQuestions.length}問`;
+
+  hideFormulaListInterface();
+  elements.modeView.classList.add("hidden");
+  elements.categoryView.classList.add("hidden");
+  elements.pastFilterView.classList.add("hidden");
+  elements.studyView.classList.add("hidden");
+  elements.pastStudyView.classList.add("hidden");
+  elements.printReviewView.classList.add("hidden");
+  elements.emptyView.classList.add("hidden");
+  elements.pastBrowseView.classList.remove("hidden");
+  elements.backToCategories.classList.remove("hidden");
+  elements.shuffleButton.disabled = true;
+  hideDebugMeta();
+}
+
+function selectPastBrowse(mode, subject) {
+  state.pastBrowseMode = mode;
+  state.pastBrowseSubject = subject;
+  state.selectedPastFilter = null;
+  state.visiblePastQuestions = [];
+  renderPastFilters();
 }
 
 async function enterPrintReviewMode() {
@@ -541,50 +663,56 @@ async function enterPrintReviewMode() {
 }
 
 function renderPastFilters() {
-  const filters = pastQuestionFilters();
+  const byGenre = state.pastBrowseMode === "genre";
+  const filters = byGenre ? pastGenreFilters(state.pastBrowseSubject) : pastQuestionFilters();
   const filtersByStage = new Map();
-  const favoriteCount = state.pastQuestions.filter(isFavoritePastQuestion).length;
+  const favoriteCount = state.pastQuestions.filter(question =>
+    (!byGenre || question.subject === state.pastBrowseSubject) && isFavoritePastQuestion(question)
+  ).length;
 
+  elements.pastFilterHeading.textContent = byGenre
+    ? subjectLabels[state.pastBrowseSubject] ?? state.pastBrowseSubject
+    : "年度別";
   elements.pastFavoriteOnlyToggle.checked = state.pastFavoriteOnly;
   elements.pastFavoriteOnlyCount.textContent = `（${favoriteCount}）`;
-  elements.pastFilterEmpty.classList.toggle("hidden", filters.length > 0);
+  elements.pastFilterEmpty.classList.toggle("hidden", filters.some(filter => filter.count > 0));
 
-  filters.forEach(filter => {
-    const stageFilters = filtersByStage.get(filter.stage) ?? [];
-    stageFilters.push(filter);
-    filtersByStage.set(filter.stage, stageFilters);
-  });
+  if (byGenre) {
+    elements.pastFilterList.replaceChildren(...filters.map(filter => pastFilterButton(
+      filter, filter.genre
+    )));
+  } else {
+    filters.forEach(filter => {
+      const stageFilters = filtersByStage.get(filter.stage) ?? [];
+      stageFilters.push(filter);
+      filtersByStage.set(filter.stage, stageFilters);
+    });
 
-  const sections = [...filtersByStage.entries()].map(([stage, stageFilters]) => {
-    const section = document.createElement("section");
-    section.className = "past-stage-section";
+    const sections = [...filtersByStage.entries()].map(([stage, stageFilters]) => {
+      const section = document.createElement("section");
+      section.className = "past-stage-section";
 
-    const heading = document.createElement("h3");
-    heading.className = "past-stage-heading";
-    heading.textContent = stageLabels[stage] ?? stage;
+      const heading = document.createElement("h3");
+      heading.className = "past-stage-heading";
+      heading.textContent = stageLabels[stage] ?? stage;
 
-    const list = document.createElement("div");
-    list.className = "past-stage-list";
-    list.replaceChildren(...stageFilters.map(filter => {
-      const button = document.createElement("button");
-      button.className = "category-card";
-      button.type = "button";
-      button.innerHTML = `<strong></strong><span></span><span aria-hidden="true">›</span>`;
-      button.querySelector("strong").textContent = `${formatYear(filter.year)} ${subjectLabels[filter.subject] ?? filter.subject}`;
-      button.querySelector("span").textContent = `${filter.count}問`;
-      button.addEventListener("click", () => selectPastFilter(filter));
-      return button;
-    }));
+      const list = document.createElement("div");
+      list.className = "past-stage-list";
+      list.replaceChildren(...stageFilters.map(filter => pastFilterButton(
+        filter, `${formatYear(filter.year)} ${subjectLabels[filter.subject] ?? filter.subject}`
+      )));
 
-    section.append(heading, list);
-    return section;
-  });
+      section.append(heading, list);
+      return section;
+    });
 
-  elements.pastFilterList.replaceChildren(...sections);
+    elements.pastFilterList.replaceChildren(...sections);
+  }
 
   hideFormulaListInterface();
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
@@ -593,6 +721,29 @@ function renderPastFilters() {
   elements.backToCategories.classList.remove("hidden");
   elements.shuffleButton.disabled = true;
   hideDebugMeta();
+}
+
+function pastFilterButton(filter, label) {
+  const button = document.createElement("button");
+  button.className = "category-card";
+  button.type = "button";
+  button.innerHTML = `<strong></strong><span></span><span aria-hidden="true">›</span>`;
+  button.querySelector("strong").textContent = label;
+  button.querySelector("span").textContent = `${filter.count}問`;
+  button.disabled = filter.count === 0;
+  button.addEventListener("click", () => selectPastFilter(filter));
+  return button;
+}
+
+function pastGenreFilters(subject) {
+  const counts = new Map();
+  eligiblePastQuestions().filter(question => question.subject === subject).forEach(question => {
+    const genre = genreForQuestion(question);
+    counts.set(genre, (counts.get(genre) ?? 0) + 1);
+  });
+  const ordered = pastGenreOrder[subject].map(key => pastGenreLabels[key]);
+  const extra = [...counts.keys()].filter(genre => !ordered.includes(genre)).sort((a, b) => a.localeCompare(b, "ja"));
+  return [...ordered, ...extra].map(genre => ({ subject, genre, count: counts.get(genre) ?? 0 }));
 }
 
 function pastQuestionFilters() {
@@ -651,6 +802,7 @@ function selectPastFilter(filter) {
   hideFormulaListInterface();
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
@@ -667,7 +819,9 @@ function eligiblePastQuestions() {
 
 function pastQuestionsForFilter(filter) {
   return eligiblePastQuestions().filter(question => (
-    question.stage === filter.stage
+    filter.genre
+      ? question.subject === filter.subject && genreForQuestion(question) === filter.genre
+      : question.stage === filter.stage
       && question.year === filter.year
       && question.subject === filter.subject
   ));
@@ -736,6 +890,7 @@ function renderCategories() {
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
   elements.printReviewView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.categoryView.classList.remove("hidden");
   elements.backToCategories.classList.remove("hidden");
@@ -763,6 +918,7 @@ function selectCategory(category, cardKey = null) {
   elements.formulaViewTools.classList.remove("hidden");
   elements.cardListView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.emptyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
@@ -803,6 +959,7 @@ function showFormulaListView() {
   elements.formulaViewTools.classList.remove("hidden");
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
@@ -982,6 +1139,7 @@ function renderPrintReviewFilters() {
   hideFormulaListInterface();
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
@@ -2697,6 +2855,11 @@ function handleBack() {
     return;
   }
 
+  if (state.mode === "past" && state.pastBrowseMode) {
+    renderPastBrowse();
+    return;
+  }
+
   showModeSelection();
 }
 
@@ -2778,6 +2941,7 @@ function showEmpty(message) {
   hideDebugMeta();
   elements.modeView.classList.add("hidden");
   elements.categoryView.classList.add("hidden");
+  elements.pastBrowseView.classList.add("hidden");
   elements.pastFilterView.classList.add("hidden");
   elements.studyView.classList.add("hidden");
   elements.pastStudyView.classList.add("hidden");
