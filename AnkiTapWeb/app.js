@@ -114,7 +114,8 @@ const pastGenresByYear = {
     h28: ["induction", "transformer", "power_electronics", "control"],
     h27: ["synchronous", "transformer", "power_electronics", "control"],
     h26: ["induction", "synchronous", "power_electronics", "control"],
-    h25: ["induction", "transformer", "power_electronics", "control"]
+    h25: ["induction", "transformer", "power_electronics", "control"],
+    h24: ["dc", "synchronous", "power_electronics", "control"]
   },
   denryoku_kanri: {
     r07: ["generation", "ground_fault", "short_circuit", "vector", "protection", "supply"],
@@ -129,7 +130,8 @@ const pastGenresByYear = {
     h28: ["generation", "substation", "lines", "ground_fault", "grounding", "short_circuit"],
     h27: ["generation", "substation", "distribution", "vector", "distribution", "lines"],
     h26: ["generation", "substation", "lines", "vector", "renewables", "substation"],
-    h25: ["generation", "lines", "protection", "vector", "substation", "supply"]
+    h25: ["generation", "lines", "protection", "vector", "substation", "supply"],
+    h24: ["generation", "lines", "lines", "short_circuit", "substation", "substation"]
   }
 };
 
@@ -1278,7 +1280,20 @@ function appendPrintImage(target, question) {
 
 function renderPrintAnswerSections(target, question, mathTargets) {
   if (question.questionType === "essay") {
-    appendPrintSection(target, "模範解答", question.final_answer || question.model_answer, mathTargets);
+    if (question.subQuestions.length > 0) {
+      question.subQuestions.forEach((subQuestion, index) => {
+        const section = document.createElement("section");
+        section.className = "print-sub-question";
+        const heading = document.createElement("h3");
+        heading.textContent = subQuestion.label || `小問(${index + 1})`;
+        section.append(heading);
+        appendPrintSection(section, "模範解答", subQuestion.answer, mathTargets);
+        appendPrintAnswerImages(section, { answerImages: subQuestion.answerImages });
+        target.append(section);
+      });
+    } else {
+      appendPrintSection(target, "模範解答", question.final_answer || question.model_answer, mathTargets);
+    }
     appendPrintAnswerImages(target, question);
     appendPrintSection(target, "補足", question.supplement || question.explanation, mathTargets);
     appendPrintSection(target, "学習ポイント", question.study_tips, mathTargets);

@@ -11236,3 +11236,218 @@ E(s)=R(s)-G(s)U(s)
 \[
 e(\infty)=\lim_{s\to0}s\frac{s^2(s+K_2)}{s(s^2+4)+K_2s^2+K_1s+K_1}\frac{1}{s^2}=0
 \]"									data/pdfs/h25/second	h25|second|kikai_seigyo		data/pdfs/h25/second/kaitou.pdf pp.15-17	needs_fix															
+h24_second_denryoku_kanri_q01	h24	second	denryoku_kanri	1	calculation	1台のポンプ水車と発電電動機による揚水発電所について，次の問に答えよ。ただし，諸元は次のとおりとし，貯水池水位の変動に伴う有効落差の変化はないものとする。	data/questions/h24/second/figures/denryoku_kanri_q01_fig.png	"(1) 電動機の最大皮相電力を \(S_{\mathrm{M}}\,[\mathrm{MV\cdot A}]\)，電動機出力（ポンプ入力）を機械最大出力 \(P_{\mathrm{M}}\,[\mathrm{MW}]\)，電動機入力を \(P_{\mathrm{Mi}}\,[\mathrm{MW}]\)，発電機容量を \(S_{\mathrm{G}}\,[\mathrm{MV\cdot A}]\)，発電機の最大出力を \(P_{\mathrm{G}}\,[\mathrm{MW}]\) とした場合，次の関係式の \(\boxed{\quad}\) に当てはまる記号を答えよ。
+\[P_{\mathrm{M}}=P_{\mathrm{Mi}}\times\boxed{\mathrm{A}}\]
+\[P_{\mathrm{Mi}}=\boxed{\mathrm{B}}\times\boxed{\mathrm{C}}\]
+\[P_{\mathrm{G}}=\boxed{\mathrm{D}}\times\boxed{\mathrm{E}}\]"					"電動機出力（ポンプ入力）＝電動機入力×電動機効率　なので，
+A　\(P_{\mathrm{M}}=P_{\mathrm{Mi}}\times\eta_{\mathrm{M}}\)　……①
+B又はC　\(P_{\mathrm{Mi}}=S_{\mathrm{M}}\times\phi_{\mathrm{M}}\)　……②
+D又はE　\(P_{\mathrm{G}}=S_{\mathrm{G}}\times\phi_{\mathrm{G}}\)　……③"																(2) さらに，発電機容量 \(S_{\mathrm{G}}\,[\mathrm{MV\cdot A}]\) が電動機の最大皮相電力 \(S_{\mathrm{M}}\,[\mathrm{MV\cdot A}]\) と同じとした場合，発電使用水量 \(Q_{\mathrm{G}}\,[\mathrm{m^3/s}]\) を \(P_{\mathrm{M}}\) など与えられた記号を用いて表せ。					"\(S_{\mathrm{G}}=S_{\mathrm{M}}\) なので，上記3式から，\(P_{\mathrm{G}}=\dfrac{\phi_{\mathrm{G}}P_{\mathrm{M}}}{\phi_{\mathrm{M}}\eta_{\mathrm{M}}}\)
+発電機出力と発電使用水量の関係から，
+\[P_{\mathrm{G}}=\eta_{\mathrm{T}}\eta_{\mathrm{G}}g\rho Q_{\mathrm{G}}(H-H_{\mathrm{L}})\times10^{-6}\]
+なので，
+\[Q_{\mathrm{G}}=\dfrac{\phi_{\mathrm{G}}P_{\mathrm{M}}\times10^6}{\eta_{\mathrm{T}}\eta_{\mathrm{G}}g\rho(H-H_{\mathrm{L}})\phi_{\mathrm{M}}\eta_{\mathrm{M}}}\]　……④"																							(3) (2)の条件において，\(P_{\mathrm{M}}=100\,[\mathrm{MW}]\) の場合の発電使用水量 \(Q_{\mathrm{G}}\) を計算せよ。					"④式で \(P_{\mathrm{M}}=100\,[\mathrm{MW}]\) とすると，
+\[Q_{\mathrm{G}}=\dfrac{0.8\times100\times10^6}{0.9\times0.95\times9.8\times1000\times(150-10)\times1.0\times0.97}\]
+\[=70.3069\ \longrightarrow\ 70.3\,[\mathrm{m^3/s}]\]"																														(4) (3)の条件において，有効貯水池容量をすべて使用するときの発電時間を計算せよ。					"\[\dfrac{V}{Q_{\mathrm{G}}}=\dfrac{2\,000\,000}{70.3}=28\,449\,[\mathrm{s}]\ \longrightarrow\ \text{約}28\,400\,[\mathrm{s}]\quad(\text{又は約7時間54分})\]
+なお，(4)は(1)～(3)の条件において計算することから，答は主変圧器容量 \(T\,[\mathrm{MV\cdot A}]\) にはよらない。"																																																																							data/pdfs/h24/second/denryoku_kanri.pdf p.3; https://denken-ou.com/c2/denryokukanrih24-1/	h24|second|denryoku_kanri		data/pdfs/h24/second/kaitou.pdf p.1	draft															
+h24_second_denryoku_kanri_q02	h24	second	denryoku_kanri	2	essay	架空地線付き送電線路において発生する雷事故に関し，次の問に答えよ。		(1) 雷事故は，発生メカニズムの違いにより，遮へい失敗事故と逆フラッシオーバ事故に大別される。それぞれの事故の発生メカニズムを簡潔に説明せよ。					"遮へい失敗事故：雷が電力線を直撃してアークホーンにフラッシオーバが発生する。
+逆フラッシオーバ事故：架空地線あるいは鉄塔への雷撃によって架空地線あるいは鉄塔の電位が上昇し，架空地線と導体間，又はアークホーンにフラッシオーバが発生する。"																(2) 架空送電線路において発生する雷事故の防止効果を高める対策を三つ挙げ，それぞれについて簡潔に述べよ。					"① 架空地線の弛度を電力線のそれより小さくすることで，架空地線と導体間のフラッシオーバを低減する。
+② 埋設地線，深打ち電極及び接地シートなどにより鉄塔の塔脚接地抵抗を低減することで，鉄塔の電位上昇による逆フラッシオーバを低減する。
+③ 架空地線を多条化することで，鉄塔の電位上昇による逆フラッシオーバを低減する。
+④ 系統に過電圧が侵入した場合に，フラッシオーバが継続して送電線が遮断されるのを防止するため，送電用避雷装置を設置する。"																																																																																																																																						data/pdfs/h24/second/denryoku_kanri.pdf p.4; https://denken-ou.com/c2/denryokukanrih24-2/	h24|second|denryoku_kanri		data/pdfs/h24/second/kaitou.pdf p.2	draft															
+h24_second_denryoku_kanri_q03	h24	second	denryoku_kanri	3	calculation	図のように三相交流送電線（単線結線図）と通信線があり，その間に遮へい線がある。送電線と通信線の相互インピーダンスを \(\dot{Z}_{12}\)，送電線と遮へい線との相互インピーダンスを \(\dot{Z}_{1S}\)，遮へい線と通信線の相互インピーダンスを \(\dot{Z}_{2S}\)，遮へい線の自己インピーダンスを \(\dot{Z}_{S}\) とする。一線地絡事故により送電線に流れる零相電流を \(\dot{I}_{0}\) とするとき次の問に答えよ。	data/questions/h24/second/figures/denryoku_kanri_q03_fig.png	(1) 遮へい線が無い場合に，通信線の開放端に生じる誘導電圧 \(\dot{V}\) を求めよ。					"遮へい線がない場合通信線に誘導される電圧 \(\dot{V}\) は
+\[\dot{V}=3\dot{Z}_{12}\dot{I}_{0}\]"																(2) 遮へい線が存在する場合に，遮へい線に流れる電流 \(\dot{I}_{S}\) と通信線の開放端に生じる誘導電圧 \(\dot{V}^{\prime}\) を求めよ。					"遮へい線に流れる電流 \(\dot{I}_{S}\) は，\(\dot{I}_{0}\) による誘導電圧を打ち消すように流れる。
+したがって，次式が成りたつ。
+\[3\dot{Z}_{1S}\dot{I}_{0}+\dot{Z}_{S}\dot{I}_{S}=0\]
+\[\dot{I}_{S}=-\frac{3\dot{Z}_{1S}\dot{I}_{0}}{\dot{Z}_{S}}\]
+通信線に生じる誘導電圧 \(\dot{V}^{\prime}\) は送電線の電流 \(3\dot{I}_{0}\) と遮へい線を流れる誘導電流 \(\dot{I}_{S}\) による誘導電圧の和だから次式となる。
+\[\dot{V}^{\prime}=3\dot{Z}_{12}\dot{I}_{0}+\dot{Z}_{2S}\dot{I}_{S}\]
+\[=3\dot{Z}_{12}\dot{I}_{0}+\dot{Z}_{2S}\left(-\frac{3\dot{Z}_{1S}\dot{I}_{0}}{\dot{Z}_{S}}\right)\]
+\[=3\dot{Z}_{12}\dot{I}_{0}\left(1-\frac{\dot{Z}_{1S}\dot{Z}_{2S}}{\dot{Z}_{12}\dot{Z}_{S}}\right)\]
+\[=3\dot{I}_{0}\left(\dot{Z}_{12}-\frac{\dot{Z}_{1S}\dot{Z}_{2S}}{\dot{Z}_{S}}\right)\]
+\[=\dot{V}\left(1-\frac{\dot{Z}_{1S}\dot{Z}_{2S}}{\dot{Z}_{12}\dot{Z}_{S}}\right)\]"																							(3) (2)の計算結果を用いて，遮へい線をどのように配置するのが良いか説明せよ。					"送電線近傍に遮へい線を設置した場合の誘導電圧を \(\dot{V}_{T}^{\prime}\) とし，通信線近傍に遮へい線を設置した場合の誘導電圧を \(\dot{V}_{C}^{\prime}\) としたとき，\(|\dot{V}_{T}^{\prime}|>|\dot{V}_{C}^{\prime}|\) となるので，通信線のできるだけ近くに遮へい線を設置するのが良い。
+［理由］
+遮へい線を送電線近傍に設置したとき \(\dot{Z}_{2S}\simeq\dot{Z}_{12}\) となり，通信線の近傍に設置したとき \(\dot{Z}_{1S}\simeq\dot{Z}_{12}\) となる。したがって，\(\dot{V}_{T}^{\prime}\) と \(\dot{V}_{C}^{\prime}\) は各々次式で近似される。
+\[\dot{V}_{T}^{\prime}=\dot{V}\left(1-\frac{\dot{Z}_{1S}}{\dot{Z}_{S}}\right)\]
+\[\dot{V}_{C}^{\prime}=\dot{V}\left(1-\frac{\dot{Z}_{2S}}{\dot{Z}_{S}}\right)\]
+ここで，遮へい線との離隔距離が小さいほど相互インピーダンスが大きくなり，自己インピーダンス \(\dot{Z}_{S}\) との比が1に近い値となるので通信線に誘導される電圧は小さくなる。実際に遮へい線を設置する場合，電圧の違いにより，電力線の近傍に設置する場合は通信線の近傍に設置する場合と比べて離隔距離を小さくすることができない。
+したがって，
+\[|\dot{Z}_{S}|>|\dot{Z}_{2S}|>|\dot{Z}_{1S}|\]
+となり，次式が成り立つ。
+\[\left|1-\frac{\dot{Z}_{1S}}{\dot{Z}_{S}}\right|>\left|1-\frac{\dot{Z}_{2S}}{\dot{Z}_{S}}\right|\]
+したがって，\(|\dot{V}_{T}^{\prime}|>|\dot{V}_{C}^{\prime}|\) となるので，通信線のできるだけ近くに遮へい線を設置するのが良い。"																																																																																																										data/pdfs/h24/second/denryoku_kanri.pdf p.5; https://denken-ou.com/c2/denryokukanrih24-3/	h24|second|denryoku_kanri		data/pdfs/h24/second/kaitou.pdf pp.3-4	draft															
+h24_second_denryoku_kanri_q04	h24	second	denryoku_kanri	4	calculation	"図のように，2 000 [kV・A] の発電設備が連系されている配電用変電所において，新たに800 [kV・A] の発電設備を連系する際のa点における三相短絡電流計算について，次の問に答えよ。
+なお，各地点の \(\%Z\) は図中に示したとおりの値であり，特に断りのない場合は，10 [MV・A] ベースである。また，線路の抵抗は無視できるものとし，配電用変電所からL1及びG1までの高圧配電線はこう長が短いことから \(\%Z\) は無視できるものとする。"	data/questions/h24/second/figures/denryoku_kanri_q04_fig.png	(1) 連系する800 [kV・A] の発電設備の \(\%Z\)（10 [MV・A] ベース）を求めよ。					"連系する発電設備は800 [kV・A]，\(\%Z=15\,[\%]\)（マシンベース）なので，当該発電設備の \(\%Z\) は，
+\[\frac{15\,[\%]\times10\,000\,[\mathrm{kV\cdot A}]}{800\,[\mathrm{kV\cdot A}]}=187.5\,[\%]\ \longrightarrow\ 188\,[\%]\]"																(2) 800 [kV・A] の発電設備を連系した後におけるa点の三相短絡インピーダンス \(\%Z\)（10 [MV・A] ベース）を求めよ。					"10 [MV・A] をベースとしたインピーダンスマップを作成すると以下のとおりとなる。
+配電用変電所の上位系統の \(\%Z\)：\(Z_1=2.5\,[\%]\)
+配電用変電所の変圧器の \(\%Z\)：\(Z_2=7.5\,[\%]\)
+発電設備G1の \(\%Z\)：\(Z_3=\dfrac{15\,[\%]\times10\,000\,[\mathrm{kV\cdot A}]}{2\,000\,[\mathrm{kV\cdot A}]}=75\,[\%]\)
+発電設備G2の \(\%Z\)：\(Z_4=187.5\,[\%]\)
+新たに連系する発電設備までの高圧配電線の \(\%Z\)：\(Z_5=12\,[\%]\)
+上記インピーダンスマップに基づき，\(\%Z\) の合成値を求めると，
+\[\%Z=\frac{1}{\frac{1}{2.5+7.5}+\frac{1}{75}+\frac{1}{187.5+12}}=8.449\ \longrightarrow\ 8.45\,[\%]\]"	data/questions/h24/second/figures/denryoku_kanri_q04_answer_fig1.png																						(3) 800 [kV・A] の発電設備を連系した後におけるa点の三相短絡電流値 [kA] を求めよ。					"三相短絡容量 \(P_S\) は
+\[P_S=\frac{10\,000\,[\mathrm{kV\cdot A}]\times100}{8.449}=118.4\,[\mathrm{MV\cdot A}]\]
+したがって，三相短絡電流 \(I_S\) は
+\[I_S=\frac{118.4\,[\mathrm{MV\cdot A}]}{\sqrt{3}\times6.6\,[\mathrm{kV}]}=10.35\ \longrightarrow\ 10.4\,[\mathrm{kA}]\]"																														(4) (3)において，a点の三相短絡電流値 [kA] を遮断器の定格遮断電流（10 [kA]）以下に抑制するために，新たに連系する発電設備設置者構内に限流リアクトルを設置する場合におけるリアクトルの最低インピーダンス \(\%Z\)（10 [MV・A] ベース）を求めよ。					"三相短絡電流が10 [kA] となるためには，三相短絡容量 \(P_S^{\prime}\) は
+\[P_S^{\prime}=10\,[\mathrm{kA}]\times\sqrt{3}\times6.6\,[\mathrm{kV}]=114.3\,[\mathrm{MV\cdot A}]\]
+したがって，合成 \(\%Z\) は，
+\[\%Z=\frac{10\,000\,[\mathrm{kV\cdot A}]\times100}{114.3\,[\mathrm{MV\cdot A}]}=8.749\,[\%]\]
+求める限流リアクトルのインピーダンスを \(\%Z_L\) とすると，
+\[\%Z=\frac{1}{\frac{1}{2.5+7.5}+\frac{1}{75}+\frac{1}{187.5+12+\%Z_L}}=8.749\,[\%]\]
+式を整理すると
+\[\%Z_L=\frac{8.749}{1-8.749\times\left(\frac{1}{2.5+7.5}+\frac{1}{75}\right)}-(187.5+12)\]
+\[=\frac{8.749}{1-8.749\times0.1133}-199.5\]
+\[=1006-199.5\]
+\[=806.5\ \longrightarrow\ 807\,[\%]\]
+（注）桁数の取り方，計算の順序により上記とは異なる正答もある。"	data/questions/h24/second/figures/denryoku_kanri_q04_answer_fig2.png																																																																						data/pdfs/h24/second/denryoku_kanri.pdf p.6; https://denken-ou.com/c2/denryokukanrih24-4/	h24|second|denryoku_kanri		data/pdfs/h24/second/kaitou.pdf pp.5-6	draft															
+h24_second_denryoku_kanri_q05	h24	second	denryoku_kanri	5	calculation	"電力系統の変電所での電圧調整について，次の問に答えなさい。
+図1のようにモデル化した電力系統において，電源1と電源2の電圧がそれぞれ一定であるとき，変圧器二次側（変電所母線側）タップ電圧（以下，変圧器タップ電圧）の微少調整量を \(\Delta n\)，電力用コンデンサからの無効電力の微少調整量を \(\Delta q\) とおけば，これらの調整による変電所の電圧の微少変化量 \(\Delta V\) は近似的に，単位法で示すと
+\[\Delta V=A_{\mathrm n}\cdot\Delta n+A_{\mathrm q}\cdot\Delta q\]
+と表すことができる。この式の係数 \(A_{\mathrm n}\)，\(A_{\mathrm q}\) を次のようにして求めることができる。
+なお，モデル系統における上記の計算において，リアクタンス \(x\) を通る無効電力潮流が \(\Delta Q\) 変化したときの変電所の電圧変化 \(\Delta V\) は近似的に，単位法で示すと
+\[\Delta V=x\cdot\Delta Q\]
+で表されるものとする。"	data/questions/h24/second/figures/denryoku_kanri_q05_fig1.png|data/questions/h24/second/figures/denryoku_kanri_q05_fig2.png|data/questions/h24/second/figures/denryoku_kanri_q05_fig3.png	(1) 電力用コンデンサからの無効電力調整を行わない（\(\Delta q=0\)）場合，変圧器タップ電圧を \(\Delta n\) 調整したときの電圧変化の分布は図2のようになる。変圧器のタップ調整にともない線路の無効電力潮流は \(\Delta Q\) 変化するものとした場合，係数 \(A_{\mathrm n}\) を \(x_1\) 及び \(x_2\) で表しなさい。					"図2において，変圧器タップ電圧の微少調整量 \(\Delta n\) は線路 \(x_1\) と線路 \(x_2\) の電圧変化量の和であり，
+\[\Delta n=x_1\Delta Q+x_2\Delta Q=(x_1+x_2)\Delta Q\]
+変電所の電圧変化 \(\Delta V\) は，線路 \(x_2\) の電圧変化と等しいので，
+\[\Delta V=x_2\Delta Q\]
+\(\Delta q=0\) より
+\[\therefore A_{\mathrm n}=\frac{\Delta V}{\Delta n}=\frac{x_2\Delta Q}{(x_1+x_2)\Delta Q}=\frac{x_2}{x_1+x_2}\quad\cdots\text{（答）}\]"	data/questions/h24/second/figures/denryoku_kanri_q05_answer_fig1.png															(2) 変圧器のタップ調整を行わない（\(\Delta n=0\)）場合，電力用コンデンサからの無効電力を \(\Delta q\) 調整したときの電圧変化の分布は図3のようになる。線路の無効電力潮流は，\(\Delta q\) が線路リアクタンスの逆比で分流した分だけそれぞれ変化するものとした場合，係数 \(A_{\mathrm q}\) を \(x_1\) 及び \(x_2\) で表しなさい。					"図3において，線路 \(x_1\) の無効電力変化は，
+\[\Delta Q=\frac{x_2}{x_1+x_2}\Delta q\]
+変電所の電圧変化 \(\Delta V\) は，線路 \(x_1\) の電圧変化と等しいので，
+\[\Delta V=x_1\Delta Q=x_1\frac{x_2}{x_1+x_2}\Delta q\]
+\(\Delta n=0\) より
+\[\therefore A_{\mathrm q}=\frac{\Delta V}{\Delta q}=\frac{x_1x_2}{x_1+x_2}\quad\cdots\text{（答）}\]"	data/questions/h24/second/figures/denryoku_kanri_q05_answer_fig2.png																																																																																																																																					data/pdfs/h24/second/denryoku_kanri.pdf pp.7-8; https://denken-ou.com/c2/denryokukanrih24-5/	h24|second|denryoku_kanri		data/pdfs/h24/second/kaitou.pdf pp.7-8	draft															
+h24_second_kikai_seigyo_q01	h24	second	kikai_seigyo	1	calculation	"図1のように，他励直流電動機を200 [V] の直流電源に接続し，定格トルクを課したところ，軸出力は3.75 [kW] で，回転速度は1 500 \([\mathrm{min}^{-1}]\)，電機子電流は20 [A]，正負ブラシの全電圧降下は2.5 [V] であった。ただし，電動機の許容最高回転速度は十分に高く，界磁電流は一定とし，鉄損，界磁損及び機械損は無視できるものとする。
+この電動機を図2のように可逆チョッパに接続した。可逆チョッパの直流入力電圧は200 [V] であり，IGBTの電圧降下は2 [V]，逆並列ダイオードの電圧降下は1 [V] とする。ただし，スイッチング損失，平滑リアクトルの抵抗及び出力電流リプルは無視できるものとする。次の値を求めよ。"	data/questions/h24/second/figures/kikai_seigyo_q01_fig.png	(1) 電機子巻線抵抗 [Ω]					"電機子巻線の銅損は，
+\[200\times20-3\,750-2.5\times20=200\,[\mathrm{W}]\]
+したがって，電機子巻線抵抗は，
+\[\frac{200}{20^2}=0.500\,[\Omega]\]"																(2) 定格トルクを課し，回転速度が1 500 \([\mathrm{min}^{-1}]\) のときの誘導起電力 [V]					"誘導起電力は，
+\[E_0=200-2.5-0.5\times20=187.5\ \longrightarrow\ 188\,[\mathrm{V}]\]"																							(3) 可逆チョッパに接続し，定格トルクを課した場合の最高回転速度 \([\mathrm{min}^{-1}]\)					"IGBTの電圧降下を考え，
+\[E_0=200-2-2.5-0.5\times20=185.5\,[\mathrm{V}]\]
+したがって，回転速度は，
+\[\frac{185.5}{187.5}\times1\,500=1\,484\ \longrightarrow\ 1\,480\,[\mathrm{min}^{-1}]\]"																														(4) 回転速度1 000 \([\mathrm{min}^{-1}]\) で，定格の50 [%] トルクの負荷を課した場合の電機子の端子電圧 [V]					"1 000 [min\(^{-1}\)] の起電力は，
+\[\frac{187.5}{1\,500}\times1\,000=125\,[\mathrm{V}]\]
+ブラシの電圧降下と巻線抵抗を考慮すると電機子の端子電圧は，
+\[125+2.5+0.5\times10=132.5\ \longrightarrow\ 133\,[\mathrm{V}]\]"																														(5) 上記(4)の運転状態とするためのIGBT \(S_1\) の通流率					"IGBT \(S_1\) がオンのときの \(S_2\) のコレクタ-エミッタ間電圧は，\(S_1\) の電圧降下を考えて，
+\[200-2=198\,[\mathrm{V}]\]
+オフのときは，ダイオード \(D_2\) の電圧降下により，
+\[-1\,[\mathrm{V}]\]
+\(S_1\) の通流率を \(D\) とすると，チョッパ端子電圧は，
+\[198\times D+(-1)(1-D)=199\times D-1\,[\mathrm{V}]\]
+したがって，\(199\times D-1=132.5\,[\mathrm{V}]\) を \(D\) について解けば，
+\[D=\frac{132.5+1}{199}=0.67085\ \longrightarrow\ 0.671\]"																(6) 制動トルクを定格トルクに制御できる回転速度 \([\mathrm{min}^{-1}]\) の範囲					"定格トルクを発生する場合の電機子電流は20 [A] であり，20 [A] の電機子電流を流すためには，少なくとも電圧降下分の起電力が必要であるので，
+\[0.5\times20+2.5+2=14.5\,[\mathrm{V}]\]
+このときの回転速度は，
+\[\frac{14.5}{187.5}\times1\,500=116\,[\mathrm{min}^{-1}]\]
+一方，電機子電流を20 [A] に制御できる電動機起電力の最大値は，
+\[200+1+2.5+0.5\times20=213.5\,[\mathrm{V}]\]
+このときの回転速度は，
+\[\frac{213.5}{187.5}\times1\,500=1\,708\ \longrightarrow\ 1\,710\,[\mathrm{min}^{-1}]\]
+ゆえに制動トルクを定格トルクに制御できる範囲は，
+\[116\,[\mathrm{min}^{-1}]\ \text{から}\ 1\,710\,[\mathrm{min}^{-1}]\]"															data/pdfs/h24/second/kikai_seigyo.pdf pp.3-4; https://denken-ou.com/c2/kikaiseigyoh24-1/	h24|second|kikai_seigyo		data/pdfs/h24/second/kaitou.pdf pp.10-11	draft															
+h24_second_kikai_seigyo_q02	h24	second	kikai_seigyo	2	calculation	同期発電機の誘導起電力と巻線係数に関して，図を参照して次の問に答えよ。	data/questions/h24/second/figures/kikai_seigyo_q02_fig1.png|data/questions/h24/second/figures/kikai_seigyo_q02_fig2.png	(1) 同期発電機のコイル辺間隔が磁極間隔に等しく電気角で \(\pi\) [rad] 隔たり（全節巻），かつ，毎極毎相のスロット数が1（集中巻）の場合，1相の誘導起電力の実効値 \(E\) [V] を，周波数 \(f\) [Hz]，1相のコイル直列巻数 \(n_c\) 及びコイルと鎖交する磁束の最大値 \(\Phi_m\) [Wb] を用いて表す式を導出せよ。ここで，コイルと鎖交する磁束の瞬時値 \(\phi\) [Wb] は \(\phi=\Phi_m\cos\omega t\) とする。					"コイルに誘導される起電力の瞬時値 \(e\) は，
+\[e=-n_c\frac{\mathrm{d}\phi}{\mathrm{d}t}=-n_c\frac{\mathrm{d}}{\mathrm{d}t}(\Phi_m\cdot\cos\omega t)=n_c\omega\Phi_m\sin\omega t=E_m\sin\omega t\]
+となり，
+誘導起電力の最大値 \(E_m\) は，
+\[E_m=n_c\omega\Phi_m=2\pi f n_c\Phi_m\]
+となり，
+誘導起電力の実効値 \(E\) は，
+\[E=\sqrt{2}\pi f n_c\Phi_m=4.4429 f n_c\Phi_m\ \longrightarrow\ 4.44 f n_c\Phi_m\ [\mathrm{V}]\]"																"(2) 毎極毎相の導体を1個のスロットに納めないで，何個かのスロットに分布して配置するのを分布巻という。一般に，毎極毎相のスロット数を \(n\)，相数を \(m\) とすれば，各コイル間の誘導起電力の基本波の場合の位相差は \(\frac{\pi}{mn}\) となり，\(n\) 個のコイルが発生する誘導起電力に関して，そのベクトル和の代数和に対する比を分布係数 \(K_d\) という。図1を参照して，基本波に対する分布係数 \(K_d\) を \(m\) 及び \(n\) を用いて表す式を導出せよ。また，その算出式を使って，\(m=3\)，\(n=3\) として，基本波に対する分布係数 \(K_d\) を算出せよ。
+なお，\(\sin\frac{\pi}{9}=0.34202\)，\(\sin\frac{\pi}{18}=0.17365\)，\(\sin\frac{\pi}{27}=0.11609\) とする。"					"図1を参照して，\(e_1=e_2=e_3=e_c\) として基本波に対する分布係数 \(K_d\) は，
+\[K_d=\frac{e_d}{n e_c}=\frac{2\sin\left(\frac{\pi}{2m}\right)}{n\cdot 2\sin\left(\frac{\pi}{2mn}\right)}=\frac{\sin\left(\frac{\pi}{2m}\right)}{n\cdot\sin\left(\frac{\pi}{2mn}\right)}\]
+となる。
+相数 \(m=3\)，毎極毎相のスロット数 \(n=3\) の場合の基本波に対する \(K_d\) は，
+\[K_d=\frac{\sin\frac{\pi}{6}}{3\sin\frac{\pi}{18}}=\frac{0.5}{3\times0.173648}=0.95979\ \longrightarrow\ 0.960\]
+となる。"																							(3) コイル辺の間隔を磁極間隔より狭いコイルを用いた巻線を短節巻といい，コイル両辺の誘導起電力に位相差が生じ，コイル両辺の誘導起電力のベクトル和がコイル1個の誘導起電力となり，このベクトル和のコイル両辺の誘導起電力の代数和に対する比を短節係数 \(K_p\) という。図2を参照して，コイル間隔が \(\beta\pi\) [rad]（\(\beta<1\)）で，基本波に対する短節係数 \(K_p\) を \(\beta\) を用いて表す式を導出せよ。また，その算出式を使って，\(\beta=\frac{2}{3}\) の場合の基本波に対する短節係数 \(K_p\) を算出せよ。					"図2を参照して，\(e_a=e_b=e_s\) として基本波に対する短節係数 \(K_p\) は，
+\[K_p=\frac{e_p}{2e_s}=\frac{2e_s\cdot\sin\left(\frac{\beta\pi}{2}\right)}{2e_s}=\sin\left(\frac{\beta\pi}{2}\right)\]
+となる。
+\(\beta=\frac{2}{3}\) の場合の基本波に対する短節係数 \(K_p\) は，
+\[K_p=\sin\frac{\pi}{3}=0.86602\ \longrightarrow\ 0.866\]
+となる。"																														(4) 分布巻で短節巻である巻線の1相の誘導起電力の実効値 \(E\) [V] を，上記(1)で導出した全節巻及び集中巻の場合の1相の誘導起電力の実効値の式と分布係数 \(K_d\) と短節係数 \(K_p\) を用いて表す式を導出せよ。また，\(f=50\) [Hz]，\(n_c=12\)，\(\Phi_m=1.5\) [Wb] として，\(m=3\)，\(n=3\) の基本波に対する \(K_d\)，及び \(\beta=\frac{2}{3}\) の場合の基本波に対する \(K_p\) を代入して，分布巻で短節巻である巻線の \(E\) [V] を算出せよ。					"上記(1)の全節巻及び集中巻の場合の誘導起電力の式と巻線係数から，分布巻及び短節巻の場合の誘導起電力の実効値 \(E\) は，
+\[E=4.44 f n_c\Phi_m K_d K_p\ [\mathrm{V}]\]
+となる。
+周波数 \(f=50\) [Hz]，コイル数 \(n_c=12\)，コイルに鎖交する磁束の最大値 \(\Phi_m=1.5\) [Wb] として，
+\[E=4.4429\times50\times12\times1.5\times0.95979\times0.86602=3323.6\ \longrightarrow\ 3320\ [\mathrm{V}]\]
+となる。"																																																																							data/pdfs/h24/second/kikai_seigyo.pdf pp.5-6; https://denken-ou.com/c2/kikaiseigyoh24-2/	h24|second|kikai_seigyo		data/pdfs/h24/second/kaitou.pdf pp.12-13	draft															
+h24_second_kikai_seigyo_q03	h24	second	kikai_seigyo	3	calculation	"図1に示す単相PWM制御電圧形インバータは，定格交流電流30 [A]，直流電圧 \(E_d=150\) [V] であり，リアクタンス \(X=0.4\) [Ω] のリアクトル（抵抗は，無視できるものとする。）を介して電圧 \(V_L=100\) [V] の交流電源に連系している。このインバータに次の信号 \(s\)
+\[s=K\sin(\omega t+\phi)\]
+を入力したとき，インバータにおける出力交流電圧の基本波瞬時値 \(v_v\) は，次になるものとする。
+\[v_v=E_d\cdot K\sin(\omega t+\phi)\ [\mathrm{V}]\]
+ここで，\(K\)：変調率（\(0\leq K\leq1\)）（1まで可能なものとする。）
+\(\omega\)：交流電源の角周波数
+\(\phi\)：交流電源電圧の位相を基準とした \(v_v\) の位相角
+このインバータで交流電流 \(\dot{I}\) を出力したときの動作について次の問に答えよ。ただし，高調波は考えないものとする。"	data/questions/h24/second/figures/kikai_seigyo_q03_fig1.png|data/questions/h24/second/figures/kikai_seigyo_q03_fig2.png	(1) フェーザで表したインバータ出力電流 \(\dot{I}\)，交流電源電圧 \(V_L\)（位相の基準としているので実数で表示）及び \(X\) を用いて，インバータ出力電圧 \(\dot{V}_v\) を求める式を示せ。					"次の式となる。
+\[\dot{V}_v=V_L+\mathrm{j}X\cdot\dot{I}\]"																(2)(a) このインバータが図1に示す出力端子において3 [kW] の有効電力を力率1で出力している。このとき，\(\dot{V}_v\) の大きさ \(V_v\) [V]（実効値）を求めよ。					"出力電力3 [kW]，\(V_L=100\) [V]，力率1なので，\(\dot{I}\) は大きさ30 [A] で位相角0 [°] である。
+したがって
+\[\dot{V}_v=V_L+\mathrm{j}X\cdot\dot{I}=100+\mathrm{j}0.4\times30=100+\mathrm{j}12\]
+a. \[V_v=\sqrt{100^2+12^2}=100.71\ \longrightarrow\ 101\ [\mathrm{V}]\]"																							(2)(b) このインバータが図1に示す出力端子において3 [kW] の有効電力を力率1で出力している。このとき，Kを求めよ。					"出力電力3 [kW]，\(V_L=100\) [V]，力率1なので，\(\dot{I}\) は大きさ30 [A] で位相角0 [°] である。
+したがって
+\[\dot{V}_v=V_L+\mathrm{j}X\cdot\dot{I}=100+\mathrm{j}0.4\times30=100+\mathrm{j}12\]
+b. \[K=V_v\frac{\sqrt{2}}{E_d}=100.71\times\frac{1.4142}{150}=0.94949\ \longrightarrow\ 0.949\]"																														(2)(c) このインバータが図1に示す出力端子において3 [kW] の有効電力を力率1で出力している。このとき，\(\tan\phi\) を求めよ。					"出力電力3 [kW]，\(V_L=100\) [V]，力率1なので，\(\dot{I}\) は大きさ30 [A] で位相角0 [°] である。
+したがって
+\[\dot{V}_v=V_L+\mathrm{j}X\cdot\dot{I}=100+\mathrm{j}0.4\times30=100+\mathrm{j}12\]
+c. \[\tan\phi=\frac{12}{100}=0.120\]"																														(3) このインバータを力率1以外でも運転するものとする。出力電流 \(\dot{I}\) を実数分 \(I_P\) と虚数分 \(I_Q\) とに分けて \(\dot{I}=I_P+\mathrm{j}I_Q\) と表す。\(I_P\)，\(I_Q\)，\(V_L\) 及び \(X\) を用いて，\(V_v\) [V] の値を求める式を示せ（絶対値の記号を付けただけでは不可。その値を求める式とする。）。					"上記(1)で得られた式に \(\dot{I}=I_P+\mathrm{j}I_Q\) を代入し
+\[\dot{V}_v=V_L+\mathrm{j}X(I_P+\mathrm{j}I_Q)=V_L-X\cdot I_Q+\mathrm{j}X\cdot I_P\]
+したがって
+\[V_v=\sqrt{(V_L-X\cdot I_Q)^2+(X\cdot I_P)^2}\]
+（\(V_v=\left|V_L+\mathrm{j}X\cdot\dot{I}\right|\)，\(V_v=\left|V_L-X\cdot I_Q+\mathrm{j}X\cdot I_P\right|\) など，絶対値のままでは不可。）"																(4) \(I_P\) 及び \(I_Q\) の出力可能な範囲は，図2の網掛け範囲となる。\(\dot{I}\) の大きさ（実効値）\(I\) [A] は，定格電流である30 [A] に制限される。\(I_P\) は，インバータとして正の範囲（零を含む）に限定している。このほか，上記(3)の \(V_v\) の値を求める式で，\(V_v\) が \(K=1\) のときの値 \(\frac{E_d}{\sqrt{2}}\) [V] に制限されることによっても電流の範囲が制限される。\(I_P=0\) [A] における \(I_Q\) の最小値 \(I_{Q\min}\) [A] の値を求めよ。					"\(V_v\) の範囲から
+\[\sqrt{(V_L-X\cdot I_Q)^2+(X\cdot I_P)^2}\leq\frac{E_d}{\sqrt{2}}\]
+\(I_P=0\) として次の解が得られる。
+\[I_{Q\min}=\frac{V_L-\frac{E_d}{\sqrt{2}}}{X}=\frac{100-\frac{150}{\sqrt{2}}}{0.4}=-15.165\ \longrightarrow\ -15.2\ [\mathrm{A}]\]"															data/pdfs/h24/second/kikai_seigyo.pdf pp.7-8; https://denken-ou.com/c2/kikaiseigyoh24-3/	h24|second|kikai_seigyo		data/pdfs/h24/second/kaitou.pdf p.14	draft															
+h24_second_kikai_seigyo_q04	h24	second	kikai_seigyo	4	calculation	図のフィードバック制御系について，次の問に答えよ。ただし，\(R(s)\)，\(E(s)\)，\(U(s)\)，\(D(s)\) 及び \(Y(s)\) は，目標値 \(r(t)\)，偏差 \(e(t)\)，制御入力 \(u(t)\)，外乱 \(d(t)\) 及び出力 \(y(t)\) をそれぞれラプラス変換したものであり，\(C(s)\) は点線で囲んだ補償器内の補償要素の伝達関数を表す。	data/questions/h24/second/figures/kikai_seigyo_q04_fig.png	(1) \(D(s)=0\) の場合，制御対象だけを取り出したとき，\(u(t)\) として単位ステップ入力を加えたときの出力応答 \(y(t)\) を求めよ。					"制御対象のステップ応答
+ラプラス変換域におけるステップ応答は，
+\[Y(s)=\frac{1}{s(s+1)}U(s)=\frac{1}{s(s+1)}\cdot\frac{1}{s}=\frac{1}{s^2(s+1)}\qquad\cdots\text{①}\]
+で与えられる。この逆ラプラス変換を求めるために，部分分数展開すると，
+\[Y(s)=\frac{a}{s^2}+\frac{b}{s}+\frac{c}{s+1}\]
+\[=\frac{a(s+1)+bs(s+1)+cs^2}{s^2(s+1)}=\frac{(b+c)s^2+(a+b)s+a}{s^2(s+1)}\qquad\cdots\text{②}\]
+となり，①式と②式の分子を等しくする部分分数展開の各係数は，
+\[b+c=0,\quad a+b=0,\quad a=1\]
+を満たす。これから
+\[a=1,\quad b=-1,\quad c=1\]
+が得られる。したがって，\(Y(s)\) の逆ラプラス変換は，
+\[y(t)=\mathcal{L}^{-1}\left\{\frac{1}{s^2}-\frac{1}{s}+\frac{1}{s+1}\right\}=t-1+e^{-t}\quad(t\geq0)\]
+となる。"																(2) 点線で囲んだ補償器だけを取り出したとき，\(E(s)\) から \(U(s)\) までの伝達関数を求めよ。					"補償器の伝達関数の計算
+図の信号の関係から
+\[U(s)=C(s)\left[E(s)+\frac{1}{s}U(s)\right]\]
+が成り立つ。上式を整理すると，
+\[U(s)=\frac{sC(s)}{s-C(s)}E(s)\]
+となり，補償器の伝達関数は，
+\[\frac{sC(s)}{s-C(s)}\qquad\cdots\text{③}\]
+で与えられる。"																							(3) 図のフィードバック制御系において，\(R(s)=0\) のとき，\(D(s)\) から \(E(s)\) までの伝達関数を求めよ。					"伝達関数の計算
+\(D(s)\) から \(E(s)\) までの伝達関数は，
+\[\frac{E(s)}{D(s)}=-\frac{1}{1+\frac{sC(s)}{s-C(s)}\cdot\frac{1}{s(s+1)}}=-\frac{(s+1)[s-C(s)]}{(s+1)[s-C(s)]+C(s)}\]
+\[=-\frac{(s+1)[s-C(s)]}{s[s-C(s)+1]}\qquad\cdots\text{④}\]
+で与えられる。"																														(4) \(R(s)=0\) の場合，\(C(s)\) として，\(C(s)=\frac{s}{Ts+1}\) を選んだとき，外乱 \(d(t)\) がランプ関数 \(d(t)=t\)（\(t\geq0\)）で与えられるときの定常速度偏差を求めよ。					"定常速度偏差の計算
+④式へ，\(C(s)=\frac{s}{Ts+1}\) を代入すると，
+\[\frac{E(s)}{D(s)}=-\frac{(s+1)\left(s-\frac{s}{Ts+1}\right)}{s\left(s-\frac{s}{Ts+1}+1\right)}=-\frac{(s+1)\left(1-\frac{1}{Ts+1}\right)}{s+1-\frac{s}{Ts+1}}\]
+\[=-\frac{Ts(s+1)}{Ts^2+Ts+1}\qquad\cdots\text{⑤}\]
+となる。ランプ関数の外乱 \(d(t)=t\) に対する定常速度偏差は，
+\[e_s=-\lim_{s\to0}s\cdot\frac{Ts(s+1)}{Ts^2+Ts+1}\cdot\frac{1}{s^2}=-T\qquad\cdots\text{⑥}\]
+で与えられる。"																														(5) (4)の \(C(s)\) を選んだとき，外乱 \(d(t)\) の影響が偏差 \(e(t)\) に現れないようにするには，\(C(s)\) の時定数 \(T\) をどのように選べばよいかを説明せよ。					"時定数の選び方
+⑤式及び⑥式より，\(C(s)\) の時定数 \(T\) を小さく選ぶことにより，偏差に対する外乱の影響を抑制することが可能となる。"																(6) 点線で囲んだ補償器を \(K_1+\frac{K_2}{s}\) に置き換えたときのフィードバック制御系が安定となる条件を求めよ。					"安定判別について
+特性方程式は，次式
+\[1+\left(K_1+\frac{K_2}{s}\right)\cdot\frac{1}{s(s+1)}=0\]
+となり，
+\[s^3+s^2+K_1s+K_2=0\]
+で与えられる。ここで，ラウスの安定判別法を適用する。ラウス表は，
+\[\begin{array}{c|cc}s^3&1&K_1\\s^2&1&K_2\\s^1&K_1-K_2&0\\s^0&K_2&\end{array}\]
+となり，安定条件は，特性方程式の係数がすべて正より，
+\[K_1>0,\quad K_2>0\]
+が得られ，ラウス列の係数がすべて正より，
+\[K_1>K_2,\quad K_2>0\]
+が得られる。以上をまとめると，安定条件は
+\[K_1>K_2>0\]
+で与えられる。"															data/pdfs/h24/second/kikai_seigyo.pdf p.9	h24|second|kikai_seigyo		data/pdfs/h24/second/kaitou.pdf pp.15-17	draft															
+h24_second_denryoku_kanri_q06	h24	second	denryoku_kanri	6	essay	「電気設備技術基準の解釈」に基づく、常時監視をしない変電所の監視制御方式4種類について、それぞれの定義、適用電圧及び警報する場所等を答えよ。		(1) 簡易監視制御方式の定義、適用電圧及び警報する場所等を答えよ。					"簡易監視制御方式
+定義：技術員が必要に応じて変電所に出向いて，変電所の監視及び機器の操作を行うもの
+適用電圧：100 [kV] 以下
+警報する場所等：技術員（技術員に連絡するための補助員がいる場合は，当該補助員）"																(2) 断続監視制御方式の定義、適用電圧及び警報する場所等を答えよ。					"断続監視制御方式
+定義：技術員が当該変電所又は300 [m] 以内にある技術員駐在所に常時駐在し，断続的に変電所に出向いて，変電所の監視及び機器の操作を行うもの
+適用電圧：170 [kV] 以下
+警報する場所等：技術員駐在所"																							(3) 遠隔断続監視制御方式の定義、適用電圧及び警報する場所等を答えよ。					"遠隔断続監視制御方式
+定義：技術員が変電制御所又は300 [m] 以内にある技術員駐在所に常時駐在し，断続的に変電制御所に出向いて，変電所の監視及び機器の操作を行うもの
+適用電圧：170 [kV] 以下
+警報する場所等：変電制御所及び技術員駐在所"																														(4) 遠隔常時監視制御方式の定義、適用電圧及び警報する場所等を答えよ。					"遠隔常時監視制御方式
+定義：技術員が変電制御所に常時駐在し，変電所の監視及び機器の操作を行うもの
+適用電圧：制限なし
+警報する場所等：変電制御所"																																																																							data/pdfs/h24/second/denryoku_kanri.pdf p.9（表形式の原問を学習用論説問題に変更）	h24|second|denryoku_kanri|essay		data/pdfs/h24/second/kaitou.pdf p.9	draft															
