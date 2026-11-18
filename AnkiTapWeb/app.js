@@ -473,6 +473,7 @@ function parsePastQuestions(text) {
       reviewStatus: value(row, "review_status") || "draft",
       questionText,
       questionImage,
+      annotation: value(row, "annotation"),
       answerImages: imageList(value(row, "answer_images") || value(row, "answer_image")),
       blankAnswersText: value(row, "blank_answers"),
       blankAnswers: parseBlankAnswers(value(row, "blank_answers")),
@@ -1244,6 +1245,7 @@ function renderPrintQuestionPage(question, mathTargets) {
   appendPrintSection(bottom, "公式解答参照", question.official_answer_ref, mathTargets);
   appendPrintSection(bottom, "公式ID", question.formula_ids, mathTargets);
   appendPrintSection(bottom, "出典", question.source, mathTargets);
+  appendPrintSection(bottom, "注釈", question.annotation, mathTargets);
 
   article.append(header, top, bottom);
   return article;
@@ -1433,21 +1435,24 @@ function waitsForAnswerTap(question) {
 }
 
 function pastTabsFor(question) {
+  let tabs;
   if (question.questionType === "fill_blank") {
-    const tabs = tabsWithContent(question, fillBlankSteps);
-    return question.subQuestions.length > 0
-      ? [...tabs, { key: "calculation_questions", label: "小問" }]
-      : tabs;
-  }
-
-  if (question.questionType === "essay") {
-    return [{
+    tabs = tabsWithContent(question, fillBlankSteps);
+    if (question.subQuestions.length > 0) {
+      tabs = [...tabs, { key: "calculation_questions", label: "小問" }];
+    }
+  } else if (question.questionType === "essay") {
+    tabs = [{
       key: "essay_questions",
       label: "小問"
     }];
+  } else {
+    tabs = calculationTabsFor(question);
   }
 
-  return calculationTabsFor(question);
+  return question.annotation
+    ? [...tabs, { key: "annotation", label: "注釈" }]
+    : tabs;
 }
 
 function tabsWithContent(question, tabs) {
@@ -1617,6 +1622,11 @@ function renderPastTabs(tabs) {
 }
 
 function renderPastTabContent(question, tab) {
+  if (tab.key === "annotation") {
+    renderMath(elements.pastAnswerContent, wrapAnswerText(question.annotation));
+    return;
+  }
+
   if (tab.key === "calculation_questions") {
     renderCalculationContent(elements.pastAnswerContent, question);
     return;
