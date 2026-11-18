@@ -1434,7 +1434,10 @@ function waitsForAnswerTap(question) {
 
 function pastTabsFor(question) {
   if (question.questionType === "fill_blank") {
-    return tabsWithContent(question, fillBlankSteps);
+    const tabs = tabsWithContent(question, fillBlankSteps);
+    return question.subQuestions.length > 0
+      ? [...tabs, { key: "calculation_questions", label: "小問" }]
+      : tabs;
   }
 
   if (question.questionType === "essay") {
@@ -2081,7 +2084,8 @@ function blankAnswersListText(question) {
 }
 
 function blankDisplayLabel(question, number) {
-  if (/\([A-Z]\)\s*[:：]/.test(question.final_answer || "")) {
+  if (question.id === "h23_second_denryoku_kanri_q05"
+    || /\([A-Z]\)\s*[:：]/.test(question.final_answer || "")) {
     const index = Number(number) - 1;
     return index >= 0 && index < 26 ? String.fromCharCode(65 + index) : number;
   }
