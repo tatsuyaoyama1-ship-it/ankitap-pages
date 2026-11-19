@@ -67,7 +67,10 @@ const subQuestionSections = [
 ];
 
 const subjectLabels = {
+  riron: "理論",
   denryoku: "電力",
+  kikai: "機械",
+  houki: "法規",
   denryoku_kanri: "電力・管理",
   kikai_seigyo: "機械・制御"
 };
@@ -136,6 +139,7 @@ const pastGenresByYear = {
 };
 
 const stageLabels = {
+  first: "一次試験",
   second: "二次試験"
 };
 
@@ -240,6 +244,7 @@ const elements = {
   pastDebugMeta: document.querySelector("#pastDebugMeta"),
   pastReviewStatus: document.querySelector("#pastReviewStatus"),
   pastQuestionPanel: document.querySelector(".past-question-panel"),
+  pastQuestionTextLabel: document.querySelector("#pastQuestionTextLabel"),
   pastQuestionText: document.querySelector("#pastQuestionText"),
   pastQuestionImageLabel: document.querySelector("#pastQuestionImageLabel"),
   pastQuestionImage: document.querySelector("#pastQuestionImage"),
@@ -331,7 +336,9 @@ async function loadPastQuestions() {
   }
 
   const text = await fetchTextFromUrls([DENKEN_URL], "denken_questions.tsv");
-  state.pastQuestions = parsePastQuestions(text).filter(question => question.stage === "second");
+  state.pastQuestions = parsePastQuestions(text).filter(question =>
+    question.stage === "second" || (question.stage === "first" && question.year === "r07")
+  );
 
   if (state.pastQuestions.length === 0) {
     throw new Error("denken_questions.tsvに表示できる問題がありません。");
@@ -1502,6 +1509,12 @@ function hideDebugMeta() {
 
 function renderPastProblem(question) {
   let problemRender = Promise.resolve();
+  const imageOnly = question.stage === "first" && !question.questionText;
+  const firstExamImage = question.stage === "first" && Boolean(question.questionImage);
+  elements.pastQuestionPanel.classList.toggle("first-exam-image-question", firstExamImage);
+  elements.pastQuestionTextLabel.classList.toggle("hidden", imageOnly);
+  elements.pastQuestionText.classList.toggle("hidden", imageOnly);
+  elements.pastQuestionImageLabel.textContent = question.stage === "first" ? "問題" : "問題図";
 
   if (question.questionText) {
     if (question.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
@@ -1510,6 +1523,8 @@ function renderPastProblem(question) {
       const text = question.questionType === "fill_blank" ? blankedQuestionText(question) : question.questionText;
       renderMath(elements.pastQuestionText, text);
     }
+  } else if (imageOnly) {
+    elements.pastQuestionText.textContent = "";
   } else {
     elements.pastQuestionText.textContent = "問題文は画像を確認してください。";
   }
@@ -1545,6 +1560,20 @@ function renderPastProblem(question) {
     }
     image.alt = `過去問の問題図${index + 1}`;
     setImageSource(image, path);
+    if (firstExamImage) {
+      image.classList.add("first-exam-page");
+      image.alt = `一次試験の問題 ${index + 1}ページ目`;
+      const link = document.createElement("a");
+      link.className = "first-exam-page-link";
+      link.href = imageAssetUrl(path);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.setAttribute("aria-label", `${image.alt}を拡大して開く`);
+      link.title = "拡大して開く";
+      link.addEventListener("click", event => event.stopPropagation());
+      link.append(image);
+      return link;
+    }
     return image;
   });
   elements.pastQuestionImage.append(...images);

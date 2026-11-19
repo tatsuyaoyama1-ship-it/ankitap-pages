@@ -777,6 +777,22 @@ progress::-webkit-progress-value {
   overflow: visible;
 }
 
+.past-question-panel.first-exam-image-question .past-question-image {
+  max-height: min(55vh, 600px);
+  overflow: auto;
+}
+
+.first-exam-page-link {
+  display: block;
+  width: 100%;
+}
+
+.past-question-img.first-exam-page {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}
+
 .past-answer-panel {
   display: grid;
   grid-template-rows: auto minmax(96px, 1fr);
