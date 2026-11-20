@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AnkiTap Web</title>
-  <link rel="stylesheet" href="style.css?v=20261119-r07-first">
+  <link rel="stylesheet" href="style.css?v=20261120-first-text">
   <script>
     window.MathJax = {
       tex: {
@@ -16,7 +16,7 @@
     };
   </script>
   <script defer src="MathJax/tex-svg.js"></script>
-  <script defer src="app.js?v=20261119-r07-first"></script>
+  <script defer src="app.js?v=20261120-first-text-v2"></script>
 </head>
 <body>
   <main class="app-shell">
@@ -94,12 +94,34 @@
     <section class="past-filter-view hidden" id="pastBrowseView">
       <h2>過去問モード</h2>
       <div class="past-filter-list">
-        <button class="category-card" id="pastPowerButton" type="button">
-          <strong>電力・管理</strong><span id="pastPowerCount"></span><span aria-hidden="true">›</span>
-        </button>
-        <button class="category-card" id="pastMachineButton" type="button">
-          <strong>機械・制御</strong><span id="pastMachineCount"></span><span aria-hidden="true">›</span>
-        </button>
+        <section class="past-stage-section">
+          <h3 class="past-stage-heading">一次試験</h3>
+          <div class="past-stage-list">
+            <button class="category-card" id="pastTheoryButton" type="button">
+              <strong>理論</strong><span id="pastTheoryCount"></span><span aria-hidden="true">›</span>
+            </button>
+            <button class="category-card" id="pastFirstPowerButton" type="button">
+              <strong>電力</strong><span id="pastFirstPowerCount"></span><span aria-hidden="true">›</span>
+            </button>
+            <button class="category-card" id="pastFirstMachineButton" type="button">
+              <strong>機械</strong><span id="pastFirstMachineCount"></span><span aria-hidden="true">›</span>
+            </button>
+            <button class="category-card" id="pastLawButton" type="button">
+              <strong>法規</strong><span id="pastLawCount"></span><span aria-hidden="true">›</span>
+            </button>
+          </div>
+        </section>
+        <section class="past-stage-section">
+          <h3 class="past-stage-heading">二次試験</h3>
+          <div class="past-stage-list">
+            <button class="category-card" id="pastPowerButton" type="button">
+              <strong>電力・管理</strong><span id="pastPowerCount"></span><span aria-hidden="true">›</span>
+            </button>
+            <button class="category-card" id="pastMachineButton" type="button">
+              <strong>機械・制御</strong><span id="pastMachineCount"></span><span aria-hidden="true">›</span>
+            </button>
+          </div>
+        </section>
         <button class="category-card" id="pastYearButton" type="button">
           <strong>年度別</strong><span id="pastYearCount"></span><span aria-hidden="true">›</span>
         </button>

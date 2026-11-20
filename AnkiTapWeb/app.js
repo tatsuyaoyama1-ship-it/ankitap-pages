@@ -195,6 +195,14 @@ const elements = {
   cardListEmpty: document.querySelector("#cardListEmpty"),
   cardList: document.querySelector("#cardList"),
   pastBrowseView: document.querySelector("#pastBrowseView"),
+  pastTheoryButton: document.querySelector("#pastTheoryButton"),
+  pastFirstPowerButton: document.querySelector("#pastFirstPowerButton"),
+  pastFirstMachineButton: document.querySelector("#pastFirstMachineButton"),
+  pastLawButton: document.querySelector("#pastLawButton"),
+  pastTheoryCount: document.querySelector("#pastTheoryCount"),
+  pastFirstPowerCount: document.querySelector("#pastFirstPowerCount"),
+  pastFirstMachineCount: document.querySelector("#pastFirstMachineCount"),
+  pastLawCount: document.querySelector("#pastLawCount"),
   pastPowerButton: document.querySelector("#pastPowerButton"),
   pastMachineButton: document.querySelector("#pastMachineButton"),
   pastYearButton: document.querySelector("#pastYearButton"),
@@ -267,6 +275,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindEvents() {
   elements.formulaModeButton.addEventListener("click", enterFormulaMode);
   elements.pastQuestionModeButton.addEventListener("click", enterPastQuestionMode);
+  elements.pastTheoryButton.addEventListener("click", () => selectPastBrowse("firstSubject", "riron"));
+  elements.pastFirstPowerButton.addEventListener("click", () => selectPastBrowse("firstSubject", "denryoku"));
+  elements.pastFirstMachineButton.addEventListener("click", () => selectPastBrowse("firstSubject", "kikai"));
+  elements.pastLawButton.addEventListener("click", () => selectPastBrowse("firstSubject", "houki"));
   elements.pastPowerButton.addEventListener("click", () => selectPastBrowse("genre", "denryoku_kanri"));
   elements.pastMachineButton.addEventListener("click", () => selectPastBrowse("genre", "kikai_seigyo"));
   elements.pastYearButton.addEventListener("click", () => selectPastBrowse("year", null));
@@ -635,6 +647,10 @@ function renderPastBrowse() {
   state.selectedPastFilter = null;
   state.visiblePastQuestions = [];
   const count = subject => state.pastQuestions.filter(question => question.subject === subject).length;
+  elements.pastTheoryCount.textContent = `${count("riron")}問`;
+  elements.pastFirstPowerCount.textContent = `${count("denryoku")}問`;
+  elements.pastFirstMachineCount.textContent = `${count("kikai")}問`;
+  elements.pastLawCount.textContent = `${count("houki")}問`;
   elements.pastPowerCount.textContent = `${count("denryoku_kanri")}問`;
   elements.pastMachineCount.textContent = `${count("kikai_seigyo")}問`;
   elements.pastYearCount.textContent = `${state.pastQuestions.length}問`;
@@ -674,13 +690,19 @@ async function enterPrintReviewMode() {
 
 function renderPastFilters() {
   const byGenre = state.pastBrowseMode === "genre";
-  const filters = byGenre ? pastGenreFilters(state.pastBrowseSubject) : pastQuestionFilters();
+  const byFirstSubject = state.pastBrowseMode === "firstSubject";
+  const filters = byGenre
+    ? pastGenreFilters(state.pastBrowseSubject)
+    : pastQuestionFilters().filter(filter => !byFirstSubject || (
+      filter.stage === "first" && filter.subject === state.pastBrowseSubject
+    ));
   const filtersByStage = new Map();
   const favoriteCount = state.pastQuestions.filter(question =>
-    (!byGenre || question.subject === state.pastBrowseSubject) && isFavoritePastQuestion(question)
+    ((!byGenre && !byFirstSubject) || question.subject === state.pastBrowseSubject)
+      && isFavoritePastQuestion(question)
   ).length;
 
-  elements.pastFilterHeading.textContent = byGenre
+  elements.pastFilterHeading.textContent = byGenre || byFirstSubject
     ? subjectLabels[state.pastBrowseSubject] ?? state.pastBrowseSubject
     : "年度別";
   elements.pastFavoriteOnlyToggle.checked = state.pastFavoriteOnly;
@@ -709,7 +731,9 @@ function renderPastFilters() {
       const list = document.createElement("div");
       list.className = "past-stage-list";
       list.replaceChildren(...stageFilters.map(filter => pastFilterButton(
-        filter, `${formatYear(filter.year)} ${subjectLabels[filter.subject] ?? filter.subject}`
+        filter, byFirstSubject
+          ? formatYear(filter.year)
+          : `${formatYear(filter.year)} ${subjectLabels[filter.subject] ?? filter.subject}`
       )));
 
       section.append(heading, list);
@@ -1409,7 +1433,8 @@ function renderPastQuestion() {
   const tab = tabs[state.pastStep];
   const waitsForTap = waitsForAnswerTap(question);
   const progressiveBlankKeys = blankKeysInQuestionOrder(question);
-  const usesProgressiveBlanks = question.questionType === "fill_blank" && progressiveBlankKeys.length > 0;
+  const usesProgressiveBlanks = question.questionType === "fill_blank"
+    && progressiveBlankKeys.length > 0 && question.stage !== "first";
 
   if (usesProgressiveBlanks) {
     state.pastTabsRevealed = state.revealedBlankCount >= progressiveBlankKeys.length;
@@ -1441,11 +1466,22 @@ function waitsForAnswerTap(question) {
   return question.questionType === "fill_blank";
 }
 
+function hasFirstExamSubAnswers(question) {
+  return question?.stage === "first" && question.questionType === "fill_blank"
+    && question.subQuestions.length > 0;
+}
+
+function isFirstExamFillBlank(question) {
+  return question?.stage === "first" && question.questionType === "fill_blank";
+}
+
 function pastTabsFor(question) {
   let tabs;
   if (question.questionType === "fill_blank") {
-    tabs = tabsWithContent(question, fillBlankSteps);
-    if (question.subQuestions.length > 0) {
+    tabs = hasFirstExamSubAnswers(question)
+      ? [{ key: "calculation_questions", label: "解答過程" }]
+      : tabsWithContent(question, fillBlankSteps);
+    if (!hasFirstExamSubAnswers(question) && question.subQuestions.length > 0) {
       tabs = [...tabs, { key: "calculation_questions", label: "小問" }];
     }
   } else if (question.questionType === "essay") {
@@ -1510,14 +1546,15 @@ function hideDebugMeta() {
 function renderPastProblem(question) {
   let problemRender = Promise.resolve();
   const imageOnly = question.stage === "first" && !question.questionText;
-  const firstExamImage = question.stage === "first" && Boolean(question.questionImage);
+  const firstExamImage = imageOnly && Boolean(question.questionImage);
   elements.pastQuestionPanel.classList.toggle("first-exam-image-question", firstExamImage);
   elements.pastQuestionTextLabel.classList.toggle("hidden", imageOnly);
   elements.pastQuestionText.classList.toggle("hidden", imageOnly);
   elements.pastQuestionImageLabel.textContent = question.stage === "first" ? "問題" : "問題図";
 
   if (question.questionText) {
-    if (question.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+    if (question.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0
+      && !hasFirstExamSubAnswers(question)) {
       problemRender = renderProgressiveFillBlankQuestion(elements.pastQuestionText, question);
     } else {
       const text = question.questionType === "fill_blank" ? blankedQuestionText(question) : question.questionText;
@@ -1717,7 +1754,8 @@ function renderAnswerPlaceholder(target, question) {
   button.type = "button";
   const blankKeys = blankKeysInQuestionOrder(question);
 
-  if (question.questionType === "fill_blank" && blankKeys.length > 0) {
+  if (question.questionType === "fill_blank" && blankKeys.length > 0
+    && !isFirstExamFillBlank(question)) {
     const nextKey = blankKeys[state.revealedBlankCount];
     const number = nextKey?.replace(/^blank/, "") || state.revealedBlankCount + 1;
     button.textContent = `空欄${blankDisplayLabel(question, number)}を表示（${state.revealedBlankCount}/${blankKeys.length}）`;
@@ -1734,15 +1772,19 @@ function handlePastQuestionTap(event) {
   }
 
   const question = currentPastQuestions()[state.pastIndex];
-  if (question?.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+  if (question?.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0
+    && !isFirstExamFillBlank(question)) {
     revealNextBlank();
+  } else if (isFirstExamFillBlank(question)) {
+    revealPastTabs();
   }
 }
 
 function handlePastAnswerTap() {
   const question = currentPastQuestions()[state.pastIndex];
 
-  if (question?.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0) {
+  if (question?.questionType === "fill_blank" && blankKeysInQuestionOrder(question).length > 0
+    && !isFirstExamFillBlank(question)) {
     revealNextBlank();
     return;
   }

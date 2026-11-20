@@ -12198,117 +12198,819 @@ h21_second_kikai_seigyo_q04	h21	second	kikai_seigyo	4	calculation	図に示す�
 =\lim_{s\to0}s\left[\frac{s(s^2+6s+K_2+5)}{s^3+6s^2+(K_2+5)s+K_1}\cdot\frac{1}{s^2}\right]
 =\frac{K_2+5}{K_1}\qquad\text{⑤}\]
 となる。"																														(5)a. 図のフィードバック制御系が安定となるように\(K_1\)と\(K_2\)が選ばれるとする。上記(3)及び(4)の結果を踏まえて，\(K_1\)を固定したとき，\(K_2\)を大きくすると，速応性と定常特性はどのように変化するかを理由とともに答えよ。					a．\(K_1\)を固定して\(K_2\)を大きくすると，\(G(s)=\frac{Y(s)}{U(s)}\)のゲインが低下する。このとき，一巡伝達関数\(K_1G(s)\)のゲインが低下するので，フィードバック制御系の速応性が低下する。一方，⑤式から定常速度偏差が増大するため，定常特性は劣化する。																(5)b. 図のフィードバック制御系が安定となるように\(K_1\)と\(K_2\)が選ばれるとする。上記(3)及び(4)の結果を踏まえて，\(K_2\)を固定したとき，\(K_1\)を大きくすると，減衰特性と定常特性はどのように変化するかを理由とともに答えよ。					b．③式からわかるように，\(K_1\)を大きくして\(6(K_2+5)\)の安定限界に近づくにつれて振動的になり減衰特性が損なわれる。さらに，⑤式からわかるように定常特性は改善される。															data/pdfs/h21/second/kikai_seigyo.pdf p.9	h21|second|kikai_seigyo|calculation		data/pdfs/h21/second/kaitou.pdf pp.19-21	draft																
-r07_first_riron_q01	r07	first	riron	1	fill_blank		data/questions/r07/first/figures/riron_q01_page1.webp|data/questions/r07/first/figures/riron_q01_page2.webp																																																																																																																																																								"(1) ヲ
+r07_first_riron_q01	r07	first	riron	1	fill_blank	"次の文章は，影像法を用いた静電容量の解析に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。なお，空気の誘電率は\(\varepsilon _{0} \)，大地は完全導体として計算せよ。
+
+図に示すように，大地面から高さ\(h \)の位置に大地面と平行に張られた直線状の電線を考える。電線は無限長であり，半径\(a \)は\(h \)よりも十分小さい\(\left( a≪h \right) \)。影像法を用いる場合，大地面から深さ\(h \)の位置に半径\(a \)で無限長の影像電線を考え，電線に単位長さ当たり\(+\lambda \)の電荷を与えると，影像電線の単位長さ当たりの電荷は【blank1】となる。このとき，電線から大地に向かう垂線上で電線の中心軸から距離\(x\left( ≧a \right) \)の位置に電線の電荷\(+\lambda \)がつくる電界の強さは\(E_{1}\left( x\right)= \ \boxed{(2)} \)，影像電線の電荷がつくる電界の強さは\(E_{2}\left( x\right) = \ \boxed{(3)} \)となり，電線の中心軸から距離\(x \)の位置の電界の強さは\(E\left( x\right) =E_{1}\left( x\right) +E_{2}\left( x\right) \)と求まる。
+
+\(E\left( x\right) \)を\(a≦ x≦h \)の範囲で積分すると，電線と大地面との間の電位差\(V \)は【blank4】と求まる。これにより，電線と大地面との間の単位長さ当たりの静電容量は【blank5】と求まる。
+
+〔問1の解答群〕
+
+（イ）0
+（ロ）\(\frac {\lambda }{2\pi \varepsilon _{0}\left( x-h\right) }\)
+（ハ）\(\frac {\lambda }{2\pi \varepsilon _{0}x }\)
+（ニ）\(\frac {\lambda }{2\pi \varepsilon _{0}\left( x-a \right) }\)
+（ホ）\(\frac {\lambda }{2\pi \varepsilon _{0}\left( h-x\right) }\)
+（ヘ）\(\frac {4\pi \varepsilon _{0}}{\displaystyle \ln \left( \frac {2h-a}{a}\right) }\)
+（ト）\(\frac {\lambda }{\pi \varepsilon _{0} }\ln \left( \frac {2h-a}{a}\right)\)
+（チ）\(\frac {2\pi \varepsilon _{0}}{\displaystyle \ln \left( \frac {2h-a}{a}\right) }\)
+（リ）\(\frac {\lambda }{\pi \varepsilon _{0} }\ln \left( \frac {h-a}{a}\right)\)
+（ヌ）\(\frac {\lambda }{2\pi \varepsilon _{0}\left( h+x\right) }\)
+（ル）\(\frac {\lambda }{2\pi \varepsilon _{0} }\ln \left( \frac {2h-a}{a}\right)\)
+（ヲ）\(-\lambda\)
+（ワ）\(+\lambda\)
+（カ）\(\frac {\lambda }{2\pi \varepsilon _{0}\left( 2h-x\right) }\)
+（ヨ）\(\frac {\pi \varepsilon _{0}}{\displaystyle \ln \left( \frac {2h-a}{a}\right) }\)"	data/questions/r07/first/figures/riron_q01_fig.webp	空欄(1) 影像電荷			接地面の電位を零にするには，面を挟んで対称な位置に逆符号の電荷を置く。したがって影像線電荷は \(-\lambda\)。		（ヲ）\(-\lambda\)																空欄(2) 実電線の電界			半径 \(x\) の円筒面にガウスの法則を適用する。\(\displaystyle E_1(2\pi x)\varepsilon_0=\lambda\) より \(\displaystyle E_1=\frac{\lambda}{2\pi\varepsilon_0x}\)。		（ハ）\(\frac {\lambda }{2\pi \varepsilon _{0}x }\)																							空欄(3) 影像電線の電界			観測点から影像電線までの距離は \(2h-x\)。したがって \(\displaystyle E_2=\frac{\lambda}{2\pi\varepsilon_0(2h-x)}\)。		（カ）\(\frac {\lambda }{2\pi \varepsilon _{0}\left( 2h-x\right) }\)																														空欄(4) 電位差			\(\displaystyle V=\int_a^h(E_1+E_2)\,\mathrm{d}x=\frac{\lambda}{2\pi\varepsilon_0}\int_a^h\left(\frac1x+\frac1{2h-x}\right)\mathrm{d}x=\frac{\lambda}{2\pi\varepsilon_0}\ln\frac{2h-a}{a}\)。		（ル）\(\frac {\lambda }{2\pi \varepsilon _{0} }\ln \left( \frac {2h-a}{a}\right)\)																														空欄(5) 単位長さ当たりの静電容量			\(\displaystyle C=\frac{\lambda}{V}=\frac{2\pi\varepsilon_0}{\ln((2h-a)/a)}\)。		（チ）\(\frac {2\pi \varepsilon _{0}}{\displaystyle \ln \left( \frac {2h-a}{a}\right) }\)																											"(1) ヲ
 (2) ハ
 (3) カ
 (4) ル
 (5) チ"									data/pdfs/r07/first/riron.pdf pp.4-5	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q02	r07	first	riron	2	fill_blank		data/questions/r07/first/figures/riron_q02_page1.webp|data/questions/r07/first/figures/riron_q02_page2.webp																																																																																																																																																								"(1) ヲ
+r07_first_riron_q02	r07	first	riron	2	fill_blank	"次の文章は，回転するコイルの相互インダクタンスに関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+自己インダクタンスがそれぞれ\(L_{1} \)，\(L_{2} \)のコイル\(1 \)とコイル\(2 \)がある。コイル\(1 \)は固定されている一方で，コイル\(2 \)は回転するようになっており，回転角が\(\theta \)であるときの相互インダクタンスは，\(M_{0}\cos \theta \)で表せるものとする。ただし，\(M_{0} \)は定数である。このとき，\(L_{1} \)，\(L_{2} \)，\(M_{0} \)の間には一般に【blank1】の関係が成り立つ。
+
+コイル\(1 \)には定電流\(I_{1} \)が，コイル\(2 \)には定電流\(I_{2} \)が流れている。このとき，空間に蓄えられた合計の磁気エネルギー\(W \)は【blank2】である。
+
+コイル\(2 \)の回転軸周りに発生するトルクは，仮想変位法の考え方に従って\(\displaystyle \frac{ \partial W }{ \partial \theta } \)で求められ，それを計算すると，【blank3】となる。
+
+さらに，時刻を\(t \)とし，コイル\(2 \)を\(\theta =\omega t \)に従って角速度\(\omega \)で定速回転させると，コイル\(1 \)に鎖交する磁束\(\mathit {\Phi }_{1} \)は【blank4】であり，ファラデーの電磁誘導の法則によりコイル\(1 \)に発生する起電力は【blank5】となる。
+
+〔問2の解答群〕
+
+（イ）\(L_{1}I_{1}+M_{0}I_{2}\cos \omega t\)
+（ロ）\(\omega \left( L_{1}+L_{2}\right) \left( I_{1}+I_{2}\right) \sin \omega t\)
+（ハ）\(\frac {1}{2}\left( L_{1}+L_{2}\right) \left( I_{1}+I_{2}\right) ^{2}+M_{0}I_{1}I_{2}\cos \theta\)
+（ニ）\(\frac {1}{2}\frac {L_{1}L_{2}\sin \theta}{M_{0}\cos ^{2}\theta }I_{1}I_{2}\)
+（ホ）\(L_{2}I_{2}+M_{0}I_{1}\cos \omega t\)
+（ヘ）\(\left( L_{1}+L_{2}\right) \left( I_{1}+I_{2}\right) \cos \omega t\)
+（ト）\(L_{1}+L_{2}≧M_{0}\)
+（チ）\(-M_{0}I_{1}I_{2}\sin \theta\)
+（リ）\(L_{1}L_{2}≧2{M_{0}}^{2}\)
+（ヌ）\(\omega M_{0}I_{1}\sin \omega t\)
+（ル）\(-M_{0}I_{1}I_{2}\cos \theta\)
+（ヲ）\(L_{1}L_{2}≧{M_{0}}^{2}\)
+（ワ）\(\frac {1}{2}L_{1}{I_{1}}^{2}+\frac {1}{2}L_{2}{I_{2}}^{2}+M_{0}I_{1}I_{2}\cos \theta\)
+（カ）\(\frac {1}{2}\frac {L_{1}L_{2}}{M_{0}\cos \theta }I_{1}I_{2}\)
+（ヨ）\(\omega M_{0}I_{2}\sin \omega t\)"		空欄(1) 相互インダクタンスの範囲			結合係数 \(k=M_0/\sqrt{L_1L_2}\) の大きさは \(1\) 以下。よって \(M_0^2\leq L_1L_2\)。		（ヲ）\(L_{1}L_{2}≧{M_{0}}^{2}\)																空欄(2) 磁気エネルギー			自己エネルギーを各コイルで足し，相互項 \(M_0\cos\theta\,I_1I_2\) を加える。\(\displaystyle W=\frac12L_1I_1^2+\frac12L_2I_2^2+M_0I_1I_2\cos\theta\)。		（ワ）\(\frac {1}{2}L_{1}{I_{1}}^{2}+\frac {1}{2}L_{2}{I_{2}}^{2}+M_{0}I_{1}I_{2}\cos \theta\)																							空欄(3) 回転トルク			\(I_1,I_2\) を一定として \(W\) を \(\theta\) で偏微分する。\(\displaystyle T=\frac{\partial W}{\partial\theta}=-M_0I_1I_2\sin\theta\)。		（チ）\(-M_{0}I_{1}I_{2}\sin \theta\)																														空欄(4) コイル1の鎖交磁束			自己磁束 \(L_1I_1\) とコイル2からの相互磁束 \(M_0I_2\cos\theta\) の和。\(\theta=\omega t\) より \(\Phi_1=L_1I_1+M_0I_2\cos\omega t\)。		（イ）\(L_{1}I_{1}+M_{0}I_{2}\cos \omega t\)																														空欄(5) 誘導起電力			ファラデーの法則より \(\displaystyle e_1=-\frac{\mathrm{d}\Phi_1}{\mathrm{d}t}=\omega M_0I_2\sin\omega t\)。		（ヨ）\(\omega M_{0}I_{2}\sin \omega t\)																											"(1) ヲ
 (2) ワ
 (3) チ
 (4) イ
 (5) ヨ"									data/pdfs/r07/first/riron.pdf pp.6-7	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q03	r07	first	riron	3	fill_blank		data/questions/r07/first/figures/riron_q03_page1.webp|data/questions/r07/first/figures/riron_q03_page2.webp																																																																																																																																																								"(1) ヨ
+r07_first_riron_q03	r07	first	riron	3	fill_blank	"次の文章は，交流電気回路に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+起電力\(\dot E=E\mathrm {e}^{\mathrm {j}0} \)で角周波数\(\omega \)の交流電圧源から，インダクタンス\(L \)を持つ電線を介して抵抗\(R \)の負荷に電力を送る図1の回路がある。\(R \)を変化させるとき，電力が最大となる条件を求めたい。ただし，静電容量\(C \)を持つコンデンサがあって，必要に応じて負荷に並列に接続できるものとし，\(\dot E \)と，ここから流れ出る電流\(\dot I \)の位相差を\(\phi \)とする。また，\(\omega ^{2}LC ＜ 1 \)が成立するものとする。
+
+スイッチ\(\mathrm {S} \)が開のときの回路の電圧ベクトル図を図2に示す。\(R \)を変化させると電流の変化につれて三角形\(\mathrm {OP_{2}P} \)も変化するが，\(R\dot I \)と\({\dot V}_{\mathrm {L}}=\mathrm {j}\omega L\dot I \)は直交するので直角の頂点\(\mathrm {P} \)は\(\dot E \)を直径とする円周上を移動する。
+
+\({\dot V}_{\mathrm {L}} \)は\(R \)を変化させても常に電流に比例する長さを持ち\(V_{\mathrm {L}}=k I \)と書ける（\(k= \omega L \)は比例係数）が，一方，\({\dot V}_{\mathrm {L}} \)と\(\dot E \)との位相差は【blank1】であるから三角形\(\mathrm {OP_{2}P} \)の面積は\(\displaystyle \frac {1}{2} EV_{\mathrm {L}} \ \boxed{(2)} \ =\frac {1}{2} EV_{\mathrm {L}} \cos \phi =\frac {1}{2} kEI \cos \phi \)と書ける。この式の右辺は電力\(EI \cos \phi \)に比例することから，電力の大きさは三角形\(\mathrm {OP_{2}P} \)の面積に比例することが分かる。したがって，電力が最大となるのは，頂点\(\mathrm {P} \)が点【blank3】に一致したときであり，その条件は【blank4】である。
+
+一方，\(\mathrm {S} \)を閉じてコンデンサを接続すると回路は図3の等価回路で表すことができ，図3の\(2 \)箇所の【X】に入る数式は【blank5】である。このときの電力を計算すると，\(\displaystyle \frac {RE^{2}}{R^{2}\left( 1-\omega ^{2}LC\right) ^{2}+\omega ^{2}L^{2}} \)となり，コンデンサを入れることで電力は増加する。
+
+〔問3の解答群〕
+
+（イ）\(\mathrm {P_{1}}\)
+（ロ）\(\mathrm {P_{2}}\)
+（ハ）\(\mathrm {P_{3}}\)
+（ニ）\(\phi\)
+（ホ）\(1-\omega CR\)
+（ヘ）\(\omega LR=1\)
+（ト）\(\sin \left( \frac {\pi }{2}-\phi \right)\)
+（チ）\(\omega ^{2}LR=1\)
+（リ）\(1-\omega ^{2}LC\)
+（ヌ）\(R=\omega L\)
+（ル）\(\tan \left( \frac {\pi }{2}-\phi \right)\)
+（ヲ）\(\pi -\phi\)
+（ワ）\(\cos \left( \frac {\pi }{2}-\phi \right)\)
+（カ）\(1+\frac {1}{\omega CR}\)
+（ヨ）\(\frac {\pi }{2}-\phi\)"	data/questions/r07/first/figures/riron_q03_fig.webp	空欄(1) フェーザ間の角度			インダクタ電圧は電流より \(90^\circ\) 進み，電源電圧と電流の位相差は \(\phi\)。したがって図の二つの電圧ベクトルのなす角は \(\pi/2-\phi\)。		（ヨ）\(\frac {\pi }{2}-\phi\)																空欄(2) 三角形の面積			底辺 \(E\)，斜辺 \(V_{\mathrm L}\)，そのなす角が \(\pi/2-\phi\) なので，面積は \(\frac12 EV_{\mathrm L}\sin(\pi/2-\phi)=\frac12 EV_{\mathrm L}\cos\phi\)。		（ト）\(\sin \left( \frac {\pi }{2}-\phi \right)\)																							空欄(3) 最大電力となる点			図の三角形の底辺 \(E\) は一定。面積が最大になるのは，頂点から底辺までの高さが最大になる点 \(\mathrm P_3\)。		（ハ）\(\mathrm {P_{3}}\)																														空欄(4) 最大電力の抵抗条件			\(\displaystyle P=\frac{E^2R}{R^2+(\omega L)^2}\) を \(R\) で微分し零とすると \(R^2=(\omega L)^2\)。\(R>0\) より \(R=\omega L\)。		（ヌ）\(R=\omega L\)																														空欄(5) 等価回路の係数			インダクタとコンデンサの直列インピーダンスは \(\mathrm j\omega L+1/(\mathrm j\omega C)=(1-\omega^2LC)/(\mathrm j\omega C)\)。したがって分圧・合成インピーダンスに共通して \(1-\omega^2LC\) が現れる。		（リ）\(1-\omega ^{2}LC\)																											"(1) ヨ
 (2) ト
 (3) ハ
 (4) ヌ
 (5) リ"									data/pdfs/r07/first/riron.pdf pp.8-9	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q04	r07	first	riron	4	fill_blank		data/questions/r07/first/figures/riron_q04_page1.webp|data/questions/r07/first/figures/riron_q04_page2.webp																																																																																																																																																								"(1) ル
+r07_first_riron_q04	r07	first	riron	4	fill_blank	"次の文章は，インピーダンスの校正に用いるブリッジ回路に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+図は，既知の標準インピーダンス\({\dot Z}_{\mathrm {S}} \)を用いて未知のインピーダンス\({\dot Z}_{\mathrm {X}} \)を校正するためのブリッジ回路で，交流電源\(\dot E \)，誘導分圧器\(\mathrm {IVD} \)及び検流計Ⓖで構成されている。なお，\(\mathrm {IVD} \)は理想的なものであり，全体の巻数\(n \)が固定で，\(k \)は可変（ただし，\(0 ＜ k ＜ 1 \)）である。
+
+\(\dot E \)は，\(\mathrm {IVD} \)によって\({\dot E}_{\mathrm {S}}= \ \boxed{(1)} \)，及び\({\dot E}_{\mathrm {X}}= \ \boxed{(2)} \)に分圧されるから，回路には，\(\displaystyle {\dot I}_{\mathrm {S}}=\frac { \ \boxed{(1)} \ }{{\dot Z}_{\mathrm {S}}} \)及び\(\displaystyle {\dot I}_{\mathrm {X}}=\frac { \ \boxed{(2)} \ }{{\dot Z}_{\mathrm {X}}} \)の電流が流れる。
+
+いま，\(\mathrm {IVD} \)の\(k \)を調整し，Ⓖが零を指してブリッジが平衡したとする。ブリッジが平衡しているため，\({\dot I}_{\mathrm {S}}={\dot I}_{\mathrm {X}} \)が成立することを勘案すれば，\({\dot Z}_{\mathrm {X}} \)が次式のとおり求められる。
+
+\[
+
+\begin{eqnarray}
+
+{\dot Z}_{\mathrm {X}}&=& \ \boxed{(3)} \ {\dot Z}_{\mathrm {S}} \\[ 5pt ]
+\end{eqnarray}
+
+\]
+本回路は【blank4】ブリッジの一種で，その特性は一般的に，【blank5】。
+
+〔問4の解答群〕
+
+（イ）シェーリング
+（ロ）\(k^{2}\dot E\)
+（ハ）\(\frac {1-k}{k}\)
+（ニ）\(\frac {1}{1-k}\dot E\)
+（ホ）\(\frac {1}{k}\dot E\)
+（ヘ）\(\left( 1-k\right) ^{2}\dot E\)
+（ト）1-k
+（チ）\(k\dot E\)
+（リ）マクスウェル
+（ヌ）\(\frac {k}{1-k}\)
+（ル）\(\left( 1-k\right) \dot E\)
+（ヲ）変成器
+（ワ）周囲温度の影響を受けやすいが，経年変化が少ない
+（カ）周囲温度の影響を受けにくいが，経年変化が大きい
+（ヨ）周囲温度の影響を受けにくく，経年変化が少ない"	data/questions/r07/first/figures/riron_q04_fig.webp	空欄(1) 標準側の分圧			分圧比が \((1-k)n:kn\) なので \(\displaystyle \dot E_{\mathrm S}=\frac{(1-k)n}{(1-k)n+kn}\dot E=(1-k)\dot E\)。		（ル）\(\left( 1-k\right) \dot E\)																空欄(2) 未知側の分圧			同様に \(\displaystyle \dot E_{\mathrm X}=\frac{kn}{(1-k)n+kn}\dot E=k\dot E\)。		（チ）\(k\dot E\)																							空欄(3) 平衡時のインピーダンス比			平衡時は \(\dot I_{\mathrm S}=\dot I_{\mathrm X}\)。よって \(\displaystyle \frac{(1-k)\dot E}{\dot Z_{\mathrm S}}=\frac{k\dot E}{\dot Z_{\mathrm X}}\) から \(\displaystyle \dot Z_{\mathrm X}=\frac{k}{1-k}\dot Z_{\mathrm S}\)。		（ヌ）\(\frac {k}{1-k}\)																														空欄(4) ブリッジの種類			図中の誘導分圧器で比を調整し，既知と未知のインピーダンスを比較する構成は変成器ブリッジに該当する。		（ヲ）変成器																														空欄(5) 特性			機械的な接点比ではなく誘導分圧比を使うため，周囲温度の影響を受けにくく，経年変化も少ないものを選ぶ。		（ヨ）周囲温度の影響を受けにくく，経年変化が少ない																											"(1) ル
 (2) チ
 (3) ヌ
 (4) ヲ
 (5) ヨ"									data/pdfs/r07/first/riron.pdf pp.10-11	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q05	r07	first	riron	5	fill_blank		data/questions/r07/first/figures/riron_q05_page1.webp|data/questions/r07/first/figures/riron_q05_page2.webp																																																																																																																																																								"(1) ヘ
+r07_first_riron_q05	r07	first	riron	5	fill_blank	"次の文章は，直流回路に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+図1の直流回路は，直流電圧源，直流電流源及び抵抗から構成されており，端子\(\mathrm {A-B} \)間の抵抗\(R \)は可変抵抗である。以下の手順に従って，可変抵抗\(R \)で消費される電力が最大となる条件及び最大消費電力を求める。
+
+図1の回路を，二つの直流電圧源を用いた図2の等価回路に変換すると，図2の\(V_{1} \)は\(\boxed{(1)} \ \mathrm {V} \)となる。さらに，図2の回路を，一つの直流電流源を用いた図3の等価回路に変換すると，図3の\(R_{1} \)は\(\boxed{(2)} \ \mathrm {\Omega } \)となる。
+
+図3の等価回路より，可変抵抗\(R \)で消費される電力\(P \)は，\(R \)を用いて\(P= \ \boxed{(3)} \ \mathrm {[W]} \)と表される。可変抵抗\(R \)で消費される電力\(P \)が最大となる条件は，\(R \)を用いて\(\displaystyle \frac {\mathrm {d}P}{\mathrm {d}R}= \ \boxed{(4)} \ =0 \)と表される。したがって，可変抵抗\(R \)で消費される最大消費電力は\(\boxed{(5)} \ \mathrm {W} \)となる。
+
+〔問5の解答群〕
+
+（イ）1
+（ロ）2
+（ハ）3
+（ニ）4
+（ホ）5
+（ヘ）6
+（ト）8
+（チ）12
+（リ）16
+（ヌ）\(-\frac {16\left( R-1\right) }{\left( R+1\right) ^{3}}\)
+（ル）\(\frac {16\left( R-2\right) }{\left( R+2\right) ^{4}}\)
+（ヲ）\(\frac {16R }{\left( R+1\right) ^{2}}\)
+（ワ）\(\frac {16\left( R-1\right) }{\left( R+1\right) ^{3}}\)
+（カ）\(\frac {4R }{\left( R+2\right) ^{2}}\)
+（ヨ）\(\frac {16R }{R+1}\)"	data/questions/r07/first/figures/riron_q05_fig1.webp|data/questions/r07/first/figures/riron_q05_fig2_fig3.webp	空欄(1) 電圧源への変換			図1の \(3\,\mathrm A\) の電流源と \(2\,\Omega\) の並列抵抗を等価な電圧源にすると，\(V_1=3\times2=6\,\mathrm V\)。		（ヘ）6																空欄(2) ノートン抵抗			図2で二つの \(2\,\Omega\) が並列になる。\(\displaystyle R_1=\frac{2\times2}{2+2}=1\,\Omega\)。		（イ）1																							空欄(3) 可変抵抗の消費電力			図3で電流分配より \(\displaystyle I_R=4\frac{R_1}{R+R_1}=\frac4{R+1}\,\mathrm A\)。したがって \(\displaystyle P=I_R^2R=\frac{16R}{(R+1)^2}\,\mathrm W\)。		（ヲ）\(\frac {16R }{\left( R+1\right) ^{2}}\)																														空欄(4) 極大条件の微分			\(\displaystyle \frac{\mathrm dP}{\mathrm dR}=\frac{16(R+1)^2-32R(R+1)}{(R+1)^4}=-\frac{16(R-1)}{(R+1)^3}\)。これが零となるのは \(R=1\,\Omega\)。		（ヌ）\(-\frac {16\left( R-1\right) }{\left( R+1\right) ^{3}}\)																														空欄(5) 最大消費電力			\(R=1\,\Omega\) を代入すると \(\displaystyle P_{\max}=\frac{16\cdot1}{(1+1)^2}=4\,\mathrm W\)。		（ニ）4																											"(1) ヘ
 (2) イ
 (3) ヲ
 (4) ヌ
 (5) ニ"									data/pdfs/r07/first/riron.pdf pp.12-13	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q06	r07	first	riron	6	fill_blank		data/questions/r07/first/figures/riron_q06_page1.webp|data/questions/r07/first/figures/riron_q06_page2.webp																																																																																																																																																								"(1) リ
+r07_first_riron_q06	r07	first	riron	6	fill_blank	"次の文章は，複数のコンデンサを持つ電気回路の過渡現象に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+図の回路において，最初スイッチ\(\mathrm {S_{1}} \)と\(\mathrm {S_{3}} \)は閉，スイッチ\(\mathrm {S_{2}} \)は開の状態であり，回路は定常状態にあるとする。\(R_{1} \)，\(R_{2} \)，\(R_{3} \)は抵抗，\(E_{1} \)，\(E_{2} \)は直流電圧源である。このとき静電容量\(C_{1} \)，\(C_{2} \)のコンデンサの電荷\(q_{1} \)，\(q_{2} \)（上側極板が正の場合を正とする）はそれぞれ\(\boxed{(1)} \ \mathrm {C} \)及び\(\boxed{(2)} \ \mathrm {C} \)である。ここで，\(\mathrm {S_{1}} \)と\(\mathrm {S_{3}} \)を開き，次いで時刻\(t=0 \)で\(\mathrm {S_{2}} \)を閉じた後のコンデンサ電圧の定常値（両者共通）を求めたい。
+
+\(t＞0 \)において\(q_{1} \)と\(q_{2} \)の和は一定に保たれるので，次の関係がある。
+
+\[
+
+\begin{eqnarray}
+
+ \ \boxed{(3)} \ \ ·················································　① \\[ 5pt ]
+\end{eqnarray}
+
+\]
+また，回路中央部の\(C_{1} \)，\(C_{2} \)，\(R_{2} \)からなる閉路で成り立つ閉路方程式は
+
+\[
+
+\begin{eqnarray}
+
+\frac {q_{1}}{C_{1}}&=&\frac {q_{2}}{C_{2}}+R_{2}\frac {\mathrm {d}q_{2}}{\mathrm {d}t} ·······································　② \\[ 5pt ]
+\end{eqnarray}
+
+\]
+となる。
+
+②式に①式を代入，整理して\(q_{2} \)に関する方程式の形で表せば，【blank4】となる。これを解いて\(t \)を無限大とすることで\(q_{2} \)の定常値を知ることができる。これと\(C_{2} \)からコンデンサ電圧の定常値は\(\boxed{(5)} \ \mathrm {V} \)と分かる。
+
+〔問6の解答群〕
+
+（イ）1
+（ロ）2
+（ハ）3
+（ニ）4
+（ホ）5
+（ヘ）6
+（ト）7
+（チ）8
+（リ）9
+（ヌ）\(\frac {\mathrm {d}q_{1}}{\mathrm {d}t}=\frac {\mathrm {d}q_{2}}{\mathrm {d}t}\)
+（ル）\(q_{1}+q_{2}=C_{1}E_{1}+C_{2}E_{2}\)
+（ヲ）\(R_{2}\frac {\mathrm {d}q_{2}}{\mathrm {d}t}+\frac {q_{2}}{C_{2}}=0\)
+（ワ）\(\frac {q_{1}}{C_{1}}+\frac {q_{2}}{C_{2}}=0　　　 \ \\)
+（カ）\(R_{2}\frac {\mathrm {d}q_{2}}{\mathrm {d}t}+\frac {q_{2}}{C_{1}+C_{2}}=\frac {C_{1}E_{1}+C_{2}E_{2}}{C_{1}}\)
+（ヨ）\(R_{2}\frac {\mathrm {d}q_{2}}{\mathrm {d}t}+\left( \frac {1}{C_{1}}+\frac {1}{C_{2}}\right) q_{2}=\frac {C_{1}E_{1}+C_{2}E_{2}}{C_{1}}\)"	data/questions/r07/first/figures/riron_q06_fig.webp	空欄(1) コンデンサ1の初期電荷			初期定常状態で \(\displaystyle q_1=C_1E_1=1\times9=9\,\mathrm C\)。		（リ）9																空欄(2) コンデンサ2の初期電荷			同様に \(\displaystyle q_2=C_2E_2=2\times3=6\,\mathrm C\)。		（ヘ）6																							空欄(3) 電荷保存			電源を切り離した後も両コンデンサの全電荷は保存される。\(\displaystyle q_1+q_2=C_1E_1+C_2E_2=15\,\mathrm C\)。		（ル）\(q_{1}+q_{2}=C_{1}E_{1}+C_{2}E_{2}\)																														空欄(4) 電荷の微分方程式			\(q_1=C_1E_1+C_2E_2-q_2\) を回路の電圧関係 \(\displaystyle q_1/C_1=q_2/C_2+R_2\,\mathrm dq_2/\mathrm dt\) に代入する。\(\displaystyle R_2\frac{\mathrm dq_2}{\mathrm dt}+\left(\frac1{C_1}+\frac1{C_2}\right)q_2=\frac{C_1E_1+C_2E_2}{C_1}\)。		（ヨ）\(R_{2}\frac {\mathrm {d}q_{2}}{\mathrm {d}t}+\left( \frac {1}{C_{1}}+\frac {1}{C_{2}}\right) q_{2}=\frac {C_{1}E_{1}+C_{2}E_{2}}{C_{1}}\)																														空欄(5) 定常時の共通電圧			定常状態では \(\mathrm dq_2/\mathrm dt=0\)。よって \(\displaystyle (1+1/2)q_2=15\)，\(q_2=10\,\mathrm C\)，\(\displaystyle V=q_2/C_2=5\,\mathrm V\)。		（ホ）5																											"(1) リ
 (2) ヘ
 (3) ル
 (4) ヨ
 (5) ホ"									data/pdfs/r07/first/riron.pdf pp.14-15	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q07	r07	first	riron	7	fill_blank	問７と問８は選択問題です。どちらか１問を選択してください。選択問題は両方解答すると採点されません。	data/questions/r07/first/figures/riron_q07_page1.webp|data/questions/r07/first/figures/riron_q07_page2.webp																																																																																																																																																								"(1) イ
+r07_first_riron_q07	r07	first	riron	7	fill_blank	"問7及び問8は選択問題であり，問7又は問8のどちらかを選んで解答すること。両方解答すると採点されません。
+
+次の文章は，磁界中の電子の運動に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。なお，電子の電荷を\(-e\left( ＜0 \right) \)，質量を\(m \)とし，質量の変化は無視できるものとする。
+
+図のように，透磁率\(\mu _{0} \)の真空中で，大きさ\(H \)の一様な磁界に直角に速さ\(v_{0} \)で電子が運動している。このとき電子は，進行方向に直角で【blank1】方向に，大きさ\(F= \ \boxed{(2)} \)のローレンツ力を受けて等速円運動を行う。この半径を\(r \)とすると，その加速度の大きさは【blank3】である。運動の第二法則より，次の運動方程式が成り立つ。
+
+\[
+
+\begin{eqnarray}
+
+F&=&m \ \boxed{(3)} \ \\[ 5pt ]
+\end{eqnarray}
+
+\]
+上式より，電子は毎秒【blank4】回だけ周回運動することが分かる。したがって円運動の\(1 \)回転に要する時間は電子の速度\(v_{0} \)に【blank5】。
+
+〔問7の解答群〕
+
+（イ）紙面表から裏の
+（ロ）\(\frac {e\mu _{0}H}{2\pi m v_{0}}\)
+（ハ）\(e\mu _{0}Hv_{0}\)
+（ニ）\(\frac {v_{0}}{r^{2}}\)
+（ホ）依存しない
+（ヘ）\(rv_{0}\)
+（ト）紙面裏から表の
+（チ）\(e\mu _{0}H{v_{0}}^{2}\)
+（リ）比例する
+（ヌ）反比例する
+（ル）\(\frac {{v_{0}}^{2}}{r}\)
+（ヲ）\(H \ の向きと同じ\)
+（ワ）\(\frac {e\mu _{0}Hv_{0}}{2\pi m }\)
+（カ）\(\frac {e\mu _{0}H}{v_{0}}\)
+（ヨ）\(\frac {e\mu _{0}H}{2\pi m }\)"	data/questions/r07/first/figures/riron_q07_fig.webp	空欄(1) ローレンツ力の向き			電子の電荷は負なので，力の向きは正電荷に対する 　\(\boldsymbol v\times\boldsymbol B\) の向きと逆になる。図の速度と磁界の向きから，紙面の表から裏へ向かう。		（イ）紙面表から裏の																空欄(2) ローレンツ力の大きさ			磁束密度は \(B=\mu_0H\)。速度と磁界が直交するので \(\displaystyle F=e v_0 B=e\mu_0Hv_0\)。		（ハ）\(e\mu _{0}Hv_{0}\)																							空欄(3) 円運動の加速度			半径 \(r\)，速さ \(v_0\) の等速円運動の向心加速度は \(\displaystyle a=v_0^2/r\)。		（ル）\(\frac {{v_{0}}^{2}}{r}\)																														空欄(4) 周回数			\(\displaystyle e\mu_0Hv_0=m v_0^2/r\) から \(\displaystyle r=mv_0/(e\mu_0H)\)。周期は \(T=2\pi r/v_0=2\pi m/(e\mu_0H)\) なので \(\displaystyle f=1/T=e\mu_0H/(2\pi m)\)。		（ヨ）\(\frac {e\mu _{0}H}{2\pi m }\)																														空欄(5) 速さとの関係			\(\displaystyle T=2\pi m/(e\mu_0H)\) に \(v_0\) は含まれない。速さが変わると軌道半径は変わるが，周回数は変わらない。		（ホ）依存しない																											"(1) イ
 (2) ハ
 (3) ル
 (4) ヨ
 (5) ホ"									data/pdfs/r07/first/riron.pdf pp.16-17	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_riron_q08	r07	first	riron	8	fill_blank	問７と問８は選択問題です。どちらか１問を選択してください。選択問題は両方解答すると採点されません。	data/questions/r07/first/figures/riron_q08_page1.webp|data/questions/r07/first/figures/riron_q08_page2.webp																																																																																																																																																								"(1) イ
+r07_first_riron_q08	r07	first	riron	8	fill_blank	"問7及び問8は選択問題であり，問7又は問8のどちらかを選んで解答すること。両方解答すると採点されません。
+
+次の文章は，エミッタ接地増幅回路に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+まず，入力電圧\(v_{\mathrm {in}}=0 \)とし，図1のエミッタ接地増幅回路の各部のバイアス電位及び電流を求める。ただし，回路の電源電圧は\(V_{\mathrm {CC}} \)とし，各抵抗器の抵抗値は\(R_{\mathrm {1}} \)，\(R_{\mathrm {2}} \)，\(R_{\mathrm {E}} \)，\(R_{\mathrm {C}} \)とする。ベースを流れるバイアス電流\(I_{\mathrm {B}} \)が他の電流に比べ小さく無視できるとき，ベース電位\(V_{\mathrm {B}} \)は【blank1】となる。このとき，エミッタ電流\(I_{\mathrm {E}} \)は，\(V_{\mathrm {B}} \)とベースーエミッタ間電圧\(V_{\mathrm {BE}} \)を用いて【blank2】となる。一方，コレクタ電位\(V_{\mathrm {C}} \)は，コレクタ電流\(I_{\mathrm {C}} \)を用いて【blank3】となる。エミッタ電流とコレクタ電流が等しいとみなせるとき，【blank2】と【blank3】から\(V_{\mathrm {C}} \)が求まる。
+
+次に，図1のエミッタ接地増幅回路の電圧増幅度を求める。各コンデンサの静電容量は\(C_{\mathrm {1}} \)，\(C_{\mathrm {2}} \)，\(C_{\mathrm {E}} \)であり，信号の周波数において，全てのコンデンサのインピーダンスは小さく無視できるとする。このとき，図1の交流等価回路は図2となる。図2において破線で囲まれた部分はトランジスタの交流等価回路であり，\(h_{\mathrm {ie}} \)と\(h_{\mathrm {fe}} \)はそれぞれ用いたトランジスタの入力インピーダンスと電流増幅率である。入力電圧\(v_{\mathrm {in}} \)を加えた際の出力電圧は\(v_{\mathrm {out}} \)より，電圧増幅度\(\displaystyle \frac {v_{\mathrm {out}}}{v_{\mathrm {in}}} \)は【blank4】となる。電圧増幅度の符号から，エミッタ接地増幅回路は【blank5】であることが分かる。
+
+〔問8の解答群〕
+
+（イ）\(\frac {R_{2}}{R_{1}+R_{2}}V_{\mathrm {CC}}\)
+（ロ）非反転増幅回路
+（ハ）\(V_{\mathrm {CC}}-R_{\mathrm {C}}I_{\mathrm {C}}\)
+（ニ）\(\frac {h_{\mathrm {fe}}R_{\mathrm {C}}}{h_{\mathrm {ie}}}\)
+（ホ）\(\frac {V_{\mathrm {B}}-V_{\mathrm {BE}}}{R_{\mathrm {E}}+R_{\mathrm {C}}}\)
+（ヘ）\(\frac {R_{1}}{R_{1}+R_{2}}V_{\mathrm {CC}}\)
+（ト）\(\frac {V_{\mathrm {B}}+V_{\mathrm {BE}}}{R_{\mathrm {E}}}\)
+（チ）エミッタフォロワ
+（リ）\(\frac {\left( 1+h_{\mathrm {fe}}\right) R_{\mathrm {C}}}{h_{\mathrm {ie}}+\left( 1+h_{\mathrm {fe}}\right) R_{\mathrm {C}}}\)
+（ヌ）\(\frac {V_{\mathrm {CC}}}{2}\)
+（ル）\(R_{\mathrm {C}}I_{\mathrm {C}}\)
+（ヲ）\(V_{\mathrm {CC}}-R_{\mathrm {1}}I_{\mathrm {B}}\)
+（ワ）\(\frac {V_{\mathrm {B}}-V_{\mathrm {BE}}}{R_{\mathrm {E}}}\)
+（カ）反転増幅回路
+（ヨ）\(-\frac {h_{\mathrm {fe}}R_{\mathrm {C}}}{h_{\mathrm {ie}}}\)"	data/questions/r07/first/figures/riron_q08_fig1.webp|data/questions/r07/first/figures/riron_q08_fig2.webp	空欄(1) ベースの直流電位			ベース電流を無視できるので，\(R_1,R_2\) の分圧で \(\displaystyle V_{\mathrm B}=\frac{R_2}{R_1+R_2}V_{\mathrm{CC}}\)。		（イ）\(\frac {R_{2}}{R_{1}+R_{2}}V_{\mathrm {CC}}\)																空欄(2) エミッタ電流			\(V_{\mathrm E}=V_{\mathrm B}-V_{\mathrm{BE}}\) と \(V_{\mathrm E}=R_{\mathrm E}I_{\mathrm E}\) より \(\displaystyle I_{\mathrm E}=\frac{V_{\mathrm B}-V_{\mathrm{BE}}}{R_{\mathrm E}}\)。		（ワ）\(\frac {V_{\mathrm {B}}-V_{\mathrm {BE}}}{R_{\mathrm {E}}}\)																							空欄(3) コレクタの直流電位			コレクタ抵抗の電圧降下は \(R_{\mathrm C}I_{\mathrm C}\)。したがって \(\displaystyle V_{\mathrm C}=V_{\mathrm{CC}}-R_{\mathrm C}I_{\mathrm C}\)。		（ハ）\(V_{\mathrm {CC}}-R_{\mathrm {C}}I_{\mathrm {C}}\)																														空欄(4) 交流電圧利得			交流等価回路で \(\displaystyle i_{\mathrm b}=v_{\mathrm{in}}/h_{\mathrm{ie}}\)，\(\displaystyle v_{\mathrm{out}}=-h_{\mathrm{fe}}i_{\mathrm b}R_{\mathrm C}\)。よって \(\displaystyle v_{\mathrm{out}}/v_{\mathrm{in}}=-h_{\mathrm{fe}}R_{\mathrm C}/h_{\mathrm{ie}}\)。		（ヨ）\(-\frac {h_{\mathrm {fe}}R_{\mathrm {C}}}{h_{\mathrm {ie}}}\)																														空欄(5) 増幅回路の種類			電圧利得の符号が負なので，出力は入力と逆相になる。したがって反転増幅回路。		（カ）反転増幅回路																											"(1) イ
 (2) ワ
 (3) ハ
 (4) ヨ
 (5) カ"									data/pdfs/r07/first/riron.pdf pp.18-19	r07,first,riron		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q01	r07	first	kikai	1	fill_blank		data/questions/r07/first/figures/kikai_q01_page1.webp|data/questions/r07/first/figures/kikai_q01_page2.webp																																																																																																																																																								"(1) ニ
+r07_first_kikai_q01	r07	first	kikai	1	fill_blank	"次の文章は，三相円筒形同期機に関する記述である。文中及び図中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+図は遅れ力率で発電機運転している三相円筒形同期機のフェーザ図である。界磁電流によって【blank1】が発生し，【blank1】から位相が\(90^{\circ } \)遅れて【blank2】が電機子巻線に発生する。
+
+電機子電流によって【blank3】が発生し，【blank1】と【blank3】を合成したものが合成起磁力である。合成起磁力から位相が\(90^{\circ } \)遅れて【blank4】が電機子巻線に発生する。
+
+また，電機子抵抗が十分小さく無視できる場合では，【blank4】から【blank5】による電圧降下をベクトル的に減じた電圧が端子電圧である。
+
+〔問1の解答群〕
+
+（イ）界磁磁束密度
+（ロ）ギャップ磁束
+（ハ）電機子反作用起磁力
+（ニ）界磁起磁力
+（ホ）減磁作用起磁力
+（ヘ）交差磁化作用起磁力
+（ト）定格誘導起電力
+（チ）内部誘導起電力
+（リ）電機子反作用起電力
+（ヌ）定常起電力
+（ル）電機子誘導起電力
+（ヲ）無負荷誘導起電力
+（ワ）電機子反作用リアクタンス
+（カ）同期リアクタンス
+（ヨ）電機子漏れリアクタンス"	data/questions/r07/first/figures/kikai_q01_fig.webp	空欄(1) 界磁がつくるもの			界磁電流が流れると界磁巻線が起磁力を生む。図で電機子電流より先に与えられるベクトルは界磁起磁力。		（ニ）界磁起磁力																空欄(2) 無負荷時の誘導起電力			界磁起磁力のつくる磁束が電機子巻線に鎖交する。図の位相関係では界磁起磁力から90度遅れた電圧が無負荷誘導起電力。		（ヲ）無負荷誘導起電力																							空欄(3) 電機子電流の作用			電機子電流がつくる起磁力は，界磁による起磁力を変化させる。この成分を電機子反作用起磁力と呼ぶ。		（ハ）電機子反作用起磁力																														空欄(4) 内部誘導起電力			界磁起磁力と電機子反作用起磁力の合成によって生じる磁束が電機子に誘導する電圧を，内部誘導起電力と呼ぶ。		（チ）内部誘導起電力																														空欄(5) 端子電圧との差			電機子抵抗を無視する条件では，内部誘導起電力から電機子漏れリアクタンスによる電圧降下を引くと端子電圧になる。		（ヨ）電機子漏れリアクタンス																											"(1) ニ
 (2) ヲ
 (3) ハ
 (4) チ
 (5) ヨ"									data/pdfs/r07/first/kikai.pdf pp.4-5	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q02	r07	first	kikai	2	fill_blank		data/questions/r07/first/figures/kikai_q02_page1.webp|data/questions/r07/first/figures/kikai_q02_page2.webp																																																																																																																																																								"(1) ハ
+r07_first_kikai_q02	r07	first	kikai	2	fill_blank	"次の文章は，三相誘導電動機に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+三相誘導電動機の滑りは負荷によって変化し，トルクは滑りの関数として表される。
+
+星形一相分の等価回路において，一次電圧を\(V_{1} \ \mathrm {[V]} \)，滑りを\(s \)，一次回路の抵抗と漏れリアクタンスをそれぞれ\(r_{1} \ \mathrm {[\Omega ]} \)及び\(x_{1} \ \mathrm {[\Omega ]} \)，一次側に換算した二次回路の抵抗と漏れリアクタンスをそれぞれ\(r_{2}^{\prime } \ \mathrm {[\Omega ]} \)及び\(x_{2}^{\prime } \ \mathrm {[\Omega ]} \)，同期角速度を\(\omega _{0} \ \mathrm {[rad / s]} \)とすれば，トルク\(T \ \mathrm {[N\cdot m]} \)は次式で表される。
+
+\[
+
+\begin{eqnarray}
+
+T &=& \frac {1}{\omega _{0}}\cdot \frac {\displaystyle \ \boxed{(1)} \ \times \frac {r_{2}^{\prime }}{s}}{\displaystyle \left( r_{1}+\frac {r_{2}^{\prime }}{s}\right) ^{2}+\left( x_{1}+x_{2}^{\prime }\right) ^{2}} \ \mathrm {[N\cdot m]} \\[ 5pt ]
+\end{eqnarray}
+
+\]
+このように，トルク\(T \)は滑り\(s \)の関数であるから，\(\displaystyle \frac {\mathrm {d}T}{\mathrm {d}s}=0 \)とすると極値となり，このときの滑り\(s_{\mathrm {t}} \)を，
+
+\[
+
+\begin{eqnarray}
+
+s_{\mathrm {t}} &=& ±\frac {r_{2}^{\prime }}{\sqrt {r_{1}^{2}+\left( x_{1}+x_{2}^{\prime }\right) ^{2}}} \\[ 5pt ]
+\end{eqnarray}
+
+\]
+として求めることができる。電動機運転では【blank2】であるから符号は\(+ \)となる。この結果から，最大トルクを求めることができる。最大トルクは【blank3】トルクと呼ばれ，【blank4】に関係なく一定である。
+
+誘導電動機のトルク－速度特性において，同期速度に近い範囲では，トルク\(T \)は滑り\(s \)にほぼ【blank5】。
+
+〔問2の解答群〕
+
+（イ）\(r_{1}\)
+（ロ）s=1
+（ハ）\(3V_{1}^{2}\)
+（ニ）同期
+（ホ）脱出
+（ヘ）\(V_{1}^{2}\)
+（ト）s ＜ 0
+（チ）\(r_{2}^{\prime }\)
+（リ）無関係である
+（ヌ）s ＞ 0
+（ル）停動
+（ヲ）\(3V_{1}^{2}\left( 1-s \right)\)
+（ワ）比例する
+（カ）\(x_{2}^{\prime }\)
+（ヨ）反比例する"		空欄(1) 三相分のトルク			式の分子は各相の二次入力に関係する。三相分を合計するので係数は \(3\)，電圧依存性は \(V_1^2\)。したがって \(3V_1^2\)。		（ハ）\(3V_{1}^{2}\)																空欄(2) 電動機運転時の滑り			\(\displaystyle s=(N_s-N)/N_s\)。電動機運転では \(0<N<N_s\) なので \(s>0\)。		（ヌ）s ＞ 0																							空欄(3) 最大トルクの名称			問題の等価回路から滑りを変えてトルクが最大となる点を求めている。選択肢では停動トルクに対応する。		（ル）停動																														空欄(4) 最大トルクに依存しない抵抗			\(\displaystyle s_t=r_2'/\sqrt{r_1^2+(x_1+x_2')^2}\) をトルク式に代入すると，\(r_2'/s_t=\sqrt{r_1^2+(x_1+x_2')^2}\)。\(r_2'\) が消えるため，最大値は \(r_2'\) に依存しない。		（チ）\(r_{2}^{\prime }\)																														空欄(5) 同期速度付近の比例関係			\(s\) が小さいと \(r_2'/s\) が支配的になり，トルク式は \(\displaystyle T\approx 3V_1^2s/(\omega_0r_2')\)。よって \(T\) は \(s\) にほぼ比例する。		（ワ）比例する																											"(1) ハ
 (2) ヌ
 (3) ル
 (4) チ
 (5) ワ"									data/pdfs/r07/first/kikai.pdf pp.6-7	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q03	r07	first	kikai	3	fill_blank		data/questions/r07/first/figures/kikai_q03_page1.webp|data/questions/r07/first/figures/kikai_q03_page2.webp																																																																																																																																																								"(1) リ
+r07_first_kikai_q03	r07	first	kikai	3	fill_blank	"次の文章は，単相変圧器の試験に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+単相変圧器の短絡試験では，変圧器の二次側を短絡し，一次側に定格周波数の電圧を加えて，一次電圧\(\mathrm {[V]} \)，一次電流\(\mathrm {[A]} \)，及び消費電力\(\mathrm {[W]} \)を測定する。この時の一次電圧は，定格電圧よりも十分に低く，励磁電流による電圧降下を無視することができ，【blank1】に等しい。この短絡試験の結果から，一次巻線抵抗\(r_{1} \)と二次巻線抵抗\(r_{2} \)の一次換算値の和\(r \)と，一次漏れリアクタンスと二次漏れリアクタンスの一次換算値の和\(x \)を求めることができる。抵抗\(r \)は変圧器の巻数比\(a \)（一次側の巻数を二次側の巻数で除したもの）を用いると【blank2】として表すことができる。この試験で得られる抵抗\(r \)は直流を用いて測定した一次側及び二次側の巻線抵抗から求めた値に比べて大きくなる。その要因の一つとして，電流密度が【blank3】で高まる表皮効果があげられる。
+
+変圧器の短絡試験により，一次電圧\(230 \ \mathrm {V} \)，一次電流\(25 \ \mathrm {A} \)，及び消費電力\(1 \ 875 \ \mathrm {W} \)が得られたとき，\(r= \ \boxed{(4)} \ \mathrm {\Omega } \)，\(x= \ \boxed{(5)} \ \mathrm {\Omega } \)となる。
+
+〔問3の解答群〕
+
+（イ）2.49
+（ロ）3.00
+（ハ）75.6
+（ニ）8.70
+（ホ）9.20
+（ヘ）9.68
+（ト）導体の端部
+（チ）導体の中心
+（リ）インピーダンス電圧
+（ヌ）短絡電圧
+（ル）開放電圧
+（ヲ）導体の表面
+（ワ）\(r_{1}+ar_{2}\)
+（カ）\(r_{1}+a^{2}r_{2}\)
+（ヨ）\(r_{1}+\frac {1}{a^{2}}r_{2}\)"		空欄(1) 短絡試験の印加電圧			二次側を短絡し，小さい一次電圧で定格電流を流す試験である。このとき一次側に加える電圧をインピーダンス電圧という。		（リ）インピーダンス電圧																空欄(2) 二次抵抗の一次換算			巻数比が \(a=N_1/N_2\) のとき，二次抵抗を一次側へ換算すると \(a^2r_2\)。したがって \(r=r_1+a^2r_2\)。		（カ）\(r_{1}+a^{2}r_{2}\)																							空欄(3) 表皮効果			交流では導体内部より表面近くに電流が集中する。導体の表面で電流密度が高くなるため，交流抵抗は直流抵抗より大きくなる。		（ヲ）導体の表面																														空欄(4) 等価抵抗の計算			短絡試験の消費電力は主に銅損で \(P=I_1^2r\)。\(\displaystyle r=\frac{1875}{25^2}=3.00\,\Omega\)。		（ロ）3.00																														空欄(5) 等価リアクタンスの計算			\(\displaystyle Z=V_1/I_1=230/25=9.20\,\Omega\)。\(\displaystyle x=\sqrt{Z^2-r^2}=\sqrt{9.20^2-3.00^2}\simeq8.70\,\Omega\)。		（ニ）8.70																											"(1) リ
 (2) カ
 (3) ヲ
 (4) ロ
 (5) ニ"									data/pdfs/r07/first/kikai.pdf pp.8-9	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q04	r07	first	kikai	4	fill_blank		data/questions/r07/first/figures/kikai_q04_page1.webp|data/questions/r07/first/figures/kikai_q04_page2.webp																																																																																																																																																								"(1) ホ
+r07_first_kikai_q04	r07	first	kikai	4	fill_blank	"次の文章は，単相電圧形インバータに関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+パワーエレクトロニクス回路において，インバータは直流を交流に変換する回路である。図は，スイッチングデバイスとして\(\mathrm {IGBT} \)を用いた場合の直流電源を\(\mathrm {E} \)とする単相電圧形インバータの回路図を示している。電圧形インバータの出力電圧は方形波であるが，【blank1】負荷の場合には，出力電流は連続した波形となる。この負荷の場合では，負荷に流れる電流経路を確保するために四つの\(\mathrm {IGBT} \)には逆並列にダイオードがそれぞれ接続される。また，同時に\(\mathrm {ON} \)できる\(\mathrm {IGBT} \)の数は【blank2】である。現在では，電圧形インバータに使用されるスイッチングデバイスとして\(\mathrm {IGBT} \)の他には【blank3】が広く使用されている。
+
+電圧形インバータの制御手法としては，【blank4】（パルス幅変調）制御が広く採用され，【blank4】制御を行うための信号生成には変調波として正弦波，搬送波として三角波を用いることが一般的である。搬送波はインバータの【blank5】周波数を決定し，太陽光発電用パワーコンディショナに使用するインバータでは変調波周波数に対して\(40 \)倍以上に設定されることが多い。
+
+〔問4の解答群〕
+
+（イ）\(\mathrm {PWM}\)
+（ロ）カットオフ
+（ハ）スイッチング
+（ニ）一つ
+（ホ）誘導性
+（ヘ）容量性
+（ト）共振
+（チ）\(\mathrm {MOSFET}\)
+（リ）抵抗性
+（ヌ）三つ
+（ル）二つ
+（ヲ）\(\mathrm {PDM}\)
+（ワ）\(\mathrm {PAM}\)
+（カ）ダイオード
+（ヨ）バリスタ"	data/questions/r07/first/figures/kikai_q04_fig.webp																																																																																																																																																								"(1) ホ
 (2) ル
 (3) チ
 (4) イ
 (5) ハ"									data/pdfs/r07/first/kikai.pdf pp.10-11	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q05	r07	first	kikai	5	fill_blank		data/questions/r07/first/figures/kikai_q05_page1.webp|data/questions/r07/first/figures/kikai_q05_page2.webp																																																																																																																																																								"(1) ト
+r07_first_kikai_q05	r07	first	kikai	5	fill_blank	"次の文章は，電気化学システムに関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+電気エネルギーと化学エネルギーを直接変換する電気化学システムは，基本構成として，電子伝導体である二つの電極とイオン伝導体である【blank1】とから構成されている。二つの電極はそれぞれアノード及びカソードと呼ばれ，各々役目が異なる。アノードでは【blank2】反応が起こる。電池反応においてはそれぞれの電極上の活物質である，酸化剤と還元剤の反応エネルギーが電気エネルギーとして外部に取り出される。このとき，外部に取り出された電気量は，消費した酸化剤及び還元剤の物質量に比例する。これを【blank3】の法則という。電池の放電において，酸化剤は【blank4】極活物質であり，鉛蓄電池ではこの酸化剤として【blank5】が利用されている。
+
+〔問5の解答群〕
+
+（イ）参照
+（ロ）負
+（ハ）正
+（ニ）二酸化鉛
+（ホ）硫酸鉛
+（ヘ）鉛
+（ト）電解質
+（チ）セパレータ
+（リ）還元
+（ヌ）酸化
+（ル）アノライト
+（ヲ）中和
+（ワ）オーム
+（カ）ファラデー
+（ヨ）マクスウェル"																																																																																																																																																									"(1) ト
 (2) ヌ
 (3) カ
 (4) ハ
 (5) ニ"									data/pdfs/r07/first/kikai.pdf pp.12-13	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q06	r07	first	kikai	6	fill_blank		data/questions/r07/first/figures/kikai_q06_page1.webp|data/questions/r07/first/figures/kikai_q06_page2.webp																																																																																																																																																								"(1) ロ
+r07_first_kikai_q06	r07	first	kikai	6	fill_blank	"次の文章は，アーク加熱に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+アーク加熱は電極間に発生させたアーク放電を熱源とするもので，被加熱物を電極の一部とする場合には，被加熱物を流れる電流によるジュール熱も熱源として加わる。アーク放電によって【blank1】程度の温度が得られるため，各種金属やセラミックスなどの溶融に用いられる。
+
+アーク加熱の代表的な例に，鉄スクラップを溶解する製鋼用アーク炉がある。これには三相交流をそのまま用いる交流アーク炉と，整流した直流を用いる直流アーク炉とがある。両者とも被加熱物である鉄スクラップを電極の一部とし，他方の電極には【blank2】を用いている。アーク電流は数\(\mathrm {kA} \)以上となり，この電流領域では，アーク放電路の長さ（アーク長）を一定とすると，アーク放電路の電圧（アーク電圧）はアーク電流に依存せず，ほぼ一定で，アーク電圧はアーク長に【blank3】。
+
+製鋼用アーク炉では，鉄スクラップの溶解過程において，炉内の鉄スクラップの崩落による電極間短絡やアーク長の不規則かつ頻繁な変動によって，アーク電流が大きく変動する。このため，アーク長を制御して投入電力をなるべく一定にするため，炉内における【blank2】電極の位置を高速に調整する自動電極昇降装置を備えている。
+
+また，アーク電流の変動に伴い，電源系統側の主に【blank4】成分に応じた電圧フリッカが発生する。同容量のアーク炉の場合，交流アーク炉における電圧フリッカの発生は直流アーク炉より多い。電圧フリッカを抑制するために【blank5】などが設置される。
+
+〔問6の解答群〕
+
+（イ）銅
+（ロ）\(数千\sim 数万 \ {}^{\circ}\mathrm {C}\)
+（ハ）ほぼ反比例する
+（ニ）ほぼ比例する
+（ホ）\(数万\sim 数十万 \ {}^{\circ}\mathrm {C}\)
+（ヘ）無関係である
+（ト）抵抗
+（チ）\(数十万\sim 数百万 \ {}^{\circ}\mathrm {C}\)
+（リ）キャパシタンス
+（ヌ）インダクタンス
+（ル）タングステン
+（ヲ）黒鉛
+（ワ）無効電力補償装置
+（カ）高頻度開閉形遮断器
+（ヨ）負荷時タップ切替変圧器"																																																																																																																																																									"(1) ロ
 (2) ヲ
 (3) ニ
 (4) ヌ
 (5) ワ"									data/pdfs/r07/first/kikai.pdf pp.14-15	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q07	r07	first	kikai	7	fill_blank	問７と問８は選択問題です。どちらか１問を選択してください。選択問題は両方解答すると採点されません。	data/questions/r07/first/figures/kikai_q07_page1.webp|data/questions/r07/first/figures/kikai_q07_page2.webp																																																																																																																																																								"(1) ト
+r07_first_kikai_q07	r07	first	kikai	7	fill_blank	"問7及び問8は選択問題であり，問7又は問8のどちらかを選んで解答すること。両方解答すると採点されません。
+
+次の文章は，電球形\(\mathrm {LED} \)ランプの仕様に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+電球形\(\mathrm {LED} \)ランプは省エネルギー性能に優れ，かつ長寿命で，水銀の使用もないことから，白熱電球および電球形蛍光ランプに替えて，普及が進みつつある。表は，ある電球形\(\mathrm {LED} \)ランプの仕様の一部である。このランプの配光は対称配光であり，図のような鉛直配光特性（鉛直角\(\theta \ \mathrm {[rad]} \)に対する光度\(I\left( \theta \right) \ \mathrm {[cd]} \)の分布）を有している。
+
+（a）表の数値から，このランプのエネルギー消費効率は【blank1】であることがわかる。
+
+（b）定格光束は全光束で表される。全光束は光源から発せられる光束の総和である。このランプの全光束\(\mathit {\Phi } \)は図の配光特性から次式によって求めることができる。
+
+\[
+
+\begin{eqnarray}
+
+\mathit {\Phi } &=& \ \boxed{(2)} \ =810\ \mathrm {lm} \\[ 5pt ]
+\end{eqnarray}
+
+\]
+（c）色温度は光源の光色を表す指標で，その光源と等しい光色をもつ【blank3】の絶対温度\(\mathrm {[K]} \)で表される。光源の色度点が色度図上において【blank3】の軌跡から離れている場合は相関色温度と呼ばれる。
+
+（d）定格ランプ寿命は「既定の条件で点灯したとき，電球形\(\mathrm {LED} \)ランプが定格光束の【blank4】以上の光束を維持している期間」と定義されている。
+
+（e）このランプを，室の床面から高さ\(2.5 \ \mathrm {m} \)の位置に，発光面頂部を鉛直下方に向けて設置する。室にはこのランプ以外に光源はなく，室外部からの入射光もない。また，室の天井面，床面，壁面，ランプの表面などにおける反射光の影響はないものとすると，ランプ直下の床面の照度は【blank5】になる。
+
+表　ランプ仕様
+
+\[
+
+\begin{array}{|c|c|c|c|c|c|c|}
+
+\hline
+
+定格 & 定格 & 定格 & 定格光束 & 相関 & 平均演色 & 定格 \\
+
+入力電圧 & 入力電流 & ランプ電力 & （全光束） & 色温度 & 評価数 & ランプ寿命 \\
+
+ & & （消費電力） & & & & \\
+
+\hline
+
+100 \ \mathrm {V} & 0.13 \ \mathrm {A} & 7.3 \ \mathrm {W} & 810 \ \mathrm {lm} & 5 \ 000 \ \mathrm {K} & \mathrm {Ra} \ 83 & 40 \ 000 \ \mathrm {h} \\
+
+\hline
+
+\end{array}
+
+\]
+
+〔問7の解答群〕
+
+（イ）黒体
+（ロ）\(41.6 \ \mathrm {lx}\)
+（ハ）0.56
+（ニ）\(50 \ ％\)
+（ホ）\(90 \ ％\)
+（ヘ）標準抵抗器
+（ト）\(111 \ \mathrm {lm / W}\)
+（チ）\(2\pi \int _{0}^{\pi }I\left( \theta \right) \sin \theta \mathrm {d}\theta\)
+（リ）\(70 \ ％\)
+（ヌ）\(9.01 \ \mathrm {mW / lm}\)
+（ル）\(6.7 \ \mathrm {lx}\)
+（ヲ）\(\pi \int _{0}^{\pi }I\left( \theta \right) \sin \theta \mathrm {d}\theta\)
+（ワ）\(2\pi \int _{0}^{\pi }I\left( \theta \right) \cos \theta \mathrm {d}\theta\)
+（カ）\(16.6 \ \mathrm {lx}\)
+（ヨ）標準電球のフィラメント"	data/questions/r07/first/figures/kikai_q07_fig.webp	空欄(1) エネルギー消費効率			表の全光束と消費電力から \(\displaystyle \eta=\frac{810\,\mathrm{lm}}{7.3\,\mathrm W}\simeq111\,\mathrm{lm/W}\)。		（ト）\(111 \ \mathrm {lm / W}\)																空欄(2) 全光束の積分			軸対称の微小立体角は \(\mathrm d\Omega=2\pi\sin\theta\,\mathrm d\theta\)。\(\mathrm d\Phi=I(\theta)\,\mathrm d\Omega\) を \(0\) から \(\pi\) まで積分し，\(\displaystyle \Phi=2\pi\int_0^\pi I(\theta)\sin\theta\,\mathrm d\theta\)。		（チ）\(2\pi \int _{0}^{\pi }I\left( \theta \right) \sin \theta \mathrm {d}\theta\)																							空欄(3) 色温度の基準			色温度は光源と等しい光色を示す黒体の絶対温度で表す。黒体軌跡からずれた光源では相関色温度となる。		（イ）黒体																														空欄(4) 定格寿命の光束維持率			定格寿命の基準となる光束維持率は70%。表にある定格寿命は，この基準を満たす期間として示される。		（リ）\(70 \ ％\)																														空欄(5) ランプ直下の照度			図の鉛直下向き光度はおよそ \(I(0)=104\,\mathrm{cd}\)。距離 \(r=2.5\,\mathrm m\) で入射角は零だから \(\displaystyle E=I(0)/r^2=104/2.5^2\simeq16.6\,\mathrm{lx}\)。		（カ）\(16.6 \ \mathrm {lx}\)																											"(1) ト
 (2) チ
 (3) イ
 (4) リ
 (5) カ"									data/pdfs/r07/first/kikai.pdf pp.16-17	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_kikai_q08	r07	first	kikai	8	fill_blank	問７と問８は選択問題です。どちらか１問を選択してください。選択問題は両方解答すると採点されません。	data/questions/r07/first/figures/kikai_q08_page1.webp																																																																																																																																																								"(1) ハ
+r07_first_kikai_q08	r07	first	kikai	8	fill_blank	"問7及び問8は選択問題であり，問7又は問8のどちらかを選んで解答すること。両方解答すると採点されません。
+
+次の\(\mathrm {(a)} \)，\(\mathrm {(b)} \)，\(\mathrm {(c)} \)，\(\mathrm {(d)} \)及び\(\mathrm {(e)} \)の文章は，ネットワーク通信における\(\mathrm {IP} \)アドレスに関する記述である。文中の空欄に当てはまる最も適切なものを\(\mathrm {(a)} \)，\(\mathrm {(b)} \)，\(\mathrm {(c)} \)，\(\mathrm {(d)} \)及び\(\mathrm {(e)} \)ごとに下に示した解答群の中から選べ。
+
+\(\mathrm {(a)} \)　\(\mathrm {IPv6} \)の\(\mathrm {IP} \)アドレスが用いられる主な背景は，世界的にグローバル\(\mathrm {IP} \)アドレスが【blank1】してきているためである。
+
+（イ）　暗号化　　（ロ）　仮想化　　（ハ）　枯渇　　（ニ）　遅延
+
+　（ホ）　冗長化
+
+\(\mathrm {(b)} \)　\(\mathrm {IP} \)アドレスはサブネットマスクにより二つに分けられるが，それはネットワークアドレス部と【blank2】である。
+
+（イ）　ルートアドレス部　　（ロ）　リンクアドレス部
+
+　（ハ）　データアドレス部　　（ニ）　ホストアドレス部
+
+　（ホ）　ウィンドウアドレス部
+
+\(\mathrm {(c)} \)　【blank3】は，グローバル\(\mathrm {IP} \)アドレスとプライベート\(\mathrm {IP} \)アドレスの変換を行う。
+
+（イ）　\(\mathrm {NAT} \)　　（ロ）　\(\mathrm {DNS} \)　　（ハ）　\(\mathrm {POP3} \)　　（ニ）　\(\mathrm {ICMP} \)
+
+　（ホ）　\(\mathrm {RARP} \)
+
+\(\mathrm {(d)} \)　\(\mathrm {ARP} \)により\(\mathrm {IP} \)アドレスと関連付けされるのは，【blank4】である。
+
+（イ）　ドメインネーム　　（ロ）　仮想アドレス　
+
+　（ハ）　マルチキャスティング　　（ニ）　リゾルバ
+
+　（ホ）　\(\mathrm {MAC} \)アドレス
+
+\(\mathrm {(e)} \)　【blank5】は，ネットワークに接続した機器に\(\mathrm {IP} \)アドレスを自動的に設定するための仕組みである。
+
+（イ）　\(\mathrm {HTTP} \)　　（ロ）　\(\mathrm {DHCP} \)　　（ハ）　アプリケーションプロトコル
+
+　（ニ）　\(\mathrm {SNMP} \)　　（ホ）　ダイナミックルーティング"																																																																																																																																																									"(1) ハ
 (2) ニ
 (3) イ
 (4) ホ
 (5) ロ"									data/pdfs/r07/first/kikai.pdf pp.18-18	r07,first,kikai		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q01	r07	first	houki	1	fill_blank		data/questions/r07/first/figures/houki_q01_page1.webp|data/questions/r07/first/figures/houki_q01_page2.webp																																																																																																																																																								"(1) ト
+r07_first_houki_q01	r07	first	houki	1	fill_blank	"次の文章は，「電気関係報告規則」（以下「報告規則」という。）に基づく，電気工作物（鉄道・軌道関係の電気工作物，原子力発電工作物及び小規模事業用電気工作物を除く。）の事故及び事故報告に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+\(\mathrm {a)} \)「供給支障事故」とは，破損事故又は電気工作物の誤操作若しくは電気工作物を操作しないことにより電気の使用者に対し，電気の供給が停止し，又は電気の使用を緊急に【blank1】することをいう。ただし，電路が自動的に【blank2】されることにより電気の供給の停止が終了した場合を除く。
+
+\(\mathrm {b)} \)「報告規則」に定める電気事業者又は自家用電気工作物を設置する者は，電気事業者にあっては電気事業の用に供する電気工作物に関して，自家用電気工作物を設置する者にあっては自家用電気工作物に関して，「報告規則」の定める事故が発生したときは，「報告規則」の定めるところにより経済産業大臣又は電気工作物の設置の場所を管轄する【blank3】に報告しなければならない。この報告は，事故の発生を知った時から【blank4】以内可能な限り速やかに事故の発生の日時及び場所，事故が発生した電気工作物並びに事故の概要について，電話等の方法により行うとともに，事故の発生を知った日から起算して【blank5】以内に所定の様式の報告書を提出して行わなければならない。ただし，「報告規則」の定める供給支障事故等一部の事故については，当該事故の原因が自然現象であるものについては，同様式の報告書の提出を要しない。
+
+〔問1の解答群〕
+
+（イ）再閉路
+（ロ）\(24 \ 時間\)
+（ハ）\(45 \ 日\)
+（ニ）\(15 \ 日\)
+（ホ）遮断
+（ヘ）\(12 \ 時間\)
+（ト）制限
+（チ）市区町村長
+（リ）再点弧
+（ヌ）\(2 \ 時間\)
+（ル）産業保安監督部長
+（ヲ）都道府県知事
+（ワ）停止
+（カ）開放
+（ヨ）\(30 \ 日\)"																																																																																																																																																									"(1) ト
 (2) イ
 (3) ル
 (4) ロ
 (5) ヨ"									data/pdfs/r07/first/houki.pdf pp.4-5	r07,first,houki		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q02	r07	first	houki	2	fill_blank		data/questions/r07/first/figures/houki_q02_page1.webp|data/questions/r07/first/figures/houki_q02_page2.webp																																																																																																																																																								"(1) ヘ
+r07_first_houki_q02	r07	first	houki	2	fill_blank	"次の文章は，「発電用風力設備に関する技術基準を定める省令」及び「同技術基準の解釈」に基づく，発電用風力設備（一般用電気工作物又は小規模事業用電気工作物である場合を除く。）に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+\(\mathrm {a)} \)風力発電所を施設するに当たっては，取扱者以外の者【blank1】に風車が危険である旨を表示するとともに，当該者が容易に接近するおそれがないように適切な措置を講じなければならない。
+
+\(\mathrm {b)} \)風車は，次により施設しなければならない。
+
+①　【blank2】したときの最大速度に対し，構造上安全であること。なお，ここで「【blank2】したときの最大速度」とは，非常調速装置が作動した時点より風車がさらに昇速した場合の回転速度を含むものをいう。
+
+②　風圧に対して構造上安全であること。なお，ここで「風圧」とは，発電用風力設備を設置する場所の風車ハブ高さにおける【blank3】風圧が考慮されたものであって，次に掲げるものを含むものをいう。
+
+一　風車の受風面の垂直投影面積が最大の状態における最大風圧
+
+二　風速及び風向の時間的変化による風圧
+
+\(\mathrm {c)} \)風車は，次の場合に安全かつ自動的に停止するような措置を講じなければならない。
+
+①　回転速度が著しく上昇した場合
+
+②　風車の【blank4】の機能が著しく低下した場合
+
+\(\mathrm {d)} \)最高部の地表からの高さが\(20 \ \mathrm {m} \)を超える発電用風力設備には，【blank5】から風車を保護するような措置を講じなければならない。ただし，周囲の状況によって【blank5】が風車を損傷するおそれがない場合においては，この限りでない。
+
+〔問2の解答群〕
+
+（イ）騒音防止装置
+（ロ）負荷を遮断
+（ハ）制御装置
+（ニ）突風
+（ホ）風車の向きが変化
+（ヘ）に見やすい箇所
+（ト）負荷が変動
+（チ）振動防止装置
+（リ）現地風条件による
+（ヌ）\(風速 \ 40 \ \mathrm {m} \ の\)
+（ル）が進入しやすい箇所
+（ヲ）飛来物
+（ワ）雷撃
+（カ）が触れやすい箇所
+（ヨ）標準となる"																																																																																																																																																									"(1) ヘ
 (2) ロ
 (3) リ
 (4) ハ
 (5) ワ"									data/pdfs/r07/first/houki.pdf pp.6-7	r07,first,houki		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q03	r07	first	houki	3	fill_blank		data/questions/r07/first/figures/houki_q03_page1.webp|data/questions/r07/first/figures/houki_q03_page2.webp																																																																																																																																																								"(1) ニ
+r07_first_houki_q03	r07	first	houki	3	fill_blank	"次の文章は，「電気設備技術基準の解釈」に基づく低圧接触電線（本問において，電車線及び遊戯用電車の接触電線を除く。）の施設に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+\(\mathrm {a)} \)低圧接触電線は，機械器具に施設する場合を除き，次によること。
+
+①　展開した場所又は点検できる隠ぺい場所に施設すること。
+
+②　【blank1】工事，バスダクト工事又は絶縁トロリー工事により施設すること。
+
+③　低圧接触電線を，ダクト又はピット等の内部に施設する場合は，当該低圧接触電線を施設する場所に【blank2】がたまらないようにすること。
+
+\(\mathrm {b)} \)低圧接触電線を【blank1】工事により展開した場所に施設する場合は，機械器具に施設する場合を除き，次によること。
+
+①　電線の地表上又は床面上の高さは，\(\boxed{(3)} \ \mathrm {m} \)以上とし，かつ，人が通る場所から手を伸ばしても触れることのない範囲に施設すること。ただし，電線の最大使用電圧が\(\boxed{(4)} \ \mathrm {V} \)以下であり，かつ，乾燥した場所に施設する場合であって，簡易接触防護措置を施す場合は，この限りでない。
+
+②　電線は，使用電圧が\(300 \ \mathrm {V} \)を超える場合は，引張強さ\(11.2 \ \mathrm {kN} \)以上のもの又は直径\(6 \ \mathrm {mm} \)以上の【blank5】であって，断面積が\(28 \ \mathrm {{mm}^{2}} \)以上のものであること。
+
+〔問3の解答群〕
+
+（イ）可燃性ガス
+（ロ）6
+（ハ）200
+（ニ）がいし引き
+（ホ）合成樹脂管
+（ヘ）フロアダクト
+（ト）300
+（チ）3.5
+（リ）60
+（ヌ）2.5
+（ル）軟銅線
+（ヲ）じんあい
+（ワ）水
+（カ）硬銅線
+（ヨ）硬アルミ線"																																																																																																																																																									"(1) ニ
 (2) ワ
 (3) チ
 (4) リ
 (5) カ"									data/pdfs/r07/first/houki.pdf pp.8-9	r07,first,houki		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q04	r07	first	houki	4	fill_blank		data/questions/r07/first/figures/houki_q04_page1.webp|data/questions/r07/first/figures/houki_q04_page2.webp																																																																																																																																																								"(1) ル
+r07_first_houki_q04	r07	first	houki	4	fill_blank	"次の文章は，電力系統の周波数変動に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+\(\mathrm {a)} \)電力系統の周波数は，電力系統の需要と供給のバランスで決まり，周波数変動（系統事故によるものや気象変化に伴う再生可能エネルギー電源の出力変動によるものを除く。）の原因となる負荷変動は，変動周期によって次の三つに大別することができる。
+
+①　日間周期変化を持つもので，工場の始業・終業・昼休み，事務所・デパートなどの冷暖房，夕方からの照明器具の点灯などによって生じる負荷変動
+
+②　数分～十数分程度の比較的短時間内の間に頻繁に起きるもので，圧延機，電気炉，その他一般負荷の不規則な負荷変動
+
+③　予期しえない原因から生じる数分以下の偶発的短時間の負荷変動
+
+これらによる周波数変動対策として，①の変動に対しては，中央給電指令所などで，前日までに託送供給契約者から提出された需要計画等を基に【blank1】を作成し，発電契約者等から提出された発電計画等に基づいた各発電所の運転計画スケジュールにより対処する。②の負荷変動に対しては，主に周波数計を用いて周波数偏差\(\mathit {\Delta }f \)を検出し，中央給電指令所の計算機システムにより変動分に応じた発電出力調整指令を送信することで，周波数の安定化制御を行う。③の変動に対しては，電力系統内の火力・水力発電所の発電機のうち，周波数の変化に応じて短時間の間に周波数が下がった場合に出力を上昇させ，周波数が上がった場合に出力を低下させる機能である【blank2】運転機能をもつ発電機により，周波数調整を行う。
+
+\(\mathrm {b)} \)電力系統の需要と供給の不均衡が生ずると，これに応じ周波数も変化する。この需要・供給と周波数の変化の関係を電力系統の周波数特性と呼ぶ。需給不均衡量\(\mathit {\Delta } P \ \mathrm {[MW]} \)（\(\mathit {\Delta } P \)の符号は負荷の増加側，発電電力の減少側で正），周波数変化量\(\mathit {\Delta } f \ \mathrm {[Hz]} \)であるとき，\(K ＝- \mathit {\Delta }P / \mathit {\Delta } f \ \mathrm {[MW / Hz]} \)を系統周波数特性定数と呼び，\(\mathrm {[MW / 0.1Hz]} \)若しくは総需要の百分率で表した\(\mathrm {[％MW / 0.1Hz]} \)などの単位が用いられる。
+
+例えば，負荷容量\(10 \ 000 \ \mathrm {MW} \)，系統周波数特性定数\(1.0 \ \mathrm {[％MW / 0.1Hz]} \)の系統で\(100 \ \mathrm {MW} \)の発電電力が減少したとき，周波数は\(\boxed{(3)} \ \mathrm {Hz} \ \boxed{(4)} \)する。
+
+\(\mathrm {c)} \)電力系統の周波数変動に伴い，電圧や消費電力も変動する。周波数が上昇した場合，電動機では回転速度が上昇し，負荷の消費電力が増加する。周波数が低下した場合は，これらの逆の現象となり，結果的には周波数の変動を抑制しようとする作用がある。このような作用を負荷の【blank5】という。
+
+〔問4の解答群〕
+
+（イ）ガバナフリー
+（ロ）上昇
+（ハ）負荷周波数
+（ニ）自己制御性
+（ホ）経済負荷配分制御
+（ヘ）0.1
+（ト）自己安定性
+（チ）増加
+（リ）0.01
+（ヌ）低下
+（ル）予想日負荷曲線
+（ヲ）供給計画
+（ワ）自立制御性
+（カ）年間需給計画
+（ヨ）1.0"																																																																																																																																																									"(1) ル
 (2) イ
 (3) ヘ
 (4) ヌ
 (5) ニ"									data/pdfs/r07/first/houki.pdf pp.10-11	r07,first,houki		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q05	r07	first	houki	5	fill_blank		data/questions/r07/first/figures/houki_q05_page1.webp																																																																																																																																																								"(1) ホ
+r07_first_houki_q05	r07	first	houki	5	fill_blank	"次の文章は，太陽電池発電設備に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+\(\mathrm {a)} \)出力\(2 \ 000 \ \mathrm {kW} \)未満の太陽電池発電設備は，その出力規模や接続形態などにより下記①～③に分類される。
+
+①　出力が\(\boxed{(1)} \ \mathrm {kW} \)未満のもので，一般用電気工作物であるもの。
+
+②　出力が\(\boxed{(1)} \ \mathrm {kW} \)以上\(\boxed{(2)} \ \mathrm {kW} \)未満のもので，小規模事業用電気工作物であるもの。
+
+③　上記②に該当しない，事業用工作物に該当するもの。
+
+\(\mathrm {b)} \)太陽電池発電設備のうち上記【blank3】のものについては，主務省令で定める技術基準に適合している必要がある。
+
+\(\mathrm {c)} \)太陽電池発電設備のうち上記【blank4】のものについては，使用の開始前に主務省令で定める技術基準に適合することを自ら確認し，その結果を届け出る義務がある。
+
+\(\mathrm {d)} \)太陽電池発電設備のうち上記【blank5】のものについては，主任技術者を選任しなくてもよい。
+
+〔問5の解答群〕
+
+（イ）1
+（ロ）①
+（ハ）5
+（ニ）②
+（ホ）10
+（ヘ）③
+（ト）20
+（チ）①及び②
+（リ）30
+（ヌ）①及び③
+（ル）50
+（ヲ）②及び③
+（ワ）100
+（カ）①～③全て
+（ヨ）500"																																																																																																																																																									"(1) ホ
 (2) ル
 (3) カ
 (4) ヲ
 (5) チ"									data/pdfs/r07/first/houki.pdf pp.12-12	r07,first,houki		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q06	r07	first	houki	6	fill_blank		data/questions/r07/first/figures/houki_q06_page1.webp																																																																																																																																																								"(1) カ
+r07_first_houki_q06	r07	first	houki	6	fill_blank	"次の文章は，「電気設備技術基準」，「電気設備技術基準の解釈」及び「電気事業法施行規則」に定められた用語の定義に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+\(\mathrm {a)} \)開閉所とは，構内に施設した開閉器その他の装置により電路を開閉する所であって，発電所，【blank1】，変電所及び需要場所以外のものをいう。
+
+\(\mathrm {b)} \)配電線路とは，発電所，【blank1】，変電所若しくは送電線路と【blank2】との間又は【blank2】相互間の電線路及びこれに付属する開閉所その他の電気工作物をいう。
+
+\(\mathrm {c)} \)電磁開閉器の操作回路又は呼鈴若しくは警報ベル等に接続する電路であって，最大使用電圧が\(\boxed{(3)} \ \mathrm {V} \)以下のものを小勢力回路という。
+
+\(\mathrm {d)} \)炎を当てても燃え広がらない性質を難燃性という。難燃性のうち，炎を当てても燃えない性質を【blank4】という。
+
+\(\mathrm {e)} \)分散型電源が，連系している電力系統から解列された状態において，当該分散型電源設置者の構内負荷にのみ電力を供給している状態を【blank5】という。
+
+〔問6の解答群〕
+
+（イ）100
+（ロ）耐火性
+（ハ）不燃性
+（ニ）自立運転
+（ホ）単独運転
+（ヘ）受電設備
+（ト）60
+（チ）配電所
+（リ）自消性
+（ヌ）30
+（ル）分離運転
+（ヲ）電気所
+（ワ）送電所
+（カ）蓄電所
+（ヨ）需要設備"																																																																																																																																																									"(1) カ
 (2) ヨ
 (3) ト
 (4) ハ
 (5) ニ"									data/pdfs/r07/first/houki.pdf pp.13-13	r07,first,houki		data/pdfs/r07/first/kaitou.pdf p.1	draft																
-r07_first_houki_q07	r07	first	houki	7	fill_blank		data/questions/r07/first/figures/houki_q07_page1.webp|data/questions/r07/first/figures/houki_q07_page2.webp																																																																																																																																																								"(1) チ
+r07_first_houki_q07	r07	first	houki	7	fill_blank	"次の文章は，送電系統への電源接続に関する記述である。文中の空欄に当てはまる最も適切なものを解答群の中から選べ。
+
+平常時の電源の接続方法には，ファーム型接続と【blank1】型接続がある。前者は系統連系の申込順に必要な系統の容量を確保する方法で，後者はあらかじめ容量を確保せずに，【blank2】があるときにそれを活用して電源を接続する方法である。従来はファーム型接続が適用されてきたが，再生可能エネルギー電源の大量導入に伴い運用容量の上限に達することが増えてきた。系統の容量を確保するには設備増強が必要となるが，それには一定の時間を要する。そこで，系統に混雑が発生した際は電源の出力を【blank3】することを条件に，既存の系統への接続を認める【blank1】型接続が適用されることとなった。
+
+また，\(2 \)回線送電線においては，\(1 \)回線故障が発生しても健全回線で送電できる設備容量（熱容量）を超過しないよう運用容量を抑えており，平常時には設備容量に対して余裕がある。そこで，送電線\(2 \)回線分の設備容量を上限として運用容量を拡大し，電源接続を認めるようにする一方，送電線に\(1 \)回線故障が発生した場合には，健全側の\(1 \)回線で送電できる設備容量を超過する電源の出力を【blank3】する【blank4】が適用されることとなった。
+
+以上により，既にある系統を最大限活用して設備増強コストを抑制しつつ短期間で再生可能エネルギー電源の導入量を増やすことができるようになった。
+
+分散型電源の電力系統への接続拡大に関しては，海外でも様々な取り組みがなされているが，我が国においては国内の電力系統の状況を踏まえて，【blank1】型接続，【blank4】及び想定潮流の合理化による取り組みが進められており，これらは合わせて【blank5】と呼ばれている。
+
+〔問7の解答群〕
+
+（イ）電力システム改革
+（ロ）制限
+（ハ）調整力
+（ニ）デマンドレスポンス
+（ホ）平準化
+（ヘ）増加
+（ト）先着優先ルール
+（チ）ノンファーム
+（リ）日本版コネクト＆マネージ
+（ヌ）\(\mathrm {N-1} \ 電制\)
+（ル）電圧に余裕
+（ヲ）ファームレス
+（ワ）\(\mathrm {FIT}\)
+（カ）レベニューキャップ方式
+（ヨ）空き容量"																																																																																																																																																									"(1) チ
 (2) ヨ
 (3) ロ
 (4) ヌ
